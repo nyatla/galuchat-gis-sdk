@@ -76,6 +76,8 @@
       "javascript/galuchat.min.js.map",
       "javascript/getstarted/getimage/app.js",
       "javascript/getstarted/getimage/index.html",
+      "javascript/getstarted/multizoom/app.js",
+      "javascript/getstarted/multizoom/index.html",
       "javascript/getstarted/reverse-geocode/app.js",
       "javascript/getstarted/reverse-geocode/index.html",
       "javascript/manifest.json"
