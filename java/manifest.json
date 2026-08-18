@@ -1,0 +1,52 @@
+{
+  "coreCommit": "7b0bbcedb18cd1c55f66d42523f8f4d4e8b6888d",
+  "coreVersion": "0.4.1",
+  "files": [
+    {
+      "path": "java/galuchat-java-core.jar",
+      "sha256": "e8a77435de66b17b09e43764ac9e4f1f7f496647835103f23c19a7826262dd4f",
+      "size": 192074
+    },
+    {
+      "path": "java/getstarted/src/main/java/jp/nyatla/galuchat/getstarted/ExamplePaths.java",
+      "sha256": "c1dc25c313df2f134d37b1708b9d594b8bad22611b9e0a3160b58a7b1cc5be12",
+      "size": 502
+    },
+    {
+      "path": "java/getstarted/src/main/java/jp/nyatla/galuchat/getstarted/LookupAreaCode.java",
+      "sha256": "6a0ba848ac3e907ac60fdfd2770374a63085ce4746d4b30a675aeda9f881852f",
+      "size": 1214
+    },
+    {
+      "path": "java/getstarted/src/main/java/jp/nyatla/galuchat/getstarted/ReadMapSet.java",
+      "sha256": "dcb34ac79ebdd7dc04a14991d20c3202d311e0e039383b43cbf8d3ff9908ce42",
+      "size": 997
+    },
+    {
+      "path": "java/getstarted/src/main/java/jp/nyatla/galuchat/getstarted/RenderFunabashi.java",
+      "sha256": "4546d38066ced36887ebd656772973ecf8f9c8fe3667b088c3f69b9db5144303",
+      "size": 1744
+    },
+    {
+      "path": "java/getstarted/src/main/java/jp/nyatla/galuchat/getstarted/ReverseGeocode.java",
+      "sha256": "65581533bd060b0cb47314a956dfb33e7a281673df583d8c7141a70215a54f28",
+      "size": 2326
+    }
+  ],
+  "formats": {
+    "gisWordBook": 0,
+    "imageChunk": "GI01",
+    "publicApi": 2,
+    "wgsmap": 3,
+    "wgsmapset": 3
+  },
+  "generatedAt": "2026-08-17T13:14:41Z",
+  "implementationVersion": "0.4.1",
+  "javaRelease": 20,
+  "layoutVersion": 2,
+  "license": "Apache-2.0",
+  "schemaVersion": 1,
+  "sdkVersion": "0.1.0",
+  "sourceDirty": false,
+  "type": "galuchat-java"
+}

@@ -1,0 +1,52 @@
+{
+  "coreCommit": "7b0bbcedb18cd1c55f66d42523f8f4d4e8b6888d",
+  "coreVersion": "0.4.1",
+  "files": [
+    {
+      "path": "javascript/galuchat.min.js",
+      "sha256": "d09ac502657378f020f14e944ebe454857f623fb81078c228eabac962cab1991",
+      "size": 73172
+    },
+    {
+      "path": "javascript/galuchat.min.js.map",
+      "sha256": "6ecfbb677b0770dceff59659f58da59903bd6ee89c65fce2f162beefdab066a0",
+      "size": 256630
+    },
+    {
+      "path": "javascript/getstarted/reverse-geocode/app.js",
+      "sha256": "b8727c98eeea1a43cc88350a01024a6f91667f1a2d777b725f5e74d74b8f734e",
+      "size": 2930
+    },
+    {
+      "path": "javascript/getstarted/reverse-geocode/index.html",
+      "sha256": "03cc6260cb540e38d1a4606845102057ffb49b752761e4d055f613a6b47899e9",
+      "size": 3727
+    },
+    {
+      "path": "javascript/getstarted/getimage/app.js",
+      "sha256": "f93d4eaa797b7eb8d693bc0e00d9a96e298787bdbcf49046783fc7cd135d89e0",
+      "size": 5438
+    },
+    {
+      "path": "javascript/getstarted/getimage/index.html",
+      "sha256": "17956801af49bd1f162630b7a8e76de3bb17ed7b75b0a4e8d852e458a7ca0095",
+      "size": 4767
+    }
+  ],
+  "formats": {
+    "gisWordBook": 0,
+    "imageChunk": "GI01",
+    "publicApi": 2,
+    "wgsmap": 3,
+    "wgsmapset": 3
+  },
+  "generatedAt": "2026-08-17T13:14:16Z",
+  "globalName": "Galuchat",
+  "implementationVersion": "0.4.1",
+  "layoutVersion": 2,
+  "license": "Apache-2.0",
+  "schemaVersion": 1,
+  "sdkVersion": "0.1.0",
+  "sourceDirty": false,
+  "type": "galuchat-javascript"
+}

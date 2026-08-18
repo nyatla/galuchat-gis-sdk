@@ -1,0 +1,63 @@
+{
+  "datasetCommit": "31775b4da8537a2fc99bfe5c2198e84aefe039fe",
+  "files": {
+    "maps": [
+      {
+        "cellSize": 1024,
+        "default": false,
+        "id": "unit-inv-100",
+        "path": "datasets/world-geoboundaries-cgaz/geoboundaries-cgaz-best-admin-grid-1024-100.wgsmapset.glc",
+        "sha256": "631bdae7a8757ed3752fd9df38bd381c2e7ddb11fcd47f802ba8627f6ae9962f",
+        "size": 2945723,
+        "unitInv": 100
+      },
+      {
+        "cellSize": 8192,
+        "default": true,
+        "id": "unit-inv-1000",
+        "path": "datasets/world-geoboundaries-cgaz/geoboundaries-cgaz-best-admin-grid-8192-1000.wgsmapset.glc",
+        "sha256": "71c6d8e6b4a569ec6055c5dd6fa0e2d32014bd7a8e90df062fa6549ff4d3e9fe",
+        "size": 21438715,
+        "unitInv": 1000
+      }
+    ],
+    "notice": {
+      "path": "datasets/world-geoboundaries-cgaz/NOTICE.md",
+      "sha256": "1101188d15ea81705711e46c17c0434ec1a00ad9945e63369a9e8618c7bdd3f5",
+      "size": 3043
+    },
+    "wordbooks": [
+      {
+        "default": true,
+        "id": "utf8",
+        "path": "datasets/world-geoboundaries-cgaz/geoboundaries-cgaz-best-admin.giswordbook",
+        "sha256": "e30fb58e6cb536a8ab945ee1dda60d1a659681c11f0c02e988d11bef8c9953c1",
+        "size": 574680,
+        "textEncoding": "utf8",
+        "tokenEncoding": "utf-8"
+      },
+      {
+        "default": false,
+        "id": "utf16",
+        "path": "datasets/world-geoboundaries-cgaz/geoboundaries-cgaz-best-admin.utf16.giswordbook",
+        "sha256": "22f37b302870e6156c523a121e1d5f21f2beabf923478673cd0782e2176e9c84",
+        "size": 574841,
+        "textEncoding": "utf16",
+        "tokenEncoding": "utf-16-le"
+      }
+    ]
+  },
+  "formats": {
+    "gisWordBook": 0,
+    "imageChunk": "GI01",
+    "wgsmapset": 3
+  },
+  "generatedAt": "2026-08-17T13:15:09Z",
+  "id": "world-geoboundaries-cgaz",
+  "schemaVersion": 2,
+  "sdkVersion": "0.1.0",
+  "sourceDirty": false,
+  "sourceVersion": "CGAZ-ADM2-main-snapshot-2024-04-20",
+  "type": "galuchat-gis-dataset",
+  "version": "2024.04.20+galuchat.3"
+}

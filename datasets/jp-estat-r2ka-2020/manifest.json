@@ -1,0 +1,72 @@
+{
+  "datasetCommit": "31775b4da8537a2fc99bfe5c2198e84aefe039fe",
+  "files": {
+    "maps": [
+      {
+        "cellSize": 4096,
+        "default": false,
+        "id": "unit-inv-5000",
+        "path": "datasets/jp-estat-r2ka-2020/estat-r2ka-jgd2011-2020-grid-4096-5000.wgsmapset.glc",
+        "sha256": "57f7cbb452f6a555a84f31e488dfe1fdfd44ff7445666cf3f05dd4d7d8f1472e",
+        "size": 13574102,
+        "unitInv": 5000
+      },
+      {
+        "cellSize": 8192,
+        "default": true,
+        "id": "unit-inv-10000",
+        "path": "datasets/jp-estat-r2ka-2020/estat-r2ka-jgd2011-2020-grid-8192-10000.wgsmapset.glc",
+        "sha256": "80839fa272a97b0895e58c1e961c92f20eb7a3177f69830e04d6b230f6fb980c",
+        "size": 23800134,
+        "unitInv": 10000
+      }
+    ],
+    "notice": {
+      "path": "datasets/jp-estat-r2ka-2020/NOTICE.md",
+      "sha256": "ace660711f0f9393f15b1a44279682cc3047228ce34055b1aaf2aeab93fbdfe2",
+      "size": 2776
+    },
+    "wordbooks": [
+      {
+        "default": true,
+        "id": "utf8",
+        "path": "datasets/jp-estat-r2ka-2020/estat-r2ka-jgd2011-2020.giswordbook",
+        "sha256": "653702c27c45391d71c0e66f17608ece924fa125b330867fe672a9f060df236f",
+        "size": 1711477,
+        "textEncoding": "utf8",
+        "tokenEncoding": "utf-8"
+      },
+      {
+        "default": false,
+        "id": "sjis",
+        "path": "datasets/jp-estat-r2ka-2020/estat-r2ka-jgd2011-2020.sjis.giswordbook",
+        "sha256": "4416fdd8291d56292be17820bf3ccc9f839ba25cde693b2f736479811c4650b8",
+        "size": 1708833,
+        "textEncoding": "sjis",
+        "tokenEncoding": "cp932"
+      },
+      {
+        "default": false,
+        "id": "utf16",
+        "path": "datasets/jp-estat-r2ka-2020/estat-r2ka-jgd2011-2020.utf16.giswordbook",
+        "sha256": "21f2bcd09b65af1ac7e6d11788577a33b4cb52593bc9d914334f51e22826e725",
+        "size": 1708878,
+        "textEncoding": "utf16",
+        "tokenEncoding": "utf-16-le"
+      }
+    ]
+  },
+  "formats": {
+    "gisWordBook": 0,
+    "imageChunk": "GI01",
+    "wgsmapset": 3
+  },
+  "generatedAt": "2026-08-17T13:15:06Z",
+  "id": "jp-estat-r2ka-2020",
+  "schemaVersion": 2,
+  "sdkVersion": "0.1.0",
+  "sourceDirty": false,
+  "sourceVersion": "A002005212020",
+  "type": "galuchat-gis-dataset",
+  "version": "2020.01.01+galuchat.2"
+}

@@ -1,0 +1,172 @@
+{
+  "coreCommit": "7b0bbcedb18cd1c55f66d42523f8f4d4e8b6888d",
+  "coreVersion": "0.4.1",
+  "files": [
+    {
+      "path": "docs/reference/GI01-CellHeader仕様.md",
+      "sha256": "e5bbaf0d09f963388db5b60f6acf860b770b1328e5d5294d0d148f09a73fc691",
+      "size": 7040
+    },
+    {
+      "path": "docs/reference/GI01-ContainerNode構造仕様.md",
+      "sha256": "5c92480f1f14693379a456b1e11153b132da8a748b338c4a3a94963e5cbc3b47",
+      "size": 4952
+    },
+    {
+      "path": "docs/reference/GI01-RawDataNode構造仕様.md",
+      "sha256": "03d0803645d109820b6775cd242a8c25ae53dda157df7cfb7b0ef559860b069c",
+      "size": 7662
+    },
+    {
+      "path": "docs/reference/GI01-Reader.md",
+      "sha256": "daad09f0a76ef493229db8e2ab8da8748283111e44d748c10b11a28b37e9c3c5",
+      "size": 8294
+    },
+    {
+      "path": "docs/reference/GI01-RleDataNode-ShortValueEncoding仕様.md",
+      "sha256": "e5d19f33b4129119a00a8f76db95d4fbc86d181b5b25bf5d305effd1fbeae953",
+      "size": 10371
+    },
+    {
+      "path": "docs/reference/GI01-RleDataNode-SingleEdgeRowEncoding仕様.md",
+      "sha256": "7fdb74fb3ab10f1a0d12a455e4f20de045841d64e9755ffa1cdd6bfa882fe28e",
+      "size": 16902
+    },
+    {
+      "path": "docs/reference/GI01-RleDataNode構造仕様.md",
+      "sha256": "996084d762e3932b36373684f42aaa7c96a7d38fdf6a4d1bf390974a76d5b6c1",
+      "size": 16296
+    },
+    {
+      "path": "docs/reference/GI01-カスケードパレット.md",
+      "sha256": "184bbb9753a774a82760792d1c1d940399694a72d1e2ef8e58898c0f1cd4a224",
+      "size": 9994
+    },
+    {
+      "path": "docs/reference/GI01仕様索引.md",
+      "sha256": "d80970aa86918432e4ceb42c13258729f3fe8576faae25e4ab75def163d899ba",
+      "size": 817
+    },
+    {
+      "path": "docs/reference/README.md",
+      "sha256": "78cd7ec5d0ebc3d88b10fcc1fef40bdc34201f1336b3cb6c99b5432c2213b168",
+      "size": 1186
+    },
+    {
+      "path": "docs/reference/api/README.md",
+      "sha256": "bfbbf310fa973826d61d2f830fedc0df19082862ab1c3ae709e97540c058ba9c",
+      "size": 939
+    },
+    {
+      "path": "docs/reference/api/lowlevel/IWgsMapset3Reader.md",
+      "sha256": "2b2677d9fd77914a47fdf961d081721fd97c1e47249cbea83afc50ab3de753fa",
+      "size": 6566
+    },
+    {
+      "path": "docs/reference/api/lowlevel/IWordBookReader.md",
+      "sha256": "8588832afb56d9ba971585e65bcb318d349a9609650dae8704303128bbb72255",
+      "size": 2075
+    },
+    {
+      "path": "docs/reference/api/lowlevel/README.md",
+      "sha256": "eb49c6f89a84908ae9d26a335216564c6b0f9094df7b8d76603aa667e26bd3dc",
+      "size": 1386
+    },
+    {
+      "path": "docs/reference/api/maprender/IMapEdgeRenderer.md",
+      "sha256": "41402aac27401c3b2d95c73b88bb60d7efef3f867b043202e1e5d347a09bbbf2",
+      "size": 1559
+    },
+    {
+      "path": "docs/reference/api/maprender/IMapFillRenderer.md",
+      "sha256": "52bafb0c76fbdf806145b9bdd7d3d00f3ec72ab4e3f3bb908baf3e75f3b64a66",
+      "size": 1089
+    },
+    {
+      "path": "docs/reference/api/maprender/IMapImageRenderer.md",
+      "sha256": "3cf61adc8828d8e3674045f8e141fd5456bbdd2aa74530ccf6bc03a30772cd7a",
+      "size": 1247
+    },
+    {
+      "path": "docs/reference/api/maprender/IMapRender.md",
+      "sha256": "d5d99e49114153387f3a54deb4351798d4db7d11817b1dd8d5d72ed30b565361",
+      "size": 1773
+    },
+    {
+      "path": "docs/reference/api/maprender/IWgsMapset3Selector.md",
+      "sha256": "ff07970bee29db29577add837cd9a437b53f44231cd717afa249296a02bd216d",
+      "size": 3150
+    },
+    {
+      "path": "docs/reference/api/maprender/README.md",
+      "sha256": "eeee8a5cef2ea5ee9094ecfecdb4837ff8e50bc936bf8c92719a84cb22b344c9",
+      "size": 2267
+    },
+    {
+      "path": "docs/reference/api/maprender/types.md",
+      "sha256": "ac85713f207d7d9266b61f941ac9220d23606d5f186d3eb2c98413b243b189e4",
+      "size": 2519
+    },
+    {
+      "path": "docs/reference/v1/Galuchat-IndexMap構造仕様.md",
+      "sha256": "74358b4ffd5d535011693e888c90de738f9d282ac659d9c854a443ba28507570",
+      "size": 5289
+    },
+    {
+      "path": "docs/reference/v1/Galuchat-MBIntエンコード仕様.md",
+      "sha256": "0b707718fe4b8bf32d4a9283678a889edc4415e1b540c5c4941ae82d38a68a50",
+      "size": 6201
+    },
+    {
+      "path": "docs/reference/wgsmap3仕様書.md",
+      "sha256": "d0550e1ceec5ea00f433d8078aa82de4878fa4bd2f40e5ec4ad450e86b9e8e30",
+      "size": 6979
+    },
+    {
+      "path": "docs/reference/wgsmapset3仕様書.md",
+      "sha256": "ccb64f48a41550a5b2fa0d061eeb38387a5440352d85a573e07a6ddec5fbb0ad",
+      "size": 6577
+    },
+    {
+      "path": "docs/reference/wordbook/GisWordBookStorageFormat.md",
+      "sha256": "e88eacb460a1300cc6f7b2cb7bad02c50a337b0f2bd84f023d906594f6fc059e",
+      "size": 9787
+    },
+    {
+      "path": "docs/reference/wordbook/TI00HierarchicalIndexChunk.md",
+      "sha256": "e49aecd15e13acc9776d76e615d3c50d351b58d8b43c951bedda9017a06d6fcc",
+      "size": 9818
+    },
+    {
+      "path": "docs/reference/wordbook/TM00TokenMapChunk.md",
+      "sha256": "89981b45e45160c82c93a8a97badbb496fc3eb3acb9d8482d580d7ac309285dc",
+      "size": 3894
+    },
+    {
+      "path": "docs/reference/wordbook/TT00TextTableChunk.md",
+      "sha256": "96b6aaf8049c75c0a3c2dd5dcbeda492ae891c483a19a271533f067344e8faf1",
+      "size": 10684
+    },
+    {
+      "path": "docs/reference/wordbook/WordBookBitstreamDesign.md",
+      "sha256": "49718f177ad4a553c4396c88fa245425db2a2fb5ff407b0e6fb8255d967f9882",
+      "size": 11675
+    },
+    {
+      "path": "docs/reference/wordbook/WordBookStorageFormat.md",
+      "sha256": "225abf63006292a44fcdfda512a05054f4d3ff3f85ba8a6b7210396ac7ae76ee",
+      "size": 6385
+    },
+    {
+      "path": "docs/reference/wordbook/WordBookStorageIndex.md",
+      "sha256": "734815348e5eabcd568c687a7073c6a59306e147c9ed24a17ac3ffb364088811",
+      "size": 952
+    }
+  ],
+  "generatedAt": "2026-08-17T13:15:01Z",
+  "index": "docs/reference/README.md",
+  "schemaVersion": 1,
+  "sdkVersion": "0.1.0",
+  "sourceDirty": false,
+  "type": "galuchat-documentation"
+}

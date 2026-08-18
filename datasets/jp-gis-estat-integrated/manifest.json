@@ -1,0 +1,63 @@
+{
+  "datasetCommit": "31775b4da8537a2fc99bfe5c2198e84aefe039fe",
+  "files": {
+    "maps": [
+      {
+        "cellSize": 8192,
+        "default": true,
+        "id": "unit-inv-10000",
+        "path": "datasets/jp-gis-estat-integrated/gis-estat-integrated-grid-8192-10000.wgsmapset.glc",
+        "sha256": "5f789aadf37d4771dc63550715b4c31aa2b88c270734bd8360589054aaef3198",
+        "size": 25330119,
+        "unitInv": 10000
+      }
+    ],
+    "notice": {
+      "path": "datasets/jp-gis-estat-integrated/NOTICE.md",
+      "sha256": "775f12f43f01f7ac371eb7af8d768afd46965f3558c1c290f14cdb3e914fddb1",
+      "size": 3859
+    },
+    "wordbooks": [
+      {
+        "default": true,
+        "id": "utf8",
+        "path": "datasets/jp-gis-estat-integrated/gis-estat-integrated.giswordbook",
+        "sha256": "97f75ca8c975f9f4b306b157b2e6e0473262ff33a06a9ab31790a9966af2cf21",
+        "size": 1738553,
+        "textEncoding": "utf8",
+        "tokenEncoding": "utf-8"
+      },
+      {
+        "default": false,
+        "id": "sjis",
+        "path": "datasets/jp-gis-estat-integrated/gis-estat-integrated.sjis.giswordbook",
+        "sha256": "b11522547326c994ce0bdb57cc59975db54dea5a002cf36a6edbc8b67be4259e",
+        "size": 1735946,
+        "textEncoding": "sjis",
+        "tokenEncoding": "cp932"
+      },
+      {
+        "default": false,
+        "id": "utf16",
+        "path": "datasets/jp-gis-estat-integrated/gis-estat-integrated.utf16.giswordbook",
+        "sha256": "9cb57b401ebb8649598b34e3ca729c10c4d9d36c423b51381a93138ca18b5a63",
+        "size": 1735964,
+        "textEncoding": "utf16",
+        "tokenEncoding": "utf-16-le"
+      }
+    ]
+  },
+  "formats": {
+    "gisWordBook": 0,
+    "imageChunk": "GI01",
+    "wgsmapset": 3
+  },
+  "generatedAt": "2026-08-17T13:15:08Z",
+  "id": "jp-gis-estat-integrated",
+  "schemaVersion": 2,
+  "sdkVersion": "0.1.0",
+  "sourceDirty": false,
+  "sourceVersion": "N03-20240101+A002005212020",
+  "type": "galuchat-gis-dataset",
+  "version": "2024.01.01+estat2020.galuchat.2"
+}

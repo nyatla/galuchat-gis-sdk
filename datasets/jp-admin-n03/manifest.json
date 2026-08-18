@@ -1,0 +1,99 @@
+{
+  "datasetCommit": "31775b4da8537a2fc99bfe5c2198e84aefe039fe",
+  "files": {
+    "maps": [
+      {
+        "cellSize": 512,
+        "default": false,
+        "id": "unit-inv-100",
+        "path": "datasets/jp-admin-n03/N03-20240101-grid-512-100.remap.wgsmapset.glc",
+        "sha256": "1fb77bd3ca64d4b85ebb9755fb58287d7862fadeca9612a90f63eb5aa2b19c79",
+        "size": 52900,
+        "unitInv": 100
+      },
+      {
+        "cellSize": 4096,
+        "default": false,
+        "id": "unit-inv-250",
+        "path": "datasets/jp-admin-n03/N03-20240101-grid-4096-250.remap.wgsmapset.glc",
+        "sha256": "e1a4d7f6fd1c42f0599e8deb0739ae0f78a29de8250c4a6ae98fc382e5f861eb",
+        "size": 125746,
+        "unitInv": 250
+      },
+      {
+        "cellSize": 4096,
+        "default": true,
+        "id": "unit-inv-1000",
+        "path": "datasets/jp-admin-n03/N03-20240101-grid-4096-1000.remap.wgsmapset.glc",
+        "sha256": "f1f79ef73e55c0406e0df6938bca9caf1d1af1afd2ae63c132ea16e95677d6d7",
+        "size": 490399,
+        "unitInv": 1000
+      },
+      {
+        "cellSize": 8192,
+        "default": false,
+        "id": "unit-inv-2500",
+        "path": "datasets/jp-admin-n03/N03-20240101-grid-8192-2500.remap.wgsmapset.glc",
+        "sha256": "9a4726fd81c1f7b85125068f4e24ec8ef0a1767697be8e83d6d1f56f06d77991",
+        "size": 1225477,
+        "unitInv": 2500
+      },
+      {
+        "cellSize": 8192,
+        "default": false,
+        "id": "unit-inv-10000",
+        "path": "datasets/jp-admin-n03/N03-20240101-grid-8192-10000.remap.wgsmapset.glc",
+        "sha256": "b0aae1c9e12c7abc41510d6b78e8c36c1b575f30802be7b591e8d3d9c9eb5748",
+        "size": 4694050,
+        "unitInv": 10000
+      }
+    ],
+    "notice": {
+      "path": "datasets/jp-admin-n03/NOTICE.md",
+      "sha256": "dc5262c6e62bbc84ec3c5f60bf9ee3b31c1a21474af27c843a1c6739ee9f8490",
+      "size": 2192
+    },
+    "wordbooks": [
+      {
+        "default": true,
+        "id": "utf8",
+        "path": "datasets/jp-admin-n03/N03-20240101.giswordbook",
+        "sha256": "84512bf7f7f1fa004da6379ea7eb560eaa75806f08020a27c175e93691004449",
+        "size": 31922,
+        "textEncoding": "utf8",
+        "tokenEncoding": "utf-8"
+      },
+      {
+        "default": false,
+        "id": "sjis",
+        "path": "datasets/jp-admin-n03/N03-20240101.sjis.giswordbook",
+        "sha256": "1a2410812bf2f3f0e6eb747271b660820dc3887e71825b537fd42f554a18721b",
+        "size": 31063,
+        "textEncoding": "sjis",
+        "tokenEncoding": "cp932"
+      },
+      {
+        "default": false,
+        "id": "utf16",
+        "path": "datasets/jp-admin-n03/N03-20240101.utf16.giswordbook",
+        "sha256": "756a126be83aaf03c2d8aaaa47eb5fcac6fc6cf12fd1f800be2636ff99b03c7e",
+        "size": 31107,
+        "textEncoding": "utf16",
+        "tokenEncoding": "utf-16-le"
+      }
+    ]
+  },
+  "formats": {
+    "gisWordBook": 0,
+    "imageChunk": "GI01",
+    "wgsmapset": 3
+  },
+  "generatedAt": "2026-08-17T13:15:05Z",
+  "id": "jp-admin-n03",
+  "schemaVersion": 2,
+  "sdkVersion": "0.1.0",
+  "sourceDirty": false,
+  "sourceVersion": "N03-20240101",
+  "type": "galuchat-gis-dataset",
+  "version": "2024.01.01+galuchat.3"
+}

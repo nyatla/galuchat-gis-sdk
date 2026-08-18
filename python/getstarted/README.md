@@ -1,0 +1,23 @@
+# Python Get Started
+
+Python 3.11以降で、SDKに同梱されたソースを `PYTHONPATH` から直接参照します。
+
+逆ジオコード:
+
+```bash
+PYTHONPATH=python/src python3 \
+  python/getstarted/reverse_geocode_imperial_palace.py \
+  datasets/jp-admin-n03/N03-20240101-grid-4096-1000.remap.wgsmapset.glc \
+  datasets/jp-admin-n03/N03-20240101.giswordbook
+```
+
+PNG描画にはPillowが必要です。
+
+```bash
+PYTHONPATH=python/src python3 \
+  python/getstarted/render_funabashi_vga.py \
+  datasets/jp-admin-n03/N03-20240101-grid-4096-1000.remap.wgsmapset.glc \
+  work/funabashi-vga.png
+```
+
+SDKはPythonパッケージのインストール機能を持ちません。Pillowは利用側の環境で用意してください。
