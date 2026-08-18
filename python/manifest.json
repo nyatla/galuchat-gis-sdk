@@ -1,0 +1,582 @@
+{
+  "coreCommit": "7b0bbcedb18cd1c55f66d42523f8f4d4e8b6888d",
+  "coreVersion": "0.4.1",
+  "files": [
+    {
+      "path": "python/src/galuchat/api/__init__.py",
+      "sha256": "e9fead480021725e0f2430e37922ec68d8a3d6b4b081932b7df2386b034e6059",
+      "size": 64
+    },
+    {
+      "path": "python/src/galuchat/api/lowlevel/__init__.py",
+      "sha256": "033cec47b7328debe6f8ed9fac4916c52064d3cd62c4c861358ee844a5eeabbe",
+      "size": 507
+    },
+    {
+      "path": "python/src/galuchat/api/lowlevel/adapters.py",
+      "sha256": "ea4da775359672f485879e3fe411a258b2bc146b82a5d9103c14fcf25af63fc1",
+      "size": 5598
+    },
+    {
+      "path": "python/src/galuchat/api/lowlevel/protocols.py",
+      "sha256": "5a8c528c65a55c7bf1b4e770bd03729394914e37a7a84bc6f3383279b5dc4bca",
+      "size": 2116
+    },
+    {
+      "path": "python/src/galuchat/api/lowlevel/types.py",
+      "sha256": "1a77604652e1574de96138b8c7d7d50b18b81ce810a91a437c859890edb5abbf",
+      "size": 655
+    },
+    {
+      "path": "python/src/galuchat/api/maprender/__init__.py",
+      "sha256": "7b41c3b5eb5067de6adc3f9f4f850234136f39a4191753012855792a49bd66c6",
+      "size": 932
+    },
+    {
+      "path": "python/src/galuchat/api/maprender/pil_renderers.py",
+      "sha256": "77e53100246295700e9928d1725c6f0142ca194bb0be41d28b2f8466d1f77344",
+      "size": 16028
+    },
+    {
+      "path": "python/src/galuchat/api/maprender/protocols.py",
+      "sha256": "60b2da6598d94996f38183f806f4c90c8c3b680012711a9f1f6ba09518b167a8",
+      "size": 991
+    },
+    {
+      "path": "python/src/galuchat/api/maprender/selectors.py",
+      "sha256": "927fa3446df0a5f8e25e1fdd7950be66e903cbaf110ca432986bb86b56cfec10",
+      "size": 1489
+    },
+    {
+      "path": "python/src/galuchat/api/maprender/types.py",
+      "sha256": "9448c95ca13ac516b7a14bc6c120db7da82c234e3e6c9ca0ccfb6ddbea801662",
+      "size": 877
+    },
+    {
+      "path": "python/src/galuchat/chunk/Chunk.py",
+      "sha256": "aea1654e71452648e35d9ccf0a01dc78d0a304def00090c409f2e4627adecd78",
+      "size": 1834
+    },
+    {
+      "path": "python/src/galuchat/chunk/__init__.py",
+      "sha256": "eed07e8381a68d42f3b84e6c3c3a6b9a596e786f85908a760a1b7d480a8ae977",
+      "size": 24
+    },
+    {
+      "path": "python/src/galuchat/chunk/gi01/CellHeader.py",
+      "sha256": "ddb0a43e56e9a5bab036a9ef95396e0fc5743abdc5e9feb74cf91f6afb271948",
+      "size": 6482
+    },
+    {
+      "path": "python/src/galuchat/chunk/gi01/ContainerPallet.py",
+      "sha256": "a2d32e8be5d39b505f0c521d0b2b196fc500ae7ca320c23aebb39076762ef502",
+      "size": 2430
+    },
+    {
+      "path": "python/src/galuchat/chunk/gi01/GI01Format.py",
+      "sha256": "2a86e9ced118d37f56a480779c34ed8ec5c00c18e48de54ce8316601b7957252",
+      "size": 887
+    },
+    {
+      "path": "python/src/galuchat/chunk/gi01/GaluchatImageDataChunk01.py",
+      "sha256": "dd62d2239ef887199bacfae050c4bcc471c2fc8decf96aa0d1634a3e534b987b",
+      "size": 8634
+    },
+    {
+      "path": "python/src/galuchat/chunk/gi01/GaluchatImageDataChunk01Reader.py",
+      "sha256": "423de005dcc3f1390b4edc4efee00e2ecb689dfe4412737c53aa599d74f05fb3",
+      "size": 22250
+    },
+    {
+      "path": "python/src/galuchat/chunk/gi01/PalletHeader.py",
+      "sha256": "972488032920b2aea2060195545d8783f351b563feb0629ec9abf926587891c6",
+      "size": 6994
+    },
+    {
+      "path": "python/src/galuchat/chunk/gi01/PalletMgr.py",
+      "sha256": "44062e27cf8ba3b2847648919516b39eea2aa356351117b50b643f98063e92c6",
+      "size": 1707
+    },
+    {
+      "path": "python/src/galuchat/chunk/gi01/RlePacketReader.py",
+      "sha256": "693cece8c49a078ef54572d2c1fb5ea95fb0a7c947b9cef4a2e832177fe77ff0",
+      "size": 6844
+    },
+    {
+      "path": "python/src/galuchat/chunk/gi01/__init__.py",
+      "sha256": "d86837e525e24152bdbccaf259b77bcb9b958978e1242aa385bd141a1f098fa1",
+      "size": 262
+    },
+    {
+      "path": "python/src/galuchat/chunk/gi01/nodes/NodeDeserializer.py",
+      "sha256": "2582f792c087a0efb9841a04cb31aa41eb6b7447a9ceadd4b4303201aef04c29",
+      "size": 8014
+    },
+    {
+      "path": "python/src/galuchat/chunk/gi01/nodes/NodePallet.py",
+      "sha256": "cc5b050d6f394dc2236109418642bfd57d0c0979fe047de3008c3e83c5a56540",
+      "size": 177
+    },
+    {
+      "path": "python/src/galuchat/chunk/gi01/nodes/NodeSerializer.py",
+      "sha256": "5c586e8d8cbbe33d378a55e051277b6909e034c594f39290e7bf860c447c7b44",
+      "size": 6970
+    },
+    {
+      "path": "python/src/galuchat/chunk/gi01/nodes/__init__.py",
+      "sha256": "75a11da44c802486bc6f65640aa48a730f0f684c5c07a42ba3cd1735eb3fb070",
+      "size": 2
+    },
+    {
+      "path": "python/src/galuchat/chunk/gi01/nodes/node/BaseNode.py",
+      "sha256": "dbdfcf62e4180389530ac95099fc4ee56db33451a136014e3cec69cc0ad8351a",
+      "size": 905
+    },
+    {
+      "path": "python/src/galuchat/chunk/gi01/nodes/node/ContainerNode.py",
+      "sha256": "778aad24ec36a9b4ae8b4c32382debff46706ad9d790d8e98cd1fd664b39b351",
+      "size": 2510
+    },
+    {
+      "path": "python/src/galuchat/chunk/gi01/nodes/node/IndexMapset.py",
+      "sha256": "7839527a3ec0171ae10c3ce3deb1db9af06807572a42f8dc76e80832d08ab2ec",
+      "size": 1658
+    },
+    {
+      "path": "python/src/galuchat/chunk/gi01/nodes/node/RawNode.py",
+      "sha256": "8a1a570964f9a37f3b4d95139437ee00d022f22f87329360b62ed09a4e3a1ec3",
+      "size": 989
+    },
+    {
+      "path": "python/src/galuchat/chunk/gi01/nodes/node/RawPalletNode.py",
+      "sha256": "02d062a403d72ea69d013229a21c108be9389dbf16059519613cf75dfdead8cc",
+      "size": 1436
+    },
+    {
+      "path": "python/src/galuchat/chunk/gi01/nodes/node/RlePallet16Node.py",
+      "sha256": "08a1a376cff1ebde041401d24dc0e76dd8a715b27e8c8dfc6e81b24b1bb3a269",
+      "size": 223
+    },
+    {
+      "path": "python/src/galuchat/chunk/gi01/nodes/node/RlePallet2Node.py",
+      "sha256": "9830caf7f8ffc56161b75cc6231ad233abb56dee32dc191d2b62096a2dd28633",
+      "size": 213
+    },
+    {
+      "path": "python/src/galuchat/chunk/gi01/nodes/node/RlePallet3Node.py",
+      "sha256": "09b720563387ed974cddc8bbe27403b13616674cf7f94fbac4d10dd23a3bfe2a",
+      "size": 204
+    },
+    {
+      "path": "python/src/galuchat/chunk/gi01/nodes/node/RlePallet5Node.py",
+      "sha256": "f828211627e65a568868865bd69fa59da3f9500c839d520e650defacd619f49f",
+      "size": 217
+    },
+    {
+      "path": "python/src/galuchat/chunk/gi01/nodes/node/_RlePalletNodeBase.py",
+      "sha256": "0f794abc516e3589f56f544dafb231bef57adf5199edb07b72e363948cc0c2a3",
+      "size": 16392
+    },
+    {
+      "path": "python/src/galuchat/chunk/gi01/nodes/node/__init__.py",
+      "sha256": "73163d9cb8f2c48820462603bac6f83f5019c99042048f4a62d0bbc0a40d14d2",
+      "size": 387
+    },
+    {
+      "path": "python/src/galuchat/chunk/gi01/nodes/node/_rlecp.py",
+      "sha256": "fb7e1a7c709692f73d659e4bb99cf39f17b6d1dbff57e4e45a306c0e183ab557",
+      "size": 425
+    },
+    {
+      "path": "python/src/galuchat/chunk/gi01/rlelencodec/ShortValueRleLenCodec.py",
+      "sha256": "050594007285b78adf0014a30d1257f2b6283fd946492464a48267ab29916b71",
+      "size": 12155
+    },
+    {
+      "path": "python/src/galuchat/chunk/gi01/rlelencodec/SingleEdgeRowLenCodec.py",
+      "sha256": "10a001a0f7e038c3c3a37b9934dd038f90b334d7739bf3a1c387afdc84434220",
+      "size": 20854
+    },
+    {
+      "path": "python/src/galuchat/chunk/gi01/rlelencodec/__init__.py",
+      "sha256": "3543386e955f472d9005ebfdb3d22cecff218b779f7b959b9ac673f96920c93a",
+      "size": 235
+    },
+    {
+      "path": "python/src/galuchat/format/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": "python/src/galuchat/format/types/__init__.py",
+      "sha256": "6cf4979dc2977ac9366306c973209a92adf3f0bc5b6718fddf5a57c86dd4c8fd",
+      "size": 2985
+    },
+    {
+      "path": "python/src/galuchat/format/wgsmap2/WGSMapHeader.py",
+      "sha256": "6c58eeb360cd8a478524ee23f17d97f08f8c5074041848e29891b43478732ee3",
+      "size": 3879
+    },
+    {
+      "path": "python/src/galuchat/format/wgsmap2/__init__.py",
+      "sha256": "460d787c2313b0bb96d589f6bc56777d0988e57cd556098700c7579ead93b7e2",
+      "size": 642
+    },
+    {
+      "path": "python/src/galuchat/format/wgsmap3/GaluchatWGSMap3Dom.py",
+      "sha256": "f5d2395decdb481607163e57ab77d1173938776eda8ee4325c99656fa0920f60",
+      "size": 1101
+    },
+    {
+      "path": "python/src/galuchat/format/wgsmap3/GaluchatWGSMap3Reader.py",
+      "sha256": "086165fc7a516e0d9dd00a489f7d6d449ccb5675ae385e0b63638b50d8fae04d",
+      "size": 3192
+    },
+    {
+      "path": "python/src/galuchat/format/wgsmap3/__init__.py",
+      "sha256": "d6734684438fd9d9aaeb264bf1dcb52bc6b07bc9264f51152bb9626f7c879f34",
+      "size": 175
+    },
+    {
+      "path": "python/src/galuchat/format/wgsmapset/GaluchatWGSMapSet3.py",
+      "sha256": "26295bef90bd7f3f857369358f9d436d0da747e850bd20367879fe0141379c78",
+      "size": 120
+    },
+    {
+      "path": "python/src/galuchat/format/wgsmapset/GaluchatWGSMapSet3Dom.py",
+      "sha256": "ddd92f400e0434a80946258edd1c6682d0eae2b041c8b98831ca6f3c0f4583c6",
+      "size": 3089
+    },
+    {
+      "path": "python/src/galuchat/format/wgsmapset/GaluchatWGSMapSet3Reader.py",
+      "sha256": "309820dad41fc483e3062fe56ef04130a9e14b4cd6aa77ed450dc3e8cba64829",
+      "size": 5197
+    },
+    {
+      "path": "python/src/galuchat/format/wgsmapset/WGSMapSetHeader3.py",
+      "sha256": "2009f73e707316647bebb2001c4788e9067e68f9ca935a5fb22ab6c4e82300eb",
+      "size": 2510
+    },
+    {
+      "path": "python/src/galuchat/format/wgsmapset/__init__.py",
+      "sha256": "7450cddb6f34a24d65a9b8d433f62c2d8fda1e0668b0c37953f52358dfa77730",
+      "size": 1371
+    },
+    {
+      "path": "python/src/galuchat/io/ABytesReader.py",
+      "sha256": "7cb585aa737d1f3c64c2c97a839c50d8962e46cde5399225032e1723d92e904e",
+      "size": 8253
+    },
+    {
+      "path": "python/src/galuchat/io/ABytesWriter.py",
+      "sha256": "ec6e3d82c38b9fb5f099236c7892367847448b0a5090d864421824f8cf00b893",
+      "size": 7201
+    },
+    {
+      "path": "python/src/galuchat/io/BytesBufferReader.py",
+      "sha256": "c97274b6755e47c9ca33997f76c2b06316ce7bc7f6381a82c9f965b85658d643",
+      "size": 1658
+    },
+    {
+      "path": "python/src/galuchat/io/BytesIteratorReader.py",
+      "sha256": "e686954c14bc0871fecf0d9400132466cc1696282c7848f8f5ed703c0a05c7d6",
+      "size": 2828
+    },
+    {
+      "path": "python/src/galuchat/io/BytesWriter.py",
+      "sha256": "b7bec10de5fa244fe30648c1f3c8d3f9287322bc1daff0251cb6d1fdf3704521",
+      "size": 2680
+    },
+    {
+      "path": "python/src/galuchat/io/Lzss.py",
+      "sha256": "00208cc6f7e606d862ca500cbcb2fd490472d904e804954afaebddcb2b164167",
+      "size": 9888
+    },
+    {
+      "path": "python/src/galuchat/io/MBIntDef.py",
+      "sha256": "33f7a63b57a2f883f6a218f47eeb2852af535fda9f63b1017f5b3b821f0b1a9e",
+      "size": 1922
+    },
+    {
+      "path": "python/src/galuchat/io/__init__.py",
+      "sha256": "21c471f3a92d3e1420031f92a6873504c2f3d00fadcfc24f74c56a802737fbfa",
+      "size": 271
+    },
+    {
+      "path": "python/src/galuchat/math/Limit.py",
+      "sha256": "4092736d1586d14c8f2191d4afb2002fed5989193aacc90197fd0a4d8031fa00",
+      "size": 255
+    },
+    {
+      "path": "python/src/galuchat/math/__init__.py",
+      "sha256": "e53668f750637ec44a0b0e4456eff25b494cc1966cb6e94ed9d9770a15776da0",
+      "size": 2255
+    },
+    {
+      "path": "python/src/galuchat/math/_types.py",
+      "sha256": "388eb24882acacd5a78c5868c036e6bdddc26719b5adfc98edb0c68340ccd68a",
+      "size": 601
+    },
+    {
+      "path": "python/src/galuchat/math/indexmap/ChaindIndexMap.py",
+      "sha256": "a2d06c4f29183cc27be649256c6c80adef09f6078765f1dde956f8cf17fcc4bc",
+      "size": 594
+    },
+    {
+      "path": "python/src/galuchat/math/indexmap/DiagonalIndexMap.py",
+      "sha256": "fd794028cc5bb20397ae50878a60ec375b2135e1339a22a0df85e26ad3a0a376",
+      "size": 1834
+    },
+    {
+      "path": "python/src/galuchat/math/indexmap/DiagonalZigzagIndexMap.py",
+      "sha256": "06208f5b6338f4f31e8144ba9f76b4c6edd08099632ab74fdeeddb639e93e9c7",
+      "size": 2312
+    },
+    {
+      "path": "python/src/galuchat/math/indexmap/IndexMap.py",
+      "sha256": "acc7d5dafaedae89f8cecf8eb388b876fe24a64907f834f3b6414af35e966566",
+      "size": 1447
+    },
+    {
+      "path": "python/src/galuchat/math/indexmap/MirrorIndexMap.py",
+      "sha256": "2cf83d0f8c12391384ae3d826fdc1321baf42d5ee98033a7f70def87329f50d2",
+      "size": 998
+    },
+    {
+      "path": "python/src/galuchat/math/indexmap/SpiralIndexMap.py",
+      "sha256": "74579f2f30b2ade9c70a7101cf1d9b0a4e2297059a2b6df9b6029b381b85e584",
+      "size": 2491
+    },
+    {
+      "path": "python/src/galuchat/math/indexmap/TransposeIndexMap.py",
+      "sha256": "23ce1b25cbe329e585e98e5bcf6ee660f06e9afbebdd8de3c03788240c87e199",
+      "size": 936
+    },
+    {
+      "path": "python/src/galuchat/math/indexmap/ZigzagIndexMap.py",
+      "sha256": "1a168ab17f1a8cd0f664937b8709179c3a829a8000cc523f8431d9f4ca17f1fc",
+      "size": 1128
+    },
+    {
+      "path": "python/src/galuchat/math/indexmap/__init__.py",
+      "sha256": "e4261c2f93f2eb46eeeb13ec41907ff9f63beaebfec941d7d57270650d07adac",
+      "size": 591
+    },
+    {
+      "path": "python/src/galuchat/math/raster/Raster.py",
+      "sha256": "b787aa83e799e52201883339dfced1c97e85e99963131f70682bc587a345596c",
+      "size": 4317
+    },
+    {
+      "path": "python/src/galuchat/math/raster/RawRaster.py",
+      "sha256": "7308f3459b2ffc918a5dbf3c7f1eab81a4fe7cdc02747bc6abce6b08b85cca67",
+      "size": 5154
+    },
+    {
+      "path": "python/src/galuchat/math/raster/__init__.py",
+      "sha256": "1ac242eac5e80f3eda23eb2b4b9dd2f799933fcf40e4d7a29c60e4d334b91dfb",
+      "size": 93
+    },
+    {
+      "path": "python/src/galuchat/math/rect.py",
+      "sha256": "90f6039f23e91d8c20442cef0aa442428f74483b63b172e74f01bcdb58a90a9c",
+      "size": 5775
+    },
+    {
+      "path": "python/src/galuchat/math/rle.py",
+      "sha256": "c3ee338a50b2249150117596228427e2fd6085f799a94ff6248658690a19871f",
+      "size": 1773
+    },
+    {
+      "path": "python/src/galuchat/math/segment.py",
+      "sha256": "a0ee52ccff32cb032c8f15f6a23546c6ddb2c16c3619b3847472bf4ba436482b",
+      "size": 4671
+    },
+    {
+      "path": "python/src/galuchat/version.py",
+      "sha256": "6dcea068615d2e85c2ff118c763269a3f2ee34688fcae9a091ab8eb34ff1e140",
+      "size": 224
+    },
+    {
+      "path": "python/src/galuchat/wordbook/__init__.py",
+      "sha256": "af639dc3382249c75f86ed0c092cf8e8e59e8537c9c4a74094c38bccbe73450b",
+      "size": 564
+    },
+    {
+      "path": "python/src/galuchat/wordbook/chunk/GisWordBookHeaderChunk.py",
+      "sha256": "5f45443e8effc76e70d279018187491d46118589f627dc3f5c964046cc6b6a76",
+      "size": 1158
+    },
+    {
+      "path": "python/src/galuchat/wordbook/chunk/GisWordBookHeaderChunkReader.py",
+      "sha256": "ee582ffd069bc6b91df6543a252c4ca28f7370eca1b36058131a9fe9f91ca46f",
+      "size": 1006
+    },
+    {
+      "path": "python/src/galuchat/wordbook/chunk/HierarchicalIndexChunk.py",
+      "sha256": "21de9c77940629cf51ec7bd28e0304466dc63e2234700d570a86151591dda821",
+      "size": 5097
+    },
+    {
+      "path": "python/src/galuchat/wordbook/chunk/HierarchicalIndexChunkReader.py",
+      "sha256": "db35e1bd12bb958b80cd868105a04873a7055ac60079dcdcdf7bf5fd5e217f20",
+      "size": 13149
+    },
+    {
+      "path": "python/src/galuchat/wordbook/chunk/TextTableChunk.py",
+      "sha256": "5daa6bce7607e732730f4ec752b4c26d2fd45fc8ddea9a56f4dbaa8d44606919",
+      "size": 5339
+    },
+    {
+      "path": "python/src/galuchat/wordbook/chunk/TextTableChunkReader.py",
+      "sha256": "152aa2394b771797c8696fb357474dc7040d8fb297270be64a0956027f57ff61",
+      "size": 3169
+    },
+    {
+      "path": "python/src/galuchat/wordbook/chunk/TokenMapChunk.py",
+      "sha256": "f921a0f17a9e3fd64c2c301dc86c7ba6f29959a3b13a63a44a194fbf1e4b1961",
+      "size": 4003
+    },
+    {
+      "path": "python/src/galuchat/wordbook/chunk/TokenMapChunkReader.py",
+      "sha256": "dd54aa86fa9bdd26d97ced5693e5fba3497a7827197a5d99fa5de11d00f06c2f",
+      "size": 3975
+    },
+    {
+      "path": "python/src/galuchat/wordbook/chunk/WordBookHeaderChunk.py",
+      "sha256": "27bc9776fbe5f07517a68701ca9619093f65871242e07fb0670e3627ee33687c",
+      "size": 1172
+    },
+    {
+      "path": "python/src/galuchat/wordbook/chunk/WordBookHeaderChunkReader.py",
+      "sha256": "f199e79d8e07d69940d67b267325954311017a1298658e1da2d54d141362844d",
+      "size": 975
+    },
+    {
+      "path": "python/src/galuchat/wordbook/chunk/__init__.py",
+      "sha256": "d64c07b9b43da7ec0296c70b665f203f6cb95972a61d84077706bf9cbe872fa4",
+      "size": 615
+    },
+    {
+      "path": "python/src/galuchat/wordbook/chunk/common.py",
+      "sha256": "c59ec27368d5a2589d21e93dc7a3dbaf4f8103df9b68c34450cba18293c4ff11",
+      "size": 574
+    },
+    {
+      "path": "python/src/galuchat/wordbook/chunk/record_stream.py",
+      "sha256": "6bf2084bf15b53dce717c8a85224e17da6c5af7a054203d9351c91c544dabed3",
+      "size": 11979
+    },
+    {
+      "path": "python/src/galuchat/wordbook/core/GaluchatGisWordBookDom.py",
+      "sha256": "eb378d7cf3ff2a1b1d662e61b51bdc4d3d2d184c38189ef9253b6629e6a5dd7a",
+      "size": 14570
+    },
+    {
+      "path": "python/src/galuchat/wordbook/core/GaluchatWordBookDom.py",
+      "sha256": "2a81acfc38f1fe32f589ec3b47ba95e0df26a29137f94688b72ce1d4f0c04ab7",
+      "size": 7406
+    },
+    {
+      "path": "python/src/galuchat/wordbook/core/WordBookModel.py",
+      "sha256": "f9f8bb6ba97b5131365ac3a16f40c93bb74e6b67119ea20215deac34ec9d5e30",
+      "size": 4056
+    },
+    {
+      "path": "python/src/galuchat/wordbook/core/WordBookOptimizer.py",
+      "sha256": "f81ae9da4bf50e49282779b13485811d76615165e41409ac72609b6be767562c",
+      "size": 17657
+    },
+    {
+      "path": "python/src/galuchat/wordbook/core/__init__.py",
+      "sha256": "bee851511bed0d6c8c53994de24b60c5bfde1f89621f9c9bd874e788f3467ec2",
+      "size": 1021
+    },
+    {
+      "path": "python/src/galuchat/wordbook/core/constants.py",
+      "sha256": "10888623ce665820c580e37604d1144b6f8c7c57b2ae4505023977c60c76fb85",
+      "size": 293
+    },
+    {
+      "path": "python/src/jsoncontainer/GisRasterJsonContainer.py",
+      "sha256": "142b8a68b87166e2f5a34323ccaf012bca284a05f28dd9778a0b978376e2cccc",
+      "size": 2328
+    },
+    {
+      "path": "python/src/jsoncontainer/GridInfoContainer.py",
+      "sha256": "151d20066cb4c2450be719df4920b16691e55fa218416a28f12ebea4e1d84bcc",
+      "size": 3106
+    },
+    {
+      "path": "python/src/jsoncontainer/JsonContainer.py",
+      "sha256": "732e7ee540839f66212017d6f8d0073eac41fbff32d668e3a049fbc68fa2f4fa",
+      "size": 1506
+    },
+    {
+      "path": "python/src/jsoncontainer/__init__.py",
+      "sha256": "62d2fa10ea08fabf743b65b96045ace4ae27b81f5d72c9aa4bf5a4bd8f3785bb",
+      "size": 149
+    },
+    {
+      "path": "python/src/jsoncontainer/chunk/LatLonBaseChunk.py",
+      "sha256": "3a0d321bc73d2301fd73dd09357db5ed11ccd35eb4c4507a90ac8d100f2fb2c7",
+      "size": 2401
+    },
+    {
+      "path": "python/src/jsoncontainer/chunk/RasterChunk.py",
+      "sha256": "0fd21368cc776af92fb3dbc7a636750cb858747b40f1bb5d7f42cbfc8ff6d403",
+      "size": 3096
+    },
+    {
+      "path": "python/src/jsoncontainer/chunk/__init__.py",
+      "sha256": "123a9ae0830976c9c82463cfc062473416d31a30824513793b0e2c32603eb2f7",
+      "size": 82
+    },
+    {
+      "path": "python/src/jsoncontainer/writer/CustomPrettyWriter.py",
+      "sha256": "b9a0c4afa7d670c48f7ac29696104d889e8b00d01957bd588fb8e2f3c58b6bf4",
+      "size": 6962
+    },
+    {
+      "path": "python/src/jsoncontainer/writer/IJsonable.py",
+      "sha256": "e0d71760701c0d338ecaddc30b44c2c8bedbb284fe34d0e66e7b170d505c6176",
+      "size": 309
+    },
+    {
+      "path": "python/src/jsoncontainer/writer/__init__.py",
+      "sha256": "f31181962bb0411ec2a485212a336d15e4250f52df200abf48d1ad4a87cd8aa8",
+      "size": 131
+    },
+    {
+      "path": "python/getstarted/render_funabashi_vga.py",
+      "sha256": "3e2303f8ba7f34e0c372f6ac9861212c5660c701b3e7a80fe52824c60d27a781",
+      "size": 1761
+    },
+    {
+      "path": "python/getstarted/reverse_geocode_imperial_palace.py",
+      "sha256": "b77c255eda86512d3ae6adca2452235c231a83a9520ce8fd0035943e065caefb",
+      "size": 1908
+    }
+  ],
+  "formats": {
+    "gisWordBook": 0,
+    "imageChunk": "GI01",
+    "publicApi": 2,
+    "wgsmap": 3,
+    "wgsmapset": 3
+  },
+  "generatedAt": "2026-08-17T13:14:51Z",
+  "implementationVersion": "0.4.1",
+  "layoutVersion": 2,
+  "license": "Apache-2.0",
+  "optionalRuntime": {
+    "mapImageRendering": [
+      "Pillow"
+    ]
+  },
+  "pythonRequires": ">=3.11",
+  "schemaVersion": 1,
+  "sdkVersion": "0.1.0",
+  "sourceDirty": false,
+  "type": "galuchat-python"
+}
