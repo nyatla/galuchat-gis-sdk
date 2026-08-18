@@ -31,6 +31,16 @@
       "path": "javascript/getstarted/getimage/index.html",
       "sha256": "17956801af49bd1f162630b7a8e76de3bb17ed7b75b0a4e8d852e458a7ca0095",
       "size": 4767
+    },
+    {
+      "path": "javascript/getstarted/multizoom/app.js",
+      "sha256": "2dc3825ff6537213e103394f3171869f728a88ec84e654c4212cb989a496ed5e",
+      "size": 3858
+    },
+    {
+      "path": "javascript/getstarted/multizoom/index.html",
+      "sha256": "ee4019f24a64c9e8e9d01dcc10e5187a43ea54147d8061d1ec859d15bb8e67e2",
+      "size": 3999
     }
   ],
   "formats": {
@@ -40,7 +50,7 @@
     "wgsmap": 3,
     "wgsmapset": 3
   },
-  "generatedAt": "2026-08-17T13:14:16Z",
+  "generatedAt": "2026-08-17T21:24:28Z",
   "globalName": "Galuchat",
   "implementationVersion": "0.4.1",
   "layoutVersion": 2,

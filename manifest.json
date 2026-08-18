@@ -166,7 +166,7 @@
     "wgsmap": 3,
     "wgsmapset": 3
   },
-  "generatedAt": "2026-08-17T13:15:12Z",
+  "generatedAt": "2026-08-17T21:24:31Z",
   "legal": {
     "commercialLicensing": {
       "path": "COMMERCIAL-LICENSING.md",
@@ -190,7 +190,7 @@
     }
   },
   "license": "Apache-2.0",
-  "packagingSpecDirty": false,
+  "packagingSpecDirty": true,
   "platforms": {
     "java": {
       "implementationVersion": "0.4.1",
@@ -210,6 +210,6 @@
   },
   "schemaVersion": 1,
   "sdkVersion": "0.1.0",
-  "sourceDirty": false,
+  "sourceDirty": true,
   "type": "galuchat-gis-sdk"
 }

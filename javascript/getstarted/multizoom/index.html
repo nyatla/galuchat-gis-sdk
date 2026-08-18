@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Galuchat JS Multi Resolution Zoom Map</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        box-sizing: border-box;
+        margin: 0;
+        color: #1f2933;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #0f172a;
+      }
+
+      button {
+        box-sizing: border-box;
+        min-height: 36px;
+        padding: 8px 10px;
+        border: 1px solid #b6c2cf;
+        border-radius: 6px;
+        font: inherit;
+        cursor: pointer;
+      }
+
+      button:disabled {
+        cursor: wait;
+        opacity: 0.6;
+      }
+
+      .app {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        min-height: 100%;
+      }
+
+      .header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+        align-items: center;
+        padding: 14px 16px;
+        background: #ffffff;
+        box-shadow: 0 2px 12px rgb(15 23 42 / 18%);
+        z-index: 1;
+      }
+
+      .title {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      .place-name {
+        overflow: hidden;
+        margin: 2px 0 0;
+        color: #2563eb;
+        font-size: clamp(22px, 5vw, 42px);
+        font-weight: 800;
+        line-height: 1.1;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: end;
+      }
+
+      .map-stage {
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        min-height: 0;
+        padding: 16px;
+      }
+
+      .map-shell {
+        position: relative;
+        overflow: hidden;
+        width: min(100%, 640px);
+        height: min(calc(100vh - 150px), 480px);
+        min-height: 240px;
+        border-radius: 10px;
+        background: #1e293b;
+        box-shadow: 0 16px 40px rgb(0 0 0 / 28%);
+        touch-action: none;
+        user-select: none;
+      }
+
+      .galuchat-interactive-map-canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+        image-rendering: pixelated;
+        cursor: grab;
+        touch-action: none;
+      }
+
+      .galuchat-interactive-map-canvas.dragging {
+        cursor: grabbing;
+      }
+
+      .galuchat-interactive-map-crosshair {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 16px;
+        height: 16px;
+        border: 2px solid rgb(255 255 255 / 85%);
+        border-radius: 50%;
+        box-shadow: 0 0 0 2px rgb(15 23 42 / 55%);
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+      }
+
+      .galuchat-interactive-map-status {
+        position: absolute;
+        left: 12px;
+        bottom: 12px;
+        max-width: calc(100% - 24px);
+        padding: 8px 10px;
+        border-radius: 6px;
+        color: #e5e7eb;
+        background: rgb(15 23 42 / 78%);
+        font: 12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        pointer-events: none;
+        white-space: pre-line;
+      }
+
+      .error {
+        color: #b42318;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <div>
+          <h1 class="title">Galuchat JS Multi Resolution Zoom Map</h1>
+          <p id="place-name" class="place-name">初期化中...</p>
+        </div>
+        <div class="toolbar">
+          <button id="zoom-out" type="button" disabled>−</button>
+          <button id="zoom-in" type="button" disabled>＋</button>
+          <button id="home" type="button" disabled>習志野市付近</button>
+        </div>
+      </header>
+      <main class="map-stage">
+        <div id="map-shell" class="map-shell"></div>
+      </main>
+    </div>
+
+    <script src="../../galuchat.min.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
