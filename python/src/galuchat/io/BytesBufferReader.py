@@ -7,6 +7,8 @@ class BytesBufferReader(ABytesReader):
     def __init__(self, src: bytes, offset: int = 0):
         """src[offset]を起点とします。"""
         super().__init__()
+        if offset < 0 or offset > len(src):
+            raise ValueError("offset is outside source")
         self._src = src
         self._offset = offset
         self._pos = 0
@@ -17,10 +19,10 @@ class BytesBufferReader(ABytesReader):
         return self._pos
 
     def _skipByte(self, n: int):
-        if self._pos + n <= len(self._src):
+        if self._offset + self._pos + n <= len(self._src):
             self._pos += n
         else:
-            self._pos = len(self._src)
+            self._pos = len(self._src) - self._offset
             raise StopIteration()
 
     def _nextByte(self) -> int:

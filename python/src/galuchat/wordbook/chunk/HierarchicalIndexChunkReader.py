@@ -1,57 +1,63 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Iterable, Iterator
+from typing import Iterator, Sequence
 
-from ...io import BytesBufferReader
+from ...io import ABytesReader
 from .HierarchicalIndexChunk import HierarchicalIndexChunk, _validate_header
 
 
-@dataclass(frozen=True)
 class HierarchicalIndexChunkReader:
-    data: bytes
-    max_depth: int
-    record_count: int
-    code_bits: int
-    root_count: int
-    index_stream_start: int
-    index_stream_size: int
+    """One-shot sequential reader for a TI00 chunk body."""
+
+    def __init__(
+        self,
+        reader: ABytesReader,
+        max_depth: int,
+        record_count: int,
+        code_bits: int,
+        root_count: int,
+        index_stream_size: int,
+    ) -> None:
+        self._reader = reader
+        self.max_depth = max_depth
+        self.record_count = record_count
+        self.code_bits = code_bits
+        self.root_count = root_count
+        self.index_stream_size = index_stream_size
+        self._used = False
 
     @classmethod
-    def unpack(cls, src: bytes, offset: int, size: int) -> "HierarchicalIndexChunkReader":
-        reader = BytesBufferReader(src, offset=offset)
+    def unpack(cls, reader: ABytesReader, size: int) -> "HierarchicalIndexChunkReader":
+        start = reader.pos
         max_depth = reader.readMbUInt()
         record_count = reader.readMbUInt()
         code_bits = reader.readMbUInt()
         root_count = reader.readMbUInt()
         stream_size = reader.readMbUInt()
-        stream_start = offset + reader.pos
-        reader.skipInByte(stream_size)
-        if reader.pos != size:
+        if reader.pos - start + stream_size != size:
             raise ValueError("TI00 has trailing bytes")
         _validate_header(max_depth, record_count, code_bits, root_count, stream_size)
         return cls(
-            data=src,
+            reader=reader,
             max_depth=max_depth,
             record_count=record_count,
             code_bits=code_bits,
             root_count=root_count,
-            index_stream_start=stream_start,
             index_stream_size=stream_size,
         )
 
     def toChunk(self) -> HierarchicalIndexChunk:
-        start = self.index_stream_start
-        end = start + self.index_stream_size
+        self._begin_operation()
         return HierarchicalIndexChunk(
             max_depth=self.max_depth,
             record_count=self.record_count,
             code_bits=self.code_bits,
             root_count=self.root_count,
-            index_stream=self.data[start:end],
+            index_stream=self._reader.readAsBytes(self.index_stream_size),
         )
 
     def readCodeSet(self, index: int, out: list[int] | None = None) -> list[int]:
+        self._begin_operation()
         if not 0 <= index < self.record_count:
             raise IndexError("TI00 index out of range")
         if out is None:
@@ -60,47 +66,37 @@ class HierarchicalIndexChunkReader:
             if len(out) < self.max_depth:
                 out.extend(0 for _ in range(self.max_depth - len(out)))
             del out[self.max_depth:]
-        reader = BytesBufferReader(self.data, offset=self.index_stream_start)
         if self.max_depth == 1:
-            self._read_leaf_blocks_by_count(reader, self.root_count, index, out)
+            self._read_leaf_blocks_by_count(self._reader, self.root_count, index, out)
         else:
-            self._read_prefixes_by_count(reader, 0, self.root_count, index, out)
+            self._read_prefixes_by_count(self._reader, 0, self.root_count, index, out)
         return out
 
     def iterCodeSetsFor(
         self,
-        indices: Iterable[int],
+        indices: Sequence[int],
         reuse_out: bool = False,
-        run_buffer_limit: int = 4096,
     ) -> Iterator[list[int]]:
-        """Yield code sets for indices, preserving input order.
-
-        Non-decreasing runs are processed by a single forward scan over TI00.
-        When an index is smaller than the previous one, the scan is restarted
-        from the root.  If reuse_out is True, the yielded list object is reused
-        across results and must be consumed before the next iteration step.
-        run_buffer_limit bounds the temporary sorted-run index buffer.  Set it
-        to 0 or a negative value to process a whole non-decreasing run at once.
-        """
-        run: list[int] = []
+        """Yield one non-decreasing batch from the current TI00 session."""
+        self._begin_operation()
         previous: int | None = None
         for index in indices:
             if not 0 <= index < self.record_count:
                 raise IndexError("TI00 index out of range")
             if previous is not None and index < previous:
-                yield from self._iter_sorted_code_sets(run, reuse_out)
-                run.clear()
-            run.append(index)
-            if run_buffer_limit > 0 and len(run) >= run_buffer_limit:
-                yield from self._iter_sorted_code_sets(run, reuse_out)
-                run.clear()
+                raise ValueError("TI00 batch indices must be non-decreasing")
             previous = index
-        if run:
-            yield from self._iter_sorted_code_sets(run, reuse_out)
+        if indices:
+            yield from self._iter_sorted_code_sets(indices, reuse_out)
+
+    def _begin_operation(self) -> None:
+        if self._used:
+            raise RuntimeError("HierarchicalIndexChunkReader supports one operation")
+        self._used = True
 
     def _read_prefixes_by_count(
         self,
-        reader: BytesBufferReader,
+        reader: ABytesReader,
         depth: int,
         prefix_count: int,
         target: int,
@@ -120,7 +116,7 @@ class HierarchicalIndexChunkReader:
 
     def _read_children_by_leaf_count(
         self,
-        reader: BytesBufferReader,
+        reader: ABytesReader,
         depth: int,
         leaf_count: int,
         target: int,
@@ -150,7 +146,7 @@ class HierarchicalIndexChunkReader:
 
     def _read_leaf_blocks_by_count(
         self,
-        reader: BytesBufferReader,
+        reader: ABytesReader,
         block_count: int,
         target: int,
         out: list[int],
@@ -167,7 +163,7 @@ class HierarchicalIndexChunkReader:
 
     def _read_leaf_blocks_by_leaf_count(
         self,
-        reader: BytesBufferReader,
+        reader: ABytesReader,
         leaf_count: int,
         target: int,
         out: list[int],
@@ -185,7 +181,7 @@ class HierarchicalIndexChunkReader:
 
     def _skip_payload(
         self,
-        reader: BytesBufferReader,
+        reader: ABytesReader,
         depth: int,
         leaf_count: int,
         payload_bits: int,
@@ -197,7 +193,7 @@ class HierarchicalIndexChunkReader:
 
     def _skip_children_by_leaf_count(
         self,
-        reader: BytesBufferReader,
+        reader: ABytesReader,
         depth: int,
         leaf_count: int,
     ) -> None:
@@ -217,15 +213,14 @@ class HierarchicalIndexChunkReader:
 
     def _iter_sorted_code_sets(
         self,
-        targets: list[int],
+        targets: Sequence[int],
         reuse_out: bool,
     ) -> Iterator[list[int]]:
         cursor = _TargetCursor(targets)
         out = [0] * self.max_depth
-        reader = BytesBufferReader(self.data, offset=self.index_stream_start)
         if self.max_depth == 1:
             yield from self._iter_leaf_blocks_for_targets(
-                reader,
+                self._reader,
                 self.record_count,
                 0,
                 cursor,
@@ -234,7 +229,7 @@ class HierarchicalIndexChunkReader:
             )
         else:
             yield from self._iter_prefixes_for_targets(
-                reader,
+                self._reader,
                 0,
                 self.root_count,
                 0,
@@ -245,7 +240,7 @@ class HierarchicalIndexChunkReader:
 
     def _iter_prefixes_for_targets(
         self,
-        reader: BytesBufferReader,
+        reader: ABytesReader,
         depth: int,
         prefix_count: int,
         base_index: int,
@@ -276,7 +271,7 @@ class HierarchicalIndexChunkReader:
 
     def _iter_children_for_targets(
         self,
-        reader: BytesBufferReader,
+        reader: ABytesReader,
         depth: int,
         leaf_count: int,
         base_index: int,
@@ -318,7 +313,7 @@ class HierarchicalIndexChunkReader:
 
     def _iter_leaf_blocks_for_targets(
         self,
-        reader: BytesBufferReader,
+        reader: ABytesReader,
         leaf_count: int,
         base_index: int,
         cursor: "_TargetCursor",
@@ -351,7 +346,7 @@ class HierarchicalIndexChunkReader:
 
 
 class _TargetCursor:
-    def __init__(self, targets: list[int]) -> None:
+    def __init__(self, targets: Sequence[int]) -> None:
         self.targets = targets
         self.pos = 0
 
@@ -364,7 +359,3 @@ class _TargetCursor:
 
     def advance(self) -> None:
         self.pos += 1
-
-
-def parse_mapped_ti00_data(src: bytes, offset: int, size: int) -> HierarchicalIndexChunkReader:
-    return HierarchicalIndexChunkReader.unpack(src, offset, size)

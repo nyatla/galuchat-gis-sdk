@@ -1,7 +1,8 @@
+from os import PathLike
 from typing import Optional
 
 from galuchat.chunk.gi01 import GaluchatImageDataChunk01Reader
-from galuchat.io import BytesBufferReader
+from galuchat.io import BytesReaderFactory, FileReaderFactory, ReaderFactory
 from galuchat.math.raster import IReadableRaster, RawRaster
 from galuchat.math.rect import GisRect
 
@@ -9,20 +10,43 @@ from ..wgsmap2 import WGSMapHeader
 
 
 class GaluchatWGSMap3Reader:
-    """WGSMap/3 + GI01をDOM化せずに読むReader。"""
+    """ReaderFactoryから独立したGI01復号セッションを作って読む。"""
 
-    def __init__(self, header: WGSMapHeader, reader: GaluchatImageDataChunk01Reader):
+    def __init__(
+        self,
+        header: WGSMapHeader,
+        reader_factory: ReaderFactory,
+        chunk_offset: int,
+    ):
         if header.data[:8] != WGSMapHeader.VERSION_3:
             raise ValueError("GaluchatWGSMap3Reader requires WGSMap/3 header")
         self.header = header
-        self.reader = reader
+        self._reader_factory = reader_factory
+        self._chunk_offset = chunk_offset
+        with reader_factory.create(chunk_offset) as reader:
+            chunk = GaluchatImageDataChunk01Reader(reader)
+            self._width = chunk.width
+            self._height = chunk.height
 
     @classmethod
-    def unpack(cls, src: bytes) -> "GaluchatWGSMap3Reader":
-        reader = BytesBufferReader(src)
-        header = WGSMapHeader.unpack(reader)
-        chunk_reader = GaluchatImageDataChunk01Reader(src, offset=reader.pos)
-        return cls(header, chunk_reader)
+    def fromBytes(cls, src: bytes) -> "GaluchatWGSMap3Reader":
+        reader_factory = BytesReaderFactory(src)
+        with reader_factory.create() as reader:
+            header = WGSMapHeader.unpack(reader)
+            chunk_offset = reader.pos
+        return cls(header, reader_factory, chunk_offset)
+
+    @classmethod
+    def fromFile(
+        cls,
+        path: str | PathLike[str],
+        buffer_size: int = 8192,
+    ) -> "GaluchatWGSMap3Reader":
+        reader_factory = FileReaderFactory(path, buffer_size=buffer_size)
+        with reader_factory.create() as reader:
+            header = WGSMapHeader.unpack(reader)
+            chunk_offset = reader.pos
+        return cls(header, reader_factory, chunk_offset)
 
     @property
     def unitInvX(self) -> int:
@@ -35,8 +59,12 @@ class GaluchatWGSMap3Reader:
     @property
     def area(self) -> GisRect[int]:
         h = self.header
-        r = self.reader
-        return GisRect[int].createWithNSEW(h.south + r.height, h.south, h.west + r.width, h.west)
+        return GisRect[int].createWithNSEW(
+            h.south + self._height,
+            h.south,
+            h.west + self._width,
+            h.west,
+        )
 
     @property
     def areaOfWgs(self) -> GisRect[float]:
@@ -49,9 +77,11 @@ class GaluchatWGSMap3Reader:
         )
 
     def readPoint(self, lx: int, ly: int) -> Optional[int]:
-        if not self.reader.isInside(lx, ly):
+        if not (0 <= lx < self._width and 0 <= ly < self._height):
             return None
-        return self.reader.readPoint(lx, ly)
+        with self._reader_factory.create(self._chunk_offset) as reader:
+            chunk = GaluchatImageDataChunk01Reader(reader)
+            return chunk.readPoint(lx, ly)
 
     def readWgsPoint(self, ilon: int, ilat: int) -> Optional[int]:
         h = self.header
@@ -66,13 +96,17 @@ class GaluchatWGSMap3Reader:
 
     def readRect(self, lx: int, ly: int, width: int, height: int) -> IReadableRaster:
         raster = RawRaster.createRaster(width, height)
-        self.reader.readRect(lx, ly, raster)
+        with self._reader_factory.create(self._chunk_offset) as reader:
+            GaluchatImageDataChunk01Reader(reader).readRect(lx, ly, raster)
         return raster
 
     def readWgsRect(self, target: GisRect[int]) -> IReadableRaster:
-        raster = RawRaster.createRaster(target.width, target.height)
-        self.reader.readRect(target.x - self.header.west, target.y - self.header.south, raster)
-        return raster
+        return self.readRect(
+            target.x - self.header.west,
+            target.y - self.header.south,
+            target.width,
+            target.height,
+        )
 
     def readWgsRectf(self, target: GisRect[float]) -> IReadableRaster:
         return self.readWgsRect(
@@ -85,5 +119,4 @@ class GaluchatWGSMap3Reader:
         )
 
     def toRaster(self) -> IReadableRaster:
-        raster = RawRaster.createRaster(self.reader.width, self.reader.height)
-        return self.reader.readRect(0, 0, raster)
+        return self.readRect(0, 0, self._width, self._height)

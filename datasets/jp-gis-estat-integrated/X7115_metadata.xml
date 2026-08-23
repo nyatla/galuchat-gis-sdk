@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<MD_Metadata
+    xmlns="http://zgate.gsi.go.jp/ch/jmp/"
+    xmlns:jmp20="http://zgate.gsi.go.jp/ch/jmp/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://zgate.gsi.go.jp/ch/jmp/
+        http://zgate.gsi.go.jp/ch/jmp/JMP20.xsd">
+
+  <!-- =========================================================
+       データセットそのものの情報
+       ========================================================= -->
+
+  <identificationInfo>
+    <MD_DataIdentification>
+
+      <citation>
+        <title>Galuchat GIS SDK GIS-ESTAT統合データ</title>
+
+        <date>
+          <date>2026-08-22</date>
+          <!-- 001 = 作成日 -->
+          <dateType>001</dateType>
+        </date>
+      </citation>
+
+      <abstract>
+        本データセットは、国土交通省「国土数値情報（行政区域）N03-20240101」と、総務省統計局「令和2年国勢調査 町丁・字等境界データ」を基に作成した地理空間データセットである。
+        e-Statの小地区境界を優先し、e-Statで未定義の陸域をN03の行政区域情報で補完して、Galuchat GIS SDKで利用可能な形式として格納した。
+        測量法に基づく承認の対象となる基礎測量成果は、国土地理院「数値地図（国土基本情報）電子国土基本図（地図情報）」である。
+        主として緯度経度から行政区域を求めるオフライン逆ジオコーディングに使用する。
+      </abstract>
+
+      <purpose>
+        Webブラウザ、組込み機器、モバイルアプリケーション等において、
+        外部GISサービス又は外部データベースに依存せず、
+        緯度経度から行政区域名称及び区域識別情報を取得するため。
+      </purpose>
+
+      <!-- 001 = completed -->
+      <status>001</status>
+
+      <!-- 002 = grid -->
+      <spatialRepresentationType>002</spatialRepresentationType>
+
+      <language>
+        <isoCode>jpn</isoCode>
+      </language>
+
+      <!-- 004 = UTF-8 -->
+      <characterSet>004</characterSet>
+
+      <!-- 003 = boundaries -->
+      <topicCategory>003</topicCategory>
+
+      <extent>
+        <geographicElement>
+          <EX_GeographicDescription>
+            <extentTypeCode>1</extentTypeCode>
+            <geographicIdentifier>
+              <code>日本全国</code>
+           </geographicIdentifier>
+          </EX_GeographicDescription>
+        </geographicElement>
+      </extent>
+    </MD_DataIdentification>
+  </identificationInfo>
+
+
+  <!-- =========================================================
+       品質情報・履歴
+       承認条件の「履歴の情報を含む」の中心部分
+       ========================================================= -->
+
+  <dataQualityInfo>
+    <DQ_DataQuality>
+
+      <scope>
+        <!-- 005 = dataset -->
+        <level>005</level>
+      </scope>
+
+      <lineage>
+        <LI_Lineage>
+          <statement>
+            本データセットは、国土交通省「国土数値情報（行政区域）N03-20240101」と、総務省統計局「令和2年国勢調査 町丁・字等境界データ」を直接入力資料として作成した。
+
+            N03の行政区域階層を親階層の基準とし、その配下へe-Statの小地区階層を対応付け、新しい統合GisWordBookを生成した。
+            N03とe-Statの内部識別コードは、それぞれの階層パスに基づいて、統合GisWordBookの新しい値空間へ再割り当てした。
+
+            両入力を同一解像度のラスタデータへ変換し、各画素についてe-Statの値が定義されている場合はe-Statを採用し、未定義の陸域ではN03の行政区域代表値を採用した。
+
+            合成したラスタデータに対して、特許第7870996号を基礎とする空間分割格納方式による符号化処理を行い、wgsmapset形式のデータとして格納した。
+
+            本データセットの位置及び区域判定の精度は、使用した基礎資料並びにラスタ化時の空間解像度に依存する。
+            特に行政区域境界付近では、元のベクトルデータによる境界と判定結果が完全には一致しない場合がある。
+
+            直接入力資料1：
+            国土交通省
+            「国土数値情報（行政区域）N03-20240101」
+            取得日：2024-03-29
+            基準年月：2024-01
+
+            直接入力資料2：
+            総務省統計局、政府統計の総合窓口（e-Stat）
+            「令和2年国勢調査 町丁・字等境界データ」
+            入力識別子：A002005212020
+            取得日：2025-06-07
+            基準年：2020
+
+            承認対象の基礎測量成果：
+            国土交通省国土地理院
+            「数値地図（国土基本情報）電子国土基本図（地図情報）」
+          </statement>
+        </LI_Lineage>
+      </lineage>
+
+    </DQ_DataQuality>
+  </dataQualityInfo>
+
+
+  <!-- =========================================================
+       配布情報
+       ========================================================= -->
+
+  <distributionInfo>
+    <MD_Distribution>
+
+      <distributionFormat>
+        <MD_Format>
+          <name>Galuchat wgsmapset</name>
+          <version>3</version>
+        </MD_Format>
+      </distributionFormat>
+
+    </MD_Distribution>
+  </distributionInfo>
+
+
+  <!-- =========================================================
+       空間参照系
+       ここは実データの仕様を確認して確定する
+       ========================================================= -->
+
+  <referenceSystemInfo>
+    <MD_ReferenceSystem>
+      <referenceSystemIdentifier>
+        <authority>
+          <title>測量法施行令（昭和24年政令第322号）</title>
+           <date>
+            <date>2011-10-21</date>
+            <dateType>003</dateType>
+          </date>
+        </authority>
+        <code>JGD2011 / (B,L)</code>
+      </referenceSystemIdentifier>
+    </MD_ReferenceSystem>
+  </referenceSystemInfo>
+
+  <!-- =========================================================
+       このメタデータXML自体の情報
+       ========================================================= -->
+
+  <fileIdentifier>
+    galuchat-jp-gis-estat-integrated-N03-20240101-R2KA-2020
+  </fileIdentifier>
+
+  <language>
+    <isoCode>jpn</isoCode>
+  </language>
+
+  <!-- 004 = UTF-8 -->
+  <characterSet>004</characterSet>
+
+  <!-- 005 = dataset -->
+  <hierarchyLevel>005</hierarchyLevel>
+
+  <contact>
+    <individualName>Ryo Iizuka</individualName>
+
+    <!-- 006 = originator / 創作者 -->
+    <role>006</role>
+  </contact>
+
+  <dateStamp>2026-08-22</dateStamp>
+
+  <metadataStandardName>JMP</metadataStandardName>
+  <metadataStandardVersion>2.0</metadataStandardVersion>
+
+</MD_Metadata>

@@ -1,5 +1,5 @@
 {
-  "datasetCommit": "31775b4da8537a2fc99bfe5c2198e84aefe039fe",
+  "datasetCommit": "098cb6c5cd0fdaa6d745e63d361ec7c55ae33bee",
   "files": {
     "maps": [
       {
@@ -52,7 +52,7 @@
     "imageChunk": "GI01",
     "wgsmapset": 3
   },
-  "generatedAt": "2026-08-17T13:15:09Z",
+  "generatedAt": "2026-08-22T23:15:25Z",
   "id": "world-geoboundaries-cgaz",
   "schemaVersion": 2,
   "sdkVersion": "0.1.0",

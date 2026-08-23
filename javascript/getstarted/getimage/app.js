@@ -1,4 +1,4 @@
-const MAPSET_URL = "../../../datasets/jp-admin-n03/N03-20240101-grid-4096-1000.remap.wgsmapset.glc";
+const MAPSET_URL = "../../../datasets/jp-admin-n03-2024/N03-20240101-grid-4096-1000.remap.wgsmapset.glc";
 const MAX_IMAGE_PIXELS = 2048 * 2048;
 
 const form = document.getElementById("render-form");

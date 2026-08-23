@@ -2,28 +2,33 @@
 
 English | [日本語](README.ja.md)
 
-The `datasets/` directory contains WGSMapSet/3 and GisWordBook/0 files shared by the JavaScript, Java, and Python implementations.
+The `datasets/` directory contains WGSMapSet/3 and GisWordBook/0 files shared by the JavaScript, Java, Python, and C++ implementations.
 
 Each dataset directory contains the following files:
 
 ```text
 manifest.json          Resolution, encoding, defaults, sizes, and SHA-256 hashes
 NOTICE.md              Sources, processing, and terms of use
+X7115_metadata.xml     JMP 2.0 lineage metadata, when supplied
 *.wgsmapset.glc        Map for reading region codes at points or within rectangles
 *.giswordbook          WordBook for resolving region codes to place-name hierarchies
 ```
 
 Always use a map and WordBook from the same dataset. Maps at different resolutions within a dataset share the same value-code system. WordBooks in different encodings also share the same content and place-name codes; the UTF-8 edition is the default.
 
+The three `jp-admin-n03` editions and `jp-gis-estat-integrated` include `X7115_metadata.xml`, which records their source materials and processing lineage in JMP 2.0 format.
+
 The current standard readers and Get Started examples use UTF-8. To use the Shift_JIS or UTF-16 edition, select a compatible reader and use the `tokenEncoding` recorded in the manifest.
 
 ## Included datasets
 
-The SDK includes four GIS datasets with different coverage and spatial granularity.
+The SDK includes six GIS dataset editions with different dates, coverage, and spatial granularity.
 
 | dataset id | Coverage | Primary use | Included resolutions (`unitInv`) |
 | --- | --- | --- | --- |
-| `jp-admin-n03` | Administrative areas of Japan | Identifying prefectures, municipalities, and designated-city wards | 100, 250, 1000, 2500, 10000 |
+| `jp-admin-n03-2024` | Administrative areas of Japan (2024) | Identifying prefectures, municipalities, and designated-city wards | 100, 250, 1000, 2500, 10000 |
+| `jp-admin-n03-2025` | Administrative areas of Japan (2025) | Same, using the 2025-01-01 boundaries | 100, 1000, 10000 |
+| `jp-admin-n03-2026` | Administrative areas of Japan (2026) | Same, using the 2026-01-01 boundaries | 100, 1000, 10000 |
 | `jp-estat-r2ka-2020` | Japanese town-block and small-area boundaries | Identifying town blocks and census small areas | 5000, 10000 |
 | `jp-gis-estat-integrated` | Integrated administrative and town-block boundaries | Reverse geocoding from administrative areas through small areas | 10000 |
 | `world-geoboundaries-cgaz` | Global administrative boundaries | Identifying countries and administrative areas worldwide | 100, 1000 |
@@ -55,14 +60,20 @@ Higher resolution represents boundaries and coastlines in greater detail, but al
 
 | dataset | unitInv | GLC size |
 | --- | ---: | ---: |
-| `jp-admin-n03` | 100 | approx. 52 KiB |
+| `jp-admin-n03-2024` | 100 | approx. 52 KiB |
 |  | 250 | approx. 123 KiB |
 |  | 1000 | approx. 479 KiB |
 |  | 2500 | approx. 1.17 MiB |
 |  | 10000 | approx. 4.48 MiB |
+| `jp-admin-n03-2025` | 100 | approx. 52 KiB |
+|  | 1000 | approx. 479 KiB |
+|  | 10000 | approx. 4.48 MiB |
+| `jp-admin-n03-2026` | 100 | approx. 52 KiB |
+|  | 1000 | approx. 479 KiB |
+|  | 10000 | approx. 4.47 MiB |
 | `jp-estat-r2ka-2020` | 5000 | approx. 12.94 MiB |
 |  | 10000 | approx. 22.70 MiB |
-| `jp-gis-estat-integrated` | 10000 | approx. 24.16 MiB |
+| `jp-gis-estat-integrated` | 10000 | approx. 24.07 MiB |
 | `world-geoboundaries-cgaz` | 100 | approx. 2.81 MiB |
 |  | 1000 | approx. 20.45 MiB |
 
@@ -70,7 +81,9 @@ To retrieve place-name hierarchies, use a GisWordBook from the same dataset in a
 
 | dataset | UTF-8 GisWordBook size |
 | --- | ---: |
-| `jp-admin-n03` | approx. 31 KiB |
+| `jp-admin-n03-2024` | approx. 31 KiB |
+| `jp-admin-n03-2025` | approx. 31 KiB |
+| `jp-admin-n03-2026` | approx. 31 KiB |
 | `jp-estat-r2ka-2020` | approx. 1.63 MiB |
 | `jp-gis-estat-integrated` | approx. 1.66 MiB |
 | `world-geoboundaries-cgaz` | approx. 561 KiB |
@@ -79,11 +92,11 @@ For most applications, one suitable GLC and one GisWordBook in the required enco
 
 These are approximate sizes of the files currently included. See each dataset's `manifest.json` for exact byte counts, default selections, and SHA-256 hashes. File sizes indicate distribution and storage requirements; they do not represent runtime memory usage by a reader or application.
 
-## Japanese administrative areas (`jp-admin-n03`)
+## Japanese administrative-area editions
 
 This dataset is based on the Japanese Ministry of Land, Infrastructure, Transport and Tourism's National Land Numerical Information Administrative Area Data N03.
 
-It identifies prefectures, municipalities, counties, and designated-city wards. Five resolutions are included, supporting uses ranging from wide-area visualization to detailed identification near municipal boundaries.
+It identifies prefectures, municipalities, counties, and designated-city wards. The `jp-admin-n03-2024` dataset contains the 2024-01-01 edition at five resolutions. The `jp-admin-n03-2025` and `jp-admin-n03-2026` datasets contain their respective January 1 editions at `unitInv=100`, `1000`, and `10000`.
 
 <table>
   <tr>
@@ -110,7 +123,7 @@ It identifies prefectures, municipalities, counties, and designated-city wards. 
 
 `unitInv=100` provides a broad view of Japan, `unitInv=1000` shows the Tokyo Bay area, and `unitInv=10000` reveals finer administrative-area shapes around ports and coastlines.
 
-See the [jp-admin-n03 NOTICE](jp-admin-n03/NOTICE.md) for sources and terms of use.
+The images above render the 2024 edition. See the notices for [2024](jp-admin-n03-2024/NOTICE.md), [2025](jp-admin-n03-2025/NOTICE.md), and [2026](jp-admin-n03-2026/NOTICE.md) for sources and terms of use.
 
 ## e-Stat town-block and small-area boundaries (`jp-estat-r2ka-2020`)
 

@@ -25,8 +25,8 @@ python3 -m http.server 8000
   const load = async (url) =>
     new Uint8Array(await (await fetch(url)).arrayBuffer());
   const [mapBytes, wordbookBytes] = await Promise.all([
-    load("../../datasets/jp-admin-n03/N03-20240101-grid-4096-1000.remap.wgsmapset.glc"),
-    load("../../datasets/jp-admin-n03/N03-20240101.giswordbook"),
+    load("../../datasets/jp-admin-n03-2024/N03-20240101-grid-4096-1000.remap.wgsmapset.glc"),
+    load("../../datasets/jp-admin-n03-2024/N03-20240101.giswordbook"),
   ]);
 
   const map = Galuchat.GaluchatWGSMapSet3Reader.fromUint8Array(mapBytes);

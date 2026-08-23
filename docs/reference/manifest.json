@@ -1,6 +1,6 @@
 {
-  "coreCommit": "7b0bbcedb18cd1c55f66d42523f8f4d4e8b6888d",
-  "coreVersion": "0.4.1",
+  "coreCommit": "1f06916ac88f7efc0a6836962ef595a8bee74ef6",
+  "coreVersion": "0.5.0",
   "files": [
     {
       "path": "docs/reference/GI01-CellHeader仕様.md",
@@ -19,8 +19,8 @@
     },
     {
       "path": "docs/reference/GI01-Reader.md",
-      "sha256": "daad09f0a76ef493229db8e2ab8da8748283111e44d748c10b11a28b37e9c3c5",
-      "size": 8294
+      "sha256": "ffae317e7526f353122c533a2d86da0d5f24fadbf43080f4ae35e2891e061200",
+      "size": 11455
     },
     {
       "path": "docs/reference/GI01-RleDataNode-ShortValueEncoding仕様.md",
@@ -163,7 +163,7 @@
       "size": 952
     }
   ],
-  "generatedAt": "2026-08-17T13:15:01Z",
+  "generatedAt": "2026-08-22T11:12:23Z",
   "index": "docs/reference/README.md",
   "schemaVersion": 1,
   "sdkVersion": "0.1.0",

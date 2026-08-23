@@ -23,7 +23,7 @@ public final class RenderFunabashi {
     public static void main(String[] args) throws Exception {
         Path mapsetPath = ExamplePaths.input(args, 0, MAPSET);
         Path output = args.length > 1 ? Path.of(args[1]) : Path.of("funabashi-vga.png");
-        GaluchatWGSMapSet3Reader mapset = GaluchatWGSMapSet3Reader.unpack(
+        GaluchatWGSMapSet3Reader mapset = GaluchatWGSMapSet3Reader.fromBytes(
             Files.readAllBytes(mapsetPath));
 
         int centerX = (int) Math.round(FUNABASHI_LON * mapset.getUnitInvX());

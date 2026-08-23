@@ -1,12 +1,10 @@
-from .GaluchatWordBookDom import (
-    GaluchatWordBookDom,
-    GaluchatWordBookReader,
-)
+from .GaluchatWordBookDom import GaluchatWordBookDom
+from .GaluchatWordBookReader import GaluchatWordBookReader
 from .GaluchatGisWordBookDom import (
     GaluchatGisWordBookDom,
-    GaluchatGisWordBookReader,
     paths_from_address_component_tree,
 )
+from .GaluchatGisWordBookReader import GaluchatGisWordBookReader
 from ..chunk.GisWordBookHeaderChunk import GisWordBookHeaderChunk
 from ..chunk.GisWordBookHeaderChunkReader import GisWordBookHeaderChunkReader
 from ..chunk.HierarchicalIndexChunk import HierarchicalIndexChunk

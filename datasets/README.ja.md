@@ -2,28 +2,33 @@
 
 [English](README.md) | 日本語
 
-`datasets/`には、JavaScript・Java・Pythonで共通利用するWGSMapSet/3とGisWordBook/0を収録します。
+`datasets/`には、JavaScript・Java・Python・C++で共通利用するWGSMapSet/3とGisWordBook/0を収録します。
 
 各datasetディレクトリには次のファイルがあります。
 
 ```text
 manifest.json          解像度、文字コード、default、サイズ、SHA-256
 NOTICE.md              出典、加工内容、利用条件
+X7115_metadata.xml     JMP 2.0形式の履歴メタデータ（該当dataset）
 *.wgsmapset.glc        地点・矩形から地域コードを読むmap
 *.giswordbook          地域コードから地名階層を読むWordBook
 ```
 
 mapとWordBookは必ず同じdatasetの組み合わせで使用してください。複数解像度のmapは同じ値コード体系を共有します。文字コード別WordBookも内容と地名コードは共通で、UTF-8版をdefaultとします。
 
+3年度の`jp-admin-n03`と`jp-gis-estat-integrated`には、原資料と加工履歴を記録したJMP 2.0形式の`X7115_metadata.xml`を収録します。
+
 現在の標準ReaderとGet StartedはUTF-8版を使用します。Shift_JIS版とUTF-16版は、対応するReaderでmanifestの`tokenEncoding`を指定して利用します。
 
 ## 収録データセット
 
-SDKには、用途と空間粒度の異なる4種類のGISデータセットを収録しています。
+SDKには、基準日・用途・空間粒度の異なる6つのGISデータセット版を収録しています。
 
 | dataset id | 対象 | 主な用途 | 収録解像度（unitInv） |
 | --- | --- | --- | --- |
-| `jp-admin-n03` | 日本の行政区域 | 都道府県、市区町村、政令市区の判定 | 100、250、1000、2500、10000 |
+| `jp-admin-n03-2024` | 日本の行政区域（2024年） | 都道府県、市区町村、政令市区の判定 | 100、250、1000、2500、10000 |
+| `jp-admin-n03-2025` | 日本の行政区域（2025年） | 2025年1月1日時点の行政区域判定 | 100、1000、10000 |
+| `jp-admin-n03-2026` | 日本の行政区域（2026年） | 2026年1月1日時点の行政区域判定 | 100、1000、10000 |
 | `jp-estat-r2ka-2020` | 日本の町丁・字等境界 | 町丁、小地区レベルの判定 | 5000、10000 |
 | `jp-gis-estat-integrated` | 行政区域と町丁・字等境界の統合 | 行政区域から小地区までの一体的な逆ジオコーディング | 10000 |
 | `world-geoboundaries-cgaz` | 世界の行政境界 | 世界規模の国・行政区域判定 | 100、1000 |
@@ -55,14 +60,20 @@ GLCの1画素を画像の1画素へ対応させ、拡大・縮小は行ってい
 
 | dataset | unitInv | GLCサイズ |
 | --- | ---: | ---: |
-| `jp-admin-n03` | 100 | 約52 KiB |
+| `jp-admin-n03-2024` | 100 | 約52 KiB |
 |  | 250 | 約123 KiB |
 |  | 1000 | 約479 KiB |
 |  | 2500 | 約1.17 MiB |
 |  | 10000 | 約4.48 MiB |
+| `jp-admin-n03-2025` | 100 | 約52 KiB |
+|  | 1000 | 約479 KiB |
+|  | 10000 | 約4.48 MiB |
+| `jp-admin-n03-2026` | 100 | 約52 KiB |
+|  | 1000 | 約479 KiB |
+|  | 10000 | 約4.47 MiB |
 | `jp-estat-r2ka-2020` | 5000 | 約12.94 MiB |
 |  | 10000 | 約22.70 MiB |
-| `jp-gis-estat-integrated` | 10000 | 約24.16 MiB |
+| `jp-gis-estat-integrated` | 10000 | 約24.07 MiB |
 | `world-geoboundaries-cgaz` | 100 | 約2.81 MiB |
 |  | 1000 | 約20.45 MiB |
 
@@ -70,7 +81,9 @@ GLCの1画素を画像の1画素へ対応させ、拡大・縮小は行ってい
 
 | dataset | UTF-8 GisWordBookサイズ |
 | --- | ---: |
-| `jp-admin-n03` | 約31 KiB |
+| `jp-admin-n03-2024` | 約31 KiB |
+| `jp-admin-n03-2025` | 約31 KiB |
+| `jp-admin-n03-2026` | 約31 KiB |
 | `jp-estat-r2ka-2020` | 約1.63 MiB |
 | `jp-gis-estat-integrated` | 約1.66 MiB |
 | `world-geoboundaries-cgaz` | 約561 KiB |
@@ -79,11 +92,11 @@ GLCの1画素を画像の1画素へ対応させ、拡大・縮小は行ってい
 
 上記は現在収録しているファイルの概算サイズです。正確なbyte数、default指定、SHA-256は各datasetの`manifest.json`を参照してください。ファイルサイズは配布・保存容量の目安であり、Readerや利用環境の実行時メモリ使用量を表すものではありません。
 
-## 日本行政区域（jp-admin-n03）
+## 日本行政区域（jp-admin-n03系）
 
 国土交通省「国土数値情報 行政区域データ N03」を基にしたデータセットです。
 
-都道府県、市区町村、郡、政令市区などの行政区域を判定できます。5段階の解像度を収録しているため、広域表示から市区町村境界付近の詳細な判定まで、用途に応じて選択できます。
+都道府県、市区町村、郡、政令市区などの行政区域を判定できます。`jp-admin-n03-2024`は2024年1月1日版を5段階の解像度で収録します。`jp-admin-n03-2025`と`jp-admin-n03-2026`は各年1月1日版を`unitInv=100`、`1000`、`10000`で収録します。
 
 <table>
   <tr>
@@ -110,7 +123,7 @@ GLCの1画素を画像の1画素へ対応させ、拡大・縮小は行ってい
 
 `unitInv=100`は日本を広域に俯瞰でき、`unitInv=1000`では東京湾周辺、`unitInv=10000`では港湾部などの細かな行政区域形状を確認できます。
 
-出典と利用条件は[jp-admin-n03 NOTICE](jp-admin-n03/NOTICE.md)を確認してください。
+上の画像は2024年版の表示例です。出典と利用条件は、[2024年版](jp-admin-n03-2024/NOTICE.md)、[2025年版](jp-admin-n03-2025/NOTICE.md)、[2026年版](jp-admin-n03-2026/NOTICE.md)の各NOTICEを確認してください。
 
 ## e-Stat町丁・字等境界（jp-estat-r2ka-2020）
 

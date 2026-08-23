@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Iterable, Iterator
 
-from ...format.wgsmapset import GaluchatWGSMapSet3Reader
+from ...format.wgsmapset3 import GaluchatWGSMapSet3Reader
 from ...math.rect import GisRect
 from ...wordbook import GaluchatGisWordBookReader
 from .types import IRaster, LonLatPoint, LonLatRect, PixelPoint, PixelRect, RectAnchor
@@ -14,12 +14,11 @@ class WgsMapset3ReaderAdapter:
 
     @classmethod
     def fromBytes(cls, src: bytes) -> "WgsMapset3ReaderAdapter":
-        return cls(GaluchatWGSMapSet3Reader.unpack(src))
+        return cls(GaluchatWGSMapSet3Reader.fromBytes(src))
 
     @classmethod
     def fromFile(cls, path: str) -> "WgsMapset3ReaderAdapter":
-        with open(path, "rb") as fp:
-            return cls.fromBytes(fp.read())
+        return cls(GaluchatWGSMapSet3Reader.fromFile(path))
 
     @property
     def unitInvX(self) -> int:
@@ -121,12 +120,22 @@ class GisWordBookReaderAdapter:
 
     @classmethod
     def fromBytes(cls, src: bytes) -> "GisWordBookReaderAdapter":
-        return cls(GaluchatGisWordBookReader.unpack(src))
+        return cls(GaluchatGisWordBookReader.fromBytes(src))
 
     @classmethod
-    def fromFile(cls, path: str) -> "GisWordBookReaderAdapter":
-        with open(path, "rb") as fp:
-            return cls.fromBytes(fp.read())
+    def fromFile(
+        cls,
+        path: str,
+        buffer_size: int = 8192,
+        token_cache_size: int = 64,
+    ) -> "GisWordBookReaderAdapter":
+        return cls(
+            GaluchatGisWordBookReader.fromFile(
+                path,
+                buffer_size=buffer_size,
+                token_cache_size=token_cache_size,
+            )
+        )
 
     @property
     def recordCount(self) -> int:

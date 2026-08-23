@@ -14,6 +14,25 @@ class ABytesReader(ABC):
         self._nleft = 0
         self._cleft = 0  # キャッシュ
 
+    def close(self) -> None:
+        """Readerが所有するリソースを開放する。
+
+        メモリやiteratorを読むReaderでは何もしない。外部リソースを
+        所有する派生クラスはこれをoverrideする。
+        """
+
+    def __enter__(self) -> "ABytesReader":
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback) -> None:
+        self.close()
+
+    @property
+    @abstractmethod
+    def pos(self) -> int:
+        """Reader起点から論理的に消費したbyte数。"""
+        ...
+
     @classmethod
     def toBitWidth(cls, n: int) -> int:
         """n種類を表現できるビット幅を返します。"""

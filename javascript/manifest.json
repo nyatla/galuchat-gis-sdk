@@ -1,21 +1,21 @@
 {
-  "coreCommit": "7b0bbcedb18cd1c55f66d42523f8f4d4e8b6888d",
-  "coreVersion": "0.4.1",
+  "coreCommit": "1f06916ac88f7efc0a6836962ef595a8bee74ef6",
+  "coreVersion": "0.5.0",
   "files": [
     {
       "path": "javascript/galuchat.min.js",
-      "sha256": "d09ac502657378f020f14e944ebe454857f623fb81078c228eabac962cab1991",
-      "size": 73172
+      "sha256": "e0a0cdb91ac2a73e0e213238a36a31e50d062ddbe22bdce83b30b1dbb850328e",
+      "size": 73379
     },
     {
       "path": "javascript/galuchat.min.js.map",
-      "sha256": "6ecfbb677b0770dceff59659f58da59903bd6ee89c65fce2f162beefdab066a0",
-      "size": 256630
+      "sha256": "0d7433d4e463eeb30106af193d26895d8cc69b96c81ed8cc05c7906c7210cf3b",
+      "size": 255825
     },
     {
       "path": "javascript/getstarted/reverse-geocode/app.js",
-      "sha256": "b8727c98eeea1a43cc88350a01024a6f91667f1a2d777b725f5e74d74b8f734e",
-      "size": 2930
+      "sha256": "a3048abf3ac88ddac80a75e00db293bd4f38692123c92fc6337dda6de80ec6d0",
+      "size": 2940
     },
     {
       "path": "javascript/getstarted/reverse-geocode/index.html",
@@ -24,8 +24,8 @@
     },
     {
       "path": "javascript/getstarted/getimage/app.js",
-      "sha256": "f93d4eaa797b7eb8d693bc0e00d9a96e298787bdbcf49046783fc7cd135d89e0",
-      "size": 5438
+      "sha256": "252db48a307ba3e956880d99245846b042052d11d9b51b35e858833aed19321e",
+      "size": 5443
     },
     {
       "path": "javascript/getstarted/getimage/index.html",
@@ -34,8 +34,8 @@
     },
     {
       "path": "javascript/getstarted/multizoom/app.js",
-      "sha256": "2dc3825ff6537213e103394f3171869f728a88ec84e654c4212cb989a496ed5e",
-      "size": 3858
+      "sha256": "313cfa39842695ea4f93368e1b317615a1d0255b0c2d3af14bbfe7d01c183c42",
+      "size": 3878
     },
     {
       "path": "javascript/getstarted/multizoom/index.html",
@@ -50,9 +50,9 @@
     "wgsmap": 3,
     "wgsmapset": 3
   },
-  "generatedAt": "2026-08-17T21:24:28Z",
+  "generatedAt": "2026-08-22T11:11:05Z",
   "globalName": "Galuchat",
-  "implementationVersion": "0.4.1",
+  "implementationVersion": "0.5.0",
   "layoutVersion": 2,
   "license": "Apache-2.0",
   "schemaVersion": 1,

@@ -4,15 +4,20 @@
 
 GI01 Readerは、GI01データをDOM構造へ展開せず、入力バイト列を先頭から逐次走査しながら必要な画素だけを復元するための参照実装である。
 
-主な想定環境は、GI01またはWGSMap/3のバイト列を組込機器のROMへ直接配置し、RAM上に大きな中間構造を作らずに読み出すケースである。
+主な想定環境は、GI01またはWGSMap/3をメモリ上のバイト列、組込機器のROM、またはファイルから読み、RAM上に大きな中間構造を作らずに復号するケースである。
 
 現在のGI01実装は、GI00におけるDOM形式に近く、ブロックをNode構造へ復元してからラスタへ展開する。
 Reader実装では、Node構造を作らず、必要範囲に関係しないノードやブロックを読み飛ばすことで、ワークメモリを数KB単位に抑えることを目標とする。
 
 ## 2. 基本方針
 
-Readerは、入力バイト列をランダムアクセス可能なROM上の配列として扱う。
-ただし、ノード単位では後方参照や索引表を作らず、対象ブロックへ到達するたびにチャンク先頭側から逐次読み直す方式を許容する。
+`GaluchatImageDataChunk01Reader`は、現在位置がGI01チャンク先頭にある`ABytesReader`を受け取り、前方向への逐次読み取りだけを行う。Reader内部ではseek、後方参照、入力Readerの再生成を行わない。
+
+1個の`GaluchatImageDataChunk01Reader`で実行できる復号処理は、`readPoint`または`readRect`のいずれか1回だけである。複数回呼び出す必要がある場合は、呼び出し側がGI01チャンク先頭から新しいReaderを生成する。
+
+WGSMap/3では`GaluchatWGSMap3Reader`が`ReaderFactory`を保持し、`readPoint`や`readRect`を呼ぶたびに独立した`ABytesReader`と`GaluchatImageDataChunk01Reader`を生成する。このため、WGSMap/3の公開Readerは反復読み取り可能だが、GI01 Reader自体は一回限りという責務分担になる。
+
+WGSMapSet/3でも公開読出しごとに`ABytesReader`を1個だけ生成するが、チャンクごとの索引は保持しない。同じReaderでGI01チャンクを格納順に確認し、各チャンクの復号または末尾への読み飛ばしを繰り返す。これにより、読出し時間との引き換えに、ワークメモリをMap数に依存させない。
 
 この方式は、対象ブロックの探索コストが増える一方で、次の利点を持つ。
 
@@ -24,27 +29,32 @@ Readerは、入力バイト列をランダムアクセス可能なROM上の配�
 
 ## 3. 対象API
 
-Readerは次のAPIを持つ。
+`GaluchatImageDataChunk01Reader`は次の復号APIを持つ。
 
 ```
 readPoint(x, y) -> int
-readRect(x, y, dest: IWritableRaster) -> IWritableRaster
-toRaster() -> Raster
+readRect(x, y, dest: IWritableRaster) -> None
 ```
 
 `readPoint`は1画素だけを復元する。
 `readRect`は指定位置から`dest`と同じサイズの矩形を復元し、`dest`へ直接書き込む。
-`toRaster`は全体を復元する補助APIであり、組込用途では必須ではない。
+同じインスタンスに対して両方を呼び出したり、同じメソッドを複数回呼び出したりすることはできない。
 
-## 4. クラス構成案
+`GaluchatWGSMap3Reader`はReaderを呼び出しごとに再生成するため、`readPoint`、`readRect`、`toRaster`を反復して利用できる。メモリ上のWGSMap/3は`fromBytes(bytes)`、ファイル上のWGSMap/3は`fromFile(path)`で生成する。
 
-実装は`src/galuchat/chunk/gi01/reader/`以下へ配置する。
+## 4. クラス構成
 
-想定クラスは次の通りである。
+主なクラスは次の通りである。
 
 | クラス | 役割 |
 |---|---|
-| `GaluchatImageDataChunk01Reader` | GI01チャンク全体のReader。サイズ、square_unit、ブロック開始offsetを保持する。 |
+| `ABytesReader` | 前方向の逐次読み取り、相対位置、closeの共通インターフェース。 |
+| `BytesBufferReader` | メモリ上のbytesを読むReader。生成時に起点offsetを指定できる。 |
+| `FileBytesBufferedReader` | ローカルファイルを固定長バッファで読み、前方skipをseekで処理するReader。 |
+| `ReaderFactory` | 指定offsetを起点とする独立した`ABytesReader`を生成する。 |
+| `GaluchatWGSMap3Reader` | ReaderFactoryを保持し、公開読出しのたびにGI01復号セッションを作る。 |
+| `GaluchatWGSMapSet3Reader` | チャンク索引を保持せず、公開読出しごとに1個のReaderでGI01列を逐次走査する。 |
+| `GaluchatImageDataChunk01Reader` | GI01チャンクのヘッダとブロック列を、受け取ったReaderから一回だけ逐次読み出す。 |
 | `BlockReader` | ブロック列を先頭から走査し、目的ブロックのNodeReaderを返す。 |
 | `NodeReader` | Node Readerの抽象基底。`readPixel`、`readRect`、`skipToEnd`を定義する。 |
 | `ContainerNodeReader` | ContainerNodeを逐次読みし、対象子以外をskipする。 |
@@ -68,7 +78,7 @@ ReaderはBlockHeaderから次を判定する。
 | `CC_RAWS` | BlockSizeを読み、不要ブロックはBlockSizeぶん読み飛ばす。必要ブロックはpayload範囲をReaderで読む。 |
 | `CC_LZSS` | BlockSizeを読み、必要ブロックのみLZSSを逐次展開しながら読む。不要ブロックは圧縮payloadを読み飛ばす。 |
 
-`CC_RAWS`と`CC_LZSS`はBlockSizeを持つため、不要ブロックのskipはO(1)に近い。
+`CC_RAWS`と`CC_LZSS`はBlockSizeを持つため、不要ブロックはNode構造や圧縮payloadを復号せずに読み飛ばせる。メモリReaderでは位置だけを進め、ローカルファイルReaderではseekできる。
 `CC_RAW`はBlockSizeを持たないため、ノード構造を逐次読んで末尾までskipする。
 
 ## 6. パレット状態
@@ -137,8 +147,13 @@ RLEラン長列全体、パレットインデックス列全体、Nodeツリー�
 
 ## 11. 制約と注意点
 
-Readerは低メモリを優先するため、同じ矩形を複数ブロックから読む場合、ブロック列を先頭から再走査する可能性がある。
-これはCPU時間と引き換えにRAM使用量を削減する設計である。
+GI01 Readerは一回限りであり、復号開始後に同じReaderをチャンク先頭へ戻すことはできない。反復読み取りは、WGSMap/3 ReaderがReaderFactoryから新しいReaderを生成することで実現する。
+
+各復号セッションはGI01チャンク先頭から対象位置まで逐次走査する。このため、単一画素の反復読み取りでは呼び出しごとにReader生成と先行ブロックの走査が発生する。一方、ReaderやNodeツリーを長期間保持せず、入力サイズに比例するメモリ消費を避けられる。
+
+Readerの所有期間は各公開読出し関数内で閉じ、処理の正常終了・異常終了にかかわらず`close`する。メモリReaderの`close`は何も行わず、ファイルReaderでは所有するファイルを閉じる。
+
+WGSMapSet/3はチャンクoffsetや領域の配列をキャッシュしない。単一点では非0値が見つかるまで、矩形では合成順序を保つため最後まで、GI01列を先頭から確認する。メモリReaderのチャンクskipは位置更新だけであるが、前方向ファイルReaderでは対象byteの読み捨てが発生する。
 
 GI01のBlockSizeを利用できる`CC_RAWS`と`CC_LZSS`では、不要ブロックのskipは高速である。
 一方、`CC_RAW`はBlockSizeを持たないため、ノード構造を読みながらskipする必要がある。
@@ -146,15 +161,13 @@ GI01のBlockSizeを利用できる`CC_RAWS`と`CC_LZSS`では、不要ブロッ�
 ReaderはDOM実装と同じ復元結果を返さなければならない。
 ただし、内部でNodeクラスを生成する必要はない。
 
-## 12. 実装順序
+## 12. 検証方針
 
-実装は次の順序で進める。
+Readerの変更では次を確認する。
 
-1. `reader/`ディレクトリとReader基底クラスを作成する。
-2. `BlockReader`で`CC_RAW`、`CC_RAWS`、`CC_LZSS`のブロック走査を実装する。
-3. `ContainerNodeReader.skipToEnd`を実装する。
-4. `RawNodeReader.skipToEnd`と`readRect`を実装する。
-5. `RleNodeReader.skipToEnd`を実装する。
-6. `readPoint`を実装する。
-7. `readRect`を実装する。
-8. DOM実装の`toRaster`結果と比較するテストを追加する。
+1. `CC_RAW`、`CC_RAWS`、`CC_LZSS`の復元結果がメモリReaderとファイルReaderで一致すること。
+2. 同じ`GaluchatWGSMap3Reader`から`readPoint`と`readRect`を反復して呼び出せること。
+3. 同じ`GaluchatImageDataChunk01Reader`で2回目の復号を試みると失敗すること。
+4. ファイルReaderが正常時と例外時のどちらでもcloseされること。
+5. DOM実装の`toRaster`結果と一致すること。
+6. WGSMapSet/3の点・矩形読出しがチャンク索引なしの逐次走査で同じ合成結果を返すこと。

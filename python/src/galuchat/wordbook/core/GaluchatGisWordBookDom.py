@@ -1,17 +1,15 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Iterable, Iterator, Sequence
+from typing import Iterable, Sequence
 
 from ...chunk import Chunk
 from ...io import BytesBufferReader, BytesWriter
-from ..chunk.common import read_mapped_chunk
 from ..chunk.GisWordBookHeaderChunk import (
     GisWordBookHeaderChunk,
     parse_gw00_data,
     write_gw00_data,
 )
-from ..chunk.GisWordBookHeaderChunkReader import parse_mapped_gw00_data
 from ..chunk.HierarchicalIndexChunk import (
     HierarchicalIndexChunk,
     build_hierarchical_index,
@@ -19,14 +17,8 @@ from ..chunk.HierarchicalIndexChunk import (
     required_code_bits,
     write_ti00_data,
 )
-from ..chunk.HierarchicalIndexChunkReader import parse_mapped_ti00_data
 from ..chunk.TextTableChunk import TextTableChunk, parse_tt00_data, write_tt00_data
-from ..chunk.TextTableChunkReader import (
-    decode_mapped_page_record_with_token_getter,
-    parse_mapped_tt00_data,
-)
 from ..chunk.TokenMapChunk import TokenMapChunk, parse_tm00_data, write_tm00_data
-from ..chunk.TokenMapChunkReader import parse_mapped_tm00_data
 from .constants import (
     DEFAULT_PAGE_SIZE,
     GISWORDBOOK_HEADER_CHUNK,
@@ -34,7 +26,7 @@ from .constants import (
     TEXT_TABLE_CHUNK,
     TOKEN_MAP_CHUNK,
 )
-from .WordBookModel import WordBookModel, normalize_text_token_encoding, required_token_bits
+from .WordBookModel import WordBookModel, required_token_bits
 from .WordBookOptimizer import TokenMergeRecord, WordBookOptimizer, grouped_page_order
 
 
@@ -151,17 +143,16 @@ class GaluchatGisWordBookDom:
             page_order_strategy=page_order_strategy,
         )
 
-    @classmethod
-    def pack(cls, src: "GaluchatGisWordBookDom") -> bytes:
+    def toBytes(self) -> bytes:
         writer = BytesWriter()
-        Chunk.pack(GISWORDBOOK_HEADER_CHUNK, write_gw00_data(src.header), writer)
-        Chunk.pack(TOKEN_MAP_CHUNK, write_tm00_data(src.token_map), writer)
-        Chunk.pack(TEXT_TABLE_CHUNK, write_tt00_data(src.text_table), writer)
-        Chunk.pack(HIERARCHICAL_INDEX_CHUNK, write_ti00_data(src.index), writer)
+        Chunk.pack(GISWORDBOOK_HEADER_CHUNK, write_gw00_data(self.header), writer)
+        Chunk.pack(TOKEN_MAP_CHUNK, write_tm00_data(self.token_map), writer)
+        Chunk.pack(TEXT_TABLE_CHUNK, write_tt00_data(self.text_table), writer)
+        Chunk.pack(HIERARCHICAL_INDEX_CHUNK, write_ti00_data(self.index), writer)
         return bytes(writer.buffer)
 
     @classmethod
-    def unpack(cls, src: bytes) -> "GaluchatGisWordBookDom":
+    def fromBytes(cls, src: bytes) -> "GaluchatGisWordBookDom":
         reader = BytesBufferReader(src)
         header_chunk = Chunk.unpack(reader)
         if header_chunk.name != GISWORDBOOK_HEADER_CHUNK:
@@ -184,121 +175,6 @@ class GaluchatGisWordBookDom:
         index = parse_ti00_data(index_chunk.data)
         _validate_relations(token_map, text_table, index)
         return cls(header=header, token_map=token_map, text_table=text_table, index=index)
-
-
-class GaluchatGisWordBookReader:
-    def __init__(self, header, token_map, text_table, index):
-        self._header = header
-        self._token_map = token_map
-        self._text_table = text_table
-        self._index = index
-        self._code_buffer = [0] * index.max_depth
-
-    @classmethod
-    def unpack(
-        cls,
-        src: bytes,
-        token_cache_size: int = 64,
-    ) -> "GaluchatGisWordBookReader":
-        reader = BytesBufferReader(src)
-        header_chunk = read_mapped_chunk(reader, len(src))
-        if header_chunk.name != GISWORDBOOK_HEADER_CHUNK:
-            raise ValueError("GisWordBook must start with GW00")
-        token_chunk = read_mapped_chunk(reader, len(src))
-        if token_chunk.name != TOKEN_MAP_CHUNK:
-            raise ValueError("GisWordBook must contain TM00 after GW00")
-        text_chunk = read_mapped_chunk(reader, len(src))
-        if text_chunk.name != TEXT_TABLE_CHUNK:
-            raise ValueError("GisWordBook must contain TT00 after TM00")
-        index_chunk = read_mapped_chunk(reader, len(src))
-        if index_chunk.name != HIERARCHICAL_INDEX_CHUNK:
-            raise ValueError("GisWordBook must contain TI00 after TT00")
-        if reader.pos != len(src):
-            raise ValueError("GisWordBook has trailing bytes")
-
-        header = parse_mapped_gw00_data(src, header_chunk.data_start, header_chunk.size)
-        token_map = parse_mapped_tm00_data(
-            src,
-            token_chunk.data_start,
-            token_chunk.size,
-            cache_size=token_cache_size,
-        )
-        text_table = parse_mapped_tt00_data(src, text_chunk.data_start, text_chunk.size)
-        index = parse_mapped_ti00_data(src, index_chunk.data_start, index_chunk.size)
-        if text_table.token_bits < required_token_bits(token_map.token_count):
-            raise ValueError("TT00 token_bits is smaller than TM00 token table requires")
-        if index.code_bits < required_code_bits(text_table.record_count):
-            raise ValueError("TI00 code_bits is smaller than TT00 text table requires")
-        return cls(header, token_map, text_table, index)
-
-    @property
-    def record_count(self) -> int:
-        return self._index.record_count
-
-    @property
-    def depth(self) -> int:
-        return self._index.max_depth
-
-    @property
-    def component_count(self) -> int:
-        return self._text_table.record_count
-
-    def recordCount(self) -> int:
-        return self.record_count
-
-    def readCodeSet(self, index: int, out: list[int] | None = None) -> list[int]:
-        return self._index.readCodeSet(index, out)
-
-    def iterCodeSetsFor(
-        self,
-        indices: Iterable[int],
-        reuse_out: bool = False,
-        run_buffer_limit: int = 4096,
-    ) -> Iterator[list[int]]:
-        return self._index.iterCodeSetsFor(
-            indices,
-            reuse_out=reuse_out,
-            run_buffer_limit=run_buffer_limit,
-        )
-
-    def readComponentBytes(self, code: int) -> bytes:
-        return _read_text_bytes(self._text_table, self._token_map, code)
-
-    def readComponent(self, code: int, encoding: str = "utf-8") -> str:
-        return self.readComponentBytes(code).decode(normalize_text_token_encoding(encoding))
-
-    def readStringSet(
-        self,
-        index: int,
-        out: list[str] | None = None,
-        encoding: str = "utf-8",
-    ) -> list[str]:
-        codes = self.readCodeSet(index, self._code_buffer)
-        if out is None:
-            out = []
-        else:
-            out.clear()
-        for code in codes:
-            out.append(self.readComponent(code, encoding=encoding))
-        return out
-
-    def iterStringSetsFor(
-        self,
-        indices: Iterable[int],
-        encoding: str = "utf-8",
-        reuse_out: bool = False,
-        run_buffer_limit: int = 4096,
-    ) -> Iterator[list[str]]:
-        out: list[str] = []
-        for codes in self.iterCodeSetsFor(
-            indices,
-            reuse_out=True,
-            run_buffer_limit=run_buffer_limit,
-        ):
-            out.clear()
-            for code in codes:
-                out.append(self.readComponent(code, encoding=encoding))
-            yield out if reuse_out else list(out)
 
 
 def paths_from_address_component_tree(data: Sequence, depth: int) -> tuple[tuple[str, ...], ...]:
@@ -359,23 +235,6 @@ def _build_text_table_from_model(model: WordBookModel, token_bits: int) -> TextT
     if not 1 <= token_bits <= 16:
         raise ValueError("token_bits must be in 1..16")
     return build_text_table(model.records, model.page_size, token_bits)
-
-
-def _read_text_bytes(text_table, token_map, code: int) -> bytes:
-    if not 0 <= code < text_table.record_count:
-        raise KeyError(code)
-    record_base = 0
-    for page in text_table.pages:
-        if code < record_base + page.page_record_count:
-            return decode_mapped_page_record_with_token_getter(
-                token_map.data,
-                page,
-                code - record_base,
-                text_table.token_bits,
-                token_map.get,
-            )
-        record_base += page.page_record_count
-    raise KeyError(code)
 
 
 def _validate_relations(

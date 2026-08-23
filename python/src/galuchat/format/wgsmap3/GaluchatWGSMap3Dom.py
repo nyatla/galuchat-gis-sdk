@@ -19,15 +19,14 @@ class GaluchatWGSMap3Dom:
     def toRaster(self):
         return self.chunk.toRaster()
 
-    @classmethod
-    def pack(cls, src: "GaluchatWGSMap3Dom") -> bytes:
+    def toBytes(self) -> bytes:
         writer = BytesWriter()
-        WGSMapHeader.pack(src.header, writer)
-        GaluchatImageDataChunk01.pack(src.chunk, writer)
+        WGSMapHeader.pack(self.header, writer)
+        GaluchatImageDataChunk01.pack(self.chunk, writer)
         return bytes(writer.buffer)
 
     @classmethod
-    def unpack(cls, src: bytes) -> "GaluchatWGSMap3Dom":
+    def fromBytes(cls, src: bytes) -> "GaluchatWGSMap3Dom":
         reader = BytesBufferReader(src)
         header = WGSMapHeader.unpack(reader)
         chunk = GaluchatImageDataChunk01.unpack(reader)

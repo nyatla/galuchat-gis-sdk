@@ -1,5 +1,5 @@
 {
-  "datasetCommit": "31775b4da8537a2fc99bfe5c2198e84aefe039fe",
+  "datasetCommit": "098cb6c5cd0fdaa6d745e63d361ec7c55ae33bee",
   "files": {
     "maps": [
       {
@@ -7,15 +7,20 @@
         "default": true,
         "id": "unit-inv-10000",
         "path": "datasets/jp-gis-estat-integrated/gis-estat-integrated-grid-8192-10000.wgsmapset.glc",
-        "sha256": "5f789aadf37d4771dc63550715b4c31aa2b88c270734bd8360589054aaef3198",
-        "size": 25330119,
+        "sha256": "7c10cc5bcbdecd665356aa7cdfcf0597463c6c114d911b3a5569ffd5c2315c3d",
+        "size": 25241887,
         "unitInv": 10000
       }
     ],
+    "metadata": {
+      "path": "datasets/jp-gis-estat-integrated/X7115_metadata.xml",
+      "sha256": "0b80634144c4fd28782b43819153443ac2a76574fa4baf8e727aa2759bd1bc9a",
+      "size": 6974
+    },
     "notice": {
       "path": "datasets/jp-gis-estat-integrated/NOTICE.md",
-      "sha256": "775f12f43f01f7ac371eb7af8d768afd46965f3558c1c290f14cdb3e914fddb1",
-      "size": 3859
+      "sha256": "0ab3998b8da31d1db2a07f674c66e886e4996b5fce0a5a1229a1963e9e115f07",
+      "size": 3565
     },
     "wordbooks": [
       {
@@ -52,7 +57,7 @@
     "imageChunk": "GI01",
     "wgsmapset": 3
   },
-  "generatedAt": "2026-08-17T13:15:08Z",
+  "generatedAt": "2026-08-22T23:15:23Z",
   "id": "jp-gis-estat-integrated",
   "schemaVersion": 2,
   "sdkVersion": "0.1.0",
