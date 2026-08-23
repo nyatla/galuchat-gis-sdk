@@ -16,12 +16,12 @@ javac --release 20 \
 ```bash
 java -cp java/galuchat-java-core.jar:work/java-getstarted \
   jp.nyatla.galuchat.getstarted.ReadMapSet \
-  datasets/jp-admin-n03/N03-20240101-grid-4096-1000.remap.wgsmapset.glc
+  datasets/jp-admin-n03-2024/N03-20240101-grid-4096-1000.remap.wgsmapset.glc
 
 java -cp java/galuchat-java-core.jar:work/java-getstarted \
   jp.nyatla.galuchat.getstarted.ReverseGeocode \
-  datasets/jp-admin-n03/N03-20240101-grid-4096-1000.remap.wgsmapset.glc \
-  datasets/jp-admin-n03/N03-20240101.giswordbook
+  datasets/jp-admin-n03-2024/N03-20240101-grid-4096-1000.remap.wgsmapset.glc \
+  datasets/jp-admin-n03-2024/N03-20240101.giswordbook
 ```
 
 ほかに `LookupAreaCode` と `RenderFunabashi` を収録しています。
@@ -40,9 +40,9 @@ import jp.nyatla.galuchatJava.wordbook.GaluchatGisWordBookReader;
 public class Main {
     public static void main(String[] args) throws Exception {
         var map = GaluchatWGSMapSet3Reader.unpack(Files.readAllBytes(Path.of(
-            "datasets/jp-admin-n03/N03-20240101-grid-4096-1000.remap.wgsmapset.glc")));
+            "datasets/jp-admin-n03-2024/N03-20240101-grid-4096-1000.remap.wgsmapset.glc")));
         var wordbook = GaluchatGisWordBookReader.fromFile(Path.of(
-            "datasets/jp-admin-n03/N03-20240101.giswordbook"));
+            "datasets/jp-admin-n03-2024/N03-20240101.giswordbook"));
 
         var code = map.readWgsPointf(139.7671, 35.6812);
         System.out.println("code: " + code);

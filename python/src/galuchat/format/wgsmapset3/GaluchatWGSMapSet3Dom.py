@@ -1,3 +1,5 @@
+"""WGSMapSet/3 DOM implementation."""
+
 from typing import List
 
 from ...chunk import Chunk
@@ -64,16 +66,15 @@ class GaluchatWGSMapSet3Dom:
         )
         return cls(header, [item.chunk for item in data])
 
-    @classmethod
-    def pack(cls, src: "GaluchatWGSMapSet3Dom") -> bytes:
+    def toBytes(self) -> bytes:
         writer = BytesWriter()
-        WGSMapSetHeader3.pack(src.header, writer)
-        for chunk in src.chunks:
+        WGSMapSetHeader3.pack(self.header, writer)
+        for chunk in self.chunks:
             GaluchatImageDataChunk01.pack(chunk, writer)
         return bytes(writer.buffer)
 
     @classmethod
-    def unpack(cls, src: bytes) -> "GaluchatWGSMapSet3Dom":
+    def fromBytes(cls, src: bytes) -> "GaluchatWGSMapSet3Dom":
         reader = BytesBufferReader(src)
         header = WGSMapSetHeader3.unpack(reader)
         if src[reader.pos:reader.pos + 4] == b"LAYO":

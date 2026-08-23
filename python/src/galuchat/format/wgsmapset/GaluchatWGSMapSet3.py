@@ -1,2 +1,0 @@
-from .GaluchatWGSMapSet3Dom import GaluchatWGSMapSet3Dom
-from .GaluchatWGSMapSet3Reader import GaluchatWGSMapSet3Reader

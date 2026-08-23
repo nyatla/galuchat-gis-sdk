@@ -46,7 +46,7 @@ The SDK focuses on reverse geocoding from longitude and latitude and provides th
 - Retrieve an administrative-area or small-area code from longitude and latitude.
 - Convert a region code into a place-name hierarchy such as prefecture, municipality, and town block.
 - Read a specified area as a raster.
-- Use the same GIS datasets from JavaScript, Java, and Python.
+- Use the same GIS datasets from JavaScript, Java, Python, and C++.
 - Keep both the data and readers locally.
 
 ## Get started
@@ -56,6 +56,7 @@ The SDK is a file set and does not require a package manager. Reference the impl
 - [JavaScript Get Started](javascript/getstarted/README.md)
 - [Java Get Started](java/getstarted/README.md)
 - [Python Get Started](python/getstarted/README.md)
+- [C++/Arduino Get Started](cpp/README.md)
 
 ## SDK layout
 
@@ -63,20 +64,23 @@ The SDK is a file set and does not require a package manager. Reference the impl
 javascript/                 Browser IIFE implementation and examples
 java/                       Dependency-free reader JAR and examples
 python/                     Python source and examples
-datasets/                   GIS data shared by all three languages
+cpp/                        C++17 readers, Arduino library, and examples
+datasets/                   GIS data shared by all four languages
 docs/image/                 Dataset rendering examples
 docs/reference/             Public APIs and current file-format specifications
 manifest.json               Compatibility set for implementations, formats, and datasets
 VERSION                     Version of the SDK itself
 ```
 
-JavaScript, Java, and Python are equal target environments. Language artifacts are not placed in version-numbered directories; the root `manifest.json` fixes the versions included in a particular SDK file set.
+JavaScript, Java, Python, and C++ are equal target environments. Language artifacts are not placed in version-numbered directories; the root `manifest.json` fixes the versions included in a particular SDK file set.
 
 ## Included datasets
 
 | dataset id | Description |
 | --- | --- |
-| `jp-admin-n03` | National Land Numerical Information administrative-area data |
+| `jp-admin-n03-2024` | 2024 National Land Numerical Information administrative-area data |
+| `jp-admin-n03-2025` | 2025 National Land Numerical Information administrative-area data |
+| `jp-admin-n03-2026` | 2026 National Land Numerical Information administrative-area data |
 | `jp-estat-r2ka-2020` | 2020 Population Census town-block and small-area boundary data |
 | `jp-gis-estat-integrated` | Integrated administrative-area and e-Stat small-area data |
 | `world-geoboundaries-cgaz` | geoBoundaries CGAZ global administrative boundaries |

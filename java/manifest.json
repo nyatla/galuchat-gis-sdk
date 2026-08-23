@@ -1,11 +1,11 @@
 {
-  "coreCommit": "7b0bbcedb18cd1c55f66d42523f8f4d4e8b6888d",
-  "coreVersion": "0.4.1",
+  "coreCommit": "1f06916ac88f7efc0a6836962ef595a8bee74ef6",
+  "coreVersion": "0.5.0",
   "files": [
     {
       "path": "java/galuchat-java-core.jar",
-      "sha256": "e8a77435de66b17b09e43764ac9e4f1f7f496647835103f23c19a7826262dd4f",
-      "size": 192074
+      "sha256": "e7c0c75817b75b0afe618c51d819017d85524abc1b753ecf2d94e69f98c5cc4c",
+      "size": 200716
     },
     {
       "path": "java/getstarted/src/main/java/jp/nyatla/galuchat/getstarted/ExamplePaths.java",
@@ -14,23 +14,23 @@
     },
     {
       "path": "java/getstarted/src/main/java/jp/nyatla/galuchat/getstarted/LookupAreaCode.java",
-      "sha256": "6a0ba848ac3e907ac60fdfd2770374a63085ce4746d4b30a675aeda9f881852f",
-      "size": 1214
+      "sha256": "5568c56dd30bd55862c0979b09429a636024d0279fcd39f93f50a1c054791e4e",
+      "size": 1217
     },
     {
       "path": "java/getstarted/src/main/java/jp/nyatla/galuchat/getstarted/ReadMapSet.java",
-      "sha256": "dcb34ac79ebdd7dc04a14991d20c3202d311e0e039383b43cbf8d3ff9908ce42",
-      "size": 997
+      "sha256": "10ff3bc3fbf945d028141d3b6337e5d0c2e3d873cc5e9ffab836abc35e024dcb",
+      "size": 1000
     },
     {
       "path": "java/getstarted/src/main/java/jp/nyatla/galuchat/getstarted/RenderFunabashi.java",
-      "sha256": "4546d38066ced36887ebd656772973ecf8f9c8fe3667b088c3f69b9db5144303",
-      "size": 1744
+      "sha256": "35e867b0f09c8edfd634dbef644edbe2b7ea6838c340d62c14cadbbf3db75da1",
+      "size": 1747
     },
     {
       "path": "java/getstarted/src/main/java/jp/nyatla/galuchat/getstarted/ReverseGeocode.java",
-      "sha256": "65581533bd060b0cb47314a956dfb33e7a281673df583d8c7141a70215a54f28",
-      "size": 2326
+      "sha256": "fc105f04135f72a099b7d9c5ae2f9e6e9721cff0a5f35bbf91cbd389ddf79919",
+      "size": 2363
     }
   ],
   "formats": {
@@ -40,8 +40,8 @@
     "wgsmap": 3,
     "wgsmapset": 3
   },
-  "generatedAt": "2026-08-17T13:14:41Z",
-  "implementationVersion": "0.4.1",
+  "generatedAt": "2026-08-22T11:11:50Z",
+  "implementationVersion": "0.5.0",
   "javaRelease": 20,
   "layoutVersion": 2,
   "license": "Apache-2.0",

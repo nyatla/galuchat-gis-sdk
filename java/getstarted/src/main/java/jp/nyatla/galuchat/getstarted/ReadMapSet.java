@@ -13,7 +13,7 @@ public final class ReadMapSet {
 
     public static void main(String[] args) throws Exception {
         Path mapsetPath = ExamplePaths.input(args, 0, MAPSET);
-        GaluchatWGSMapSet3Reader mapset = GaluchatWGSMapSet3Reader.unpack(
+        GaluchatWGSMapSet3Reader mapset = GaluchatWGSMapSet3Reader.fromBytes(
             Files.readAllBytes(mapsetPath));
         var bounds = mapset.getAreaOfWgs();
 

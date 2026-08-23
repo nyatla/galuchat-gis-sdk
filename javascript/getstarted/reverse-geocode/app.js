@@ -1,5 +1,5 @@
-const MAPSET_URL = "../../../datasets/jp-admin-n03/N03-20240101-grid-4096-1000.remap.wgsmapset.glc";
-const WORDBOOK_URL = "../../../datasets/jp-admin-n03/N03-20240101.giswordbook";
+const MAPSET_URL = "../../../datasets/jp-admin-n03-2024/N03-20240101-grid-4096-1000.remap.wgsmapset.glc";
+const WORDBOOK_URL = "../../../datasets/jp-admin-n03-2024/N03-20240101.giswordbook";
 
 const form = document.getElementById("query-form");
 const lonInput = document.getElementById("lon");

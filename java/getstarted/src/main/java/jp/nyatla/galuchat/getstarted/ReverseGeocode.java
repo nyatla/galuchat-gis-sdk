@@ -22,9 +22,10 @@ public final class ReverseGeocode {
     public static void main(String[] args) throws Exception {
         Path mapsetPath = ExamplePaths.input(args, 0, MAPSET);
         Path wordbookPath = ExamplePaths.input(args, 1, WORDBOOK);
-        GaluchatWGSMapSet3Reader mapset = GaluchatWGSMapSet3Reader.unpack(
+        GaluchatWGSMapSet3Reader mapset = GaluchatWGSMapSet3Reader.fromBytes(
             Files.readAllBytes(mapsetPath));
-        GaluchatGisWordBookReader wordbook = GaluchatGisWordBookReader.fromFile(wordbookPath);
+        GaluchatGisWordBookReader wordbook = GaluchatGisWordBookReader.fromBytes(
+            Files.readAllBytes(wordbookPath));
 
         System.out.printf(
             "mapset: unitInv=(%d, %d), maps=%d%n",

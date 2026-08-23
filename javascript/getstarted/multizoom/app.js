@@ -1,11 +1,11 @@
-const WORDBOOK_URL = "../../../datasets/jp-admin-n03/N03-20240101.giswordbook";
+const WORDBOOK_URL = "../../../datasets/jp-admin-n03-2024/N03-20240101.giswordbook";
 const DEFAULT_CENTER = Object.freeze({ lon: 140.0267, lat: 35.6810 });
 const OFFSCREEN_PADDING = 160;
 const RESOLVER_MAPSET_ID = "10000";
 const MAPSETS = Object.freeze({
-  "10000": "../../../datasets/jp-admin-n03/N03-20240101-grid-8192-10000.remap.wgsmapset.glc",
-  "1000": "../../../datasets/jp-admin-n03/N03-20240101-grid-4096-1000.remap.wgsmapset.glc",
-  "100": "../../../datasets/jp-admin-n03/N03-20240101-grid-512-100.remap.wgsmapset.glc",
+  "10000": "../../../datasets/jp-admin-n03-2024/N03-20240101-grid-8192-10000.remap.wgsmapset.glc",
+  "1000": "../../../datasets/jp-admin-n03-2024/N03-20240101-grid-4096-1000.remap.wgsmapset.glc",
+  "100": "../../../datasets/jp-admin-n03-2024/N03-20240101-grid-512-100.remap.wgsmapset.glc",
 });
 const ZOOM_LEVELS = Object.freeze([
   { id: "10000", mapset: "10000", scale: 1 },

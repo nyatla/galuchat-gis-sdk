@@ -353,9 +353,7 @@ class ContainerNodeReader(NodeReader):
 class BlockReader:
     """GI01ブロック列を先頭から逐次走査するReader。"""
 
-    def __init__(self, data: bytes, root_resolution: int, offset: int = 0):
-        reader = BytesBufferReader(data)
-        reader.skipInByte(offset)
+    def __init__(self, reader: ABytesReader, root_resolution: int):
         self._reader = reader
         self._resolution = root_resolution
         self._current: BlockNodeReader | None = None
@@ -468,10 +466,9 @@ class BlockNodeReader:
 
 
 class GaluchatImageDataChunk01Reader:
-    """GI01チャンクをDOM化せず、WGSMap/3のbytes上で逐次読み出すReader。"""
+    """GI01チャンクをDOM化せず一回だけ逐次読み出すReader。"""
 
-    def __init__(self, src: bytes, offset: int = 0):
-        reader = BytesBufferReader(src, offset=offset)
+    def __init__(self, reader: ABytesReader):
         if reader.readAsBytes(4) != CHUNK_NAME:
             raise RuntimeError("invalid GI01 chunk")
         size = reader.readMbUInt()
@@ -483,16 +480,27 @@ class GaluchatImageDataChunk01Reader:
         self.square_unit = square_unit
         self.hus = (width + square_unit - 1) // square_unit
         self.vus = (height + square_unit - 1) // square_unit
-        self._src = src
-        self._gblock_offset = offset + reader.pos
-        self._chunk_size = size + data_offset
-
-    @property
-    def chunk_size(self) -> int:
-        return self._chunk_size
+        self._reader = reader
+        self._chunk_end = data_offset + size
+        self._consumed = False
 
     def isInside(self, x: int, y: int) -> bool:
         return 0 <= x < self.width and 0 <= y < self.height
+
+    def skipToEnd(self) -> None:
+        """現在位置からこのGI01チャンクの末尾まで前進する。"""
+        self._reader.skipToByte()
+        remain = self._chunk_end - self._reader.pos
+        if remain < 0:
+            raise ValueError("GI01 reader exceeded chunk size")
+        self._reader.skipInByte(remain)
+        self._consumed = True
+
+    def _createBlockReader(self) -> BlockReader:
+        if self._consumed:
+            raise RuntimeError("GI01 reader has already been consumed")
+        self._consumed = True
+        return BlockReader(self._reader, self.square_unit)
 
     def readPoint(self, x: int, y: int) -> int:
         if not self.isInside(x, y):
@@ -501,7 +509,7 @@ class GaluchatImageDataChunk01Reader:
         ux = x // unit
         uy = y // unit
         block_index = ux + uy * self.hus
-        reader = BlockReader(self._src, self.square_unit, self._gblock_offset)
+        reader = self._createBlockReader()
         node_reader = reader.getNodeReader(block_index)
         return node_reader.readPixel(PalletMgr(16), x - ux * unit, y - uy * unit)
 
@@ -511,7 +519,7 @@ class GaluchatImageDataChunk01Reader:
 
     def readRect(self, x: int, y: int, dest: IWritableRaster):
         target_box = Rect[int](x, y, dest.width, dest.height)
-        block_reader = BlockReader(self._src, self.square_unit, self._gblock_offset)
+        block_reader = self._createBlockReader()
         for index in range(self.hus * self.vus):
             source_box = self.getAreaByBlockIndex(index)
             crossed = source_box.cross(target_box)

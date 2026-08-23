@@ -1,0 +1,131 @@
+{
+  "coreCommit": "701eda86ddefd6ae4934dd8cd57cc5105db0e19a",
+  "coreVersion": "0.5.0",
+  "cppStandard": 17,
+  "files": [
+    {
+      "path": "cpp/README.md",
+      "sha256": "8b235a7f96147796cad336306c1b8419ddb2252bd127c699b65433aa20917962",
+      "size": 3559
+    },
+    {
+      "path": "cpp/library.properties",
+      "sha256": "1576bbb8b0f7df8d205c32142b54ee973638b0bb3028340e6521ff8d6f433e83",
+      "size": 354
+    },
+    {
+      "path": "cpp/src/Galuchat.h",
+      "sha256": "a868ffc2188972c0e75232da8eb9588a56bfef4fdce808983eba4067a8e1db34",
+      "size": 97
+    },
+    {
+      "path": "cpp/src/galuchat/arduino_fs_reader.hpp",
+      "sha256": "842af0fe154f528136e601281ae3f93137505871897acaad69547680833c522b",
+      "size": 3737
+    },
+    {
+      "path": "cpp/src/galuchat/data/n03_20240101_100_mapset.hpp",
+      "sha256": "1628bf4245a505e69baaf484a7bb3c66491f8e57a9761607610973f4b8142e88",
+      "size": 141448
+    },
+    {
+      "path": "cpp/src/galuchat/data/n03_20240101_wordbook.hpp",
+      "sha256": "3fdeba34a1c8693e1ddd606ca497d41582753bd424f5b75e0cc83a2f60859b51",
+      "size": 82576
+    },
+    {
+      "path": "cpp/src/galuchat/gis_wordbook_reader.hpp",
+      "sha256": "6d7e27abacc33cf2ee7a459aafdaeb7fcc6f1137d310fef9399cd0bc622781ec",
+      "size": 26153
+    },
+    {
+      "path": "cpp/src/galuchat/wgsmap3_reader.hpp",
+      "sha256": "cee142f79d017015038ae36584ee7502b89e64e33c3abec0562760c02e36ec22",
+      "size": 61901
+    },
+    {
+      "path": "cpp/platform/gcc/README.md",
+      "sha256": "783a6c9486f7ff4150d4e8ecec5a40cae3978943b44ee650c9b9a4913e6ab964",
+      "size": 194
+    },
+    {
+      "path": "cpp/platform/gcc/reverse-geocoding/Makefile",
+      "sha256": "b885cde6130ccf7badbd39b8c15127c9a4bf7678466bfc65e63b289b7a9e3c82",
+      "size": 240
+    },
+    {
+      "path": "cpp/platform/gcc/reverse-geocoding/README.md",
+      "sha256": "e3c97cd31a492eb52403d336d2e16468864220aac95a96f4e895c4d4ca444ef9",
+      "size": 1763
+    },
+    {
+      "path": "cpp/platform/gcc/reverse-geocoding/main.cpp",
+      "sha256": "3c40d147cbc650693c09317f1b0a67c6c585c5a67ee4bc9d9423bf9b1147e875",
+      "size": 3904
+    },
+    {
+      "path": "cpp/platform/arduino/Makefile",
+      "sha256": "c31d1ec636862b577297207807f5058f7000b62c4d619cd5bd5ec4e4eae17ff8",
+      "size": 552
+    },
+    {
+      "path": "cpp/platform/arduino/README.md",
+      "sha256": "da2f2e65951a082ba2b8cd664f5b97a7e6aa0b1ac8c26bfc70cd5751a1f7dcad",
+      "size": 1065
+    },
+    {
+      "path": "cpp/platform/arduino/reverse-geocoding/README.md",
+      "sha256": "0244c4b14ff188813d6fe0478bdd055399ac3b5bfdda71c9f020b46155d1e4a7",
+      "size": 4225
+    },
+    {
+      "path": "cpp/platform/arduino/reverse-geocoding/galuchat_bridge.hpp",
+      "sha256": "e093292d94017faf6adbc0927c862dd25a7a6424d6f3db1243a8e64c00a11d19",
+      "size": 179
+    },
+    {
+      "path": "cpp/platform/arduino/reverse-geocoding/make_rom_header.py",
+      "sha256": "24308a88d500ec8327364bcff41145f5c528b508cbbdc4cacee3a1bac5316c63",
+      "size": 5575
+    },
+    {
+      "path": "cpp/platform/arduino/reverse-geocoding/reverse-geocoding.ino",
+      "sha256": "25e2fd122002fa92c52e2f896653cf3f76a787b80b3979e602a86be394b03cbd",
+      "size": 3339
+    },
+    {
+      "path": "cpp/platform/arduino/reverse-geocoding-file/README.md",
+      "sha256": "e28d57941512240b46024d19ef47060de1a57dad9469894e27b6b95c5cf8e44c",
+      "size": 2203
+    },
+    {
+      "path": "cpp/platform/arduino/reverse-geocoding-file/galuchat_bridge.hpp",
+      "sha256": "7dacc7c468d35f2d9480a67802955227f419b88ad931dd7a2725941cbf970950",
+      "size": 104
+    },
+    {
+      "path": "cpp/platform/arduino/reverse-geocoding-file/reverse-geocoding-file.ino",
+      "sha256": "8c57e8ef3d48e7ea22facbd0b602ba2cc4c1e706c6f687692a333ba99074826e",
+      "size": 3717
+    }
+  ],
+  "formats": {
+    "gisWordBook": 0,
+    "imageChunk": "GI01",
+    "publicApi": 2,
+    "wgsmap": 3,
+    "wgsmapset": 3
+  },
+  "generatedAt": "2026-08-23T05:05:55Z",
+  "implementationVersion": "0.5.0",
+  "layoutVersion": 2,
+  "license": "Apache-2.0",
+  "schemaVersion": 1,
+  "sdkVersion": "0.1.0",
+  "sourceDirty": true,
+  "targets": [
+    "gcc",
+    "arduino-esp32"
+  ],
+  "type": "galuchat-cpp"
+}

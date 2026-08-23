@@ -1,9 +1,9 @@
 from __future__ import annotations
 
 from collections import defaultdict, deque
-from typing import Callable
+from typing import Callable, Sequence
 
-from ...io import BytesBufferReader, BytesWriter
+from ...io import ABytesReader, BytesBufferReader, BytesWriter
 from ..core.constants import PALETTE_SIZE
 
 
@@ -173,7 +173,7 @@ def decode_record_stream_with_token_getter(
 
 
 def decode_record_stream_reader_with_token_getter(
-    reader: BytesBufferReader,
+    reader: ABytesReader,
     page_record_count: int,
     token_bits: int,
     token_getter: Callable[[int], bytes],
@@ -220,19 +220,29 @@ def decode_record_stream_reader_with_token_getter(
     return records
 
 
-def decode_record_stream_reader_target_with_token_getter(
-    reader: BytesBufferReader,
+def decode_record_stream_reader_targets_as_token_ids(
+    reader: ABytesReader,
     page_record_count: int,
-    target_record: int,
+    target_records: Sequence[int],
     token_bits: int,
-    token_getter: Callable[[int], bytes],
-) -> bytes:
-    if not 0 <= target_record < page_record_count:
-        raise IndexError("TT00 page record index out of range")
+) -> dict[int, tuple[int, ...]]:
+    """Decode sorted target records in one forward pass over a RecordStream."""
+    if not target_records:
+        return {}
+    previous = -1
+    for target in target_records:
+        if not 0 <= target < page_record_count:
+            raise IndexError("TT00 page record index out of range")
+        if target <= previous:
+            raise ValueError("TT00 target records must be strictly increasing")
+        previous = target
     packet_count = reader.readMbUInt()
     palette: list[int | None] = [None] * (PALETTE_SIZE + 1)
-    current = bytearray()
+    results: dict[int, tuple[int, ...]] = {}
+    current: list[int] = []
     record_index = 0
+    target_pos = 0
+    target_record = target_records[target_pos]
     for _ in range(packet_count):
         packet_type = reader.readBitsAsInt32(2)
         value_bit_size = reader.readMbUInt()
@@ -258,14 +268,18 @@ def decode_record_stream_reader_target_with_token_getter(
                 local_code = reader.readBitsAsInt32(4)
                 if local_code == 0:
                     if record_index == target_record:
-                        return bytes(current)
+                        results[target_record] = tuple(current)
+                        current.clear()
+                        target_pos += 1
+                        if target_pos == len(target_records):
+                            return results
+                        target_record = target_records[target_pos]
                     record_index += 1
-                    current.clear()
                 elif record_index == target_record:
                     token_id = palette[local_code]
                     if token_id is None:
                         raise ValueError("TT00 token payload references empty palette slot")
-                    current.extend(token_getter(token_id))
+                    current.append(token_id)
         else:
             reader.readAsBitBytes(value_bit_size)
     raise ValueError("TT00 target record terminator not found")
@@ -319,11 +333,11 @@ def decode_record_stream_as_token_ids(
     return records
 
 
-def bit_pos(reader: BytesBufferReader) -> int:
+def bit_pos(reader: ABytesReader) -> int:
     return reader.pos * 8 - reader.bitOffset
 
 
-def assert_consumed_bits(reader: BytesBufferReader, start_pos: int, expected_bits: int) -> None:
+def assert_consumed_bits(reader: ABytesReader, start_pos: int, expected_bits: int) -> None:
     consumed = bit_pos(reader) - start_pos
     if consumed != expected_bits:
         raise ValueError(f"TT00 packet size mismatch: {consumed} != {expected_bits}")

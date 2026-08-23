@@ -1,10 +1,10 @@
 {
-  "coreCommit": "7b0bbcedb18cd1c55f66d42523f8f4d4e8b6888d",
-  "coreVersion": "0.4.1",
+  "coreCommit": "701eda86ddefd6ae4934dd8cd57cc5105db0e19a",
+  "coreVersion": "0.5.0",
   "datasets": [
     {
-      "id": "jp-admin-n03",
-      "manifest": "datasets/jp-admin-n03/manifest.json",
+      "id": "jp-admin-n03-2024",
+      "manifest": "datasets/jp-admin-n03-2024/manifest.json",
       "maps": [
         {
           "default": false,
@@ -33,6 +33,90 @@
         }
       ],
       "version": "2024.01.01+galuchat.3",
+      "wordbooks": [
+        {
+          "default": true,
+          "id": "utf8",
+          "textEncoding": "utf8",
+          "tokenEncoding": "utf-8"
+        },
+        {
+          "default": false,
+          "id": "sjis",
+          "textEncoding": "sjis",
+          "tokenEncoding": "cp932"
+        },
+        {
+          "default": false,
+          "id": "utf16",
+          "textEncoding": "utf16",
+          "tokenEncoding": "utf-16-le"
+        }
+      ]
+    },
+    {
+      "id": "jp-admin-n03-2025",
+      "manifest": "datasets/jp-admin-n03-2025/manifest.json",
+      "maps": [
+        {
+          "default": false,
+          "id": "unit-inv-100",
+          "unitInv": 100
+        },
+        {
+          "default": true,
+          "id": "unit-inv-1000",
+          "unitInv": 1000
+        },
+        {
+          "default": false,
+          "id": "unit-inv-10000",
+          "unitInv": 10000
+        }
+      ],
+      "version": "2025.01.01+galuchat.1",
+      "wordbooks": [
+        {
+          "default": true,
+          "id": "utf8",
+          "textEncoding": "utf8",
+          "tokenEncoding": "utf-8"
+        },
+        {
+          "default": false,
+          "id": "sjis",
+          "textEncoding": "sjis",
+          "tokenEncoding": "cp932"
+        },
+        {
+          "default": false,
+          "id": "utf16",
+          "textEncoding": "utf16",
+          "tokenEncoding": "utf-16-le"
+        }
+      ]
+    },
+    {
+      "id": "jp-admin-n03-2026",
+      "manifest": "datasets/jp-admin-n03-2026/manifest.json",
+      "maps": [
+        {
+          "default": false,
+          "id": "unit-inv-100",
+          "unitInv": 100
+        },
+        {
+          "default": true,
+          "id": "unit-inv-1000",
+          "unitInv": 1000
+        },
+        {
+          "default": false,
+          "id": "unit-inv-10000",
+          "unitInv": 10000
+        }
+      ],
+      "version": "2026.01.01+galuchat.1",
       "wordbooks": [
         {
           "default": true,
@@ -166,7 +250,7 @@
     "wgsmap": 3,
     "wgsmapset": 3
   },
-  "generatedAt": "2026-08-17T21:24:31Z",
+  "generatedAt": "2026-08-23T05:05:59Z",
   "legal": {
     "commercialLicensing": {
       "path": "COMMERCIAL-LICENSING.md",
@@ -185,25 +269,30 @@
     },
     "thirdPartyNotices": {
       "path": "THIRD_PARTY_NOTICES.md",
-      "sha256": "7171154523ad7ec7a23172a79a65768a847664c2be3e266f73b2f3bf9c7a1150",
-      "size": 1200
+      "sha256": "2fb6decd45d40b671294e7eee4e47139d7a68b86ea0e88f565b356383e6b0237",
+      "size": 1414
     }
   },
   "license": "Apache-2.0",
   "packagingSpecDirty": true,
   "platforms": {
+    "cpp": {
+      "implementationVersion": "0.5.0",
+      "license": "Apache-2.0",
+      "manifest": "cpp/manifest.json"
+    },
     "java": {
-      "implementationVersion": "0.4.1",
+      "implementationVersion": "0.5.0",
       "license": "Apache-2.0",
       "manifest": "java/manifest.json"
     },
     "javascript": {
-      "implementationVersion": "0.4.1",
+      "implementationVersion": "0.5.0",
       "license": "Apache-2.0",
       "manifest": "javascript/manifest.json"
     },
     "python": {
-      "implementationVersion": "0.4.1",
+      "implementationVersion": "0.5.0",
       "license": "Apache-2.0",
       "manifest": "python/manifest.json"
     }

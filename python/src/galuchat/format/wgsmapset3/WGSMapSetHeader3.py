@@ -1,4 +1,6 @@
-from typing import List, Tuple
+"""WGSMapSet/3 header implementation."""
+
+from typing import Iterator, List, Tuple
 
 from ...chunk import Chunk
 from ...io import ABytesReader, ABytesWriter, BytesBufferReader, BytesWriter
@@ -27,9 +29,14 @@ class WGSMapSetHeader3(Chunk):
 
     @property
     def mapset(self) -> List[Tuple[int, int]]:
+        return list(self.iterMapset())
+
+    def iterMapset(self) -> Iterator[Tuple[int, int]]:
+        """Mapの原点座標をヘッダ内の順序で逐次返す。"""
         reader = BytesBufferReader(self.data)
         reader.skipInByte(self.tbl_offset)
-        return [(reader.readMbInt(), reader.readMbInt()) for _ in range(self.numofmap)]
+        for _ in range(self.numofmap):
+            yield reader.readMbInt(), reader.readMbInt()
 
     @classmethod
     def unpack(cls, src: ABytesReader) -> "WGSMapSetHeader3":

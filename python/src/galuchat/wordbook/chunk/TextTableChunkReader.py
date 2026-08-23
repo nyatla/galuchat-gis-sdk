@@ -1,96 +1,104 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Callable
+from collections.abc import Sequence
 
-from ...io import BytesBufferReader
-from .record_stream import decode_record_stream_reader_target_with_token_getter
-from .TextTableChunk import assert_pages_sorted
+from ...io import ABytesReader
+from .record_stream import decode_record_stream_reader_targets_as_token_ids
 
 
-@dataclass(frozen=True)
-class MappedTextTablePage:
-    record_token_count: int
-    page_record_count: int
-    record_stream_start: int
-    record_stream_size: int
-    page_header: int = 0
-
-
-@dataclass(frozen=True)
 class TextTableChunkReader:
-    record_count: int
-    page_size: int
-    page_count: int
-    token_bits: int
-    pages: tuple[MappedTextTablePage, ...]
+    """One-shot sequential reader for a TT00 chunk body."""
 
-    @classmethod
-    def unpack(cls, src: bytes, offset: int, size: int) -> "TextTableChunkReader":
-        reader = BytesBufferReader(src, offset=offset)
-        record_count = reader.readMbUInt()
-        page_size = reader.readMbUInt()
-        page_count = reader.readMbUInt()
-        token_bits = reader.readMbUInt()
-        if not 1 <= token_bits <= 16:
+    def __init__(self, reader: ABytesReader):
+        self._reader = reader
+        self.record_count = reader.readMbUInt()
+        reader.readMbUInt()  # pack時のページ分割単位。読出しには不要。
+        self.page_count = reader.readMbUInt()
+        self.token_bits = reader.readMbUInt()
+        if not 1 <= self.token_bits <= 16:
             raise ValueError("invalid TT00 token_bits")
-        pages = tuple(read_mapped_page(reader, offset) for _ in range(page_count))
-        if reader.pos != size:
-            raise ValueError("TT00 has trailing bytes")
-        if sum(page.page_record_count for page in pages) != record_count:
-            raise ValueError("TT00 record count mismatch")
-        assert_pages_sorted(pages)
-        return cls(
-            record_count=record_count,
-            page_size=page_size,
-            page_count=page_count,
-            token_bits=token_bits,
-            pages=pages,
-        )
+        self._used = False
 
+    def readTokenIds(self, code: int) -> tuple[int, ...]:
+        return self.readTokenIdSets((code,))[code]
 
-MappedTextTableChunk = TextTableChunkReader
+    def readTokenIdSets(self, codes: Sequence[int]) -> dict[int, tuple[int, ...]]:
+        """Read strictly increasing record codes in one forward pass."""
+        self._begin_operation()
+        if not codes:
+            return {}
+        previous = -1
+        for code in codes:
+            if not 0 <= code < self.record_count:
+                raise KeyError(code)
+            if code <= previous:
+                raise ValueError("TT00 record codes must be strictly increasing")
+            previous = code
 
+        results: dict[int, tuple[int, ...]] = {}
+        target_pos = 0
+        record_base = 0
+        previous_token_count = -1
+        for _ in range(self.page_count):
+            page_header = self._reader.readByte()
+            if page_header != 0:
+                raise ValueError("unsupported TT00 PageHeader")
+            record_token_count = self._reader.readMbUInt()
+            page_record_count = self._reader.readMbUInt()
+            record_stream_size = self._reader.readMbUInt()
+            self._validatePageHeader(
+                record_token_count,
+                page_record_count,
+                previous_token_count,
+            )
+            previous_token_count = record_token_count
+            page_end = record_base + page_record_count
+            page_target_start = target_pos
+            while target_pos < len(codes) and codes[target_pos] < page_end:
+                target_pos += 1
+            if page_target_start == target_pos:
+                self._reader.skipInByte(record_stream_size)
+                record_base = page_end
+                continue
 
-def parse_mapped_tt00_data(src: bytes, offset: int, size: int) -> TextTableChunkReader:
-    return TextTableChunkReader.unpack(src, offset, size)
+            local_targets = tuple(
+                code - record_base
+                for code in codes[page_target_start:target_pos]
+            )
+            stream_start = self._reader.pos
+            page_results = decode_record_stream_reader_targets_as_token_ids(
+                self._reader,
+                page_record_count,
+                local_targets,
+                self.token_bits,
+            )
+            if self._reader.pos - stream_start > record_stream_size:
+                raise ValueError("TT00 RecordStream overread")
+            for local_code, token_ids in page_results.items():
+                if len(token_ids) != record_token_count:
+                    raise ValueError("TT00 record token count mismatch")
+                results[record_base + local_code] = token_ids
+            if target_pos == len(codes):
+                return results
+            self._reader.skipBits(
+                record_stream_size * 8
+                - ((self._reader.pos - stream_start) * 8 - self._reader.bitOffset)
+            )
+            record_base = page_end
+        raise KeyError(codes[target_pos])
 
+    def _begin_operation(self) -> None:
+        if self._used:
+            raise RuntimeError("TextTableChunkReader supports one operation")
+        self._used = True
 
-def read_mapped_page(reader: BytesBufferReader, chunk_offset: int) -> MappedTextTablePage:
-    page_header = reader.readByte()
-    if page_header != 0:
-        raise ValueError("unsupported TT00 PageHeader")
-    record_token_count = reader.readMbUInt()
-    page_record_count = reader.readMbUInt()
-    record_stream_size = reader.readMbUInt()
-    record_stream_start = chunk_offset + reader.pos
-    reader.skipInByte(record_stream_size)
-    return MappedTextTablePage(
-        record_token_count=record_token_count,
-        page_record_count=page_record_count,
-        record_stream_start=record_stream_start,
-        record_stream_size=record_stream_size,
-        page_header=page_header,
-    )
-
-
-def decode_mapped_page_record_with_token_getter(
-    src: bytes,
-    page: MappedTextTablePage,
-    index_in_page: int,
-    token_bits: int,
-    token_getter: Callable[[int], bytes],
-) -> bytes:
-    if not 0 <= index_in_page < page.page_record_count:
-        raise IndexError("TT00 page record index out of range")
-    reader = BytesBufferReader(src, offset=page.record_stream_start)
-    result = decode_record_stream_reader_target_with_token_getter(
-        reader,
-        page.page_record_count,
-        index_in_page,
-        token_bits,
-        token_getter,
-    )
-    if reader.pos > page.record_stream_size:
-        raise ValueError("TT00 mapped RecordStream overread")
-    return result
+    @staticmethod
+    def _validatePageHeader(
+        record_token_count: int,
+        page_record_count: int,
+        previous_token_count: int,
+    ) -> None:
+        if record_token_count < previous_token_count:
+            raise ValueError("TT00 pages must be sorted by record_token_count")
+        if page_record_count == 0:
+            raise ValueError("TT00 page_record_count must be positive")

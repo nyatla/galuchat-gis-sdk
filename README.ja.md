@@ -46,7 +46,7 @@ GisWordBookは、コード番号から順序付きの地名階層を復元する
 - 経度・緯度（lon, lat）から行政区域や小地区のコードを取得する。
 - 地域コードを都道府県、市区町村、町丁などの地名階層へ変換する。
 - 指定範囲をラスタ画像として読み出す。
-- JavaScript・Java・Pythonで共通のGISデータを使用する。
+- JavaScript・Java・Python・C++で共通のGISデータを使用する。
 - データとReaderをローカルに配置して利用する。
 
 ## はじめる
@@ -56,6 +56,7 @@ SDKはパッケージマネージャを前提としないファイルセット�
 - [JavaScript Get Started](javascript/getstarted/README.md)
 - [Java Get Started](java/getstarted/README.md)
 - [Python Get Started](python/getstarted/README.md)
+- [C++/Arduino Get Started](cpp/README.md)
 
 ## SDKの構成
 
@@ -63,20 +64,23 @@ SDKはパッケージマネージャを前提としないファイルセット�
 javascript/                 ブラウザ用IIFE実装とサンプル
 java/                       外部依存のないReader jarとサンプル
 python/                     Pythonソースとサンプル
-datasets/                   3言語で共有するGISデータ
+cpp/                        C++17 Reader、Arduinoライブラリ、サンプル
+datasets/                   4言語で共有するGISデータ
 docs/image/                 データセットのレンダリング例
 docs/reference/             公開APIと現行ファイル形式仕様
 manifest.json               実装・形式・データセットの互換性セット
 VERSION                     SDK自身のバージョン
 ```
 
-JavaScript・Java・Pythonは同格の実行環境です。各言語の成果物にバージョン番号ディレクトリは設けず、収録した組み合わせをルートの`manifest.json`で固定します。
+JavaScript・Java・Python・C++は同格の実行環境です。各言語の成果物にバージョン番号ディレクトリは設けず、収録した組み合わせをルートの`manifest.json`で固定します。
 
 ## 収録データ
 
 | dataset id | 内容 |
 | --- | --- |
-| `jp-admin-n03` | 国土数値情報 行政区域データ |
+| `jp-admin-n03-2024` | 国土数値情報 行政区域データ（2024年） |
+| `jp-admin-n03-2025` | 国土数値情報 行政区域データ（2025年） |
+| `jp-admin-n03-2026` | 国土数値情報 行政区域データ（2026年） |
 | `jp-estat-r2ka-2020` | 令和2年国勢調査 町丁・字等境界データ |
 | `jp-gis-estat-integrated` | 行政区域とe-Stat小地区の統合データ |
 | `world-geoboundaries-cgaz` | geoBoundaries CGAZ世界行政境界 |
