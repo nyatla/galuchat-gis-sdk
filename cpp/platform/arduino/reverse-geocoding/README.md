@@ -5,7 +5,7 @@ N03のMapSetとGisWordBookをファイルシステムへ置かず、C++配列と
 
 ## 1. 収録データ
 
-2024年1月1日時点、1/100度版のデータを共通`src`ディレクトリへ収録しています。
+2026年1月1日時点、1/1000度版のデータを共通`data`ディレクトリへ収録しています。
 スケッチからはローカルの転送ヘッダを1つ読み込みます。
 
 ```cpp
@@ -14,14 +14,14 @@ N03のMapSetとGisWordBookをファイルシステムへ置かず、C++配列と
 
 | 配列 | 元ファイル | サイズ |
 | --- | --- | ---: |
-| `galuchat::data::n03_20240101_100::mapset` | `N03-20240101-grid-512-100.remap.wgsmapset.glc` | 52,982 bytes |
-| `galuchat::data::n03_20240101_100::wordbook` | `N03-20240101.giswordbook` | 31,922 bytes |
+| `galuchat::data::n03_20260101_1000::mapset` | `N03-20260101-grid-4096-1000.remap.wgsmapset.glc` | 490,349 bytes |
+| `galuchat::data::n03_20260101_1000::wordbook` | `N03-20260101.giswordbook` | 31,922 bytes |
 
 別の年度または解像度を組み込む場合は、バイナリファイルごとにROMヘッダを生成します。名前空間と配列変数名は必須です。
 
 ```sh
 python3 make_rom_header.py \
-  N03-20240101-grid-512-100.remap.wgsmapset.glc \
+  N03-20260101-grid-4096-1000.remap.wgsmapset.glc \
   --namespace my_n03_data \
   --variable mapset \
   --mode uint32-le \
@@ -30,7 +30,7 @@ python3 make_rom_header.py \
   --output my_n03_mapset.hpp
 
 python3 make_rom_header.py \
-  N03-20240101.giswordbook \
+  N03-20260101.giswordbook \
   --namespace my_n03_data \
   --variable wordbook \
   --mode uint32-le \
@@ -96,9 +96,9 @@ lon lat>
 
 ## メモリ
 
-- MapSet: 52,982 bytes
+- MapSet: 490,349 bytes
 - GisWordBook: 31,922 bytes
-- 合計: 84,904 bytes
+- 合計: 522,271 bytes
 
 データ本体はFlash ROMに置かれ、Readerへコピーしません。ReaderはMapSetやWordBookの
 索引を保持せず、検索結果と復号状態、WordBookのトークンキャッシュにRAMを使用します。

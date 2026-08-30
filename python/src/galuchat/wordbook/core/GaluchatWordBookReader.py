@@ -3,7 +3,7 @@ from __future__ import annotations
 from os import PathLike, path as os_path
 
 from ...io import BytesReaderFactory, FileReaderFactory, ReaderFactory
-from ..chunk.WordBookHeaderChunkReader import read_nm00_data
+from ..chunk.WordBookHeaderChunk import read_nm00_data
 from ._ReaderSupport import WordBookTextReader, read_chunk_layout
 from .constants import TEXT_TABLE_CHUNK, TOKEN_MAP_CHUNK, WORDBOOK_HEADER_CHUNK
 

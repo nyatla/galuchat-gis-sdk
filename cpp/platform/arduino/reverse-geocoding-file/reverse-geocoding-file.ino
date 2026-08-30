@@ -16,9 +16,12 @@ constexpr double LONGITUDE = 139.7528;
 constexpr double LATITUDE = 35.6852;
 constexpr size_t FILE_BUFFER_SIZE = 4096;
 constexpr const char* MAPSET_PATH =
-    "/N03-20240101-grid-4096-1000.remap.wgsmapset.glc";
-constexpr const char* WORDBOOK_PATH = "/N03-20240101.giswordbook";
+    "/N03-20260101-grid-4096-1000.remap.wgsmapset.glc";
+constexpr const char* WORDBOOK_PATH = "/N03-20260101.giswordbook";
 bool ready = false;
+char input_line[128] = {};
+size_t input_length = 0;
+bool discarding_input = false;
 
 void printElapsed(const char* label, uint32_t elapsed_us) {
     Serial.print(label);
@@ -88,6 +91,50 @@ void printPrompt() {
     Serial.print("lon lat> ");
 }
 
+void processInputLine() {
+    input_line[input_length] = '\0';
+    double longitude;
+    double latitude;
+    if (std::sscanf(input_line, "%lf %lf", &longitude, &latitude) != 2) {
+        Serial.println("enter longitude and latitude separated by a space");
+        return;
+    }
+    try {
+        reverseGeocode(longitude, latitude);
+    } catch (const std::exception& error) {
+        Serial.print("error: ");
+        Serial.println(error.what());
+    }
+}
+
+void pollSerialInput() {
+    while (Serial.available()) {
+        int value = Serial.read();
+        if (value < 0) return;
+        char input = static_cast<char>(value);
+
+        if (input == '\r' || input == '\n') {
+            // CRLF's second character is ignored as an empty line.
+            if (discarding_input || input_length > 0) {
+                if (!discarding_input) processInputLine();
+                input_length = 0;
+                discarding_input = false;
+                printPrompt();
+            }
+            continue;
+        }
+        if (discarding_input) continue;
+        if (input_length == sizeof(input_line) - 1) {
+            input_length = 0;
+            discarding_input = true;
+            Serial.println();
+            Serial.println("input too long (maximum 127 characters); press Enter to continue");
+            continue;
+        }
+        input_line[input_length++] = input;
+    }
+}
+
 } // namespace
 
 void setup() {
@@ -111,20 +158,5 @@ void setup() {
 }
 
 void loop() {
-    if (!ready || !Serial.available()) return;
-    String line = Serial.readStringUntil('\n');
-    double longitude;
-    double latitude;
-    if (std::sscanf(line.c_str(), "%lf %lf", &longitude, &latitude) != 2) {
-        Serial.println("enter longitude and latitude separated by a space");
-        printPrompt();
-        return;
-    }
-    try {
-        reverseGeocode(longitude, latitude);
-    } catch (const std::exception& error) {
-        Serial.print("error: ");
-        Serial.println(error.what());
-    }
-    printPrompt();
+    if (ready) pollSerialInput();
 }

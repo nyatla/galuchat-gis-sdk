@@ -4,7 +4,7 @@ from os import PathLike, path as os_path
 from typing import Iterable, Iterator
 
 from ...io import BytesReaderFactory, FileReaderFactory, ReaderFactory
-from ..chunk.GisWordBookHeaderChunkReader import read_gw00_data
+from ..chunk.WordBookHeaderChunk import read_gw00_data
 from ..chunk.HierarchicalIndexChunk import required_code_bits
 from ..chunk.HierarchicalIndexChunkReader import HierarchicalIndexChunkReader
 from ._ReaderSupport import WordBookTextReader, iter_index_batches, read_chunk_layout
@@ -89,9 +89,6 @@ class GaluchatGisWordBookReader:
     @property
     def component_count(self) -> int:
         return self._text_reader.record_count
-
-    def recordCount(self) -> int:
-        return self.record_count
 
     def readCodeSet(self, index: int, out: list[int] | None = None) -> list[int]:
         with self._reader_factory.create(self._index_chunk.data_start) as reader:

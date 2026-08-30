@@ -3,7 +3,7 @@
 #include <array>
 #include <cmath>
 #include <cstdint>
-#include <fstream>
+#include <limits>
 #include <memory>
 #include <stdexcept>
 #include <string>
@@ -11,11 +11,81 @@
 
 namespace galuchat {
 
+namespace detail {
+
+inline size_t toSize(uint64_t value, const char* field) {
+    if (value > std::numeric_limits<size_t>::max()) {
+        throw std::runtime_error(std::string(field) + " is out of range");
+    }
+    return static_cast<size_t>(value);
+}
+
+inline int toInt(uint64_t value, const char* field) {
+    if (value > static_cast<uint64_t>(std::numeric_limits<int>::max())) {
+        throw std::runtime_error(std::string(field) + " is out of range");
+    }
+    return static_cast<int>(value);
+}
+
+inline int toInt(int64_t value, const char* field) {
+    if (value < std::numeric_limits<int>::min()
+        || value > std::numeric_limits<int>::max()) {
+        throw std::runtime_error(std::string(field) + " is out of range");
+    }
+    return static_cast<int>(value);
+}
+
+inline int positiveInt(uint64_t value, const char* field) {
+    int result = toInt(value, field);
+    if (result <= 0) {
+        throw std::runtime_error(std::string(field) + " must be positive");
+    }
+    return result;
+}
+
+inline int addInt(int left, int right, const char* field) {
+    return toInt(static_cast<int64_t>(left) + right, field);
+}
+
+inline int subtractInt(int left, int right, const char* field) {
+    return toInt(static_cast<int64_t>(left) - right, field);
+}
+
+inline int multiplyInt(int left, int right, const char* field) {
+    return toInt(static_cast<int64_t>(left) * right, field);
+}
+
+inline size_t addSize(size_t left, size_t right, const char* field) {
+    if (right > std::numeric_limits<size_t>::max() - left) {
+        throw std::runtime_error(std::string(field) + " is out of range");
+    }
+    return left + right;
+}
+
+inline size_t multiplySize(size_t left, size_t right, const char* field) {
+    if (right != 0 && left > std::numeric_limits<size_t>::max() / right) {
+        throw std::runtime_error(std::string(field) + " is out of range");
+    }
+    return left * right;
+}
+
+inline int roundedInt(double value, const char* field) {
+    if (!std::isfinite(value)
+        || value <= static_cast<double>(std::numeric_limits<int>::min()) - 0.5
+        || value >= static_cast<double>(std::numeric_limits<int>::max()) + 0.5) {
+        throw std::runtime_error(std::string(field) + " is out of range");
+    }
+    return static_cast<int>(std::llround(value));
+}
+
+} // namespace detail
+
 class ByteReader {
 public:
     virtual ~ByteReader() = default;
 
     virtual size_t pos() const = 0;
+    virtual bool atEnd() const = 0;
     int bitOffset() const { return bit_left_; }
 
     uint32_t readBitsAsInt32(int bits) {
@@ -60,12 +130,6 @@ public:
         uint32_t merged = (bit_cache_ << 8) | next;
         uint8_t result = static_cast<uint8_t>((merged >> left) & 0xff);
         bit_cache_ = merged & ((1u << left) - 1u);
-        return result;
-    }
-
-    std::vector<uint8_t> readBytes(size_t length) {
-        std::vector<uint8_t> result(length);
-        for (size_t i = 0; i < length; i++) result[i] = readByte();
         return result;
     }
 
@@ -186,8 +250,8 @@ public:
     BufferReader(const std::vector<uint8_t>& data) : data_(data.data()), size_(data.size()) {}
 
     size_t pos() const override { return pos_; }
+    bool atEnd() const override { return pos_ == size_; }
     size_t remaining() const { return size_ - pos_; }
-    const uint8_t* current() const { return data_ + pos_; }
 
 protected:
     uint8_t nextByte() override {
@@ -210,11 +274,61 @@ private:
     size_t pos_ = 0;
 };
 
+/** Restricts reads from another reader to one declared byte range. */
+namespace detail {
+
+inline std::string readAscii(ByteReader& reader, size_t length) {
+    std::string result(length, '\0');
+    for (size_t i = 0; i < length; i++) {
+        result[i] = static_cast<char>(reader.readByte());
+    }
+    return result;
+}
+
+inline std::string readBStrAscii(ByteReader& reader, size_t length) {
+    std::string result = readAscii(reader, length);
+    size_t zero = result.find('\0');
+    if (zero != std::string::npos) result.resize(zero);
+    return result;
+}
+
+class LimitedReader final : public ByteReader {
+public:
+    LimitedReader(ByteReader& source, size_t length)
+        : source_(source), length_(length) {}
+
+    size_t pos() const override { return pos_; }
+    bool atEnd() const override { return pos_ == length_; }
+    size_t remaining() const { return length_ - pos_; }
+
+protected:
+    uint8_t nextByte() override {
+        if (atEnd()) throw std::runtime_error("declared byte range exceeded");
+        uint8_t value = source_.readByte();
+        pos_++;
+        return value;
+    }
+
+    void skipByte(size_t length) override {
+        if (length > remaining()) {
+            throw std::runtime_error("declared byte range exceeded");
+        }
+        source_.skipInByte(length);
+        pos_ += length;
+    }
+
+private:
+    ByteReader& source_;
+    size_t length_;
+    size_t pos_ = 0;
+};
+
+} // namespace detail
+
 class ReaderFactory {
 public:
     virtual ~ReaderFactory() = default;
     virtual std::unique_ptr<ByteReader> create(size_t offset = 0) const = 0;
-    virtual size_t size() const = 0;
 };
 
 class BufferReaderFactory final : public ReaderFactory {
@@ -228,125 +342,39 @@ public:
         return std::make_unique<BufferReader>(data_ + offset, size_ - offset);
     }
 
-    size_t size() const override { return size_; }
-
 private:
     const uint8_t* data_;
     size_t size_;
 };
 
-class FileBufferedReader final : public ByteReader {
-public:
-    FileBufferedReader(
-        const std::string& path,
-        size_t source_size,
-        size_t offset,
-        size_t buffer_size)
-        : file_(path, std::ios::binary),
-          length_(0),
-          buffer_(buffer_size) {
-        if (!file_) throw std::runtime_error("cannot open: " + path);
-        if (offset > source_size || buffer_size == 0) {
-            throw std::runtime_error("invalid file reader parameters");
-        }
-        length_ = source_size - offset;
-        file_.seekg(static_cast<std::streamoff>(offset), std::ios::beg);
-        if (!file_) throw std::runtime_error("cannot seek: " + path);
-    }
-
-    size_t pos() const override { return pos_; }
-
-protected:
-    uint8_t nextByte() override {
-        if (pos_ >= length_) throw std::runtime_error("unexpected end of byte stream");
-        if (buffer_pos_ >= buffer_end_) refill();
-        pos_++;
-        return buffer_[buffer_pos_++];
-    }
-
-    void skipByte(size_t length) override {
-        if (length > length_ - pos_) {
-            pos_ = length_;
-            buffer_pos_ = buffer_end_;
-            throw std::runtime_error("unexpected end of byte stream");
-        }
-        size_t buffered = buffer_end_ - buffer_pos_;
-        if (length <= buffered) {
-            buffer_pos_ += length;
-            pos_ += length;
-            return;
-        }
-        pos_ += buffered;
-        length -= buffered;
-        buffer_pos_ = buffer_end_ = 0;
-        if (length > 0) {
-            file_.seekg(static_cast<std::streamoff>(length), std::ios::cur);
-            if (!file_) throw std::runtime_error("file seek failed");
-            pos_ += length;
-        }
-    }
-
-private:
-    void refill() {
-        size_t count = length_ - pos_;
-        if (count > buffer_.size()) count = buffer_.size();
-        file_.read(reinterpret_cast<char*>(buffer_.data()), static_cast<std::streamsize>(count));
-        size_t actual = static_cast<size_t>(file_.gcount());
-        if (actual == 0) throw std::runtime_error("unexpected end of byte stream");
-        buffer_pos_ = 0;
-        buffer_end_ = actual;
-    }
-
-    std::ifstream file_;
-    size_t length_;
-    std::vector<uint8_t> buffer_;
-    size_t pos_ = 0;
-    size_t buffer_pos_ = 0;
-    size_t buffer_end_ = 0;
-};
-
-class FileReaderFactory final : public ReaderFactory {
-public:
-    explicit FileReaderFactory(std::string path, size_t buffer_size = 8192)
-        : path_(std::move(path)), buffer_size_(buffer_size), size_(fileSize(path_)) {
-        if (buffer_size_ == 0) throw std::runtime_error("buffer size must be positive");
-    }
-
-    std::unique_ptr<ByteReader> create(size_t offset = 0) const override {
-        if (offset > size_) throw std::runtime_error("invalid reader offset");
-        return std::make_unique<FileBufferedReader>(
-            path_, size_, offset, buffer_size_);
-    }
-
-    size_t size() const override { return size_; }
-
-private:
-    static size_t fileSize(const std::string& path) {
-        std::ifstream file(path, std::ios::binary | std::ios::ate);
-        if (!file) throw std::runtime_error("cannot open: " + path);
-        std::streamoff size = file.tellg();
-        if (size < 0) throw std::runtime_error("cannot get file size: " + path);
-        return static_cast<size_t>(size);
-    }
-
-    std::string path_;
-    size_t buffer_size_;
-    size_t size_;
-};
+namespace detail {
 
 class LzssReader final : public ByteReader {
 public:
-    explicit LzssReader(ByteReader& source) : source_(source) {
+    explicit LzssReader(LimitedReader& source) : source_(source) {
         window_.fill(0);
     }
 
-    size_t pos() const override { return source_.pos(); }
+    size_t pos() const override { return output_pos_; }
+    bool atEnd() const override { return finished_ && state_ == 0; }
+
+    void validateEnd() {
+        if (bitOffset() != 0) {
+            throw std::runtime_error("decoded LZSS reader is not byte aligned");
+        }
+        try {
+            (void)nextByte();
+        } catch (const CleanEnd&) {
+            return;
+        }
+        throw std::runtime_error("GI01 block payload has trailing bytes");
+    }
 
 protected:
     uint8_t nextByte() override {
         while (true) {
             if (state_ == 0) {
-                state_ = source_.readBitsAsInt32(1) == 0 ? 10 : 20;
+                startToken();
             }
             if (state_ == 10) {
                 limit_ = static_cast<int>(source_.readBitsAsInt32(4)) + 1;
@@ -359,6 +387,7 @@ protected:
                 if (++index_ >= limit_) {
                     state_ = 0;
                 }
+                output_pos_++;
                 return value;
             }
             if (state_ == 20) {
@@ -373,12 +402,31 @@ protected:
                 if (++index_ >= limit_) {
                     state_ = 0;
                 }
+                output_pos_++;
                 return value;
             }
         }
     }
 
 private:
+    class CleanEnd final : public std::exception {};
+
+    void startToken() {
+        if (finished_) throw CleanEnd();
+        size_t remaining_bits = detail::multiplySize(
+            source_.remaining(), size_t{8}, "LZSS remaining bits")
+            + static_cast<size_t>(source_.bitOffset());
+        if (remaining_bits <= 7) {
+            if (remaining_bits > 0
+                && source_.readBitsAsInt32(static_cast<int>(remaining_bits)) != 0) {
+                throw std::runtime_error("invalid non-zero LZSS padding");
+            }
+            finished_ = true;
+            throw CleanEnd();
+        }
+        state_ = source_.readBitsAsInt32(1) == 0 ? 10 : 20;
+    }
+
     uint8_t get(int index) const {
         return window_[(ptr_ + index) & 0xff];
     }
@@ -387,14 +435,18 @@ private:
         ptr_ = (ptr_ + 1) & 0xff;
     }
 
-    ByteReader& source_;
+    LimitedReader& source_;
     std::array<uint8_t, 256> window_{};
     int ptr_ = 0;
     int state_ = 0;
     int limit_ = 0;
     int index_ = 0;
     int ref_offset_ = 0;
+    size_t output_pos_ = 0;
+    bool finished_ = false;
 };
+
+} // namespace detail
 
 struct RawRaster {
     int width = 0;
@@ -416,7 +468,16 @@ private:
         if (width < 0 || height < 0) {
             throw std::runtime_error("raster size must not be negative");
         }
-        return static_cast<size_t>(width) * static_cast<size_t>(height);
+        size_t w = static_cast<size_t>(width);
+        size_t h = static_cast<size_t>(height);
+        if (h != 0 && w > std::numeric_limits<size_t>::max() / h) {
+            throw std::runtime_error("raster size is out of range");
+        }
+        size_t count = w * h;
+        if (count > std::vector<int64_t>().max_size()) {
+            throw std::runtime_error("raster size is out of range");
+        }
+        return count;
     }
 };
 
@@ -435,9 +496,6 @@ struct RasterView {
         }
     }
 
-    int64_t get(int x, int y) const {
-        return static_cast<int64_t>(data[static_cast<size_t>(y) * stride + x]);
-    }
     void set(int x, int y, int64_t value) {
         data[static_cast<size_t>(y) * stride + x] = static_cast<Value>(value);
     }
@@ -457,19 +515,37 @@ struct DoubleRect {
     double height;
 };
 
+namespace detail {
+
 inline bool insideRect(const Rect& r, int x, int y) {
-    return r.x <= x && x < r.x + r.width && r.y <= y && y < r.y + r.height;
+    if (r.width < 0 || r.height < 0) return false;
+    int64_t right = static_cast<int64_t>(r.x) + r.width;
+    int64_t bottom = static_cast<int64_t>(r.y) + r.height;
+    return r.x <= x && static_cast<int64_t>(x) < right
+        && r.y <= y && static_cast<int64_t>(y) < bottom;
 }
 
 inline bool crossRect(const Rect& a, const Rect& b, Rect& out) {
+    if (a.width < 0 || a.height < 0 || b.width < 0 || b.height < 0) {
+        throw std::runtime_error("rectangle size must not be negative");
+    }
     int x = a.x > b.x ? a.x : b.x;
     int y = a.y > b.y ? a.y : b.y;
-    int right = (a.x + a.width) < (b.x + b.width) ? (a.x + a.width) : (b.x + b.width);
-    int bottom = (a.y + a.height) < (b.y + b.height) ? (a.y + a.height) : (b.y + b.height);
-    if (x >= right || y >= bottom) {
+    int64_t a_right = static_cast<int64_t>(a.x) + a.width;
+    int64_t b_right = static_cast<int64_t>(b.x) + b.width;
+    int64_t a_bottom = static_cast<int64_t>(a.y) + a.height;
+    int64_t b_bottom = static_cast<int64_t>(b.y) + b.height;
+    int64_t right = a_right < b_right ? a_right : b_right;
+    int64_t bottom = a_bottom < b_bottom ? a_bottom : b_bottom;
+    if (static_cast<int64_t>(x) >= right || static_cast<int64_t>(y) >= bottom) {
         return false;
     }
-    out = {x, y, right - x, bottom - y};
+    out = {
+        x,
+        y,
+        detail::toInt(right - x, "rectangle width"),
+        detail::toInt(bottom - y, "rectangle height"),
+    };
     return true;
 }
 
@@ -661,6 +737,10 @@ public:
             {8, 3, 2, 2}, {16, 3, 2, 2}, {32, 4, 4, 3},
             {64, 4, 4, 4}, {128, 4, 4, 4}, {256, 5, 4, 4},
         };
+        if (value_bits_add < 0 || value_bits_add > 3
+            || run_bits_add < 0 || run_bits_add > 1) {
+            throw std::runtime_error("invalid ShortValue encoding parameters");
+        }
         for (const auto& p : params) {
             if (p.res == resolution) {
                 supported_ = true;
@@ -679,11 +759,11 @@ public:
             if (limit < 1) {
                 throw std::runtime_error("MBUInt token exceeds requested count");
             }
-            dest[0] = static_cast<int>(reader.readMbUInt());
+            dest[0] = detail::toInt(reader.readMbUInt(), "ShortValue MBUInt token");
             return 1;
         }
         if (!supported_) {
-            throw std::runtime_error("ShortValue token is not supported at this resolution");
+            throw std::runtime_error("unsupported ShortValue resolution");
         }
         int run = static_cast<int>(reader.readBitsAsInt32(run_bits_)) + run_min_;
         if (run > run_max_ || run > limit) {
@@ -712,6 +792,9 @@ public:
         if (d_format < 0 || d_format >= 3) {
             throw std::runtime_error("invalid SingleEdge d value format");
         }
+        if (mbuint_reduce_bits < 0 || mbuint_reduce_bits > 8) {
+            throw std::runtime_error("invalid SingleEdge MBUIntReduce bits");
+        }
         d_bits_ = bits[d_format];
         d_min_ = mins[d_format];
     }
@@ -724,7 +807,7 @@ public:
             if (limit < 1) {
                 throw std::runtime_error("MBUInt token exceeds requested count");
             }
-            dest[0] = static_cast<int>(reader.readMbUInt());
+            dest[0] = detail::toInt(reader.readMbUInt(), "SingleEdge MBUInt token");
             return 1;
         }
         return readSingleEdgeToken(reader, dest, limit);
@@ -747,18 +830,24 @@ public:
 
 private:
     int readSingleEdgeToken(ByteReader& reader, int* dest, int limit) const {
+        if (resolution_ != 8 && resolution_ != 16 && resolution_ != 32
+            && resolution_ != 64 && resolution_ != 128 && resolution_ != 256) {
+            throw std::runtime_error("unsupported SingleEdgeRow resolution");
+        }
         int run_count = static_cast<int>(reader.readBitsAsInt32(5)) + 2;
         if (run_count > limit) {
             throw std::runtime_error("single edge token exceeds requested count");
         }
-        int previous = static_cast<int>(reader.readMbUInt());
+        int previous = detail::toInt(reader.readMbUInt(), "SingleEdge initial value");
         if (previous <= 0) {
             throw std::runtime_error("invalid single edge value");
         }
         dest[0] = previous;
         for (int i = 1; i < run_count; i++) {
             int d_value = static_cast<int>(reader.readBitsAsInt32(d_bits_)) + d_min_;
-            int value = 2 * resolution_ - previous + d_value;
+            int value = detail::toInt(
+                static_cast<int64_t>(2) * resolution_ - previous + d_value,
+                "SingleEdge value");
             if (value <= 0) {
                 throw std::runtime_error("invalid single edge value");
             }
@@ -774,21 +863,28 @@ private:
     int mbuint_reduce_bits_ = 0;
 };
 
+} // namespace detail
+
 class GaluchatImageDataChunk01Reader {
 public:
     explicit GaluchatImageDataChunk01Reader(ByteReader& reader)
-        : reader_(&reader) {
-        if (readAscii(reader, 4) != "GI01") {
+    {
+        if (detail::readAscii(reader, 4) != "GI01") {
             throw std::runtime_error("invalid GI01 chunk");
         }
-        size_t payload_size = static_cast<size_t>(reader.readMbUInt());
-        size_t payload_offset = reader.pos();
-        chunk_end_ = payload_offset + payload_size;
-        width = static_cast<int>(reader.readMbUInt());
-        height = static_cast<int>(reader.readMbUInt());
-        square_unit = 1 << static_cast<int>(reader.readByte());
-        hus = (width + square_unit - 1) / square_unit;
-        vus = (height + square_unit - 1) / square_unit;
+        size_t payload_size = detail::toSize(reader.readMbUInt(), "GI01 payload size");
+        payload_reader_ = std::make_unique<detail::LimitedReader>(reader, payload_size);
+        reader_ = payload_reader_.get();
+        width = detail::positiveInt(reader_->readMbUInt(), "GI01 width");
+        height = detail::positiveInt(reader_->readMbUInt(), "GI01 height");
+        int square_unit_log2 = static_cast<int>(reader_->readByte());
+        if (square_unit_log2 > 30) {
+            throw std::runtime_error("GI01 squareUnit exponent is out of range");
+        }
+        square_unit = 1 << square_unit_log2;
+        hus = (width - 1) / square_unit + 1;
+        vus = (height - 1) / square_unit + 1;
+        validateBlockLayout();
     }
 
     int width = 0;
@@ -800,9 +896,9 @@ public:
         if (x < 0 || y < 0 || x >= width || y >= height) {
             throw std::runtime_error("point is outside image");
         }
-        RawRaster pixel(1, 1);
+        SinglePixelRaster pixel;
         readRect(x, y, pixel);
-        return pixel.get(0, 0);
+        return pixel.value;
     }
 
     RawRaster toRaster() {
@@ -821,7 +917,7 @@ public:
         for (int index = 0; index < count; index++) {
             Rect source{(index % hus) * square_unit, (index / hus) * square_unit, square_unit, square_unit};
             Rect crossed{};
-            if (!crossRect(source, target, crossed)) {
+            if (!detail::crossRect(source, target, crossed)) {
                 block.skipBlock(1);
                 continue;
             }
@@ -831,18 +927,35 @@ public:
                 crossed.x - target.x,
                 crossed.y - target.y);
         }
+        reader_->skipToByte();
+        if (!payload_reader_->atEnd()) {
+            throw std::runtime_error("GI01 chunk size does not match decoded blocks");
+        }
     }
 
     void skipToEnd() {
         reader_->skipToByte();
-        if (reader_->pos() > chunk_end_) {
-            throw std::runtime_error("GI01 reader exceeded chunk size");
-        }
-        reader_->skipInByte(chunk_end_ - reader_->pos());
+        reader_->skipInByte(payload_reader_->remaining());
         consumed_ = true;
     }
 
 private:
+    struct SinglePixelRaster {
+        int width = 1;
+        int height = 1;
+        int64_t value = 0;
+
+        void set(int, int, int64_t next) { value = next; }
+    };
+
+    using CellHeader = detail::CellHeader;
+    using NodePallet = detail::NodePallet;
+    using PalletHeader = detail::PalletHeader;
+    using PalletMgr = detail::PalletMgr;
+    using PalletValueReader = detail::PalletValueReader;
+    using ShortValueRleLenDecoder = detail::ShortValueRleLenDecoder;
+    using SingleEdgeRowLenDecoder = detail::SingleEdgeRowLenDecoder;
+
     struct BlockHeader {
         int compression_type;
         bool palette_delta;
@@ -857,7 +970,8 @@ private:
             for (int i = 0; i < count; i++) {
                 BlockHeader header = readBlockHeader(reader_.readByte());
                 if (header.compression_type != 0) {
-                    size_t size = static_cast<size_t>(reader_.readMbUInt());
+                    size_t size = detail::toSize(
+                        reader_.readMbUInt(), "GI01 block payload size");
                     reader_.skipInByte(size);
                     continue;
                 }
@@ -881,26 +995,26 @@ private:
                 return;
             }
             if (header.compression_type == 1) {
-                size_t payload_size = static_cast<size_t>(reader_.readMbUInt());
-                std::vector<uint8_t> payload_bytes = reader_.readBytes(payload_size);
-                BufferReader payload(payload_bytes);
+                size_t payload_size = detail::toSize(
+                    reader_.readMbUInt(), "GI01 RAWS payload size");
+                detail::LimitedReader payload(reader_, payload_size);
                 CellHeader cell(payload.readByte());
                 owner_.readNodeRect(cell, payload, owner_.square_unit, pallet_reader, pmgr, target, dest, dest_x, dest_y);
                 payload.skipToByte();
+                if (!payload.atEnd()) {
+                    throw std::runtime_error("GI01 block payload has trailing bytes");
+                }
                 return;
             }
             if (header.compression_type == 2) {
-                size_t payload_size = static_cast<size_t>(reader_.readMbUInt());
-                size_t payload_end = reader_.pos() + payload_size;
-                LzssReader lzss(reader_);
+                size_t payload_size = detail::toSize(
+                    reader_.readMbUInt(), "GI01 LZSS payload size");
+                detail::LimitedReader compressed(reader_, payload_size);
+                detail::LzssReader lzss(compressed);
                 CellHeader cell(lzss.readByte());
                 owner_.readNodeRect(cell, lzss, owner_.square_unit, pallet_reader, pmgr, target, dest, dest_x, dest_y);
                 lzss.skipToByte();
-                reader_.skipToByte();
-                if (reader_.pos() > payload_end) {
-                    throw std::runtime_error("GI01 compressed block exceeded payload size");
-                }
-                reader_.skipInByte(payload_end - reader_.pos());
+                lzss.validateEnd();
                 return;
             }
             throw std::runtime_error("unsupported GI01 block compression type");
@@ -922,13 +1036,12 @@ private:
         return {compression_type, (byte1 & 0x80) != 0};
     }
 
-    static std::string readAscii(ByteReader& reader, int length) {
-        std::string result;
-        result.reserve(static_cast<size_t>(length));
-        for (int i = 0; i < length; i++) {
-            result.push_back(static_cast<char>(reader.readByte()));
-        }
-        return result;
+    void validateBlockLayout() const {
+        int count = detail::multiplyInt(hus, vus, "GI01 block count");
+        int padded_width = detail::multiplyInt(hus, square_unit, "GI01 padded width");
+        int padded_height = detail::multiplyInt(vus, square_unit, "GI01 padded height");
+        (void)count;
+        detail::multiplyInt(padded_width, padded_height, "GI01 padded pixel count");
     }
 
     template <class Raster>
@@ -1025,7 +1138,7 @@ private:
                                              : pmgr.getValue(static_cast<int>(reader.readBitsAsInt32(bits)));
             int lx = index % resolution;
             int ly = index / resolution;
-            if (insideRect(target, lx, ly)) {
+            if (detail::insideRect(target, lx, ly)) {
                 dest.set(lx - target.x + dest_x, ly - target.y + dest_y, value);
             }
         }
@@ -1057,6 +1170,11 @@ private:
         }
         if (encoding == CellHeader::RLE_DATA_ENCODING_SHORT_VALUE && pallet_header.value_bits_add > 0x07) {
             throw std::runtime_error("RLE ShortValue EncodingParams is reserved");
+        }
+        if (encoding != CellHeader::RLE_DATA_ENCODING_SHORT_VALUE
+            && encoding != CellHeader::RLE_DATA_ENCODING_SINGLE_EDGE_ROW
+            && pallet_header.value_bits_add != 0) {
+            throw std::runtime_error("RLE PalletHeader encoding params must be zero");
         }
         if (pallet_header.update_pallet_table > 0) {
             pallet_reader.applyTable(reader, pmgr, pallet_header.update_pallet_table, pallet_header.capacity);
@@ -1096,10 +1214,10 @@ private:
             if (count <= 0) {
                 throw std::runtime_error("RLE count must be positive");
             }
-            total += count;
-            if (total > pixels) {
+            if (count > pixels - total) {
                 throw std::runtime_error("RLE count total exceeds resolution");
             }
+            total += count;
             int pallet_index = readNextIndex(reader, pallet_mode, pallet_header, run_index, previous_index, has_previous);
             previous_index = pallet_index;
             has_previous = true;
@@ -1109,7 +1227,7 @@ private:
 
         if (data_encoding == CellHeader::RLE_DATA_ENCODING_MBUINT) {
             while (total < pixels) {
-                emit(static_cast<int>(reader.readMbUInt()));
+                emit(detail::toInt(reader.readMbUInt(), "RLE count"));
             }
             return;
         }
@@ -1118,7 +1236,7 @@ private:
         std::array<int, 67> token_buffer{};
         if (data_encoding == CellHeader::RLE_DATA_ENCODING_SHORT_VALUE) {
             ShortValueRleLenDecoder codec(resolution, value_bits_add & 0x03, (value_bits_add >> 2) & 0x01);
-            int run_count = static_cast<int>(reader.readMbUInt());
+            int run_count = detail::toInt(reader.readMbUInt(), "ShortValue run count");
             if (run_count <= 0) {
                 throw std::runtime_error("ShortValue requires at least one value");
             }
@@ -1136,13 +1254,13 @@ private:
             int reduce_code = value_bits_add % 5;
             int reduce_bits = reduce_code == 0 ? 0 : reduce_code + 1;
             SingleEdgeRowLenDecoder codec(resolution, value_bits_add / 5, reduce_bits);
-            int run_count = static_cast<int>(reader.readMbUInt());
+            int run_count = detail::toInt(reader.readMbUInt(), "SingleEdgeRow run count");
             if (run_count < 2) {
                 throw std::runtime_error("SingleEdgeRow requires at least two values");
             }
             explicit_count = run_count - 1;
             if (codec.hasMbUIntReduce()) {
-                emit(static_cast<int>(reader.readMbUInt()));
+                emit(detail::toInt(reader.readMbUInt(), "SingleEdgeRow first count"));
                 while (run_index < explicit_count) {
                     int token_count = codec.readReducedMiddleToken(reader, token_buffer.data(), explicit_count - run_index);
                     for (int i = 0; i < token_count; i++) {
@@ -1194,10 +1312,10 @@ private:
                 }
                 int64_t value = pmgr.getValue(pallet_index);
                 for (int i = 0; i < count; i++) {
-                    int mapped = mapIndex(resolution, header.rleMode(), position++);
+                    int mapped = detail::mapIndex(resolution, header.rleMode(), position++);
                     int lx = mapped % resolution;
                     int ly = mapped / resolution;
-                    if (insideRect(target, lx, ly)) {
+                    if (detail::insideRect(target, lx, ly)) {
                         dest.set(lx - target.x + dest_x, ly - target.y + dest_y, value);
                     }
                 }
@@ -1238,7 +1356,7 @@ private:
         int half = resolution / 2;
         if (header.containerType() == CellHeader::CONTAINER_TYPE_MONO) {
             pallet_reader.applyTable(reader, pmgr, header.updatePalletTable4(), 4);
-            fillRect(dest, dest_x, dest_y, target.width, target.height, pmgr.getValue(0));
+            detail::fillRect(dest, dest_x, dest_y, target.width, target.height, pmgr.getValue(0));
             return;
         }
         int mask = reader.readByte();
@@ -1255,7 +1373,7 @@ private:
             int64_t value = 0;
             if (node_pallet.palletValue(index, value)) {
                 if (has_crossed) {
-                    fillRect(dest, dest_x + cx - target.x, dest_y + cy - target.y, cr - cx, cb - cy, value);
+                    detail::fillRect(dest, dest_x + cx - target.x, dest_y + cy - target.y, cr - cx, cb - cy, value);
                 }
                 continue;
             }
@@ -1288,8 +1406,8 @@ private:
         }
     }
 
-    ByteReader* reader_;
-    size_t chunk_end_ = 0;
+    std::unique_ptr<detail::LimitedReader> payload_reader_;
+    ByteReader* reader_ = nullptr;
     bool consumed_ = false;
 };
 
@@ -1306,37 +1424,33 @@ public:
     explicit GaluchatWGSMap3Reader(std::shared_ptr<const ReaderFactory> factory)
         : factory_(std::move(factory)) {
         std::unique_ptr<ByteReader> reader = factory_->create();
-        if (readAscii(*reader, 4) != "GLCH") {
+        if (detail::readAscii(*reader, 4) != "GLCH") {
             throw std::runtime_error("invalid WGSMap header chunk name");
         }
-        size_t payload_size = static_cast<size_t>(reader->readMbUInt());
-        size_t payload_start = reader->pos();
-        version = readBStrAscii(*reader, 16);
-        if (version != "WGSMap/3") {
+        size_t payload_size = detail::toSize(
+            reader->readMbUInt(), "WGSMap header payload size");
+        detail::LimitedReader payload(*reader, payload_size);
+        if (detail::readBStrAscii(payload, 16) != "WGSMap/3") {
             throw std::runtime_error("GaluchatWGSMap3Reader requires WGSMap/3");
         }
-        unit_inv_x = static_cast<int>(reader->readMbUInt());
-        unit_inv_y = static_cast<int>(reader->readMbUInt());
-        west = static_cast<int>(reader->readMbInt());
-        south = static_cast<int>(reader->readMbInt());
-        size_t metadata_size = static_cast<size_t>(reader->readMbUInt());
-        reader->skipInByte(metadata_size);
-        if (reader->pos() > payload_start + payload_size) {
-            throw std::runtime_error("WGSMap header exceeds chunk size");
+        unit_inv_x = detail::positiveInt(payload.readMbUInt(), "WGSMap unit_inv_x");
+        unit_inv_y = detail::positiveInt(payload.readMbUInt(), "WGSMap unit_inv_y");
+        west = detail::toInt(payload.readMbInt(), "WGSMap west");
+        south = detail::toInt(payload.readMbInt(), "WGSMap south");
+        size_t metadata_size = detail::toSize(
+            payload.readMbUInt(), "WGSMap metadata size");
+        payload.skipInByte(metadata_size);
+        if (!payload.atEnd()) {
+            throw std::runtime_error("WGSMap header has trailing bytes");
         }
-        reader->skipInByte(payload_start + payload_size - reader->pos());
         gi01_offset_ = reader->pos();
-        std::unique_ptr<ByteReader> chunk_reader = factory_->create(gi01_offset_);
-        GaluchatImageDataChunk01Reader chunk(*chunk_reader);
+        GaluchatImageDataChunk01Reader chunk(*reader);
         width = chunk.width;
         height = chunk.height;
-    }
-
-    static GaluchatWGSMap3Reader fromFile(
-        const std::string& path,
-        size_t buffer_size = 8192) {
-        return GaluchatWGSMap3Reader(
-            std::make_shared<FileReaderFactory>(path, buffer_size));
+        chunk.skipToEnd();
+        if (!reader->atEnd()) {
+            throw std::runtime_error("WGSMap/3 has trailing bytes");
+        }
     }
 
     Rect area() const {
@@ -1363,13 +1477,16 @@ public:
     }
 
     bool readWgsPoint(int ix, int iy, int64_t& value) const {
-        return readPoint(ix - west, iy - south, value);
+        return readPoint(
+            detail::subtractInt(ix, west, "WGSMap point x"),
+            detail::subtractInt(iy, south, "WGSMap point y"),
+            value);
     }
 
     bool readWgsPoint(double longitude, double latitude, int64_t& value) const {
         return readWgsPoint(
-            static_cast<int>(std::llround(longitude * unit_inv_x)),
-            static_cast<int>(std::llround(latitude * unit_inv_y)),
+            detail::roundedInt(longitude * unit_inv_x, "WGSMap longitude"),
+            detail::roundedInt(latitude * unit_inv_y, "WGSMap latitude"),
             value);
     }
 
@@ -1391,7 +1508,10 @@ public:
         if (target.width != dest.width || target.height != dest.height) {
             throw std::runtime_error("raster dimensions do not match target rectangle");
         }
-        readRect(target.x - west, target.y - south, dest);
+        readRect(
+            detail::subtractInt(target.x, west, "WGSMap rectangle x"),
+            detail::subtractInt(target.y, south, "WGSMap rectangle y"),
+            dest);
     }
 
     RawRaster readWgsRect(const Rect& target) const {
@@ -1419,34 +1539,14 @@ public:
     int south = 0;
     int width = 0;
     int height = 0;
-    std::string version;
-
 private:
     Rect toGridRect(const DoubleRect& target) const {
         return {
-            static_cast<int>(std::llround(target.x * unit_inv_x)),
-            static_cast<int>(std::llround(target.y * unit_inv_y)),
-            static_cast<int>(std::llround(target.width * unit_inv_x)),
-            static_cast<int>(std::llround(target.height * unit_inv_y)),
+            detail::roundedInt(target.x * unit_inv_x, "WGSMap rectangle x"),
+            detail::roundedInt(target.y * unit_inv_y, "WGSMap rectangle y"),
+            detail::roundedInt(target.width * unit_inv_x, "WGSMap rectangle width"),
+            detail::roundedInt(target.height * unit_inv_y, "WGSMap rectangle height"),
         };
-    }
-
-    static std::string readAscii(ByteReader& reader, int length) {
-        std::string result;
-        result.reserve(static_cast<size_t>(length));
-        for (int i = 0; i < length; i++) {
-            result.push_back(static_cast<char>(reader.readByte()));
-        }
-        return result;
-    }
-
-    static std::string readBStrAscii(ByteReader& reader, int length) {
-        std::string raw = readAscii(reader, length);
-        size_t end = raw.find('\0');
-        if (end != std::string::npos) {
-            raw.resize(end);
-        }
-        return raw;
     }
 
     std::shared_ptr<const ReaderFactory> factory_;
@@ -1467,51 +1567,53 @@ public:
         std::shared_ptr<const ReaderFactory> factory)
         : factory_(std::move(factory)) {
         std::unique_ptr<ByteReader> reader = factory_->create();
-        if (readAscii(*reader, 4) != "GLCH") {
+        if (detail::readAscii(*reader, 4) != "GLCH") {
             throw std::runtime_error("invalid WGSMapSet header chunk name");
         }
 
-        size_t payload_size = static_cast<size_t>(reader->readMbUInt());
-        if (payload_size > factory_->size() - reader->pos()) {
-            throw std::runtime_error("WGSMapSet header exceeds source size");
-        }
-        std::vector<uint8_t> payload_bytes = reader->readBytes(payload_size);
-        BufferReader payload(payload_bytes);
+        size_t payload_size = detail::toSize(
+            reader->readMbUInt(), "WGSMapSet header payload size");
+        detail::LimitedReader payload(*reader, payload_size);
 
-        version = readBStrAscii(payload, 16);
-        if (version != "WGSMapSet/3") {
+        if (detail::readBStrAscii(payload, 16) != "WGSMapSet/3") {
             throw std::runtime_error("GaluchatWGSMapSet3Reader requires WGSMapSet/3");
         }
-        unit_inv_x = static_cast<int>(payload.readMbUInt());
-        unit_inv_y = static_cast<int>(payload.readMbUInt());
-        size_t metadata_size = static_cast<size_t>(payload.readMbUInt());
+        unit_inv_x = detail::positiveInt(payload.readMbUInt(), "WGSMapSet unit_inv_x");
+        unit_inv_y = detail::positiveInt(payload.readMbUInt(), "WGSMapSet unit_inv_y");
+        size_t metadata_size = detail::toSize(
+            payload.readMbUInt(), "WGSMapSet metadata size");
         if (metadata_size > payload.remaining()) {
             throw std::runtime_error("WGSMapSet metadata exceeds header size");
         }
-        metadata.assign(
-            reinterpret_cast<const char*>(payload.current()),
-            metadata_size);
-        payload.skipInByte(metadata_size);
-        size_t map_count = static_cast<size_t>(payload.readMbUInt());
+        metadata = detail::readAscii(payload, metadata_size);
+        size_t map_count = detail::toSize(
+            payload.readMbUInt(), "WGSMapSet map count");
         if (map_count == 0) {
             throw std::runtime_error("WGSMapSet must contain at least one map");
+        }
+        if (map_count > payload.remaining() / 2) {
+            throw std::runtime_error("WGSMapSet map count exceeds header size");
         }
 
         origins_.reserve(map_count);
         for (size_t i = 0; i < map_count; i++) {
             origins_.push_back({
-                static_cast<int>(payload.readMbInt()),
-                static_cast<int>(payload.readMbInt()),
+                detail::toInt(payload.readMbInt(), "WGSMapSet west"),
+                detail::toInt(payload.readMbInt(), "WGSMapSet south"),
             });
+        }
+        if (!payload.atEnd()) {
+            throw std::runtime_error("WGSMapSet header has trailing bytes");
         }
 
         chunk_offset_ = reader->pos();
-        std::string chunk_name = readAscii(*reader, 4);
+        std::string chunk_name = detail::readAscii(*reader, 4);
         if (chunk_name == "LAYO") {
-            size_t layout_size = static_cast<size_t>(reader->readMbUInt());
+            size_t layout_size = detail::toSize(
+                reader->readMbUInt(), "WGSMapSet layout size");
             reader->skipInByte(layout_size);
             chunk_offset_ = reader->pos();
-            chunk_name = readAscii(*reader, 4);
+            chunk_name = detail::readAscii(*reader, 4);
         }
         if (chunk_name != "GI01") {
             throw std::runtime_error("WGSMapSet/3 does not contain a GI01 chunk");
@@ -1526,52 +1628,57 @@ public:
             GaluchatImageDataChunk01Reader chunk(*chunks);
             west = origin.west < west ? origin.west : west;
             south = origin.south < south ? origin.south : south;
-            east = origin.west + chunk.width > east ? origin.west + chunk.width : east;
-            north = origin.south + chunk.height > north ? origin.south + chunk.height : north;
+            int chunk_east = detail::addInt(origin.west, chunk.width, "WGSMapSet east");
+            int chunk_north = detail::addInt(origin.south, chunk.height, "WGSMapSet north");
+            east = chunk_east > east ? chunk_east : east;
+            north = chunk_north > north ? chunk_north : north;
             chunk.skipToEnd();
         }
-        area_ = {west, south, east - west, north - south};
-    }
-
-    static GaluchatWGSMapSet3Reader fromFile(
-        const std::string& path,
-        size_t buffer_size = 8192) {
-        return GaluchatWGSMapSet3Reader(
-            std::make_shared<FileReaderFactory>(path, buffer_size));
+        if (!chunks->atEnd()) {
+            throw std::runtime_error("WGSMapSet/3 has trailing bytes");
+        }
+        area_ = {
+            west,
+            south,
+            detail::subtractInt(east, west, "WGSMapSet width"),
+            detail::subtractInt(north, south, "WGSMapSet height"),
+        };
     }
 
     bool readWgsPoint(int ix, int iy, int64_t& value) const {
         bool found = false;
-        int64_t zero = 0;
 
         std::unique_ptr<ByteReader> reader = factory_->create(chunk_offset_);
         for (const Origin& origin : origins_) {
             GaluchatImageDataChunk01Reader chunk(*reader);
+            int east = detail::addInt(origin.west, chunk.width, "WGSMapSet east");
+            int north = detail::addInt(origin.south, chunk.height, "WGSMapSet north");
             if (ix < origin.west || iy < origin.south
-                || ix >= origin.west + chunk.width || iy >= origin.south + chunk.height) {
+                || ix >= east || iy >= north) {
                 chunk.skipToEnd();
                 continue;
             }
-            int64_t current = chunk.readPoint(ix - origin.west, iy - origin.south);
+            int64_t current = chunk.readPoint(
+                detail::subtractInt(ix, origin.west, "WGSMapSet point x"),
+                detail::subtractInt(iy, origin.south, "WGSMapSet point y"));
             chunk.skipToEnd();
             found = true;
             if (current != 0) {
                 value = current;
                 return true;
             }
-            zero = current;
         }
 
         if (found) {
-            value = zero;
+            value = 0;
         }
         return found;
     }
 
     bool readWgsPoint(double longitude, double latitude, int64_t& value) const {
         return readWgsPoint(
-            static_cast<int>(std::llround(longitude * unit_inv_x)),
-            static_cast<int>(std::llround(latitude * unit_inv_y)),
+            detail::roundedInt(longitude * unit_inv_x, "WGSMapSet longitude"),
+            detail::roundedInt(latitude * unit_inv_y, "WGSMapSet latitude"),
             value);
     }
 
@@ -1589,14 +1696,14 @@ public:
     template <class Raster>
     void readWgsRect(const Rect& target, Raster& dest) const {
         validateRasterTarget(target, dest);
-        fillRect(dest, 0, 0, dest.width, dest.height, 0);
+        detail::fillRect(dest, 0, 0, dest.width, dest.height, 0);
 
         std::unique_ptr<ByteReader> reader = factory_->create(chunk_offset_);
         for (const Origin& origin : origins_) {
             GaluchatImageDataChunk01Reader chunk(*reader);
             Rect map_area{origin.west, origin.south, chunk.width, chunk.height};
             Rect crossed{};
-            if (!crossRect(map_area, target, crossed)) {
+            if (!detail::crossRect(map_area, target, crossed)) {
                 chunk.skipToEnd();
                 continue;
             }
@@ -1607,8 +1714,8 @@ public:
                 crossed.width,
                 crossed.height);
             chunk.readRect(
-                crossed.x - origin.west,
-                crossed.y - origin.south,
+                detail::subtractInt(crossed.x, origin.west, "WGSMapSet rectangle x"),
+                detail::subtractInt(crossed.y, origin.south, "WGSMapSet rectangle y"),
                 filtered);
             chunk.skipToEnd();
         }
@@ -1631,7 +1738,12 @@ public:
 
     template <class Raster>
     void readRect(int x, int y, Raster& dest) const {
-        readWgsRect({area_.x + x, area_.y + y, dest.width, dest.height}, dest);
+        readWgsRect({
+            detail::addInt(area_.x, x, "WGSMapSet rectangle x"),
+            detail::addInt(area_.y, y, "WGSMapSet rectangle y"),
+            dest.width,
+            dest.height,
+        }, dest);
     }
 
     RawRaster readRect(int x, int y, int width, int height) const {
@@ -1648,7 +1760,6 @@ public:
 
     int unit_inv_x = 0;
     int unit_inv_y = 0;
-    std::string version;
     std::string metadata;
 
 private:
@@ -1697,29 +1808,11 @@ private:
 
     Rect toGridRect(const DoubleRect& target) const {
         return {
-            static_cast<int>(std::llround(target.x * unit_inv_x)),
-            static_cast<int>(std::llround(target.y * unit_inv_y)),
-            static_cast<int>(std::llround(target.width * unit_inv_x)),
-            static_cast<int>(std::llround(target.height * unit_inv_y)),
+            detail::roundedInt(target.x * unit_inv_x, "WGSMapSet rectangle x"),
+            detail::roundedInt(target.y * unit_inv_y, "WGSMapSet rectangle y"),
+            detail::roundedInt(target.width * unit_inv_x, "WGSMapSet rectangle width"),
+            detail::roundedInt(target.height * unit_inv_y, "WGSMapSet rectangle height"),
         };
-    }
-
-    static std::string readAscii(ByteReader& reader, int length) {
-        std::string result;
-        result.reserve(static_cast<size_t>(length));
-        for (int i = 0; i < length; i++) {
-            result.push_back(static_cast<char>(reader.readByte()));
-        }
-        return result;
-    }
-
-    static std::string readBStrAscii(ByteReader& reader, int length) {
-        std::string raw = readAscii(reader, length);
-        size_t end = raw.find('\0');
-        if (end != std::string::npos) {
-            raw.resize(end);
-        }
-        return raw;
     }
 
     std::shared_ptr<const ReaderFactory> factory_;

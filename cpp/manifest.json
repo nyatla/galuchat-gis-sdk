@@ -1,16 +1,16 @@
 {
-  "coreCommit": "701eda86ddefd6ae4934dd8cd57cc5105db0e19a",
-  "coreVersion": "0.5.0",
+  "coreCommit": "087a2e24567813e68c413b0d6586bd6639b250f6",
+  "coreVersion": "0.5.1",
   "cppStandard": 17,
   "files": [
     {
       "path": "cpp/README.md",
-      "sha256": "8b235a7f96147796cad336306c1b8419ddb2252bd127c699b65433aa20917962",
-      "size": 3559
+      "sha256": "eaa840b013e0de0fc24d4d45bdafbe73d8e2b61e0573c95221a44a1a90a3226e",
+      "size": 4959
     },
     {
       "path": "cpp/library.properties",
-      "sha256": "1576bbb8b0f7df8d205c32142b54ee973638b0bb3028340e6521ff8d6f433e83",
+      "sha256": "973ead91c3724a90ba71211580fb3c2ed74d365ce3a1af74387c8b84505e57a6",
       "size": 354
     },
     {
@@ -20,28 +20,48 @@
     },
     {
       "path": "cpp/src/galuchat/arduino_fs_reader.hpp",
-      "sha256": "842af0fe154f528136e601281ae3f93137505871897acaad69547680833c522b",
-      "size": 3737
-    },
-    {
-      "path": "cpp/src/galuchat/data/n03_20240101_100_mapset.hpp",
-      "sha256": "1628bf4245a505e69baaf484a7bb3c66491f8e57a9761607610973f4b8142e88",
-      "size": 141448
-    },
-    {
-      "path": "cpp/src/galuchat/data/n03_20240101_wordbook.hpp",
-      "sha256": "3fdeba34a1c8693e1ddd606ca497d41582753bd424f5b75e0cc83a2f60859b51",
-      "size": 82576
+      "sha256": "852446bce40417f0f4f47f434d19dbf4785632095d99f508abdba5109f0175dc",
+      "size": 3745
     },
     {
       "path": "cpp/src/galuchat/gis_wordbook_reader.hpp",
-      "sha256": "6d7e27abacc33cf2ee7a459aafdaeb7fcc6f1137d310fef9399cd0bc622781ec",
-      "size": 26153
+      "sha256": "d1285e75d95dba365f447adad53499b2803187832a0819ed8c06956424c14189",
+      "size": 27157
+    },
+    {
+      "path": "cpp/src/galuchat/std_file_reader.hpp",
+      "sha256": "8e4648e969ba3bbe1cd03d30dbc89ecb334efa5d45b060624e67190c15daab22",
+      "size": 3757
     },
     {
       "path": "cpp/src/galuchat/wgsmap3_reader.hpp",
-      "sha256": "cee142f79d017015038ae36584ee7502b89e64e33c3abec0562760c02e36ec22",
-      "size": 61901
+      "sha256": "d5ddc9818febd14e62a4d083a939a00dd7a2e88db51338bf21e40fca2c92bb75",
+      "size": 66124
+    },
+    {
+      "path": "cpp/data/geoboundaries_cgaz_1000_mapset.hpp",
+      "sha256": "8e9eb2b149f61410a7c8cc1a47e8931f51c3ba4c1e4cdbee50abe469787b30b4",
+      "size": 57209488
+    },
+    {
+      "path": "cpp/data/geoboundaries_cgaz_100_mapset.hpp",
+      "sha256": "e11eed7987e2aa4a551cd0970f6e2e5df220d1b5c3b65a8a9a1fc7a2873b65f8",
+      "size": 7849662
+    },
+    {
+      "path": "cpp/data/geoboundaries_cgaz_wordbook.hpp",
+      "sha256": "4df7bb3032e5c875c0ee1154e606bfd38a72b90b424df7a261cf5844cd514b21",
+      "size": 1543899
+    },
+    {
+      "path": "cpp/data/n03_20260101_1000_mapset.hpp",
+      "sha256": "3b433a661ebb3f1a75f5c89ee241750e761a47a1b221a1683afac2b9918e8939",
+      "size": 1299586
+    },
+    {
+      "path": "cpp/data/n03_20260101_wordbook.hpp",
+      "sha256": "54a097614ace07d9d53a34e6d4aef4e96a82c9f2609afbfba04c7c3248bf8966",
+      "size": 82578
     },
     {
       "path": "cpp/platform/gcc/README.md",
@@ -60,8 +80,8 @@
     },
     {
       "path": "cpp/platform/gcc/reverse-geocoding/main.cpp",
-      "sha256": "3c40d147cbc650693c09317f1b0a67c6c585c5a67ee4bc9d9423bf9b1147e875",
-      "size": 3904
+      "sha256": "151627456df55428442293545cfe9331d42f349334928eeabd58e20eb96c61ef",
+      "size": 4118
     },
     {
       "path": "cpp/platform/arduino/Makefile",
@@ -75,13 +95,13 @@
     },
     {
       "path": "cpp/platform/arduino/reverse-geocoding/README.md",
-      "sha256": "0244c4b14ff188813d6fe0478bdd055399ac3b5bfdda71c9f020b46155d1e4a7",
-      "size": 4225
+      "sha256": "6976904a53100a321661a79126611cfed34c4b04786938745ad3277610198a15",
+      "size": 4236
     },
     {
       "path": "cpp/platform/arduino/reverse-geocoding/galuchat_bridge.hpp",
-      "sha256": "e093292d94017faf6adbc0927c862dd25a7a6424d6f3db1243a8e64c00a11d19",
-      "size": 179
+      "sha256": "2dc962188947c3394619f250973564220c8785025d01ae9a9724dd5f0f7eaf8d",
+      "size": 154
     },
     {
       "path": "cpp/platform/arduino/reverse-geocoding/make_rom_header.py",
@@ -90,13 +110,13 @@
     },
     {
       "path": "cpp/platform/arduino/reverse-geocoding/reverse-geocoding.ino",
-      "sha256": "25e2fd122002fa92c52e2f896653cf3f76a787b80b3979e602a86be394b03cbd",
-      "size": 3339
+      "sha256": "f611fafe2804b4f3259765b56995fc0e7ffaa2bb26879def0680b614c725d065",
+      "size": 4309
     },
     {
       "path": "cpp/platform/arduino/reverse-geocoding-file/README.md",
-      "sha256": "e28d57941512240b46024d19ef47060de1a57dad9469894e27b6b95c5cf8e44c",
-      "size": 2203
+      "sha256": "111e4f6da4f5b8450ebce1791b7de7f0f38fd301402595824932e13657320df9",
+      "size": 2291
     },
     {
       "path": "cpp/platform/arduino/reverse-geocoding-file/galuchat_bridge.hpp",
@@ -105,8 +125,8 @@
     },
     {
       "path": "cpp/platform/arduino/reverse-geocoding-file/reverse-geocoding-file.ino",
-      "sha256": "8c57e8ef3d48e7ea22facbd0b602ba2cc4c1e706c6f687692a333ba99074826e",
-      "size": 3717
+      "sha256": "ee8f21a0ad4174132a401e44aa9c186af510a7a6b20ec86efa79d322e46a78d8",
+      "size": 4687
     }
   ],
   "formats": {
@@ -116,13 +136,13 @@
     "wgsmap": 3,
     "wgsmapset": 3
   },
-  "generatedAt": "2026-08-23T05:05:55Z",
-  "implementationVersion": "0.5.0",
+  "generatedAt": "2026-08-30T02:40:34Z",
+  "implementationVersion": "0.5.1",
   "layoutVersion": 2,
   "license": "Apache-2.0",
   "schemaVersion": 1,
   "sdkVersion": "0.1.0",
-  "sourceDirty": true,
+  "sourceDirty": false,
   "targets": [
     "gcc",
     "arduino-esp32"

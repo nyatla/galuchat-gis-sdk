@@ -1,5 +1,5 @@
 {
-  "datasetCommit": "098cb6c5cd0fdaa6d745e63d361ec7c55ae33bee",
+  "datasetCommit": "80a90598046c5bce87f04b71c1fbd6080c6ec209",
   "files": {
     "maps": [
       {
@@ -7,8 +7,8 @@
         "default": false,
         "id": "unit-inv-5000",
         "path": "datasets/jp-estat-r2ka-2020/estat-r2ka-jgd2011-2020-grid-4096-5000.wgsmapset.glc",
-        "sha256": "57f7cbb452f6a555a84f31e488dfe1fdfd44ff7445666cf3f05dd4d7d8f1472e",
-        "size": 13574102,
+        "sha256": "cbc4ac141e80e97baf358cf142b8bb00e4c36849e1f46b25146c600942235bd7",
+        "size": 13574280,
         "unitInv": 5000
       },
       {
@@ -16,8 +16,8 @@
         "default": true,
         "id": "unit-inv-10000",
         "path": "datasets/jp-estat-r2ka-2020/estat-r2ka-jgd2011-2020-grid-8192-10000.wgsmapset.glc",
-        "sha256": "80839fa272a97b0895e58c1e961c92f20eb7a3177f69830e04d6b230f6fb980c",
-        "size": 23800134,
+        "sha256": "fd4fb0f5de01fc3e36e7657cb5685fe4cfb7bd751112f6cf46f62c83359c1e55",
+        "size": 23800312,
         "unitInv": 10000
       }
     ],
@@ -61,7 +61,7 @@
     "imageChunk": "GI01",
     "wgsmapset": 3
   },
-  "generatedAt": "2026-08-22T23:15:21Z",
+  "generatedAt": "2026-08-30T02:41:02Z",
   "id": "jp-estat-r2ka-2020",
   "schemaVersion": 2,
   "sdkVersion": "0.1.0",

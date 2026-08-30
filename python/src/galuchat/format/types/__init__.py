@@ -2,7 +2,7 @@
 
 """
 from enum import Enum
-from typing import Optional,TypeVar,Generic
+from typing import Optional
 
 
 
@@ -21,23 +21,6 @@ class CoordinateSystem(Enum):
         except KeyError:
             # 無効な文字列が渡された場合、エラーを発生させる
             raise RuntimeError(f"Invalid CoordinateSystem: {v}")
-
-class SamplingMode(Enum):
-    """ サンプリングモードの種類
-    """
-    CENTER_POINT=1 #中心の一点
-    MAX_AREA=2    #領域内の最大のエリア
-
-    @classmethod
-    def parse(cls,v:str)->Optional["SamplingMode"]:
-        """ 文字列から値を得る
-        """
-        try:
-            # Enumの名前を使用して文字列と一致させる
-            return cls[v]
-        except KeyError:
-            # 無効な文字列が渡された場合、エラーを発生させる
-            raise RuntimeError(f"Invalid SamplingMode: {v}")
 
 import json
 from dataclasses import dataclass,field

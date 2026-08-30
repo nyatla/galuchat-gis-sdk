@@ -1,16 +1,16 @@
 {
-  "coreCommit": "1f06916ac88f7efc0a6836962ef595a8bee74ef6",
-  "coreVersion": "0.5.0",
+  "coreCommit": "087a2e24567813e68c413b0d6586bd6639b250f6",
+  "coreVersion": "0.5.1",
   "files": [
     {
       "path": "javascript/galuchat.min.js",
-      "sha256": "e0a0cdb91ac2a73e0e213238a36a31e50d062ddbe22bdce83b30b1dbb850328e",
-      "size": 73379
+      "sha256": "32ba3518fc364f5c9ef679ded1ccfe18316e7805222c61773f64230142a648af",
+      "size": 70505
     },
     {
       "path": "javascript/galuchat.min.js.map",
-      "sha256": "0d7433d4e463eeb30106af193d26895d8cc69b96c81ed8cc05c7906c7210cf3b",
-      "size": 255825
+      "sha256": "798abb7c348dbe65cedb2208340fee721ce3fa5f14cc19b15f424726dfacf35a",
+      "size": 243178
     },
     {
       "path": "javascript/getstarted/reverse-geocode/app.js",
@@ -39,8 +39,8 @@
     },
     {
       "path": "javascript/getstarted/multizoom/index.html",
-      "sha256": "ee4019f24a64c9e8e9d01dcc10e5187a43ea54147d8061d1ec859d15bb8e67e2",
-      "size": 3999
+      "sha256": "dd1b0c6d479e72dc0429779cfbb453709886a9b6abeb619d180ab09c2e621e61",
+      "size": 3994
     }
   ],
   "formats": {
@@ -50,9 +50,9 @@
     "wgsmap": 3,
     "wgsmapset": 3
   },
-  "generatedAt": "2026-08-22T11:11:05Z",
+  "generatedAt": "2026-08-30T02:39:51Z",
   "globalName": "Galuchat",
-  "implementationVersion": "0.5.0",
+  "implementationVersion": "0.5.1",
   "layoutVersion": 2,
   "license": "Apache-2.0",
   "schemaVersion": 1,

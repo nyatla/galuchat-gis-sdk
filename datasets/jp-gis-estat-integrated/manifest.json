@@ -1,5 +1,5 @@
 {
-  "datasetCommit": "098cb6c5cd0fdaa6d745e63d361ec7c55ae33bee",
+  "datasetCommit": "80a90598046c5bce87f04b71c1fbd6080c6ec209",
   "files": {
     "maps": [
       {
@@ -7,8 +7,8 @@
         "default": true,
         "id": "unit-inv-10000",
         "path": "datasets/jp-gis-estat-integrated/gis-estat-integrated-grid-8192-10000.wgsmapset.glc",
-        "sha256": "7c10cc5bcbdecd665356aa7cdfcf0597463c6c114d911b3a5569ffd5c2315c3d",
-        "size": 25241887,
+        "sha256": "3b7c68e8e84b5516cd79809f97ebcaf9e681b994cd74692d2a3cf95bf2b6ec2a",
+        "size": 25242122,
         "unitInv": 10000
       }
     ],
@@ -57,7 +57,7 @@
     "imageChunk": "GI01",
     "wgsmapset": 3
   },
-  "generatedAt": "2026-08-22T23:15:23Z",
+  "generatedAt": "2026-08-30T02:41:04Z",
   "id": "jp-gis-estat-integrated",
   "schemaVersion": 2,
   "sdkVersion": "0.1.0",

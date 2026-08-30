@@ -43,14 +43,6 @@ class WGSMapSetHeader3(Chunk):
         return cls(src)
 
     @classmethod
-    def fromChunk(cls, chunk: Chunk) -> "WGSMapSetHeader3":
-        self = cls.__new__(cls)
-        object.__setattr__(self, "_name", chunk.name)
-        object.__setattr__(self, "_data", chunk.data)
-        self._parse()
-        return self
-
-    @classmethod
     def pack(cls, src: "WGSMapSetHeader3", dest: ABytesWriter):
         return Chunk.pack(cls.CHUNK_NAME, src.data, dest)
 

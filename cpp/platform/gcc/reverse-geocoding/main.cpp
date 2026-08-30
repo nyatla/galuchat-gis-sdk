@@ -2,11 +2,13 @@
 #include <cstdio>
 #include <iomanip>
 #include <iostream>
+#include <memory>
 #include <stdexcept>
 #include <string>
 #include <vector>
 
 #include "galuchat/gis_wordbook_reader.hpp"
+#include "galuchat/std_file_reader.hpp"
 #include "galuchat/wgsmap3_reader.hpp"
 
 namespace {
@@ -89,10 +91,12 @@ int main(int argc, char** argv) {
         std::string mapset_path = argc >= 2 ? argv[1] : DEFAULT_MAPSET;
         std::string wordbook_path = argc >= 3 ? argv[2] : DEFAULT_WORDBOOK;
 
-        auto mapset = galuchat::GaluchatWGSMapSet3Reader::fromFile(
+        auto mapset_factory = std::make_shared<galuchat::FileReaderFactory>(
             mapset_path, FILE_BUFFER_SIZE);
-        auto wordbook = galuchat::GaluchatGisWordBookReader::fromFile(
-            wordbook_path, FILE_BUFFER_SIZE, 0);
+        auto wordbook_factory = std::make_shared<galuchat::FileReaderFactory>(
+            wordbook_path, FILE_BUFFER_SIZE);
+        galuchat::GaluchatWGSMapSet3Reader mapset(mapset_factory);
+        galuchat::GaluchatGisWordBookReader wordbook(wordbook_factory, 0);
 
         std::cout << "sample: Imperial Palace\n";
         reverseGeocode(mapset, wordbook, 139.7528, 35.6852);

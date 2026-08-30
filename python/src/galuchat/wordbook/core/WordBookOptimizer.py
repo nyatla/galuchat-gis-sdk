@@ -103,11 +103,6 @@ class WordBookOptimizer:
             self.token_bits if token_bits is None else token_bits,
         )
 
-    optimize_tokens = optimizeTokens
-    optimize_page_order = optimizePageOrder
-    estimate_model_size = estimateModelSize
-
-
 def _select_merge_candidate(
     sequences: list[tuple[bytes, ...]],
     min_gain_bits: int,

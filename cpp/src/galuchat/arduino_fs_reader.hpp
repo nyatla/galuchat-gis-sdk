@@ -36,6 +36,7 @@ public:
     }
 
     size_t pos() const override { return pos_; }
+    bool atEnd() const override { return pos_ == length_; }
 
 protected:
     uint8_t nextByte() override {
@@ -105,8 +106,6 @@ public:
         return std::make_unique<ArduinoFsBufferedReader>(
             *file_system_, path_.c_str(), size_, offset, buffer_size_);
     }
-
-    size_t size() const override { return size_; }
 
 private:
     static size_t fileSize(fs::FS& file_system, const char* path) {

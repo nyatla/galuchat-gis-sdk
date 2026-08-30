@@ -1,5 +1,5 @@
 {
-  "datasetCommit": "098cb6c5cd0fdaa6d745e63d361ec7c55ae33bee",
+  "datasetCommit": "80a90598046c5bce87f04b71c1fbd6080c6ec209",
   "files": {
     "maps": [
       {
@@ -7,8 +7,8 @@
         "default": false,
         "id": "unit-inv-100",
         "path": "datasets/world-geoboundaries-cgaz/geoboundaries-cgaz-best-admin-grid-1024-100.wgsmapset.glc",
-        "sha256": "631bdae7a8757ed3752fd9df38bd381c2e7ddb11fcd47f802ba8627f6ae9962f",
-        "size": 2945723,
+        "sha256": "e7c64bc6a81d22f4a93c94d9db91a46a72dc949656b2ed466db5d15911543609",
+        "size": 2945858,
         "unitInv": 100
       },
       {
@@ -16,8 +16,8 @@
         "default": true,
         "id": "unit-inv-1000",
         "path": "datasets/world-geoboundaries-cgaz/geoboundaries-cgaz-best-admin-grid-8192-1000.wgsmapset.glc",
-        "sha256": "71c6d8e6b4a569ec6055c5dd6fa0e2d32014bd7a8e90df062fa6549ff4d3e9fe",
-        "size": 21438715,
+        "sha256": "dcc0363ed0237c853b3060c58a57b3f74657554f7dc5ffe6b4398b2d975f0ea5",
+        "size": 21438850,
         "unitInv": 1000
       }
     ],
@@ -52,7 +52,7 @@
     "imageChunk": "GI01",
     "wgsmapset": 3
   },
-  "generatedAt": "2026-08-22T23:15:25Z",
+  "generatedAt": "2026-08-30T02:41:05Z",
   "id": "world-geoboundaries-cgaz",
   "schemaVersion": 2,
   "sdkVersion": "0.1.0",

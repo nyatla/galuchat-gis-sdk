@@ -55,9 +55,6 @@ class GaluchatWGSMapSet3Dom:
         unit_inv_y = {item.header.unit_inv_y for item in data}
         if len(unit_inv_x) != 1 or len(unit_inv_y) != 1:
             raise ValueError("All headers must have same unit_inv_x/unit_inv_y.")
-        for item in data:
-            if item.header.data[:8] != item.header.VERSION_3:
-                raise ValueError("WGSMapSet/3 requires WGSMap/3 inputs.")
         header = WGSMapSetHeader3.createNew(
             list(unit_inv_x)[0],
             list(unit_inv_y)[0],

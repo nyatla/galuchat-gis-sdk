@@ -1,6 +1,6 @@
 {
-  "coreCommit": "1f06916ac88f7efc0a6836962ef595a8bee74ef6",
-  "coreVersion": "0.5.0",
+  "coreCommit": "087a2e24567813e68c413b0d6586bd6639b250f6",
+  "coreVersion": "0.5.1",
   "files": [
     {
       "path": "docs/reference/GI01-CellHeader仕様.md",
@@ -163,7 +163,7 @@
       "size": 952
     }
   ],
-  "generatedAt": "2026-08-22T11:12:23Z",
+  "generatedAt": "2026-08-30T02:40:54Z",
   "index": "docs/reference/README.md",
   "schemaVersion": 1,
   "sdkVersion": "0.1.0",

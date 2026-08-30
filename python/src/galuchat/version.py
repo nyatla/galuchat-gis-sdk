@@ -3,7 +3,5 @@ class Version:
     MODULE = "Galuchat"
     MAJOR = 0
     MINOR = 5
-    # Backward-compatible alias for the historical misspelling.
-    MINER = MINOR
-    PATCH = 0
+    PATCH = 1
     STRING = f"{MODULE}/{MAJOR}.{MINOR}.{PATCH}"
