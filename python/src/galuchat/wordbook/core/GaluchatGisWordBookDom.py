@@ -5,8 +5,8 @@ from typing import Iterable, Sequence
 
 from ...chunk import Chunk
 from ...io import BytesBufferReader, BytesWriter
-from ..chunk.GisWordBookHeaderChunk import (
-    GisWordBookHeaderChunk,
+from ..chunk.WordBookHeaderChunk import (
+    WordBookHeaderChunk,
     parse_gw00_data,
     write_gw00_data,
 )
@@ -32,7 +32,7 @@ from .WordBookOptimizer import TokenMergeRecord, WordBookOptimizer, grouped_page
 
 @dataclass(frozen=True)
 class GaluchatGisWordBookDom:
-    header: GisWordBookHeaderChunk
+    header: WordBookHeaderChunk
     token_map: TokenMapChunk
     text_table: TextTableChunk
     index: HierarchicalIndexChunk
@@ -106,7 +106,7 @@ class GaluchatGisWordBookDom:
             write_payload_bits=write_payload_bits,
         )
         return cls(
-            header=GisWordBookHeaderChunk(metadata=metadata),
+            header=WordBookHeaderChunk(metadata=metadata),
             token_map=TokenMapChunk(tokens=model.tokens),
             text_table=text_table,
             index=index,

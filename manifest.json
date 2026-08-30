@@ -1,6 +1,6 @@
 {
-  "coreCommit": "701eda86ddefd6ae4934dd8cd57cc5105db0e19a",
-  "coreVersion": "0.5.0",
+  "coreCommit": "087a2e24567813e68c413b0d6586bd6639b250f6",
+  "coreVersion": "0.5.1",
   "datasets": [
     {
       "id": "jp-admin-n03-2024",
@@ -64,9 +64,29 @@
           "unitInv": 100
         },
         {
+          "default": false,
+          "id": "unit-inv-250",
+          "unitInv": 250
+        },
+        {
+          "default": false,
+          "id": "unit-inv-500",
+          "unitInv": 500
+        },
+        {
           "default": true,
           "id": "unit-inv-1000",
           "unitInv": 1000
+        },
+        {
+          "default": false,
+          "id": "unit-inv-2500",
+          "unitInv": 2500
+        },
+        {
+          "default": false,
+          "id": "unit-inv-5000",
+          "unitInv": 5000
         },
         {
           "default": false,
@@ -74,7 +94,7 @@
           "unitInv": 10000
         }
       ],
-      "version": "2025.01.01+galuchat.1",
+      "version": "2025.01.01+galuchat.2",
       "wordbooks": [
         {
           "default": true,
@@ -106,9 +126,29 @@
           "unitInv": 100
         },
         {
+          "default": false,
+          "id": "unit-inv-250",
+          "unitInv": 250
+        },
+        {
+          "default": false,
+          "id": "unit-inv-500",
+          "unitInv": 500
+        },
+        {
           "default": true,
           "id": "unit-inv-1000",
           "unitInv": 1000
+        },
+        {
+          "default": false,
+          "id": "unit-inv-2500",
+          "unitInv": 2500
+        },
+        {
+          "default": false,
+          "id": "unit-inv-5000",
+          "unitInv": 5000
         },
         {
           "default": false,
@@ -116,7 +156,7 @@
           "unitInv": 10000
         }
       ],
-      "version": "2026.01.01+galuchat.1",
+      "version": "2026.01.01+galuchat.2",
       "wordbooks": [
         {
           "default": true,
@@ -250,7 +290,7 @@
     "wgsmap": 3,
     "wgsmapset": 3
   },
-  "generatedAt": "2026-08-23T05:05:59Z",
+  "generatedAt": "2026-08-30T02:41:09Z",
   "legal": {
     "commercialLicensing": {
       "path": "COMMERCIAL-LICENSING.md",
@@ -277,22 +317,22 @@
   "packagingSpecDirty": true,
   "platforms": {
     "cpp": {
-      "implementationVersion": "0.5.0",
+      "implementationVersion": "0.5.1",
       "license": "Apache-2.0",
       "manifest": "cpp/manifest.json"
     },
     "java": {
-      "implementationVersion": "0.5.0",
+      "implementationVersion": "0.5.1",
       "license": "Apache-2.0",
       "manifest": "java/manifest.json"
     },
     "javascript": {
-      "implementationVersion": "0.5.0",
+      "implementationVersion": "0.5.1",
       "license": "Apache-2.0",
       "manifest": "javascript/manifest.json"
     },
     "python": {
-      "implementationVersion": "0.5.0",
+      "implementationVersion": "0.5.1",
       "license": "Apache-2.0",
       "manifest": "python/manifest.json"
     }

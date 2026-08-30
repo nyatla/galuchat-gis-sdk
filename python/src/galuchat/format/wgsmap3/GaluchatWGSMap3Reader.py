@@ -6,7 +6,7 @@ from galuchat.io import BytesReaderFactory, FileReaderFactory, ReaderFactory
 from galuchat.math.raster import IReadableRaster, RawRaster
 from galuchat.math.rect import GisRect
 
-from ..wgsmap2 import WGSMapHeader
+from .WGSMapHeader import WGSMapHeader
 
 
 class GaluchatWGSMap3Reader:
@@ -18,8 +18,6 @@ class GaluchatWGSMap3Reader:
         reader_factory: ReaderFactory,
         chunk_offset: int,
     ):
-        if header.data[:8] != WGSMapHeader.VERSION_3:
-            raise ValueError("GaluchatWGSMap3Reader requires WGSMap/3 header")
         self.header = header
         self._reader_factory = reader_factory
         self._chunk_offset = chunk_offset

@@ -1,5 +1,5 @@
 {
-  "datasetCommit": "098cb6c5cd0fdaa6d745e63d361ec7c55ae33bee",
+  "datasetCommit": "80a90598046c5bce87f04b71c1fbd6080c6ec209",
   "files": {
     "maps": [
       {
@@ -13,12 +13,48 @@
       },
       {
         "cellSize": 4096,
+        "default": false,
+        "id": "unit-inv-250",
+        "path": "datasets/jp-admin-n03-2026/N03-20260101-grid-4096-250.remap.wgsmapset.glc",
+        "sha256": "852a7b452b0f2376f94d7d0876463becf2b37241ab27df1830fd9d65578facd1",
+        "size": 125808,
+        "unitInv": 250
+      },
+      {
+        "cellSize": 4096,
+        "default": false,
+        "id": "unit-inv-500",
+        "path": "datasets/jp-admin-n03-2026/N03-20260101-grid-4096-500.remap.wgsmapset.glc",
+        "sha256": "21fe3167bab27c3a2aee61588c90557a787dc98f891bd58c23531dbfc356e247",
+        "size": 246251,
+        "unitInv": 500
+      },
+      {
+        "cellSize": 4096,
         "default": true,
         "id": "unit-inv-1000",
         "path": "datasets/jp-admin-n03-2026/N03-20260101-grid-4096-1000.remap.wgsmapset.glc",
         "sha256": "4d5032a53edfea26a5f24b4f47744c7b156037bde91f011480b42fb71ca36ebb",
         "size": 490349,
         "unitInv": 1000
+      },
+      {
+        "cellSize": 8192,
+        "default": false,
+        "id": "unit-inv-2500",
+        "path": "datasets/jp-admin-n03-2026/N03-20260101-grid-8192-2500.remap.wgsmapset.glc",
+        "sha256": "82604289dbc9ab8ce45c763e79f0557909277e7af66723eb03cc40fa1ec2cb6e",
+        "size": 1224900,
+        "unitInv": 2500
+      },
+      {
+        "cellSize": 8192,
+        "default": false,
+        "id": "unit-inv-5000",
+        "path": "datasets/jp-admin-n03-2026/N03-20260101-grid-8192-5000.remap.wgsmapset.glc",
+        "sha256": "c446a91c1ae1ff4bd4f831cece73bd489692dcc0e1ba2d2cdbaee7c0ba58f687",
+        "size": 2411093,
+        "unitInv": 5000
       },
       {
         "cellSize": 8192,
@@ -75,12 +111,12 @@
     "imageChunk": "GI01",
     "wgsmapset": 3
   },
-  "generatedAt": "2026-08-22T23:15:19Z",
+  "generatedAt": "2026-08-30T02:41:00Z",
   "id": "jp-admin-n03-2026",
   "schemaVersion": 2,
   "sdkVersion": "0.1.0",
   "sourceDirty": false,
   "sourceVersion": "N03-20260101",
   "type": "galuchat-gis-dataset",
-  "version": "2026.01.01+galuchat.1"
+  "version": "2026.01.01+galuchat.2"
 }

@@ -1,11 +1,11 @@
 {
-  "coreCommit": "1f06916ac88f7efc0a6836962ef595a8bee74ef6",
-  "coreVersion": "0.5.0",
+  "coreCommit": "087a2e24567813e68c413b0d6586bd6639b250f6",
+  "coreVersion": "0.5.1",
   "files": [
     {
       "path": "java/galuchat-java-core.jar",
-      "sha256": "e7c0c75817b75b0afe618c51d819017d85524abc1b753ecf2d94e69f98c5cc4c",
-      "size": 200716
+      "sha256": "c35f07a0c94b1987d6efe35fc417643b8222e3be30499893513f6640699120f9",
+      "size": 189062
     },
     {
       "path": "java/getstarted/src/main/java/jp/nyatla/galuchat/getstarted/ExamplePaths.java",
@@ -40,8 +40,8 @@
     "wgsmap": 3,
     "wgsmapset": 3
   },
-  "generatedAt": "2026-08-22T11:11:50Z",
-  "implementationVersion": "0.5.0",
+  "generatedAt": "2026-08-30T02:40:26Z",
+  "implementationVersion": "0.5.1",
   "javaRelease": 20,
   "layoutVersion": 2,
   "license": "Apache-2.0",

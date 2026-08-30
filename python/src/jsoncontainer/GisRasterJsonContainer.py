@@ -50,7 +50,7 @@ class GisRasterJsonContainer(JsonContainer):
                 tuple(chain.from_iterable((Rle.encode([raster.get(x,y) for x in range(raster.width)]))))
             )
         return cls(
-            created_date,uuid,source,comment,location,RasterChunk(raster.width,raster.height,lines))
+            created_date,uuid,source,comment,location,RasterChunk(raster.width,raster.height,tuple(lines)))
     @classmethod
     def parse(cls,src:Any)->Self:
         if src["type"]!=cls.CHUNK_TYPE:
@@ -64,4 +64,3 @@ class GisRasterJsonContainer(JsonContainer):
              LatLonBaseChunk.parse(src["location"]),
              RasterChunk.parse(src["raster"]),
              )
-

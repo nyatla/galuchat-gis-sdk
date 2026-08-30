@@ -1,6 +1,6 @@
 {
-  "coreCommit": "1f06916ac88f7efc0a6836962ef595a8bee74ef6",
-  "coreVersion": "0.5.0",
+  "coreCommit": "087a2e24567813e68c413b0d6586bd6639b250f6",
+  "coreVersion": "0.5.1",
   "files": [
     {
       "path": "python/src/galuchat/api/__init__.py",
@@ -79,8 +79,8 @@
     },
     {
       "path": "python/src/galuchat/chunk/gi01/GaluchatImageDataChunk01.py",
-      "sha256": "dd62d2239ef887199bacfae050c4bcc471c2fc8decf96aa0d1634a3e534b987b",
-      "size": 8634
+      "sha256": "aafa86f724c0d71ed48c9d9c53bce85bf4dbce37e50818c4d7ea4d1ba94e8f3d",
+      "size": 8456
     },
     {
       "path": "python/src/galuchat/chunk/gi01/GaluchatImageDataChunk01Reader.py",
@@ -104,8 +104,8 @@
     },
     {
       "path": "python/src/galuchat/chunk/gi01/__init__.py",
-      "sha256": "d86837e525e24152bdbccaf259b77bcb9b958978e1242aa385bd141a1f098fa1",
-      "size": 262
+      "sha256": "c8bccee1b985f4e8fc776c485022b1c7c3ba966fbf09513b10745cfdfb53839b",
+      "size": 212
     },
     {
       "path": "python/src/galuchat/chunk/gi01/nodes/NodeDeserializer.py",
@@ -209,8 +209,8 @@
     },
     {
       "path": "python/src/galuchat/format/types/__init__.py",
-      "sha256": "6cf4979dc2977ac9366306c973209a92adf3f0bc5b6718fddf5a57c86dd4c8fd",
-      "size": 2985
+      "sha256": "b69e2b32741519b9b81bc00b3a811b81da5d003f3d8cf536a28ef90300f4f69a",
+      "size": 2402
     },
     {
       "path": "python/src/galuchat/format/wgsmap2/WGSMapHeader.py",
@@ -224,23 +224,28 @@
     },
     {
       "path": "python/src/galuchat/format/wgsmap3/GaluchatWGSMap3Dom.py",
-      "sha256": "488e430bd2c47f6a653d9328a9f444cd7c8f31ff413f671763e8d212015dc1ec",
-      "size": 1066
+      "sha256": "0102a35dc25a96fd449d28ad558666c36b1df8abfc44a07ec83bbe0b98d6cc62",
+      "size": 1070
     },
     {
       "path": "python/src/galuchat/format/wgsmap3/GaluchatWGSMap3Reader.py",
-      "sha256": "962d3e0e1fac1554c870d92286edd426ba78c9f8420cc263528b6ec4cf46446d",
-      "size": 4261
+      "sha256": "71234c44dc1f3d91fd9f819f8dcab6c18b50ede13148a62c2b24755e75fb5595",
+      "size": 4132
+    },
+    {
+      "path": "python/src/galuchat/format/wgsmap3/WGSMapHeader.py",
+      "sha256": "6f42fa0eca3fd70b737fcc8e476de4e548637b1ffe32e4e083ea711b6aa2c83f",
+      "size": 2279
     },
     {
       "path": "python/src/galuchat/format/wgsmap3/__init__.py",
-      "sha256": "d6734684438fd9d9aaeb264bf1dcb52bc6b07bc9264f51152bb9626f7c879f34",
-      "size": 175
+      "sha256": "88daa5502c9dc0dd93c35a0f154eebfed6c2b9739c409706191e6d28b903cbd9",
+      "size": 179
     },
     {
       "path": "python/src/galuchat/format/wgsmapset3/GaluchatWGSMapSet3Dom.py",
-      "sha256": "fefcfba39116fcd59c8ee43c955c72487c27293e7bab18584acbe7e6fecd0f04",
-      "size": 3090
+      "sha256": "6e81aa7d17fdf389017230d037888ca70f862d9039458dfa37158bc7aca8dae8",
+      "size": 2928
     },
     {
       "path": "python/src/galuchat/format/wgsmapset3/GaluchatWGSMapSet3Reader.py",
@@ -249,8 +254,8 @@
     },
     {
       "path": "python/src/galuchat/format/wgsmapset3/WGSMapSetHeader3.py",
-      "sha256": "d3478c5b01045762ebc2a034639e21c95906773cea047d20ac41cc9033eef13d",
-      "size": 2740
+      "sha256": "001dc6d8a6da3a17980b5cd3373e86cc6f969407d585031f3e9ae21939c55924",
+      "size": 2480
     },
     {
       "path": "python/src/galuchat/format/wgsmapset3/__init__.py",
@@ -399,23 +404,13 @@
     },
     {
       "path": "python/src/galuchat/version.py",
-      "sha256": "48a3cd7baccfc8a95190ec753a68c1f5ce01cf1c89bdc7b106794b5cb99ecf47",
-      "size": 224
+      "sha256": "a57a63f2433b5a6517b74322a7287fe1dacc632fbe6ae2f4539e1fa6b439966f",
+      "size": 142
     },
     {
       "path": "python/src/galuchat/wordbook/__init__.py",
-      "sha256": "af639dc3382249c75f86ed0c092cf8e8e59e8537c9c4a74094c38bccbe73450b",
-      "size": 564
-    },
-    {
-      "path": "python/src/galuchat/wordbook/chunk/GisWordBookHeaderChunk.py",
-      "sha256": "5f45443e8effc76e70d279018187491d46118589f627dc3f5c964046cc6b6a76",
-      "size": 1158
-    },
-    {
-      "path": "python/src/galuchat/wordbook/chunk/GisWordBookHeaderChunkReader.py",
-      "sha256": "8e92331fd3a455659c167be35c0f69c9e5fa0808c6ef9971639efb714d5e6c44",
-      "size": 961
+      "sha256": "2f8415fc933664f8c8f434a71a4063fd77f60ee2242fcb717ffa14e0d745d056",
+      "size": 451
     },
     {
       "path": "python/src/galuchat/wordbook/chunk/HierarchicalIndexChunk.py",
@@ -449,18 +444,13 @@
     },
     {
       "path": "python/src/galuchat/wordbook/chunk/WordBookHeaderChunk.py",
-      "sha256": "27bc9776fbe5f07517a68701ca9619093f65871242e07fb0670e3627ee33687c",
-      "size": 1172
-    },
-    {
-      "path": "python/src/galuchat/wordbook/chunk/WordBookHeaderChunkReader.py",
-      "sha256": "be45af0f066feec084f6e0d389ba3658051f3e6c41ee3b4e6291b3106814d598",
-      "size": 931
+      "sha256": "ce1aa793094d1628165c37b0de90610848758ad6979e8712511edec48f38c2eb",
+      "size": 2272
     },
     {
       "path": "python/src/galuchat/wordbook/chunk/__init__.py",
-      "sha256": "d64c07b9b43da7ec0296c70b665f203f6cb95972a61d84077706bf9cbe872fa4",
-      "size": 615
+      "sha256": "ad21d112729fb1bffd5df5e485f8b9127f56ccdd92025f1b5f1c6cae8ed8b570",
+      "size": 404
     },
     {
       "path": "python/src/galuchat/wordbook/chunk/record_stream.py",
@@ -469,13 +459,13 @@
     },
     {
       "path": "python/src/galuchat/wordbook/core/GaluchatGisWordBookDom.py",
-      "sha256": "23b1ea783570703dd1fbd38359ddb463e2a67e0bc8f9b94d982eb0ed9b471aac",
-      "size": 9379
+      "sha256": "218b1c166dffd828a0f93fff7b24c95976a88db128f5823dde75228e45f56366",
+      "size": 9367
     },
     {
       "path": "python/src/galuchat/wordbook/core/GaluchatGisWordBookReader.py",
-      "sha256": "2f81ed2f7fc78e56f6fdb9310d6a2f450c6d89a163092b6e3bbd7dadb91dbbd8",
-      "size": 5657
+      "sha256": "f8b003950244664b6b11625404abce45e88a960fad8cb25cc0266fa1b8ae9674",
+      "size": 5580
     },
     {
       "path": "python/src/galuchat/wordbook/core/GaluchatWordBookDom.py",
@@ -484,8 +474,8 @@
     },
     {
       "path": "python/src/galuchat/wordbook/core/GaluchatWordBookReader.py",
-      "sha256": "869653d7a9109ff3e7f6b665311437dceeb0d65d5bdb3b74ddd0e12397889d7a",
-      "size": 2073
+      "sha256": "28bd752ee601b7ccbebb8b8185c5e0c4ab4dbb87edc67eb1483d194eb1c96e11",
+      "size": 2067
     },
     {
       "path": "python/src/galuchat/wordbook/core/WordBookModel.py",
@@ -494,8 +484,8 @@
     },
     {
       "path": "python/src/galuchat/wordbook/core/WordBookOptimizer.py",
-      "sha256": "f81ae9da4bf50e49282779b13485811d76615165e41409ac72609b6be767562c",
-      "size": 17657
+      "sha256": "eebdfbd56c45b4921d717f3e27c1eb44b207f062897240fb367d78c156bd39fc",
+      "size": 17530
     },
     {
       "path": "python/src/galuchat/wordbook/core/_ReaderSupport.py",
@@ -504,8 +494,8 @@
     },
     {
       "path": "python/src/galuchat/wordbook/core/__init__.py",
-      "sha256": "a575435fdc37d7f9794ff24b5815e9983d2576c351a601cf51a81a00f4ac996b",
-      "size": 1077
+      "sha256": "7cc63c1b71c8e19b26e75c5b53ec7b5dd6d26ef8f2058fe2614d693eda30a53d",
+      "size": 845
     },
     {
       "path": "python/src/galuchat/wordbook/core/constants.py",
@@ -514,8 +504,8 @@
     },
     {
       "path": "python/src/jsoncontainer/GisRasterJsonContainer.py",
-      "sha256": "142b8a68b87166e2f5a34323ccaf012bca284a05f28dd9778a0b978376e2cccc",
-      "size": 2328
+      "sha256": "4ff7c080149dd4dc0fdbcfe690f914e1f1a53ceda668a93f79bbb1e62d7a87ae",
+      "size": 2334
     },
     {
       "path": "python/src/jsoncontainer/GridInfoContainer.py",
@@ -539,8 +529,8 @@
     },
     {
       "path": "python/src/jsoncontainer/chunk/RasterChunk.py",
-      "sha256": "0fd21368cc776af92fb3dbc7a636750cb858747b40f1bb5d7f42cbfc8ff6d403",
-      "size": 3096
+      "sha256": "e6977d9ca4aa3e1d285db338d5bc54b2210e65a73f963d688043802ee02ed7a7",
+      "size": 4104
     },
     {
       "path": "python/src/jsoncontainer/chunk/__init__.py",
@@ -580,8 +570,8 @@
     "wgsmap": 3,
     "wgsmapset": 3
   },
-  "generatedAt": "2026-08-22T11:12:15Z",
-  "implementationVersion": "0.5.0",
+  "generatedAt": "2026-08-30T02:40:45Z",
+  "implementationVersion": "0.5.1",
   "layoutVersion": 2,
   "license": "Apache-2.0",
   "optionalRuntime": {

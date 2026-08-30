@@ -78,10 +78,6 @@ class GaluchatImageDataChunk01(Chunk):
                 return cls(node)
             raise ValueError(f"unsupported GI01 block compression type: {compression_type}")
 
-        @classmethod
-        def desirialize(cls, square_unit: int, src: ABytesReader) -> "GaluchatImageDataChunk01.Block":
-            return cls.deserialize(square_unit, src)
-
         def serialize(
             self,
             dest: ABytesWriter,

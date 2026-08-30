@@ -40,23 +40,27 @@ public:
 
         {
             std::unique_ptr<ByteReader> reader = factory_->create(chunks[0].data_start);
-            readHeader(*reader, chunks[0].size);
+            detail::LimitedReader chunk(*reader, chunks[0].size);
+            readHeader(chunk, chunks[0].size);
         }
         {
             std::unique_ptr<ByteReader> reader = factory_->create(token_chunk_.data_start);
-            token_count_ = TokenMapReader(*reader).tokenCount();
+            detail::LimitedReader chunk(*reader, token_chunk_.size);
+            token_count_ = TokenMapReader(chunk).tokenCount();
         }
         int text_token_bits;
         {
             std::unique_ptr<ByteReader> reader = factory_->create(text_chunk_.data_start);
-            TextTableReader text(*reader);
+            detail::LimitedReader chunk(*reader, text_chunk_.size);
+            TextTableReader text(chunk);
             component_count_ = text.recordCount();
             text_token_bits = text.tokenBits();
         }
         int index_code_bits;
         {
             std::unique_ptr<ByteReader> reader = factory_->create(index_chunk_.data_start);
-            HierarchicalIndexReader index(*reader, index_chunk_.size);
+            detail::LimitedReader chunk(*reader, index_chunk_.size);
+            HierarchicalIndexReader index(chunk, index_chunk_.size);
             record_count_ = index.recordCount();
             depth_ = index.depth();
             index_code_bits = index.codeBits();
@@ -69,15 +73,6 @@ public:
         }
     }
 
-    static GaluchatGisWordBookReader fromFile(
-        const std::string& path,
-        size_t buffer_size = 8192,
-        size_t token_cache_size = 64) {
-        return GaluchatGisWordBookReader(
-            std::make_shared<FileReaderFactory>(path, buffer_size),
-            token_cache_size);
-    }
-
     size_t recordCount() const { return record_count_; }
     size_t depth() const { return depth_; }
     size_t componentCount() const { return component_count_; }
@@ -85,7 +80,8 @@ public:
 
     std::vector<size_t> readCodeSet(size_t index) const {
         std::unique_ptr<ByteReader> reader = factory_->create(index_chunk_.data_start);
-        return HierarchicalIndexReader(*reader, index_chunk_.size).readCodeSet(index);
+        detail::LimitedReader chunk(*reader, index_chunk_.size);
+        return HierarchicalIndexReader(chunk, index_chunk_.size).readCodeSet(index);
     }
 
     std::string readComponent(size_t code) const {
@@ -132,17 +128,15 @@ private:
         std::array<ChunkLocation, 4> chunks{};
         std::unique_ptr<ByteReader> reader = factory.create();
         for (size_t i = 0; i < names.size(); i++) {
-            std::string name = readAscii(*reader, 4);
-            size_t size = static_cast<size_t>(reader->readMbUInt());
+            std::string name = detail::readAscii(*reader, 4);
+            size_t size = detail::toSize(
+                reader->readMbUInt(), "GisWordBook chunk size");
             if (name != names[i]) throw std::runtime_error("invalid GisWordBook chunk order");
             size_t start = reader->pos();
-            if (start > factory.size() || size > factory.size() - start) {
-                throw std::runtime_error("GisWordBook chunk exceeds source size");
-            }
             chunks[i] = {name, start, size};
             reader->skipInByte(size);
         }
-        if (reader->pos() != factory.size()) {
+        if (!reader->atEnd()) {
             throw std::runtime_error("GisWordBook has trailing bytes");
         }
         return chunks;
@@ -150,20 +144,20 @@ private:
 
     void readHeader(ByteReader& reader, size_t size) {
         size_t start = reader.pos();
-        if (readBStrAscii(reader, 16) != "GisWordBook/0") {
+        if (detail::readBStrAscii(reader, 16) != "GisWordBook/0") {
             throw std::runtime_error("unsupported GisWordBook version");
         }
-        size_t metadata_size = static_cast<size_t>(reader.readMbUInt());
-        std::vector<uint8_t> bytes = reader.readBytes(metadata_size);
-        metadata_.assign(reinterpret_cast<const char*>(bytes.data()), bytes.size());
+        size_t metadata_size = detail::toSize(
+            reader.readMbUInt(), "GW00 metadata size");
+        metadata_ = detail::readAscii(reader, metadata_size);
         if (reader.pos() - start != size) throw std::runtime_error("GW00 has trailing bytes");
     }
 
     class TokenMapReader {
     public:
         explicit TokenMapReader(ByteReader& reader) : reader_(reader) {
-            token_count_ = static_cast<size_t>(reader_.readMbUInt());
-            page_count_ = static_cast<size_t>(reader_.readMbUInt());
+            token_count_ = detail::toSize(reader_.readMbUInt(), "TM00 token count");
+            page_count_ = detail::toSize(reader_.readMbUInt(), "TM00 page count");
         }
 
         size_t tokenCount() const { return token_count_; }
@@ -178,24 +172,24 @@ private:
             bool has_previous = false;
             for (size_t page = 0; page < page_count_; page++) {
                 if (reader_.readByte() != 0) throw std::runtime_error("unsupported TM00 page header");
-                size_t token_size = static_cast<size_t>(reader_.readMbUInt());
-                size_t page_tokens = static_cast<size_t>(reader_.readMbUInt());
-                size_t stream_size = static_cast<size_t>(reader_.readMbUInt());
+                size_t token_size = detail::toSize(reader_.readMbUInt(), "TM00 token size");
+                size_t page_tokens = detail::toSize(reader_.readMbUInt(), "TM00 page token count");
+                size_t stream_size = detail::toSize(reader_.readMbUInt(), "TM00 stream size");
                 validateTokenPage(token_size, page_tokens, stream_size, previous, has_previous);
                 previous = token_size;
                 has_previous = true;
-                size_t page_end = token_base + page_tokens;
+                size_t page_end = detail::addSize(
+                    token_base, page_tokens, "TM00 page end");
                 size_t consumed = 0;
                 while (target_pos < targets.size() && targets[target_pos] < page_end) {
                     size_t token_id = targets[target_pos];
                     if (token_id < token_base || token_id >= token_count_) {
                         throw std::runtime_error("TM00 token id out of range");
                     }
-                    size_t offset = (token_id - token_base) * token_size;
+                    size_t offset = detail::multiplySize(
+                        token_id - token_base, token_size, "TM00 token offset");
                     reader_.skipInByte(offset - consumed);
-                    std::vector<uint8_t> bytes = reader_.readBytes(token_size);
-                    result.push_back({token_id, std::string(
-                        reinterpret_cast<const char*>(bytes.data()), bytes.size())});
+                    result.push_back({token_id, detail::readAscii(reader_, token_size)});
                     consumed = offset + token_size;
                     target_pos++;
                 }
@@ -215,10 +209,10 @@ private:
     class TextTableReader {
     public:
         explicit TextTableReader(ByteReader& reader) : reader_(reader) {
-            record_count_ = static_cast<size_t>(reader_.readMbUInt());
+            record_count_ = detail::toSize(reader_.readMbUInt(), "TT00 record count");
             (void)reader_.readMbUInt();
-            page_count_ = static_cast<size_t>(reader_.readMbUInt());
-            token_bits_ = static_cast<int>(reader_.readMbUInt());
+            page_count_ = detail::toSize(reader_.readMbUInt(), "TT00 page count");
+            token_bits_ = detail::toInt(reader_.readMbUInt(), "TT00 token_bits");
             if (token_bits_ < 1 || token_bits_ > 16) {
                 throw std::runtime_error("invalid TT00 token_bits");
             }
@@ -239,13 +233,14 @@ private:
             bool has_previous = false;
             for (size_t page = 0; page < page_count_; page++) {
                 if (reader_.readByte() != 0) throw std::runtime_error("unsupported TT00 page header");
-                size_t record_tokens = static_cast<size_t>(reader_.readMbUInt());
-                size_t page_records = static_cast<size_t>(reader_.readMbUInt());
-                size_t stream_size = static_cast<size_t>(reader_.readMbUInt());
+                size_t record_tokens = detail::toSize(reader_.readMbUInt(), "TT00 record token count");
+                size_t page_records = detail::toSize(reader_.readMbUInt(), "TT00 page record count");
+                size_t stream_size = detail::toSize(reader_.readMbUInt(), "TT00 stream size");
                 validateTextPage(record_tokens, page_records, previous, has_previous);
                 previous = record_tokens;
                 has_previous = true;
-                size_t page_end = record_base + page_records;
+                size_t page_end = detail::addSize(
+                    record_base, page_records, "TT00 page end");
                 size_t target_start = target_pos;
                 while (target_pos < codes.size() && codes[target_pos] < page_end) target_pos++;
                 if (target_start == target_pos) {
@@ -269,7 +264,12 @@ private:
                 }
                 if (target_pos == codes.size()) return result;
                 size_t consumed = bitPosition(reader_) - stream_start;
-                reader_.skipBits(stream_size * 8 - consumed);
+                size_t stream_bits = detail::multiplySize(
+                    stream_size, size_t{8}, "TT00 stream bits");
+                if (consumed > stream_bits) {
+                    throw std::runtime_error("TT00 packet exceeds stream size");
+                }
+                reader_.skipBits(stream_bits - consumed);
                 record_base = page_end;
             }
             throw std::runtime_error("TT00 code out of range");
@@ -286,13 +286,14 @@ private:
     public:
         HierarchicalIndexReader(ByteReader& reader, size_t size) : reader_(reader) {
             size_t start = reader_.pos();
-            header_.max_depth = static_cast<size_t>(reader_.readMbUInt());
-            header_.record_count = static_cast<size_t>(reader_.readMbUInt());
-            header_.code_bits = static_cast<int>(reader_.readMbUInt());
-            header_.root_count = static_cast<size_t>(reader_.readMbUInt());
-            header_.stream_size = static_cast<size_t>(reader_.readMbUInt());
+            header_.max_depth = detail::toSize(reader_.readMbUInt(), "TI00 max depth");
+            header_.record_count = detail::toSize(reader_.readMbUInt(), "TI00 record count");
+            header_.code_bits = detail::toInt(reader_.readMbUInt(), "TI00 code_bits");
+            header_.root_count = detail::toSize(reader_.readMbUInt(), "TI00 root count");
+            header_.stream_size = detail::toSize(reader_.readMbUInt(), "TI00 stream size");
             validateIndexHeader(header_);
-            if (reader_.pos() - start + header_.stream_size != size) {
+            size_t header_size = reader_.pos() - start;
+            if (header_size > size || header_.stream_size != size - header_size) {
                 throw std::runtime_error("TI00 has trailing bytes");
             }
         }
@@ -314,8 +315,8 @@ private:
             size_t depth, size_t count, size_t target, std::vector<size_t>& out) {
             for (size_t i = 0; i < count; i++) {
                 size_t code = reader_.readBitsAsInt32(header_.code_bits);
-                size_t leaves = static_cast<size_t>(reader_.readMbUInt());
-                size_t payload_bits = static_cast<size_t>(reader_.readMbUInt());
+                size_t leaves = detail::toSize(reader_.readMbUInt(), "TI00 leaves");
+                size_t payload_bits = detail::toSize(reader_.readMbUInt(), "TI00 payload bits");
                 if (target < leaves) {
                     out[depth] = code;
                     readChildren(depth + 1, leaves, target, out);
@@ -336,15 +337,16 @@ private:
             size_t consumed = 0;
             while (consumed < leaves) {
                 size_t code = reader_.readBitsAsInt32(header_.code_bits);
-                size_t child_leaves = static_cast<size_t>(reader_.readMbUInt());
-                size_t payload_bits = static_cast<size_t>(reader_.readMbUInt());
-                if (target < consumed + child_leaves) {
+                size_t child_leaves = detail::toSize(reader_.readMbUInt(), "TI00 child leaves");
+                size_t payload_bits = detail::toSize(reader_.readMbUInt(), "TI00 payload bits");
+                size_t next = detail::addSize(consumed, child_leaves, "TI00 leaf count");
+                if (target < next) {
                     out[depth] = code;
                     readChildren(depth + 1, child_leaves, target - consumed, out);
                     return;
                 }
                 skipPayload(depth + 1, child_leaves, payload_bits);
-                consumed += child_leaves;
+                consumed = next;
             }
             throw std::runtime_error("TI00 child index not found");
         }
@@ -352,13 +354,15 @@ private:
         void readLeafBlocksByCount(
             size_t blocks, size_t target, std::vector<size_t>& out) {
             for (size_t block = 0; block < blocks; block++) {
-                size_t leaves = static_cast<size_t>(reader_.readMbUInt());
+                size_t leaves = detail::toSize(reader_.readMbUInt(), "TI00 block leaves");
                 if (target < leaves) {
-                    reader_.skipBits(target * static_cast<size_t>(header_.code_bits));
+                    reader_.skipBits(detail::multiplySize(
+                        target, static_cast<size_t>(header_.code_bits), "TI00 leaf offset"));
                     out[header_.max_depth - 1] = reader_.readBitsAsInt32(header_.code_bits);
                     return;
                 }
-                reader_.skipBits(leaves * static_cast<size_t>(header_.code_bits));
+                reader_.skipBits(detail::multiplySize(
+                    leaves, static_cast<size_t>(header_.code_bits), "TI00 leaf payload"));
                 target -= leaves;
             }
             throw std::runtime_error("TI00 leaf index not found");
@@ -368,14 +372,21 @@ private:
             size_t leaves, size_t target, std::vector<size_t>& out) {
             size_t consumed = 0;
             while (consumed < leaves) {
-                size_t block_leaves = static_cast<size_t>(reader_.readMbUInt());
-                if (target < consumed + block_leaves) {
-                    reader_.skipBits((target - consumed) * static_cast<size_t>(header_.code_bits));
+                size_t block_leaves = detail::toSize(reader_.readMbUInt(), "TI00 block leaves");
+                size_t next = detail::addSize(consumed, block_leaves, "TI00 leaf count");
+                if (target < next) {
+                    reader_.skipBits(detail::multiplySize(
+                        target - consumed,
+                        static_cast<size_t>(header_.code_bits),
+                        "TI00 leaf offset"));
                     out[header_.max_depth - 1] = reader_.readBitsAsInt32(header_.code_bits);
                     return;
                 }
-                reader_.skipBits(block_leaves * static_cast<size_t>(header_.code_bits));
-                consumed += block_leaves;
+                reader_.skipBits(detail::multiplySize(
+                    block_leaves,
+                    static_cast<size_t>(header_.code_bits),
+                    "TI00 leaf payload"));
+                consumed = next;
             }
             throw std::runtime_error("TI00 leaf index not found");
         }
@@ -389,18 +400,21 @@ private:
             size_t consumed = 0;
             if (depth == header_.max_depth - 1) {
                 while (consumed < leaves) {
-                    size_t block_leaves = static_cast<size_t>(reader_.readMbUInt());
-                    reader_.skipBits(block_leaves * static_cast<size_t>(header_.code_bits));
-                    consumed += block_leaves;
+                    size_t block_leaves = detail::toSize(reader_.readMbUInt(), "TI00 block leaves");
+                    reader_.skipBits(detail::multiplySize(
+                        block_leaves,
+                        static_cast<size_t>(header_.code_bits),
+                        "TI00 leaf payload"));
+                    consumed = detail::addSize(consumed, block_leaves, "TI00 leaf count");
                 }
                 return;
             }
             while (consumed < leaves) {
                 (void)reader_.readBitsAsInt32(header_.code_bits);
-                size_t child_leaves = static_cast<size_t>(reader_.readMbUInt());
-                size_t payload_bits = static_cast<size_t>(reader_.readMbUInt());
+                size_t child_leaves = detail::toSize(reader_.readMbUInt(), "TI00 child leaves");
+                size_t payload_bits = detail::toSize(reader_.readMbUInt(), "TI00 payload bits");
                 skipPayload(depth + 1, child_leaves, payload_bits);
-                consumed += child_leaves;
+                consumed = detail::addSize(consumed, child_leaves, "TI00 leaf count");
             }
         }
 
@@ -415,7 +429,8 @@ private:
         std::vector<std::pair<size_t, std::vector<size_t>>> token_sets;
         {
             std::unique_ptr<ByteReader> reader = factory_->create(text_chunk_.data_start);
-            token_sets = TextTableReader(*reader).readTokenIdSets(codes);
+            detail::LimitedReader chunk(*reader, text_chunk_.size);
+            token_sets = TextTableReader(chunk).readTokenIdSets(codes);
         }
         std::vector<size_t> token_ids;
         for (const auto& entry : token_sets) {
@@ -433,8 +448,9 @@ private:
         }
         if (!missing.empty()) {
             std::unique_ptr<ByteReader> reader = factory_->create(token_chunk_.data_start);
+            detail::LimitedReader chunk(*reader, token_chunk_.size);
             std::vector<std::pair<size_t, std::string>> loaded =
-                TokenMapReader(*reader).readTokens(missing);
+                TokenMapReader(chunk).readTokens(missing);
             resolved.insert(resolved.end(), loaded.begin(), loaded.end());
         }
 
@@ -481,7 +497,7 @@ private:
         size_t,
         const std::vector<size_t>& targets,
         int token_bits) {
-        size_t packets = static_cast<size_t>(reader.readMbUInt());
+        size_t packets = detail::toSize(reader.readMbUInt(), "TT00 packet count");
         std::array<int64_t, PALETTE_SIZE + 1> palette{};
         palette.fill(-1);
         std::vector<std::pair<size_t, std::vector<size_t>>> result;
@@ -491,7 +507,7 @@ private:
         size_t target = targets[0];
         for (size_t packet = 0; packet < packets; packet++) {
             int type = static_cast<int>(reader.readBitsAsInt32(2));
-            size_t value_bits = static_cast<size_t>(reader.readMbUInt());
+            size_t value_bits = detail::toSize(reader.readMbUInt(), "TT00 packet bits");
             if (type == 0) {
                 size_t start = bitPosition(reader);
                 int slots = static_cast<int>(reader.readBitsAsInt32(PALETTE_SIZE));
@@ -537,7 +553,7 @@ private:
         size_t token_size, size_t count, size_t stream_size,
         size_t previous, bool has_previous) {
         if ((has_previous && token_size < previous) || token_size == 0 || count == 0
-            || stream_size != token_size * count) {
+            || stream_size != detail::multiplySize(token_size, count, "TM00 stream size")) {
             throw std::runtime_error("invalid TM00 token page");
         }
     }
@@ -564,27 +580,14 @@ private:
     }
 
     static size_t bitPosition(const ByteReader& reader) {
-        return reader.pos() * 8 - static_cast<size_t>(reader.bitOffset());
+        return detail::multiplySize(reader.pos(), size_t{8}, "bit position")
+            - static_cast<size_t>(reader.bitOffset());
     }
 
     static void assertConsumed(ByteReader& reader, size_t start, size_t expected) {
         if (bitPosition(reader) - start != expected) {
             throw std::runtime_error("TT00 packet size mismatch");
         }
-    }
-
-    static std::string readAscii(ByteReader& reader, size_t length) {
-        std::string result;
-        result.reserve(length);
-        for (size_t i = 0; i < length; i++) result.push_back(static_cast<char>(reader.readByte()));
-        return result;
-    }
-
-    static std::string readBStrAscii(ByteReader& reader, size_t length) {
-        std::string result = readAscii(reader, length);
-        size_t zero = result.find('\0');
-        if (zero != std::string::npos) result.resize(zero);
-        return result;
     }
 
     template <class Value>

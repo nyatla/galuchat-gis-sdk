@@ -3,8 +3,6 @@ from .core import (
     GaluchatWordBookReader,
     GaluchatGisWordBookDom,
     GaluchatGisWordBookReader,
-    GisWordBookHeaderChunk,
-    GisWordBookHeaderChunkReader,
     HierarchicalIndexChunk,
     HierarchicalIndexChunkReader,
     TextTablePage,
@@ -15,9 +13,7 @@ from .core import (
     TokenMapPage,
     TokenMergeRecord,
     WordBookOptimizer,
-    WordBookHeader,
     WordBookHeaderChunk,
-    WordBookHeaderChunkReader,
     WordBookModel,
     paths_from_address_component_tree,
 )

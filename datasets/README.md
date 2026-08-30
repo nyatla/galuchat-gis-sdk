@@ -27,8 +27,8 @@ The SDK includes six GIS dataset editions with different dates, coverage, and sp
 | dataset id | Coverage | Primary use | Included resolutions (`unitInv`) |
 | --- | --- | --- | --- |
 | `jp-admin-n03-2024` | Administrative areas of Japan (2024) | Identifying prefectures, municipalities, and designated-city wards | 100, 250, 1000, 2500, 10000 |
-| `jp-admin-n03-2025` | Administrative areas of Japan (2025) | Same, using the 2025-01-01 boundaries | 100, 1000, 10000 |
-| `jp-admin-n03-2026` | Administrative areas of Japan (2026) | Same, using the 2026-01-01 boundaries | 100, 1000, 10000 |
+| `jp-admin-n03-2025` | Administrative areas of Japan (2025) | Same, using the 2025-01-01 boundaries | 100, 250, 500, 1000, 2500, 5000, 10000 |
+| `jp-admin-n03-2026` | Administrative areas of Japan (2026) | Same, using the 2026-01-01 boundaries | 100, 250, 500, 1000, 2500, 5000, 10000 |
 | `jp-estat-r2ka-2020` | Japanese town-block and small-area boundaries | Identifying town blocks and census small areas | 5000, 10000 |
 | `jp-gis-estat-integrated` | Integrated administrative and town-block boundaries | Reverse geocoding from administrative areas through small areas | 10000 |
 | `world-geoboundaries-cgaz` | Global administrative boundaries | Identifying countries and administrative areas worldwide | 100, 1000 |
@@ -47,6 +47,7 @@ Pixel value `0` is rendered in blue and represents unset areas such as the sea. 
 | ---: | ---: | ---: |
 | 100 | approx. 1.1 km | 10.24 × 7.68 degrees |
 | 250 | approx. 445 m | 4.096 × 3.072 degrees |
+| 500 | approx. 222 m | 2.048 × 1.536 degrees |
 | 1000 | approx. 111 m | 1.024 × 0.768 degrees |
 | 2500 | approx. 45 m | 0.4096 × 0.3072 degrees |
 | 5000 | approx. 22 m | 0.2048 × 0.1536 degrees |
@@ -66,10 +67,18 @@ Higher resolution represents boundaries and coastlines in greater detail, but al
 |  | 2500 | approx. 1.17 MiB |
 |  | 10000 | approx. 4.48 MiB |
 | `jp-admin-n03-2025` | 100 | approx. 52 KiB |
+|  | 250 | approx. 123 KiB |
+|  | 500 | approx. 240 KiB |
 |  | 1000 | approx. 479 KiB |
+|  | 2500 | approx. 1.17 MiB |
+|  | 5000 | approx. 2.30 MiB |
 |  | 10000 | approx. 4.48 MiB |
 | `jp-admin-n03-2026` | 100 | approx. 52 KiB |
+|  | 250 | approx. 123 KiB |
+|  | 500 | approx. 240 KiB |
 |  | 1000 | approx. 479 KiB |
+|  | 2500 | approx. 1.17 MiB |
+|  | 5000 | approx. 2.30 MiB |
 |  | 10000 | approx. 4.47 MiB |
 | `jp-estat-r2ka-2020` | 5000 | approx. 12.94 MiB |
 |  | 10000 | approx. 22.70 MiB |
@@ -96,7 +105,7 @@ These are approximate sizes of the files currently included. See each dataset's 
 
 This dataset is based on the Japanese Ministry of Land, Infrastructure, Transport and Tourism's National Land Numerical Information Administrative Area Data N03.
 
-It identifies prefectures, municipalities, counties, and designated-city wards. The `jp-admin-n03-2024` dataset contains the 2024-01-01 edition at five resolutions. The `jp-admin-n03-2025` and `jp-admin-n03-2026` datasets contain their respective January 1 editions at `unitInv=100`, `1000`, and `10000`.
+It identifies prefectures, municipalities, counties, and designated-city wards. The `jp-admin-n03-2024` dataset contains the 2024-01-01 edition at five resolutions. The `jp-admin-n03-2025` and `jp-admin-n03-2026` datasets contain their respective January 1 editions at seven resolutions: `unitInv=100`, `250`, `500`, `1000`, `2500`, `5000`, and `10000`.
 
 <table>
   <tr>

@@ -2,7 +2,7 @@ from galuchat.chunk.gi01 import GaluchatImageDataChunk01
 from galuchat.io import BytesBufferReader, BytesWriter
 from galuchat.math.rect import GisRect
 
-from ..wgsmap2 import WGSMapHeader
+from .WGSMapHeader import WGSMapHeader
 
 
 class GaluchatWGSMap3Dom:

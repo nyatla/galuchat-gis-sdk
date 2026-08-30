@@ -1,24 +1,24 @@
 # File-based reverse geocoding example for Arduino
 
-N03-20240101の1/1000度版WGSMapSetとGisWordBookをLittleFSから直接読み、経度・緯度から行政区域名を取得するサンプルです。ファイル全体をRAMへ展開せず、各読出しセッションで4 KiBの固定長バッファを使用します。
+N03-20260101の1/1000度版WGSMapSetとGisWordBookをLittleFSから直接読み、経度・緯度から行政区域名を取得するサンプルです。ファイル全体をRAMへ展開せず、各読出しセッションで4 KiBの固定長バッファを使用します。
 
 ## データファイル
 
 次の2ファイルをLittleFSのルートへ配置します。
 
 ```text
-/N03-20240101-grid-4096-1000.remap.wgsmapset.glc
-/N03-20240101.giswordbook
+/N03-20260101-grid-4096-1000.remap.wgsmapset.glc
+/N03-20260101.giswordbook
 ```
 
 元ファイルはデータセットの次の場所にあります。
 
 ```text
-datasets/jp-admin-n03-2024/N03-20240101-grid-4096-1000.remap.wgsmapset.glc
-datasets/jp-admin-n03-2024/N03-20240101.giswordbook
+dataset/国土地理院.行政区域データ.N03-20260101/build/N03-20260101-grid-4096-1000.remap.wgsmapset.glc
+dataset/国土地理院.行政区域データ.N03-20260101/build/giswordbook/N03-20260101.giswordbook
 ```
 
-ボードに応じたLittleFSアップロードツールを使用してください。MapSetは490,482 bytes、GisWordBookは31,922 bytesです。
+ボードに応じたLittleFSアップロードツールを使用してください。MapSetは490,349 bytes、GisWordBookは31,922 bytesです。
 
 ## ビルド
 
