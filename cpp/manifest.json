@@ -1,17 +1,37 @@
 {
-  "coreCommit": "087a2e24567813e68c413b0d6586bd6639b250f6",
+  "coreCommit": "4d1b47c21c0470ea7a7808e756c33e67abf27bc7",
   "coreVersion": "0.5.1",
   "cppStandard": 17,
   "files": [
     {
       "path": "cpp/README.md",
-      "sha256": "eaa840b013e0de0fc24d4d45bdafbe73d8e2b61e0573c95221a44a1a90a3226e",
-      "size": 4959
+      "sha256": "7882c7a83308ad4a8a12aaf3bb479079db6fe8b2c9bf8ff11017ff90f4f9d5fb",
+      "size": 4779
     },
     {
       "path": "cpp/library.properties",
       "sha256": "973ead91c3724a90ba71211580fb3c2ed74d365ce3a1af74387c8b84505e57a6",
       "size": 354
+    },
+    {
+      "path": "cpp/data/geoboundaries_cgaz_100_mapset.hpp",
+      "sha256": "e11eed7987e2aa4a551cd0970f6e2e5df220d1b5c3b65a8a9a1fc7a2873b65f8",
+      "size": 7849662
+    },
+    {
+      "path": "cpp/data/geoboundaries_cgaz_wordbook.hpp",
+      "sha256": "4df7bb3032e5c875c0ee1154e606bfd38a72b90b424df7a261cf5844cd514b21",
+      "size": 1543899
+    },
+    {
+      "path": "cpp/data/n03_20260101_1000_mapset.hpp",
+      "sha256": "3b433a661ebb3f1a75f5c89ee241750e761a47a1b221a1683afac2b9918e8939",
+      "size": 1299586
+    },
+    {
+      "path": "cpp/data/n03_20260101_wordbook.hpp",
+      "sha256": "54a097614ace07d9d53a34e6d4aef4e96a82c9f2609afbfba04c7c3248bf8966",
+      "size": 82578
     },
     {
       "path": "cpp/src/Galuchat.h",
@@ -37,31 +57,6 @@
       "path": "cpp/src/galuchat/wgsmap3_reader.hpp",
       "sha256": "d5ddc9818febd14e62a4d083a939a00dd7a2e88db51338bf21e40fca2c92bb75",
       "size": 66124
-    },
-    {
-      "path": "cpp/data/geoboundaries_cgaz_1000_mapset.hpp",
-      "sha256": "8e9eb2b149f61410a7c8cc1a47e8931f51c3ba4c1e4cdbee50abe469787b30b4",
-      "size": 57209488
-    },
-    {
-      "path": "cpp/data/geoboundaries_cgaz_100_mapset.hpp",
-      "sha256": "e11eed7987e2aa4a551cd0970f6e2e5df220d1b5c3b65a8a9a1fc7a2873b65f8",
-      "size": 7849662
-    },
-    {
-      "path": "cpp/data/geoboundaries_cgaz_wordbook.hpp",
-      "sha256": "4df7bb3032e5c875c0ee1154e606bfd38a72b90b424df7a261cf5844cd514b21",
-      "size": 1543899
-    },
-    {
-      "path": "cpp/data/n03_20260101_1000_mapset.hpp",
-      "sha256": "3b433a661ebb3f1a75f5c89ee241750e761a47a1b221a1683afac2b9918e8939",
-      "size": 1299586
-    },
-    {
-      "path": "cpp/data/n03_20260101_wordbook.hpp",
-      "sha256": "54a097614ace07d9d53a34e6d4aef4e96a82c9f2609afbfba04c7c3248bf8966",
-      "size": 82578
     },
     {
       "path": "cpp/platform/gcc/README.md",
@@ -136,13 +131,13 @@
     "wgsmap": 3,
     "wgsmapset": 3
   },
-  "generatedAt": "2026-08-30T02:40:34Z",
+  "generatedAt": "2026-08-30T22:52:11Z",
   "implementationVersion": "0.5.1",
   "layoutVersion": 2,
   "license": "Apache-2.0",
   "schemaVersion": 1,
   "sdkVersion": "0.1.0",
-  "sourceDirty": false,
+  "sourceDirty": true,
   "targets": [
     "gcc",
     "arduino-esp32"

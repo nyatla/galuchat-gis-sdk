@@ -2,7 +2,6 @@
   "groups": {
     "cpp": [
       "cpp/README.md",
-      "cpp/data/geoboundaries_cgaz_1000_mapset.hpp",
       "cpp/data/geoboundaries_cgaz_100_mapset.hpp",
       "cpp/data/geoboundaries_cgaz_wordbook.hpp",
       "cpp/data/n03_20260101_1000_mapset.hpp",

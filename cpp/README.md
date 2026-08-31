@@ -15,10 +15,9 @@
 | --- | ---: | --- | --- | --- |
 | N03-20260101 | 1/1000度 | `galuchat::data::n03_20260101_1000` | `n03_20260101_1000_mapset.hpp` | `n03_20260101_wordbook.hpp` |
 | geoBoundaries CGAZ | 1/100度 | `galuchat::data::geoboundaries_cgaz` | `geoboundaries_cgaz_100_mapset.hpp` | `geoboundaries_cgaz_wordbook.hpp` |
-| geoBoundaries CGAZ | 1/1000度 | `galuchat::data::geoboundaries_cgaz` | `geoboundaries_cgaz_1000_mapset.hpp` | `geoboundaries_cgaz_wordbook.hpp` |
 
 MapSetとWordBookのヘッダを同じ翻訳単位からインクルードして使用します。
-geoBoundariesのMapSet変数名は、それぞれ`mapset_100`と`mapset_1000`です。
+geoBoundariesのMapSet変数名は`mapset_100`です。
 
 `cpp`自体はArduinoライブラリとしてインストール可能です。一方、
 `platform/arduino`の各スケッチは同じディレクトリにある転送ヘッダから`src`を参照するため、

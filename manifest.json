@@ -1,5 +1,5 @@
 {
-  "coreCommit": "087a2e24567813e68c413b0d6586bd6639b250f6",
+  "coreCommit": "4d1b47c21c0470ea7a7808e756c33e67abf27bc7",
   "coreVersion": "0.5.1",
   "datasets": [
     {
@@ -290,7 +290,7 @@
     "wgsmap": 3,
     "wgsmapset": 3
   },
-  "generatedAt": "2026-08-30T02:41:09Z",
+  "generatedAt": "2026-08-30T22:52:15Z",
   "legal": {
     "commercialLicensing": {
       "path": "COMMERCIAL-LICENSING.md",
