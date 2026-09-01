@@ -1,6 +1,6 @@
 {
-  "coreCommit": "4d1b47c21c0470ea7a7808e756c33e67abf27bc7",
-  "coreVersion": "0.5.1",
+  "coreCommit": "49821bffb82a95839e5559827727af1af72ad3c0",
+  "coreVersion": "0.5.2",
   "datasets": [
     {
       "id": "jp-admin-n03-2024",
@@ -193,7 +193,7 @@
           "unitInv": 10000
         }
       ],
-      "version": "2020.01.01+galuchat.2",
+      "version": "2020.01.01+galuchat.3",
       "wordbooks": [
         {
           "default": true,
@@ -290,7 +290,7 @@
     "wgsmap": 3,
     "wgsmapset": 3
   },
-  "generatedAt": "2026-08-30T22:52:15Z",
+  "generatedAt": "2026-09-01T22:01:42Z",
   "legal": {
     "commercialLicensing": {
       "path": "COMMERCIAL-LICENSING.md",
@@ -314,31 +314,31 @@
     }
   },
   "license": "Apache-2.0",
-  "packagingSpecDirty": true,
+  "packagingSpecDirty": false,
   "platforms": {
     "cpp": {
-      "implementationVersion": "0.5.1",
+      "implementationVersion": "0.5.2",
       "license": "Apache-2.0",
       "manifest": "cpp/manifest.json"
     },
     "java": {
-      "implementationVersion": "0.5.1",
+      "implementationVersion": "0.5.2",
       "license": "Apache-2.0",
       "manifest": "java/manifest.json"
     },
     "javascript": {
-      "implementationVersion": "0.5.1",
+      "implementationVersion": "0.5.2",
       "license": "Apache-2.0",
       "manifest": "javascript/manifest.json"
     },
     "python": {
-      "implementationVersion": "0.5.1",
+      "implementationVersion": "0.5.2",
       "license": "Apache-2.0",
       "manifest": "python/manifest.json"
     }
   },
   "schemaVersion": 1,
-  "sdkVersion": "0.1.0",
-  "sourceDirty": true,
+  "sdkVersion": "0.1.1",
+  "sourceDirty": false,
   "type": "galuchat-gis-sdk"
 }

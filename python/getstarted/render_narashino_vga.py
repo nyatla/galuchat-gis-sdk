@@ -1,8 +1,8 @@
-"""Render a VGA PNG around Funabashi city.
+"""Render a VGA PNG around Narashino city.
 
 Run from the repository root:
 
-    python3 getstarted/render_funabashi_vga.py
+    python3 getstarted/render_narashino_vga.py
 """
 
 from __future__ import annotations
@@ -14,7 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "src"
 DATA = ROOT / "getstarted" / "data"
-OUTPUT = ROOT / "getstarted" / "funabashi-vga.png"
+OUTPUT = ROOT / "getstarted" / "narashino-vga.png"
 
 sys.path.insert(0, str(SRC))
 
@@ -31,8 +31,8 @@ from galuchat.api.maprender import (
 
 MAPSET_PATH = DATA / "N03-20240101-grid-4096-1000.remap.wgsmapset.glc"
 
-FUNABASHI_LON = 139.9825
-FUNABASHI_LAT = 35.6947
+NARASHINO_LON = 140.0267
+NARASHINO_LAT = 35.6810
 
 
 def main() -> None:
@@ -40,8 +40,8 @@ def main() -> None:
     output_path = Path(sys.argv[2]) if len(sys.argv) > 2 else OUTPUT
     reader = WgsMapset3ReaderAdapter.fromFile(str(mapset_path))
     selector = WgsPointRectSelector(
-        lon=FUNABASHI_LON,
-        lat=FUNABASHI_LAT,
+        lon=NARASHINO_LON,
+        lat=NARASHINO_LAT,
         width=640,
         height=480,
         anchor=RectAnchor.CENTER,

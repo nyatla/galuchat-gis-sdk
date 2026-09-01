@@ -37,9 +37,9 @@ The SDK includes six GIS dataset editions with different dates, coverage, and sp
 
 ## Reading the rendering examples
 
-Every image below contains 1024 × 768 pixels read from a WGSMapSet and is centered near Funabashi, Japan (139.9825° E, 35.6947° N).
+Every image below contains 1024 × 768 pixels read from a WGSMapSet and is centered near Narashino, Japan (140.0267° E, 35.6810° N).
 
-One GLC pixel maps directly to one image pixel, with no scaling. Lower-resolution data therefore covers a wider area, while higher-resolution data shows the area around Funabashi in greater detail.
+One GLC pixel maps directly to one image pixel, with no scaling. Lower-resolution data therefore covers a wider area, while higher-resolution data shows the area around Narashino in greater detail.
 
 Pixel value `0` is rendered in blue and represents unset areas such as the sea. Positive pixel values are region codes and are colored in HSV space to make different codes visible. The display colors have no administrative meaning.
 

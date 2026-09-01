@@ -1,6 +1,6 @@
 {
-  "coreCommit": "087a2e24567813e68c413b0d6586bd6639b250f6",
-  "coreVersion": "0.5.1",
+  "coreCommit": "49821bffb82a95839e5559827727af1af72ad3c0",
+  "coreVersion": "0.5.2",
   "files": [
     {
       "path": "python/src/galuchat/api/__init__.py",
@@ -553,8 +553,8 @@
       "size": 131
     },
     {
-      "path": "python/getstarted/render_funabashi_vga.py",
-      "sha256": "3e2303f8ba7f34e0c372f6ac9861212c5660c701b3e7a80fe52824c60d27a781",
+      "path": "python/getstarted/render_narashino_vga.py",
+      "sha256": "6e0537ae4c2057180fe56a48703b275740764d1ab2a9fdef2dbb3865d273a524",
       "size": 1761
     },
     {
@@ -570,8 +570,8 @@
     "wgsmap": 3,
     "wgsmapset": 3
   },
-  "generatedAt": "2026-08-30T02:40:45Z",
-  "implementationVersion": "0.5.1",
+  "generatedAt": "2026-09-01T22:01:21Z",
+  "implementationVersion": "0.5.2",
   "layoutVersion": 2,
   "license": "Apache-2.0",
   "optionalRuntime": {
@@ -581,7 +581,7 @@
   },
   "pythonRequires": ">=3.11",
   "schemaVersion": 1,
-  "sdkVersion": "0.1.0",
+  "sdkVersion": "0.1.1",
   "sourceDirty": false,
   "type": "galuchat-python"
 }

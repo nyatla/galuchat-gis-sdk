@@ -10,24 +10,24 @@ import jp.nyatla.galuchatJava.format.wgsmapset3.GaluchatWGSMapSet3Reader;
 import jp.nyatla.galuchatJava.j2se.MapRender;
 import jp.nyatla.galuchatJava.math.rect.IntGisRect;
 
-public final class RenderFunabashi {
+public final class RenderNarashino {
     private static final String MAPSET = "N03-20240101-grid-4096-1000.remap.wgsmapset.glc";
-    private static final double FUNABASHI_LON = 139.9825;
-    private static final double FUNABASHI_LAT = 35.6947;
+    private static final double NARASHINO_LON = 140.0267;
+    private static final double NARASHINO_LAT = 35.6810;
     private static final int WIDTH = 640;
     private static final int HEIGHT = 480;
 
-    private RenderFunabashi() {
+    private RenderNarashino() {
     }
 
     public static void main(String[] args) throws Exception {
         Path mapsetPath = ExamplePaths.input(args, 0, MAPSET);
-        Path output = args.length > 1 ? Path.of(args[1]) : Path.of("funabashi-vga.png");
+        Path output = args.length > 1 ? Path.of(args[1]) : Path.of("narashino-vga.png");
         GaluchatWGSMapSet3Reader mapset = GaluchatWGSMapSet3Reader.fromBytes(
             Files.readAllBytes(mapsetPath));
 
-        int centerX = (int) Math.round(FUNABASHI_LON * mapset.getUnitInvX());
-        int centerY = (int) Math.round(FUNABASHI_LAT * mapset.getUnitInvY());
+        int centerX = (int) Math.round(NARASHINO_LON * mapset.getUnitInvX());
+        int centerY = (int) Math.round(NARASHINO_LAT * mapset.getUnitInvY());
         var target = new IntGisRect(
             centerX - WIDTH / 2,
             centerY - HEIGHT / 2,

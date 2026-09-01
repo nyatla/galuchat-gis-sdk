@@ -10,7 +10,7 @@ GIS data can be stored directly in a browser or local application, enabling offl
 
 ## Data examples
 
-The images below are pixel-for-pixel renderings of actual WGSMapSet data centered near Funabashi, Japan. Blue represents unset areas such as the sea. Other colors distinguish region codes; the colors themselves have no semantic meaning.
+The images below are pixel-for-pixel renderings of actual WGSMapSet data centered near Narashino, Japan. Blue represents unset areas such as the sea. Other colors distinguish region codes; the colors themselves have no semantic meaning.
 
 <table>
   <tr>
@@ -18,8 +18,8 @@ The images below are pixel-for-pixel renderings of actual WGSMapSet data centere
     <th>Integrated administrative and small-area data (unitInv=10000)</th>
   </tr>
   <tr>
-    <td><a href="docs/image/jp-admin-n03-unit-inv-1000.png"><img src="docs/image/jp-admin-n03-unit-inv-1000.png" alt="Administrative-area data near Funabashi"></a></td>
-    <td><a href="docs/image/jp-gis-estat-integrated-unit-inv-10000.png"><img src="docs/image/jp-gis-estat-integrated-unit-inv-10000.png" alt="Integrated administrative and small-area data near Funabashi"></a></td>
+    <td><a href="docs/image/jp-admin-n03-unit-inv-1000.png"><img src="docs/image/jp-admin-n03-unit-inv-1000.png" alt="Administrative-area data near Narashino"></a></td>
+    <td><a href="docs/image/jp-gis-estat-integrated-unit-inv-10000.png"><img src="docs/image/jp-gis-estat-integrated-unit-inv-10000.png" alt="Integrated administrative and small-area data near Narashino"></a></td>
   </tr>
 </table>
 

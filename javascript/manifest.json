@@ -1,6 +1,6 @@
 {
-  "coreCommit": "087a2e24567813e68c413b0d6586bd6639b250f6",
-  "coreVersion": "0.5.1",
+  "coreCommit": "49821bffb82a95839e5559827727af1af72ad3c0",
+  "coreVersion": "0.5.2",
   "files": [
     {
       "path": "javascript/galuchat.min.js",
@@ -50,13 +50,13 @@
     "wgsmap": 3,
     "wgsmapset": 3
   },
-  "generatedAt": "2026-08-30T02:39:51Z",
+  "generatedAt": "2026-09-01T22:00:34Z",
   "globalName": "Galuchat",
-  "implementationVersion": "0.5.1",
+  "implementationVersion": "0.5.2",
   "layoutVersion": 2,
   "license": "Apache-2.0",
   "schemaVersion": 1,
-  "sdkVersion": "0.1.0",
+  "sdkVersion": "0.1.1",
   "sourceDirty": false,
   "type": "galuchat-javascript"
 }

@@ -1,5 +1,5 @@
 {
-  "datasetCommit": "80a90598046c5bce87f04b71c1fbd6080c6ec209",
+  "datasetCommit": "98871ce136437f8866353826aeba8e8087103bd8",
   "files": {
     "maps": [
       {
@@ -52,10 +52,10 @@
     "imageChunk": "GI01",
     "wgsmapset": 3
   },
-  "generatedAt": "2026-08-30T02:41:05Z",
+  "generatedAt": "2026-09-01T22:01:39Z",
   "id": "world-geoboundaries-cgaz",
   "schemaVersion": 2,
-  "sdkVersion": "0.1.0",
+  "sdkVersion": "0.1.1",
   "sourceDirty": false,
   "sourceVersion": "CGAZ-ADM2-main-snapshot-2024-04-20",
   "type": "galuchat-gis-dataset",

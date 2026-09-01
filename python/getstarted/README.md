@@ -15,9 +15,9 @@ PNG描画にはPillowが必要です。
 
 ```bash
 PYTHONPATH=python/src python3 \
-  python/getstarted/render_funabashi_vga.py \
+  python/getstarted/render_narashino_vga.py \
   datasets/jp-admin-n03-2024/N03-20240101-grid-4096-1000.remap.wgsmapset.glc \
-  work/funabashi-vga.png
+  work/narashino-vga.png
 ```
 
 SDKはPythonパッケージのインストール機能を持ちません。Pillowは利用側の環境で用意してください。
