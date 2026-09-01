@@ -120,7 +120,7 @@
       "java/getstarted/src/main/java/jp/nyatla/galuchat/getstarted/ExamplePaths.java",
       "java/getstarted/src/main/java/jp/nyatla/galuchat/getstarted/LookupAreaCode.java",
       "java/getstarted/src/main/java/jp/nyatla/galuchat/getstarted/ReadMapSet.java",
-      "java/getstarted/src/main/java/jp/nyatla/galuchat/getstarted/RenderFunabashi.java",
+      "java/getstarted/src/main/java/jp/nyatla/galuchat/getstarted/RenderNarashino.java",
       "java/getstarted/src/main/java/jp/nyatla/galuchat/getstarted/ReverseGeocode.java",
       "java/manifest.json"
     ],
@@ -136,7 +136,7 @@
       "javascript/manifest.json"
     ],
     "python": [
-      "python/getstarted/render_funabashi_vga.py",
+      "python/getstarted/render_narashino_vga.py",
       "python/getstarted/reverse_geocode_imperial_palace.py",
       "python/manifest.json",
       "python/src/galuchat/api/__init__.py",

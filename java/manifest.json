@@ -1,11 +1,11 @@
 {
-  "coreCommit": "087a2e24567813e68c413b0d6586bd6639b250f6",
-  "coreVersion": "0.5.1",
+  "coreCommit": "49821bffb82a95839e5559827727af1af72ad3c0",
+  "coreVersion": "0.5.2",
   "files": [
     {
       "path": "java/galuchat-java-core.jar",
-      "sha256": "c35f07a0c94b1987d6efe35fc417643b8222e3be30499893513f6640699120f9",
-      "size": 189062
+      "sha256": "130fb7b557c2e34bd71200812e9cc3fc83064d234d2204bc323c66e6ee6446ec",
+      "size": 189056
     },
     {
       "path": "java/getstarted/src/main/java/jp/nyatla/galuchat/getstarted/ExamplePaths.java",
@@ -23,8 +23,8 @@
       "size": 1000
     },
     {
-      "path": "java/getstarted/src/main/java/jp/nyatla/galuchat/getstarted/RenderFunabashi.java",
-      "sha256": "35e867b0f09c8edfd634dbef644edbe2b7ea6838c340d62c14cadbbf3db75da1",
+      "path": "java/getstarted/src/main/java/jp/nyatla/galuchat/getstarted/RenderNarashino.java",
+      "sha256": "4f71355421e4347fb375f8516d52347c44f47dac3fc3c6c1196df5c552ec2016",
       "size": 1747
     },
     {
@@ -40,13 +40,13 @@
     "wgsmap": 3,
     "wgsmapset": 3
   },
-  "generatedAt": "2026-08-30T02:40:26Z",
-  "implementationVersion": "0.5.1",
+  "generatedAt": "2026-09-01T22:01:06Z",
+  "implementationVersion": "0.5.2",
   "javaRelease": 20,
   "layoutVersion": 2,
   "license": "Apache-2.0",
   "schemaVersion": 1,
-  "sdkVersion": "0.1.0",
+  "sdkVersion": "0.1.1",
   "sourceDirty": false,
   "type": "galuchat-java"
 }

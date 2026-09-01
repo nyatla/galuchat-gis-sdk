@@ -1,6 +1,6 @@
 {
-  "coreCommit": "4d1b47c21c0470ea7a7808e756c33e67abf27bc7",
-  "coreVersion": "0.5.1",
+  "coreCommit": "49821bffb82a95839e5559827727af1af72ad3c0",
+  "coreVersion": "0.5.2",
   "cppStandard": 17,
   "files": [
     {
@@ -10,7 +10,7 @@
     },
     {
       "path": "cpp/library.properties",
-      "sha256": "973ead91c3724a90ba71211580fb3c2ed74d365ce3a1af74387c8b84505e57a6",
+      "sha256": "8eca9e29c9775b2f459a40fb0104096fdc01562fece30fca489b2c53e69736fa",
       "size": 354
     },
     {
@@ -131,13 +131,13 @@
     "wgsmap": 3,
     "wgsmapset": 3
   },
-  "generatedAt": "2026-08-30T22:52:11Z",
-  "implementationVersion": "0.5.1",
+  "generatedAt": "2026-09-01T22:01:11Z",
+  "implementationVersion": "0.5.2",
   "layoutVersion": 2,
   "license": "Apache-2.0",
   "schemaVersion": 1,
-  "sdkVersion": "0.1.0",
-  "sourceDirty": true,
+  "sdkVersion": "0.1.1",
+  "sourceDirty": false,
   "targets": [
     "gcc",
     "arduino-esp32"

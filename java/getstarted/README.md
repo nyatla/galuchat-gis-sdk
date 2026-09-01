@@ -24,7 +24,7 @@ java -cp java/galuchat-java-core.jar:work/java-getstarted \
   datasets/jp-admin-n03-2024/N03-20240101.giswordbook
 ```
 
-ほかに `LookupAreaCode` と `RenderFunabashi` を収録しています。
+ほかに `LookupAreaCode` と `RenderNarashino` を収録しています。
 
 ## 最小コード
 

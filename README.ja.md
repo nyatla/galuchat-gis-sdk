@@ -10,7 +10,7 @@ Galuchat GIS SDK は、セグメント画像格納方式 Galuchat で生成さ�
 
 ## データ例
 
-次の画像は、船橋付近を中心として実際のWGSMapSetをドットバイドットで描画した例です。青色は海面などの未設定領域、その他の色は異なる地域コードを表し、色自体に意味はありません。
+次の画像は、習志野市付近を中心として実際のWGSMapSetをドットバイドットで描画した例です。青色は海面などの未設定領域、その他の色は異なる地域コードを表し、色自体に意味はありません。
 
 <table>
   <tr>
@@ -18,8 +18,8 @@ Galuchat GIS SDK は、セグメント画像格納方式 Galuchat で生成さ�
     <th>行政区域・小地区統合データ（unitInv=10000）</th>
   </tr>
   <tr>
-    <td><a href="docs/image/jp-admin-n03-unit-inv-1000.png"><img src="docs/image/jp-admin-n03-unit-inv-1000.png" alt="船橋付近の行政区域データ"></a></td>
-    <td><a href="docs/image/jp-gis-estat-integrated-unit-inv-10000.png"><img src="docs/image/jp-gis-estat-integrated-unit-inv-10000.png" alt="船橋付近の行政区域・小地区統合データ"></a></td>
+    <td><a href="docs/image/jp-admin-n03-unit-inv-1000.png"><img src="docs/image/jp-admin-n03-unit-inv-1000.png" alt="習志野市付近の行政区域データ"></a></td>
+    <td><a href="docs/image/jp-gis-estat-integrated-unit-inv-10000.png"><img src="docs/image/jp-gis-estat-integrated-unit-inv-10000.png" alt="習志野市付近の行政区域・小地区統合データ"></a></td>
   </tr>
 </table>
 
