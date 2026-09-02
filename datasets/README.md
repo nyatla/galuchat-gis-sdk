@@ -7,7 +7,6 @@ The `datasets/` directory contains WGSMapSet/3 and GisWordBook/0 files shared by
 Each dataset directory contains the following files:
 
 ```text
-manifest.json          Resolution, encoding, defaults, sizes, and SHA-256 hashes
 NOTICE.md              Sources, processing, and terms of use
 X7115_metadata.xml     JMP 2.0 lineage metadata, when supplied
 *.wgsmapset.glc        Map for reading region codes at points or within rectangles
@@ -18,7 +17,7 @@ Always use a map and WordBook from the same dataset. Maps at different resolutio
 
 The three `jp-admin-n03` editions and `jp-gis-estat-integrated` include `X7115_metadata.xml`, which records their source materials and processing lineage in JMP 2.0 format.
 
-The current standard readers and Get Started examples use UTF-8. To use the Shift_JIS or UTF-16 edition, select a compatible reader and use the `tokenEncoding` recorded in the manifest.
+The current standard readers and Get Started examples use UTF-8. For the Shift_JIS or UTF-16 editions, pass `cp932` or `utf-16-le`, respectively, to a compatible reader.
 
 ## Included datasets
 
@@ -99,7 +98,7 @@ To retrieve place-name hierarchies, use a GisWordBook from the same dataset in a
 
 For most applications, one suitable GLC and one GisWordBook in the required encoding are sufficient. You do not need to include every GLC and every WordBook encoding unless the application switches among multiple resolutions or encodings.
 
-These are approximate sizes of the files currently included. See each dataset's `manifest.json` for exact byte counts, default selections, and SHA-256 hashes. File sizes indicate distribution and storage requirements; they do not represent runtime memory usage by a reader or application.
+These are approximate sizes of the files currently included. File sizes indicate distribution and storage requirements; they do not represent runtime memory usage by a reader or application.
 
 ## Japanese administrative-area editions
 

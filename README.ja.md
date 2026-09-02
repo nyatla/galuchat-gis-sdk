@@ -68,11 +68,10 @@ cpp/                        C++17 Reader、Arduinoライブラリ、サンプル
 datasets/                   4言語で共有するGISデータ
 docs/image/                 データセットのレンダリング例
 docs/reference/             公開APIと現行ファイル形式仕様
-manifest.json               実装・形式・データセットの互換性セット
 VERSION                     SDK自身のバージョン
 ```
 
-JavaScript・Java・Python・C++は同格の実行環境です。各言語の成果物にバージョン番号ディレクトリは設けず、収録した組み合わせをルートの`manifest.json`で固定します。
+JavaScript・Java・Python・C++は同格の実行環境です。各言語の成果物にバージョン番号ディレクトリは設けず、SDKに収録した組み合わせをそのまま利用します。
 
 ## 収録データ
 
@@ -85,7 +84,7 @@ JavaScript・Java・Python・C++は同格の実行環境です。各言語の成
 | `jp-gis-estat-integrated` | 行政区域とe-Stat小地区の統合データ |
 | `world-geoboundaries-cgaz` | geoBoundaries CGAZ世界行政境界 |
 
-mapの解像度、WordBookの文字コード、default指定、SHA-256は各datasetの`manifest.json`に記録しています。出典、加工内容、利用条件は各datasetの`NOTICE.md`を確認してください。データ形式の概要は[データセットガイド](datasets/README.ja.md)にまとめています。
+mapの解像度とWordBookの文字コードは[データセットガイド](datasets/README.ja.md)にまとめています。出典、加工内容、利用条件は各datasetの`NOTICE.md`を確認してください。
 
 ## ファイル形式
 
@@ -95,7 +94,7 @@ mapの解像度、WordBookの文字コード、default指定、SHA-256は各data
 
 ## このリポジトリについて
 
-README、Get Startedの説明、データガイド、NOTICE、VERSIONはSDK自身が管理します。実装ソース、ビルド成果物、GLC、GisWordBook、manifestは、`galuchat-core`の同期工程によって必要なものだけが更新されます。
+README、Get Startedの説明、データガイド、NOTICE、VERSIONはSDK自身が管理します。実装ソース、ビルド成果物、GLC、GisWordBookは、`galuchat-core`の同期工程によって必要なものだけが更新されます。
 
 ## ライセンス
 

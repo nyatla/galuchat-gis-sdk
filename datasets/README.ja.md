@@ -7,7 +7,6 @@
 各datasetディレクトリには次のファイルがあります。
 
 ```text
-manifest.json          解像度、文字コード、default、サイズ、SHA-256
 NOTICE.md              出典、加工内容、利用条件
 X7115_metadata.xml     JMP 2.0形式の履歴メタデータ（該当dataset）
 *.wgsmapset.glc        地点・矩形から地域コードを読むmap
@@ -18,7 +17,7 @@ mapとWordBookは必ず同じdatasetの組み合わせで使用してくださ�
 
 3年度の`jp-admin-n03`と`jp-gis-estat-integrated`には、原資料と加工履歴を記録したJMP 2.0形式の`X7115_metadata.xml`を収録します。
 
-現在の標準ReaderとGet StartedはUTF-8版を使用します。Shift_JIS版とUTF-16版は、対応するReaderでmanifestの`tokenEncoding`を指定して利用します。
+現在の標準ReaderとGet StartedはUTF-8版を使用します。Shift_JIS版とUTF-16版は、対応するReaderへそれぞれ`cp932`、`utf-16-le`を指定して利用します。
 
 ## 収録データセット
 
@@ -99,7 +98,7 @@ GLCの1画素を画像の1画素へ対応させ、拡大・縮小は行ってい
 
 通常は、用途に合うGLCを1つと、必要な文字コードのGisWordBookを1つ選択すれば利用できます。複数解像度を切り替える場合を除き、すべてのGLCと全文字コードのGisWordBookをアプリケーションへ含める必要はありません。
 
-上記は現在収録しているファイルの概算サイズです。正確なbyte数、default指定、SHA-256は各datasetの`manifest.json`を参照してください。ファイルサイズは配布・保存容量の目安であり、Readerや利用環境の実行時メモリ使用量を表すものではありません。
+上記は現在収録しているファイルの概算サイズです。ファイルサイズは配布・保存容量の目安であり、Readerや利用環境の実行時メモリ使用量を表すものではありません。
 
 ## 日本行政区域（jp-admin-n03系）
 
