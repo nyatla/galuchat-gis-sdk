@@ -73,8 +73,8 @@
     },
     "notice": {
       "path": "datasets/jp-admin-n03-2026/NOTICE.md",
-      "sha256": "2c845315020d2f2359740415e6431f08e07baf6344023dd6f3de79b8f6ae0b8a",
-      "size": 1913
+      "sha256": "c34f0095bcd5a4f8e7a16379db1b95f5e099b85d5198957a28864d402aa3939a",
+      "size": 1921
     },
     "wordbooks": [
       {
@@ -111,7 +111,7 @@
     "imageChunk": "GI01",
     "wgsmapset": 3
   },
-  "generatedAt": "2026-09-01T22:01:35Z",
+  "generatedAt": "2026-09-02T00:57:16Z",
   "id": "jp-admin-n03-2026",
   "schemaVersion": 2,
   "sdkVersion": "0.1.1",

@@ -12,13 +12,13 @@
 - 入力バージョン: `N03-20250101`（2025年1月1日時点）
 - 作成者・提供者: 国土交通省
 - 取得日: 未記録
-- 入力ページ: https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N03.html
+- 入力ページ: https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N03-2025.html
 - 利用条件: https://nlftp.mlit.go.jp/ksj/other/agreement.html
 - 使用許諾表示: オープンデータ（CC BY 4.0）
 
 再配布時の出典表示は、少なくとも次を含めること。
 
-> 出典：国土交通省国土数値情報ダウンロードサイト（https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N03.html）  
+> 出典：国土交通省国土数値情報ダウンロードサイト（https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N03-2025.html）
 > 「国土数値情報（行政区域データ）」（国土交通省）をもとにGaluchat用に加工して作成
 
 ## 加工内容
