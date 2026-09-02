@@ -68,11 +68,10 @@ cpp/                        C++17 readers, Arduino library, and examples
 datasets/                   GIS data shared by all four languages
 docs/image/                 Dataset rendering examples
 docs/reference/             Public APIs and current file-format specifications
-manifest.json               Compatibility set for implementations, formats, and datasets
 VERSION                     Version of the SDK itself
 ```
 
-JavaScript, Java, Python, and C++ are equal target environments. Language artifacts are not placed in version-numbered directories; the root `manifest.json` fixes the versions included in a particular SDK file set.
+JavaScript, Java, Python, and C++ are equal target environments. Language artifacts are not placed in version-numbered directories; use the combination included in the SDK as distributed.
 
 ## Included datasets
 
@@ -85,7 +84,7 @@ JavaScript, Java, Python, and C++ are equal target environments. Language artifa
 | `jp-gis-estat-integrated` | Integrated administrative-area and e-Stat small-area data |
 | `world-geoboundaries-cgaz` | geoBoundaries CGAZ global administrative boundaries |
 
-Each dataset's `manifest.json` records map resolutions, WordBook encodings, default selections, and SHA-256 hashes. See its `NOTICE.md` for sources, processing, and terms of use. The [dataset guide](datasets/README.md) provides an overview of the data formats.
+The [dataset guide](datasets/README.md) lists map resolutions and WordBook encodings. See each dataset's `NOTICE.md` for sources, processing, and terms of use.
 
 ## File formats
 
@@ -95,7 +94,7 @@ See the [technical reference](docs/reference/README.md) for details of the publi
 
 ## About this repository
 
-The SDK repository owns its README files, Get Started descriptions, dataset guide, NOTICE files, and VERSION. Implementation source, build artifacts, GLC files, GisWordBook files, and manifests are selectively updated by the synchronization process in `galuchat-core`.
+The SDK repository owns its README files, Get Started descriptions, dataset guide, NOTICE files, and VERSION. Implementation source, build artifacts, GLC files, and GisWordBook files are selectively updated by the synchronization process in `galuchat-core`.
 
 ## License
 
