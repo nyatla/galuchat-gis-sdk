@@ -1,5 +1,5 @@
-const MAPSET_URL = "../../../datasets/jp-admin-n03-2024/N03-20240101-grid-4096-1000.remap.wgsmapset.glc";
-const WORDBOOK_URL = "../../../datasets/jp-admin-n03-2024/N03-20240101.giswordbook";
+const MAPSET_URL = "../../../datasets/jp-admin-n03-2026/N03-20260101-grid-4096-1000.remap.wgsmapset.glc";
+const WORDBOOK_URL = "../../../datasets/jp-admin-n03-2026/N03-20260101.giswordbook";
 
 const form = document.getElementById("query-form");
 const lonInput = document.getElementById("lon");
@@ -60,7 +60,7 @@ function renderResult() {
           areaOfWgs: mapset.areaOfWgs,
         },
         wordbook: {
-          source: "N03-20240101.giswordbook",
+          source: "N03-20260101.giswordbook",
           recordCount: wordbook.recordCount,
           depth: wordbook.depth,
           componentCount: wordbook.componentCount,

@@ -14,8 +14,8 @@
 namespace {
 
 constexpr const char* DEFAULT_MAPSET =
-    "N03-20240101-grid-4096-1000.remap.wgsmapset.glc";
-constexpr const char* DEFAULT_WORDBOOK = "N03-20240101.giswordbook";
+    "N03-20260101-grid-4096-1000.remap.wgsmapset.glc";
+constexpr const char* DEFAULT_WORDBOOK = "N03-20260101.giswordbook";
 constexpr size_t FILE_BUFFER_SIZE = 4096;
 
 std::string joinPlaceName(const std::vector<std::string>& components) {

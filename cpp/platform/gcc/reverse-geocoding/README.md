@@ -1,6 +1,6 @@
 # Reverse geocoding example for GCC
 
-N03-20240101の1/1000度版WGSMapSetとGisWordBookを使い、経度・緯度から行政区域名を取得する最小構成のサンプルです。
+N03-20260101の1/1000度版WGSMapSetとGisWordBookを使い、経度・緯度から行政区域名を取得する最小構成のサンプルです。
 2ファイルは全量をメモリへ読み込まず、4 KiBの固定長バッファを介して必要な部分を順次読み取ります。WordBookのトークンキャッシュも無効にしています。
 
 Reader本体はArduinoライブラリと共通の`cpp/src/galuchat`にあり、Makefileが
@@ -18,8 +18,8 @@ make
 
 ```sh
 ./reverse-geocoding \
-  N03-20240101-grid-4096-1000.remap.wgsmapset.glc \
-  N03-20240101.giswordbook
+  N03-20260101-grid-4096-1000.remap.wgsmapset.glc \
+  N03-20260101.giswordbook
 ```
 
 データファイルを実行ディレクトリへ置いた場合は、ファイル名を省略できます。

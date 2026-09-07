@@ -29,7 +29,7 @@ from galuchat.api.maprender import (
 )
 
 
-MAPSET_PATH = DATA / "N03-20240101-grid-4096-1000.remap.wgsmapset.glc"
+MAPSET_PATH = DATA / "N03-20260101-grid-4096-1000.remap.wgsmapset.glc"
 
 NARASHINO_LON = 140.0267
 NARASHINO_LAT = 35.6810

@@ -2,187 +2,174 @@
 
 English | [日本語](README.ja.md)
 
-The `datasets/` directory contains WGSMapSet/3 and GisWordBook/0 files shared by the JavaScript, Java, Python, and C++ implementations.
+Galuchat GIS SDK datasets are available as ZIP archives from [GitHub Release v0.1.2](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.1.2). Download the dataset you need unless you are using the 2026 administrative-area data already bundled with the SDK.
 
-Each dataset directory contains the following files:
+Each ZIP contains WGSMapSet files, GisWordBooks, and a `NOTICE.md` describing sources and terms of use. Always use a WGSMapSet and GisWordBook from the same ZIP. For most applications, select one WGSMapSet suitable for the required resolution and use the UTF-8 GisWordBook.
 
-```text
-NOTICE.md              Sources, processing, and terms of use
-X7115_metadata.xml     JMP 2.0 lineage metadata, when supplied
-*.wgsmapset.glc        Map for reading region codes at points or within rectangles
-*.giswordbook          WordBook for resolving region codes to place-name hierarchies
-```
+The displayed ZIP sizes are the sizes of files published with the GitHub Release. Component sizes are approximate and do not represent runtime memory use.
 
-Always use a map and WordBook from the same dataset. Maps at different resolutions within a dataset share the same value-code system. WordBooks in different encodings also share the same content and place-name codes; the UTF-8 edition is the default.
+## Japanese administrative areas, 2024 edition
 
-The three `jp-admin-n03` editions and `jp-gis-estat-integrated` include `X7115_metadata.xml`, which records their source materials and processing lineage in JMP 2.0 format.
+This dataset is based on the 2024-01-01 edition of Japan's National Land Numerical Information Administrative Area Data N03. It identifies prefectures, municipalities, counties, and designated-city wards and is intended for applications that require historical 2024 boundaries.
 
-The current standard readers and Get Started examples use UTF-8. For the Shift_JIS or UTF-16 editions, pass `cp932` or `utf-16-le`, respectively, to a compatible reader.
+[Download jp-admin-n03-2024.20260907.zip (approx. 6.05 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.1.2/jp-admin-n03-2024.20260907.zip)
 
-## Included datasets
-
-The SDK includes six GIS dataset editions with different dates, coverage, and spatial granularity.
-
-| dataset id | Coverage | Primary use | Included resolutions (`unitInv`) |
-| --- | --- | --- | --- |
-| `jp-admin-n03-2024` | Administrative areas of Japan (2024) | Identifying prefectures, municipalities, and designated-city wards | 100, 250, 1000, 2500, 10000 |
-| `jp-admin-n03-2025` | Administrative areas of Japan (2025) | Same, using the 2025-01-01 boundaries | 100, 250, 500, 1000, 2500, 5000, 10000 |
-| `jp-admin-n03-2026` | Administrative areas of Japan (2026) | Same, using the 2026-01-01 boundaries | 100, 250, 500, 1000, 2500, 5000, 10000 |
-| `jp-estat-r2ka-2020` | Japanese town-block and small-area boundaries | Identifying town blocks and census small areas | 5000, 10000 |
-| `jp-gis-estat-integrated` | Integrated administrative and town-block boundaries | Reverse geocoding from administrative areas through small areas | 10000 |
-| `world-geoboundaries-cgaz` | Global administrative boundaries | Identifying countries and administrative areas worldwide | 100, 1000 |
-
-`unitInv` is the number of pixels per degree. For example, with `unitInv=1000`, one pixel corresponds to 1/1000 degree in both latitude and longitude.
-
-## Reading the rendering examples
-
-Every image below contains 1024 × 768 pixels read from a WGSMapSet and is centered near Narashino, Japan (140.0267° E, 35.6810° N).
-
-One GLC pixel maps directly to one image pixel, with no scaling. Lower-resolution data therefore covers a wider area, while higher-resolution data shows the area around Narashino in greater detail.
-
-Pixel value `0` is rendered in blue and represents unset areas such as the sea. Positive pixel values are region codes and are colored in HSV space to make different codes visible. The display colors have no administrative meaning.
-
-| unitInv | Approximate north-south distance per pixel | Longitude/latitude span shown |
+| unitInv | Approx. north-south distance per pixel | WGSMapSet size |
 | ---: | ---: | ---: |
-| 100 | approx. 1.1 km | 10.24 × 7.68 degrees |
-| 250 | approx. 445 m | 4.096 × 3.072 degrees |
-| 500 | approx. 222 m | 2.048 × 1.536 degrees |
-| 1000 | approx. 111 m | 1.024 × 0.768 degrees |
-| 2500 | approx. 45 m | 0.4096 × 0.3072 degrees |
-| 5000 | approx. 22 m | 0.2048 × 0.1536 degrees |
-| 10000 | approx. 11 m | 0.1024 × 0.0768 degrees |
+| 100 | approx. 1.1 km | approx. 52 KiB |
+| 250 | approx. 445 m | approx. 123 KiB |
+| 1000 (default) | approx. 111 m | approx. 479 KiB |
+| 2500 | approx. 45 m | approx. 1.17 MiB |
+| 10000 | approx. 11 m | approx. 4.48 MiB |
 
-Distances are approximate north-south values. The physical east-west distance varies with latitude. Click an image to view it at its original size.
+The ZIP includes UTF-8, Shift_JIS, and UTF-16 GisWordBooks of approximately 31 KiB each.
 
-## Data sizes and selection
+<a href="../docs/image/jp-admin-n03-2024-unit-inv-1000.png"><img src="../docs/image/jp-admin-n03-2024-unit-inv-1000.png" alt="2024 Japanese administrative-area data near Narashino" width="640"></a>
 
-Higher resolution represents boundaries and coastlines in greater detail, but also increases the GLC file size. Select a dataset and resolution according to the required spatial granularity, distribution size, and available storage.
+The image renders the area around Narashino at `unitInv=1000`. See `NOTICE.md` in the ZIP for sources, processing, and terms of use.
 
-| dataset | unitInv | GLC size |
-| --- | ---: | ---: |
-| `jp-admin-n03-2024` | 100 | approx. 52 KiB |
-|  | 250 | approx. 123 KiB |
-|  | 1000 | approx. 479 KiB |
-|  | 2500 | approx. 1.17 MiB |
-|  | 10000 | approx. 4.48 MiB |
-| `jp-admin-n03-2025` | 100 | approx. 52 KiB |
-|  | 250 | approx. 123 KiB |
-|  | 500 | approx. 240 KiB |
-|  | 1000 | approx. 479 KiB |
-|  | 2500 | approx. 1.17 MiB |
-|  | 5000 | approx. 2.30 MiB |
-|  | 10000 | approx. 4.48 MiB |
-| `jp-admin-n03-2026` | 100 | approx. 52 KiB |
-|  | 250 | approx. 123 KiB |
-|  | 500 | approx. 240 KiB |
-|  | 1000 | approx. 479 KiB |
-|  | 2500 | approx. 1.17 MiB |
-|  | 5000 | approx. 2.30 MiB |
-|  | 10000 | approx. 4.47 MiB |
-| `jp-estat-r2ka-2020` | 5000 | approx. 12.94 MiB |
-|  | 10000 | approx. 22.70 MiB |
-| `jp-gis-estat-integrated` | 10000 | approx. 24.07 MiB |
-| `world-geoboundaries-cgaz` | 100 | approx. 2.81 MiB |
-|  | 1000 | approx. 20.45 MiB |
+## Japanese administrative areas, 2025 edition
 
-To retrieve place-name hierarchies, use a GisWordBook from the same dataset in addition to the GLC. Approximate sizes of the UTF-8 editions used by the standard readers are shown below.
+This dataset is based on the 2025-01-01 edition of Japan's National Land Numerical Information Administrative Area Data N03. It identifies prefectures, municipalities, counties, and designated-city wards as of 2025.
 
-| dataset | UTF-8 GisWordBook size |
-| --- | ---: |
-| `jp-admin-n03-2024` | approx. 31 KiB |
-| `jp-admin-n03-2025` | approx. 31 KiB |
-| `jp-admin-n03-2026` | approx. 31 KiB |
-| `jp-estat-r2ka-2020` | approx. 1.63 MiB |
-| `jp-gis-estat-integrated` | approx. 1.66 MiB |
-| `world-geoboundaries-cgaz` | approx. 561 KiB |
+[Download jp-admin-n03-2025.20260907.zip (approx. 8.47 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.1.2/jp-admin-n03-2025.20260907.zip)
 
-For most applications, one suitable GLC and one GisWordBook in the required encoding are sufficient. You do not need to include every GLC and every WordBook encoding unless the application switches among multiple resolutions or encodings.
+| unitInv | Approx. north-south distance per pixel | WGSMapSet size |
+| ---: | ---: | ---: |
+| 100 | approx. 1.1 km | approx. 52 KiB |
+| 250 | approx. 445 m | approx. 123 KiB |
+| 500 | approx. 222 m | approx. 241 KiB |
+| 1000 (default) | approx. 111 m | approx. 479 KiB |
+| 2500 | approx. 45 m | approx. 1.17 MiB |
+| 5000 | approx. 22 m | approx. 2.30 MiB |
+| 10000 | approx. 11 m | approx. 4.48 MiB |
 
-These are approximate sizes of the files currently included. File sizes indicate distribution and storage requirements; they do not represent runtime memory usage by a reader or application.
+The ZIP includes UTF-8, Shift_JIS, and UTF-16 GisWordBooks of approximately 31 KiB each.
 
-## Japanese administrative-area editions
+<a href="../docs/image/jp-admin-n03-2025-unit-inv-1000.png"><img src="../docs/image/jp-admin-n03-2025-unit-inv-1000.png" alt="2025 Japanese administrative-area data near Narashino" width="640"></a>
 
-This dataset is based on the Japanese Ministry of Land, Infrastructure, Transport and Tourism's National Land Numerical Information Administrative Area Data N03.
+The image renders the area around Narashino at `unitInv=1000`. See `NOTICE.md` in the ZIP for sources, processing, and terms of use.
 
-It identifies prefectures, municipalities, counties, and designated-city wards. The `jp-admin-n03-2024` dataset contains the 2024-01-01 edition at five resolutions. The `jp-admin-n03-2025` and `jp-admin-n03-2026` datasets contain their respective January 1 editions at seven resolutions: `unitInv=100`, `250`, `500`, `1000`, `2500`, `5000`, and `10000`.
+## Japanese administrative areas, 2026 edition
 
-<table>
-  <tr>
-    <th>unitInv 100</th>
-    <th>unitInv 250</th>
-    <th>unitInv 1000</th>
-  </tr>
-  <tr>
-    <td><a href="../docs/image/jp-admin-n03-unit-inv-100.png"><img src="../docs/image/jp-admin-n03-unit-inv-100.png" alt="jp-admin-n03 unitInv 100"></a></td>
-    <td><a href="../docs/image/jp-admin-n03-unit-inv-250.png"><img src="../docs/image/jp-admin-n03-unit-inv-250.png" alt="jp-admin-n03 unitInv 250"></a></td>
-    <td><a href="../docs/image/jp-admin-n03-unit-inv-1000.png"><img src="../docs/image/jp-admin-n03-unit-inv-1000.png" alt="jp-admin-n03 unitInv 1000"></a></td>
-  </tr>
-  <tr>
-    <th>unitInv 2500</th>
-    <th>unitInv 10000</th>
-    <th></th>
-  </tr>
-  <tr>
-    <td><a href="../docs/image/jp-admin-n03-unit-inv-2500.png"><img src="../docs/image/jp-admin-n03-unit-inv-2500.png" alt="jp-admin-n03 unitInv 2500"></a></td>
-    <td><a href="../docs/image/jp-admin-n03-unit-inv-10000.png"><img src="../docs/image/jp-admin-n03-unit-inv-10000.png" alt="jp-admin-n03 unitInv 10000"></a></td>
-    <td></td>
-  </tr>
-</table>
+This dataset is based on the 2026-01-01 edition of Japan's National Land Numerical Information Administrative Area Data N03. It is the recommended edition for current administrative-area lookup and is used by the SDK's Get Started examples.
 
-`unitInv=100` provides a broad view of Japan, `unitInv=1000` shows the Tokyo Bay area, and `unitInv=10000` reveals finer administrative-area shapes around ports and coastlines.
+[Download jp-admin-n03-2026.20260907.zip (approx. 8.47 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.1.2/jp-admin-n03-2026.20260907.zip)
 
-The images above render the 2024 edition. See the notices for [2024](jp-admin-n03-2024/NOTICE.md), [2025](jp-admin-n03-2025/NOTICE.md), and [2026](jp-admin-n03-2026/NOTICE.md) for sources and terms of use.
+| unitInv | Approx. north-south distance per pixel | WGSMapSet size |
+| ---: | ---: | ---: |
+| 100 | approx. 1.1 km | approx. 52 KiB |
+| 250 | approx. 445 m | approx. 123 KiB |
+| 500 | approx. 222 m | approx. 240 KiB |
+| 1000 (default) | approx. 111 m | approx. 479 KiB |
+| 2500 | approx. 45 m | approx. 1.17 MiB |
+| 5000 | approx. 22 m | approx. 2.30 MiB |
+| 10000 | approx. 11 m | approx. 4.47 MiB |
 
-## e-Stat town-block and small-area boundaries (`jp-estat-r2ka-2020`)
+The ZIP includes UTF-8, Shift_JIS, and UTF-16 GisWordBooks of approximately 31 KiB each.
 
-This dataset is based on the Statistics Bureau of Japan's 2020 Population Census town-block and small-area boundary data.
+<a href="../docs/image/jp-admin-n03-2026-unit-inv-1000.png"><img src="../docs/image/jp-admin-n03-2026-unit-inv-1000.png" alt="2026 Japanese administrative-area data near Narashino" width="640"></a>
 
-It contains statistical areas finer than ordinary administrative divisions and can be used for reverse geocoding at the town-block, small-area, and subordinate-area levels. These boundaries are defined for statistical surveys and may not match general administrative divisions or official addressing areas.
+The image renders the area around Narashino at `unitInv=1000`. See `NOTICE.md` in the ZIP for sources, processing, and terms of use.
 
-<table>
-  <tr>
-    <th>unitInv 5000</th>
-    <th>unitInv 10000</th>
-  </tr>
-  <tr>
-    <td><a href="../docs/image/jp-estat-r2ka-2020-unit-inv-5000.png"><img src="../docs/image/jp-estat-r2ka-2020-unit-inv-5000.png" alt="jp-estat-r2ka-2020 unitInv 5000"></a></td>
-    <td><a href="../docs/image/jp-estat-r2ka-2020-unit-inv-10000.png"><img src="../docs/image/jp-estat-r2ka-2020-unit-inv-10000.png" alt="jp-estat-r2ka-2020 unitInv 10000"></a></td>
-  </tr>
-</table>
+## e-Stat town-block and small-area boundaries, 2020 edition
 
-Compared with N03, this dataset contains many more finely divided regions, illustrating the difference in spatial granularity.
+This dataset is based on the Statistics Bureau of Japan's 2020 Population Census town-block and small-area boundary data. It supports reverse geocoding at town-block, small-area, and subordinate-area levels. These statistical boundaries do not necessarily match ordinary administrative divisions or official addressing areas.
 
-See the [jp-estat-r2ka-2020 NOTICE](jp-estat-r2ka-2020/NOTICE.md) for sources and terms of use.
+[Download jp-estat-r2ka-2020.20260907.zip (approx. 37.09 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.1.2/jp-estat-r2ka-2020.20260907.zip)
 
-## Integrated GIS and e-Stat data (`jp-gis-estat-integrated`)
+| unitInv | Approx. north-south distance per pixel | WGSMapSet size |
+| ---: | ---: | ---: |
+| 5000 | approx. 22 m | approx. 12.94 MiB |
+| 10000 (default) | approx. 11 m | approx. 22.70 MiB |
 
-This dataset integrates N03 administrative areas with e-Stat town-block and small-area boundaries.
+The ZIP includes UTF-8, Shift_JIS, and UTF-16 GisWordBooks of approximately 1.63 MiB each.
 
-A single GisWordBook provides both administrative hierarchies, such as prefectures and municipalities, and town-block or small-area hierarchies. Land areas for which e-Stat defines no small area are supplemented with N03 administrative-area information.
+<a href="../docs/image/jp-estat-r2ka-2020-unit-inv-10000.png"><img src="../docs/image/jp-estat-r2ka-2020-unit-inv-10000.png" alt="e-Stat town-block data near Narashino" width="640"></a>
 
-<a href="../docs/image/jp-gis-estat-integrated-unit-inv-10000.png"><img src="../docs/image/jp-gis-estat-integrated-unit-inv-10000.png" alt="jp-gis-estat-integrated unitInv 10000" width="640"></a>
+The image renders the area around Narashino at `unitInv=10000`. See `NOTICE.md` in the ZIP for sources, processing, and terms of use.
 
-This is the standard dataset when administrative areas and small areas need to be handled as one hierarchy.
+## Integrated GIS and e-Stat data
 
-See the [jp-gis-estat-integrated NOTICE](jp-gis-estat-integrated/NOTICE.md) for sources and terms of use.
+This dataset integrates N03 administrative areas with e-Stat town-block and small-area boundaries. A single GisWordBook provides place-name hierarchies from prefectures and municipalities through town blocks and small areas. It is intended for applications requiring unified reverse geocoding across these levels.
 
-## Global administrative boundaries (`world-geoboundaries-cgaz`)
+[Download jp-gis-estat-integrated.20260907.zip (approx. 26.06 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.1.2/jp-gis-estat-integrated.20260907.zip)
 
-This dataset is based on the global administrative boundaries from geoBoundaries CGAZ.
+| unitInv | Approx. north-south distance per pixel | WGSMapSet size |
+| ---: | ---: | ---: |
+| 10000 (default) | approx. 11 m | approx. 24.07 MiB |
 
-It supports point identification worldwide. For each region, it includes the most detailed available boundary among ADM2, ADM1, ADM0, and disputed-area boundaries.
+The ZIP includes UTF-8, Shift_JIS, and UTF-16 GisWordBooks of approximately 1.66 MiB each.
 
-<table>
-  <tr>
-    <th>unitInv 100</th>
-    <th>unitInv 1000</th>
-  </tr>
-  <tr>
-    <td><a href="../docs/image/world-geoboundaries-cgaz-unit-inv-100.png"><img src="../docs/image/world-geoboundaries-cgaz-unit-inv-100.png" alt="world-geoboundaries-cgaz unitInv 100"></a></td>
-    <td><a href="../docs/image/world-geoboundaries-cgaz-unit-inv-1000.png"><img src="../docs/image/world-geoboundaries-cgaz-unit-inv-1000.png" alt="world-geoboundaries-cgaz unitInv 1000"></a></td>
-  </tr>
-</table>
+<a href="../docs/image/jp-gis-estat-integrated-unit-inv-10000.png"><img src="../docs/image/jp-gis-estat-integrated-unit-inv-10000.png" alt="Integrated administrative and small-area data near Narashino" width="640"></a>
 
-`unitInv=100` is suitable for wide-area lookup with fewer pixels. `unitInv=1000` represents regional administrative boundaries and coastlines in greater detail.
+The image renders the area around Narashino at `unitInv=10000`. See `NOTICE.md` in the ZIP for sources, processing, and terms of use.
 
-See the [world-geoboundaries-cgaz NOTICE](world-geoboundaries-cgaz/NOTICE.md) for sources and terms of use.
+## Taiwan village boundaries, 2026 edition
+
+This dataset is based on the 2026-08-17 village-boundary data published by Taiwan's National Land Surveying and Mapping Center (NLSC). It provides Traditional Chinese place names as a three-level `[county/city, township/district, village]` hierarchy. Areas without a village name in the source are recorded as `未編定村里`.
+
+[Download tw-admin-nlsc-village-2026.20260907.zip (approx. 1.51 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.1.2/tw-admin-nlsc-village-2026.20260907.zip)
+
+| unitInv | Approx. north-south distance per pixel | WGSMapSet size |
+| ---: | ---: | ---: |
+| 100 | approx. 1.1 km | approx. 26 KiB |
+| 1000 (default) | approx. 111 m | approx. 202 KiB |
+| 10000 | approx. 11 m | approx. 1.27 MiB |
+
+The ZIP includes a UTF-8 GisWordBook of approximately 57 KiB and a UTF-16 GisWordBook of approximately 56 KiB.
+
+<a href="../docs/image/tw-admin-nlsc-village-2026-unit-inv-10000.png"><img src="../docs/image/tw-admin-nlsc-village-2026-unit-inv-10000.png" alt="Taiwan village-boundary data near Taipei" width="640"></a>
+
+The image renders the area around Taipei at `unitInv=10000`. See `NOTICE.md` in the ZIP for sources, processing, and terms of use.
+
+## UK local authority districts, December 2025 edition
+
+This dataset is based on the Office for National Statistics (ONS) "Local Authority Districts (December 2025) Boundaries UK BFC" data. It covers England, Scotland, Wales, and Northern Ireland and provides English place names as a three-level `[constituent country, county or empty string, local authority district]` hierarchy.
+
+[Download uk-admin-ons-lad-2025.20260907.zip (approx. 2.35 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.1.2/uk-admin-ons-lad-2025.20260907.zip)
+
+| unitInv | Approx. north-south distance per pixel | WGSMapSet size |
+| ---: | ---: | ---: |
+| 100 | approx. 1.1 km | approx. 20 KiB |
+| 1000 (default) | approx. 111 m | approx. 211 KiB |
+| 10000 | approx. 11 m | approx. 2.23 MiB |
+
+The ZIP includes UTF-8 and UTF-16 GisWordBooks of approximately 6.2 KiB each.
+
+<a href="../docs/image/uk-admin-ons-lad-2025-unit-inv-1000.png"><img src="../docs/image/uk-admin-ons-lad-2025-unit-inv-1000.png" alt="UK local-authority-district data near London" width="640"></a>
+
+The image renders the area around London at `unitInv=1000`. See `NOTICE.md` in the ZIP for sources, processing, and terms of use.
+
+## Global administrative boundaries
+
+This worldwide administrative-boundary dataset is based on geoBoundaries CGAZ. For each region, it contains the most detailed available boundary among ADM2, ADM1, ADM0, and disputed areas. It supports country and administrative-area lookup worldwide.
+
+[Download world-geoboundaries-cgaz.20260907.zip (approx. 22.92 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.1.2/world-geoboundaries-cgaz.20260907.zip)
+
+| unitInv | Approx. north-south distance per pixel | WGSMapSet size |
+| ---: | ---: | ---: |
+| 100 | approx. 1.1 km | approx. 2.81 MiB |
+| 1000 (default) | approx. 111 m | approx. 20.45 MiB |
+
+The ZIP includes UTF-8 and UTF-16 GisWordBooks of approximately 561 KiB each.
+
+<a href="../docs/image/world-geoboundaries-cgaz-unit-inv-1000.png"><img src="../docs/image/world-geoboundaries-cgaz-unit-inv-1000.png" alt="Global administrative-boundary rendering" width="640"></a>
+
+The image is rendered at `unitInv=1000`. See `NOTICE.md` in the ZIP for sources, processing, and terms of use.
+
+## Choosing a resolution
+
+`unitInv` is the number of pixels per degree. Larger values represent boundaries and coastlines in greater detail but produce larger files.
+
+| unitInv | Approx. north-south distance per pixel |
+| ---: | ---: |
+| 100 | approx. 1.1 km |
+| 250 | approx. 445 m |
+| 500 | approx. 222 m |
+| 1000 | approx. 111 m |
+| 2500 | approx. 45 m |
+| 5000 | approx. 22 m |
+| 10000 | approx. 11 m |
+
+Distances are approximate north-south values; physical east-west distance varies with latitude. Increasing resolution does not change the region-code granularity from municipalities to town blocks, for example. First select a dataset containing the required place-name hierarchy, then choose a resolution based on the desired boundary precision and file size.

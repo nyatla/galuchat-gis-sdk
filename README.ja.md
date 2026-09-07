@@ -18,7 +18,7 @@ Galuchat GIS SDK は、セグメント画像格納方式 Galuchat で生成さ�
     <th>行政区域・小地区統合データ（unitInv=10000）</th>
   </tr>
   <tr>
-    <td><a href="docs/image/jp-admin-n03-unit-inv-1000.png"><img src="docs/image/jp-admin-n03-unit-inv-1000.png" alt="習志野市付近の行政区域データ"></a></td>
+    <td><a href="docs/image/jp-admin-n03-2026-unit-inv-1000.png"><img src="docs/image/jp-admin-n03-2026-unit-inv-1000.png" alt="習志野市付近の2026年版行政区域データ"></a></td>
     <td><a href="docs/image/jp-gis-estat-integrated-unit-inv-10000.png"><img src="docs/image/jp-gis-estat-integrated-unit-inv-10000.png" alt="習志野市付近の行政区域・小地区統合データ"></a></td>
   </tr>
 </table>
@@ -65,7 +65,7 @@ javascript/                 ブラウザ用IIFE実装とサンプル
 java/                       外部依存のないReader jarとサンプル
 python/                     Pythonソースとサンプル
 cpp/                        C++17 Reader、Arduinoライブラリ、サンプル
-datasets/                   4言語で共有するGISデータ
+datasets/                   サンプルが参照するGISデータ
 docs/image/                 データセットのレンダリング例
 docs/reference/             公開APIと現行ファイル形式仕様
 VERSION                     SDK自身のバージョン
@@ -73,31 +73,20 @@ VERSION                     SDK自身のバージョン
 
 JavaScript・Java・Python・C++は同格の実行環境です。各言語の成果物にバージョン番号ディレクトリは設けず、SDKに収録した組み合わせをそのまま利用します。
 
-## 収録データ
+## データセット
 
-| dataset id | 内容 |
-| --- | --- |
-| `jp-admin-n03-2024` | 国土数値情報 行政区域データ（2024年） |
-| `jp-admin-n03-2025` | 国土数値情報 行政区域データ（2025年） |
-| `jp-admin-n03-2026` | 国土数値情報 行政区域データ（2026年） |
-| `jp-estat-r2ka-2020` | 令和2年国勢調査 町丁・字等境界データ |
-| `jp-gis-estat-integrated` | 行政区域とe-Stat小地区の統合データ |
-| `world-geoboundaries-cgaz` | geoBoundaries CGAZ世界行政境界 |
+Get Startedで使用する2026年版の日本行政区域データはSDKに同梱しています。過年度の日本行政区域、e-Stat小地区、行政区域・小地区統合データ、台湾村里界、英国地方自治体地区、世界行政境界は、[GitHub Release v0.1.2](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.1.2)から必要なものを個別にダウンロードできます。
 
-mapの解像度とWordBookの文字コードは[データセットガイド](datasets/README.ja.md)にまとめています。出典、加工内容、利用条件は各datasetの`NOTICE.md`を確認してください。
+用途、ダウンロードリンク、解像度、ファイルサイズ、レンダリング例は[データセットガイド](datasets/README.ja.md)を参照してください。出典、加工内容、利用条件は各ZIP内の`NOTICE.md`に記載しています。
 
 ## ファイル形式
 
 現在のSDKは、WGSMap/3、WGSMapSet/3、GI01 image chunk、GisWordBook/0に対応します。画素値`0`は未設定領域、正の値は同じdatasetに収録されたGisWordBookの1始まりの地名コードです。
 
-公開APIとファイル形式の詳細は[技術仕様](docs/reference/README.md)を参照してください。これらの文書は`galuchat-core`を正本としてSDK製造時に同期されます。
-
-## このリポジトリについて
-
-README、Get Startedの説明、データガイド、NOTICE、VERSIONはSDK自身が管理します。実装ソース、ビルド成果物、GLC、GisWordBookは、`galuchat-core`の同期工程によって必要なものだけが更新されます。
+公開APIとファイル形式の詳細は[技術仕様](docs/reference/README.md)を参照してください。
 
 ## ライセンス
 
-Galuchatのソフトウェアコードと文書は、特に記載がない限り[Apache License 2.0](LICENSE)で提供します。収録データセットはApache License 2.0の対象ではなく、データセットごとの利用条件が適用されます。詳細は[第三者成果物とデータの表示](THIRD_PARTY_NOTICES.md)および各データセットの`NOTICE.md`を確認してください。
+Galuchatのソフトウェアコードと文書は、特に記載がない限り[Apache License 2.0](LICENSE)で提供します。同梱または配布されるデータセットはApache License 2.0の対象ではなく、データセットごとの利用条件が適用されます。詳細は[第三者成果物とデータの表示](THIRD_PARTY_NOTICES.md)および各ZIP内の`NOTICE.md`を確認してください。
 
 契約上の保証、補償、サポート、追加の特許保証、または異なる利用条件を必要とする組織向けに、[別途商用ライセンス](COMMERCIAL-LICENSING.md)を提供できる場合があります。Apache License 2.0による利用に個別契約は必要ありません。

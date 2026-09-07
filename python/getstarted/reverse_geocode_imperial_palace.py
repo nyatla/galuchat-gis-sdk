@@ -20,8 +20,8 @@ sys.path.insert(0, str(SRC))
 from galuchat.api.lowlevel import GisWordBookReaderAdapter, WgsMapset3ReaderAdapter
 
 
-MAPSET_PATH = DATA / "N03-20240101-grid-4096-1000.remap.wgsmapset.glc"
-WORDBOOK_PATH = DATA / "N03-20240101.giswordbook"
+MAPSET_PATH = DATA / "N03-20260101-grid-4096-1000.remap.wgsmapset.glc"
+WORDBOOK_PATH = DATA / "N03-20260101.giswordbook"
 
 POINTS = (
     ("Imperial Palace", 139.7528, 35.6852),

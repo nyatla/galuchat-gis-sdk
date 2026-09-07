@@ -8,8 +8,8 @@ import jp.nyatla.galuchatJava.format.wgsmapset3.GaluchatWGSMapSet3Reader;
 import jp.nyatla.galuchatJava.wordbook.GaluchatGisWordBookReader;
 
 public final class ReverseGeocode {
-    private static final String MAPSET = "N03-20240101-grid-4096-1000.remap.wgsmapset.glc";
-    private static final String WORDBOOK = "N03-20240101.giswordbook";
+    private static final String MAPSET = "N03-20260101-grid-4096-1000.remap.wgsmapset.glc";
+    private static final String WORDBOOK = "N03-20260101.giswordbook";
     private static final Point[] POINTS = {
         new Point("Imperial Palace", 139.7528, 35.6852),
         new Point("Tokyo Station", 139.7671, 35.6812),

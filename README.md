@@ -18,7 +18,7 @@ The images below are pixel-for-pixel renderings of actual WGSMapSet data centere
     <th>Integrated administrative and small-area data (unitInv=10000)</th>
   </tr>
   <tr>
-    <td><a href="docs/image/jp-admin-n03-unit-inv-1000.png"><img src="docs/image/jp-admin-n03-unit-inv-1000.png" alt="Administrative-area data near Narashino"></a></td>
+    <td><a href="docs/image/jp-admin-n03-2026-unit-inv-1000.png"><img src="docs/image/jp-admin-n03-2026-unit-inv-1000.png" alt="2026 administrative-area data near Narashino"></a></td>
     <td><a href="docs/image/jp-gis-estat-integrated-unit-inv-10000.png"><img src="docs/image/jp-gis-estat-integrated-unit-inv-10000.png" alt="Integrated administrative and small-area data near Narashino"></a></td>
   </tr>
 </table>
@@ -65,7 +65,7 @@ javascript/                 Browser IIFE implementation and examples
 java/                       Dependency-free reader JAR and examples
 python/                     Python source and examples
 cpp/                        C++17 readers, Arduino library, and examples
-datasets/                   GIS data shared by all four languages
+datasets/                   GIS data referenced by the examples
 docs/image/                 Dataset rendering examples
 docs/reference/             Public APIs and current file-format specifications
 VERSION                     Version of the SDK itself
@@ -73,31 +73,20 @@ VERSION                     Version of the SDK itself
 
 JavaScript, Java, Python, and C++ are equal target environments. Language artifacts are not placed in version-numbered directories; use the combination included in the SDK as distributed.
 
-## Included datasets
+## Datasets
 
-| dataset id | Description |
-| --- | --- |
-| `jp-admin-n03-2024` | 2024 National Land Numerical Information administrative-area data |
-| `jp-admin-n03-2025` | 2025 National Land Numerical Information administrative-area data |
-| `jp-admin-n03-2026` | 2026 National Land Numerical Information administrative-area data |
-| `jp-estat-r2ka-2020` | 2020 Population Census town-block and small-area boundary data |
-| `jp-gis-estat-integrated` | Integrated administrative-area and e-Stat small-area data |
-| `world-geoboundaries-cgaz` | geoBoundaries CGAZ global administrative boundaries |
+The SDK bundles the 2026 Japanese administrative-area dataset used by its Get Started examples. Historical Japanese administrative areas, e-Stat small areas, integrated administrative and small-area data, Taiwan village boundaries, UK local authority districts, and global administrative boundaries can be downloaded individually from [GitHub Release v0.1.2](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.1.2).
 
-The [dataset guide](datasets/README.md) lists map resolutions and WordBook encodings. See each dataset's `NOTICE.md` for sources, processing, and terms of use.
+See the [dataset guide](datasets/README.md) for uses, direct download links, resolutions, file sizes, and rendering examples. Sources, processing, and terms of use are documented in the `NOTICE.md` included in each ZIP.
 
 ## File formats
 
 The current SDK supports WGSMap/3, WGSMapSet/3, the GI01 image chunk, and GisWordBook/0. Pixel value `0` represents an unset area. A positive value is a one-based place-name code in the GisWordBook bundled with the same dataset.
 
-See the [technical reference](docs/reference/README.md) for details of the public APIs and file formats. These documents use `galuchat-core` as their source of truth and are synchronized when the SDK is built.
-
-## About this repository
-
-The SDK repository owns its README files, Get Started descriptions, dataset guide, NOTICE files, and VERSION. Implementation source, build artifacts, GLC files, and GisWordBook files are selectively updated by the synchronization process in `galuchat-core`.
+See the [technical reference](docs/reference/README.md) for details of the public APIs and file formats.
 
 ## License
 
-Unless otherwise stated, Galuchat software code and documentation are provided under the [Apache License 2.0](LICENSE). Bundled datasets are not covered by Apache License 2.0 and remain subject to their respective terms. See [third-party notices and data attribution](THIRD_PARTY_NOTICES.md) and each dataset's `NOTICE.md` for details.
+Unless otherwise stated, Galuchat software code and documentation are provided under the [Apache License 2.0](LICENSE). Bundled or distributed datasets are not covered by Apache License 2.0 and remain subject to their respective terms. See [third-party notices and data attribution](THIRD_PARTY_NOTICES.md) and the `NOTICE.md` in each ZIP for details.
 
 For organizations that require contractual warranties, indemnification, support, additional patent assurances, or different terms, a [separate commercial license](COMMERCIAL-LICENSING.md) may be available. No separate agreement is required to use the software under Apache License 2.0.
