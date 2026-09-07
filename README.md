@@ -8,6 +8,8 @@ With the SDK and its bundled datasets, applications can retrieve a code and plac
 
 GIS data can be stored directly in a browser or local application, enabling offline reverse geocoding. Because it does not require an external service, the SDK can also be used in embedded and mobile environments.
 
+[Project website / Live demos](https://nyatla.github.io/galuchat/)
+
 ## Data examples
 
 The images below are pixel-for-pixel renderings of actual WGSMapSet data centered near Narashino, Japan. Blue represents unset areas such as the sea. Other colors distinguish region codes; the colors themselves have no semantic meaning.
