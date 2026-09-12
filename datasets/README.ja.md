@@ -141,6 +141,20 @@ UTF-8版とUTF-16版のGisWordBookを収録し、それぞれ約6.2 KiBです。
 
 画像は`unitInv=1000`でロンドン付近を表示した例です。出典、加工内容、利用条件はZIP内の`NOTICE.md`を確認してください。
 
+## 米国のCountyおよびCounty Equivalent境界、2025年版
+
+このデータセットは、米国国勢調査局（U.S. Census Bureau）の2025年版TIGER/Line® County and Equivalent Entities Shapefileに基づく。50州およびDistrict of ColumbiaのCountyまたはCounty Equivalent 3,144区域を収録し、Parish、Borough、Census Area、Independent CityおよびDistrict of Columbiaを含む。Puerto RicoおよびIsland Areasは収録しない。英語のGisWordBookは`[state name, county or equivalent]`の階層である。
+
+[us-admin-census-county-2025.20260912.zipをダウンロード（約7.47 MiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.1.2/us-admin-census-county-2025.20260912.zip)
+
+| unitInv | 1画素の緯度方向の目安 | WGSMapSetサイズ |
+| ---: | ---: | ---: |
+| 100 | 約1.1 km | 約166 KiB |
+| 1000（標準） | 約111 m | 約979 KiB |
+| 10000 | 約11 m | 約7.11 MiB |
+
+ZIPには約22 KiBのUTF-8およびUTF-16 GisWordBookを含む。境界はTIGER/Lineの法定・統計上の形状を保持しており、物理的な海岸線にはクリップしていない。Censusの出典表示、加工内容、利用条件はZIP内の`NOTICE.md`を参照すること。
+
 ## 世界行政境界
 
 geoBoundaries CGAZを基にした世界行政境界データセットです。各地域で利用可能なADM2、ADM1、ADM0または係争地域のうち、最も詳細な境界を収録しています。世界規模の国・行政区域判定に使用できます。

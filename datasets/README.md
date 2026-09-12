@@ -141,6 +141,20 @@ The ZIP includes UTF-8 and UTF-16 GisWordBooks of approximately 6.2 KiB each.
 
 The image renders the area around London at `unitInv=1000`. See `NOTICE.md` in the ZIP for sources, processing, and terms of use.
 
+## United States county and equivalent boundaries, 2025 edition
+
+This dataset is based on the U.S. Census Bureau's 2025 TIGER/Line® County and Equivalent Entities Shapefile. It covers the 3,144 county or equivalent areas in the 50 states and the District of Columbia, including parishes, boroughs, census areas, independent cities, and the District of Columbia. Puerto Rico and the Island Areas are excluded. The English GisWordBook path is `[state name, county or equivalent]`.
+
+[Download us-admin-census-county-2025.20260912.zip (approx. 7.47 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.1.2/us-admin-census-county-2025.20260912.zip)
+
+| unitInv | Approx. north-south distance per pixel | WGSMapSet size |
+| ---: | ---: | ---: |
+| 100 | approx. 1.1 km | approx. 166 KiB |
+| 1000 (default) | approx. 111 m | approx. 979 KiB |
+| 10000 | approx. 11 m | approx. 7.11 MiB |
+
+The ZIP includes UTF-8 and UTF-16 GisWordBooks of approximately 22 KiB each. The boundaries retain TIGER/Line legal and statistical geometry and are not clipped to a physical coastline. See `NOTICE.md` in the ZIP for Census attribution, processing, and terms of use.
+
 ## Global administrative boundaries
 
 This worldwide administrative-boundary dataset is based on geoBoundaries CGAZ. For each region, it contains the most detailed available boundary among ADM2, ADM1, ADM0, and disputed areas. It supports country and administrative-area lookup worldwide.
