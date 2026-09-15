@@ -155,6 +155,20 @@ This dataset is based on the U.S. Census Bureau's 2025 TIGER/Line® County and E
 
 The ZIP includes UTF-8 and UTF-16 GisWordBooks of approximately 22 KiB each. The boundaries retain TIGER/Line legal and statistical geometry and are not clipped to a physical coastline. See `NOTICE.md` in the ZIP for Census attribution, processing, and terms of use.
 
+## United States state and equivalent boundaries, 2025 edition
+
+This dataset is based on the U.S. Census Bureau's 2025 TIGER/Line® State and Equivalent Entities Shapefile. It covers the 50 states and the District of Columbia; Puerto Rico and the Island Areas are excluded. The English GisWordBook path is `[state or equivalent name]`.
+
+[Download us-admin-census-state-2025.20260913.zip (approx. 2.22 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.1.2/us-admin-census-state-2025.20260913.zip)
+
+| unitInv | Approx. north-south distance per pixel | WGSMapSet size |
+| ---: | ---: | ---: |
+| 100 | approx. 1.1 km | approx. 28 KiB |
+| 1000 (default) | approx. 111 m | approx. 212 KiB |
+| 10000 | approx. 11 m | approx. 1.98 MiB |
+
+The ZIP includes UTF-8 and UTF-16 GisWordBooks of approximately 1.3 KiB each. The boundaries retain TIGER/Line legal and statistical geometry and are not clipped to a physical coastline. See `NOTICE.md` in the ZIP for Census attribution, processing, and terms of use.
+
 ## Global administrative boundaries
 
 This worldwide administrative-boundary dataset is based on geoBoundaries CGAZ. For each region, it contains the most detailed available boundary among ADM2, ADM1, ADM0, and disputed areas. It supports country and administrative-area lookup worldwide.
