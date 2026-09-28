@@ -15,6 +15,6 @@ final class ExamplePaths {
         if (Files.isRegularFile(local)) {
             return local;
         }
-        return Path.of("getstarted", "data", fileName);
+        return Path.of("datasets", "jp-admin-n03-2026", fileName);
     }
 }

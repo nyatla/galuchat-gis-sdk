@@ -18,7 +18,7 @@ make
 
 ```sh
 ./reverse-geocoding \
-  N03-20260101-grid-4096-1000.remap.wgsmapset.glc \
+  N03-20260101-grid-4096-1000.wgsmapset.glc \
   N03-20260101.giswordbook
 ```
 

@@ -14,14 +14,14 @@ N03のMapSetとGisWordBookをファイルシステムへ置かず、C++配列と
 
 | 配列 | 元ファイル | サイズ |
 | --- | --- | ---: |
-| `galuchat::data::n03_20260101_1000::mapset` | `N03-20260101-grid-4096-1000.remap.wgsmapset.glc` | 490,349 bytes |
+| `galuchat::data::n03_20260101_1000::mapset` | `N03-20260101-grid-4096-1000.wgsmapset.glc` | 490,333 bytes |
 | `galuchat::data::n03_20260101_1000::wordbook` | `N03-20260101.giswordbook` | 31,922 bytes |
 
 別の年度または解像度を組み込む場合は、バイナリファイルごとにROMヘッダを生成します。名前空間と配列変数名は必須です。
 
 ```sh
 python3 make_rom_header.py \
-  N03-20260101-grid-4096-1000.remap.wgsmapset.glc \
+  N03-20260101-grid-4096-1000.wgsmapset.glc \
   --namespace my_n03_data \
   --variable mapset \
   --mode uint32-le \
@@ -96,7 +96,7 @@ lon lat>
 
 ## メモリ
 
-- MapSet: 490,349 bytes
+- MapSet: 490,333 bytes
 - GisWordBook: 31,922 bytes
 - 合計: 522,271 bytes
 

@@ -15,9 +15,15 @@ SDKに同梱されたGISデータと、[GitHub Releases](https://github.com/nyat
 - 国土数値情報 行政区域 N03（2024年）
 - 国土数値情報 行政区域 N03（2025年）
 - e-Stat 令和2年国勢調査 町丁・字等
-- GIS・e-Stat統合データ
+- e-Stat海岸線反映区域データ
 - 內政部國土測繪中心 村里界圖（2026年8月17日版）
 - ONS Local Authority Districts（2025年12月版）
 - geoBoundaries CGAZ
+- ABS ASGS Suburbs and Localities（2021年）
+- Statistics Canada Census Subdivision（2021年）
+- U.S. Census Bureau TIGER/Line State・County（2025年）
+- BKG VG250（2026年）
+- IGN ADMIN EXPRESS COG（2026年）
+- CBS Wijk- en Buurtkaart Municipality・Buurt（2026年）
 
 第三者成果物の権利とライセンスは、それぞれの権利者に帰属し、GaluchatのApache License 2.0によって置き換えられません。

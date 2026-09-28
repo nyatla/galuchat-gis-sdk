@@ -17,11 +17,11 @@ The images below are pixel-for-pixel renderings of actual WGSMapSet data centere
 <table>
   <tr>
     <th>Administrative areas (unitInv=1000)</th>
-    <th>Integrated administrative and small-area data (unitInv=10000)</th>
+    <th>e-Stat areas with N03 coastline (unitInv=10000)</th>
   </tr>
   <tr>
     <td><a href="docs/image/jp-admin-n03-2026-unit-inv-1000.png"><img src="docs/image/jp-admin-n03-2026-unit-inv-1000.png" alt="2026 administrative-area data near Narashino"></a></td>
-    <td><a href="docs/image/jp-gis-estat-integrated-unit-inv-10000.png"><img src="docs/image/jp-gis-estat-integrated-unit-inv-10000.png" alt="Integrated administrative and small-area data near Narashino"></a></td>
+    <td><a href="docs/image/jp-gis-estat-integrated-unit-inv-10000.png"><img src="docs/image/jp-gis-estat-integrated-unit-inv-10000.png" alt="e-Stat areas with N03 coastline near Narashino"></a></td>
   </tr>
 </table>
 
@@ -67,7 +67,8 @@ javascript/                 Browser IIFE implementation and examples
 java/                       Dependency-free reader JAR and examples
 python/                     Python source and examples
 cpp/                        C++17 readers, Arduino library, and examples
-datasets/                   GIS data referenced by the examples
+datasets/                   Dataset index and GIS data used by the examples
+doc/dataset_guide/          Dataset guides in English and Japanese
 docs/image/                 Dataset rendering examples
 docs/reference/             Public APIs and current file-format specifications
 VERSION                     Version of the SDK itself
@@ -77,7 +78,7 @@ JavaScript, Java, Python, and C++ are equal target environments. Language artifa
 
 ## Datasets
 
-The SDK bundles the 2026 Japanese administrative-area dataset used by its Get Started examples. Historical Japanese administrative areas, e-Stat small areas, integrated administrative and small-area data, Taiwan village boundaries, UK local authority districts, and global administrative boundaries can be downloaded individually from [GitHub Release v0.1.2](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.1.2).
+The SDK bundles the 2026 Japanese administrative-area dataset used by its Get Started examples. Historical Japanese administrative areas, e-Stat small areas, e-Stat areas with N03 coastline, Australian suburbs and localities, Canadian census subdivisions, Taiwan village boundaries, UK local authority districts, U.S. state and county boundaries, German and French administrative areas, Dutch municipalities and neighbourhoods, and global administrative boundaries can be downloaded individually from [GitHub Release v0.2.1](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.2.1).
 
 See the [dataset guide](datasets/README.md) for uses, direct download links, resolutions, file sizes, and rendering examples. Sources, processing, and terms of use are documented in the `NOTICE.md` included in each ZIP.
 

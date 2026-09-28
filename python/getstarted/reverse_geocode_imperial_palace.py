@@ -2,7 +2,7 @@
 
 Run from the repository root:
 
-    python3 getstarted/reverse_geocode_imperial_palace.py
+    python3 python/getstarted/reverse_geocode_imperial_palace.py
 """
 
 from __future__ import annotations
@@ -11,16 +11,16 @@ import sys
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-DATA = ROOT / "getstarted" / "data"
+ROOT = Path(__file__).resolve().parents[2]
+SRC = ROOT / "python" / "src"
+DATA = ROOT / "datasets" / "jp-admin-n03-2026"
 
 sys.path.insert(0, str(SRC))
 
 from galuchat.api.lowlevel import GisWordBookReaderAdapter, WgsMapset3ReaderAdapter
 
 
-MAPSET_PATH = DATA / "N03-20260101-grid-4096-1000.remap.wgsmapset.glc"
+MAPSET_PATH = DATA / "N03-20260101-grid-4096-1000.wgsmapset.glc"
 WORDBOOK_PATH = DATA / "N03-20260101.giswordbook"
 
 POINTS = (

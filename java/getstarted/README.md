@@ -16,11 +16,11 @@ javac --release 20 \
 ```bash
 java -cp java/galuchat-java-core.jar:work/java-getstarted \
   jp.nyatla.galuchat.getstarted.ReadMapSet \
-  datasets/jp-admin-n03-2026/N03-20260101-grid-4096-1000.remap.wgsmapset.glc
+  datasets/jp-admin-n03-2026/N03-20260101-grid-4096-1000.wgsmapset.glc
 
 java -cp java/galuchat-java-core.jar:work/java-getstarted \
   jp.nyatla.galuchat.getstarted.ReverseGeocode \
-  datasets/jp-admin-n03-2026/N03-20260101-grid-4096-1000.remap.wgsmapset.glc \
+  datasets/jp-admin-n03-2026/N03-20260101-grid-4096-1000.wgsmapset.glc \
   datasets/jp-admin-n03-2026/N03-20260101.giswordbook
 ```
 
@@ -40,7 +40,7 @@ import jp.nyatla.galuchatJava.wordbook.GaluchatGisWordBookReader;
 public class Main {
     public static void main(String[] args) throws Exception {
         var map = GaluchatWGSMapSet3Reader.unpack(Files.readAllBytes(Path.of(
-            "datasets/jp-admin-n03-2026/N03-20260101-grid-4096-1000.remap.wgsmapset.glc")));
+            "datasets/jp-admin-n03-2026/N03-20260101-grid-4096-1000.wgsmapset.glc")));
         var wordbook = GaluchatGisWordBookReader.fromFile(Path.of(
             "datasets/jp-admin-n03-2026/N03-20260101.giswordbook"));
 

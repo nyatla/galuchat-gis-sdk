@@ -16,7 +16,7 @@ constexpr double LONGITUDE = 139.7528;
 constexpr double LATITUDE = 35.6852;
 constexpr size_t FILE_BUFFER_SIZE = 4096;
 constexpr const char* MAPSET_PATH =
-    "/N03-20260101-grid-4096-1000.remap.wgsmapset.glc";
+    "/N03-20260101-grid-4096-1000.wgsmapset.glc";
 constexpr const char* WORDBOOK_PATH = "/N03-20260101.giswordbook";
 bool ready = false;
 char input_line[128] = {};

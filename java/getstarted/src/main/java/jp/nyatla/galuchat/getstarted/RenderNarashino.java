@@ -11,7 +11,7 @@ import jp.nyatla.galuchatJava.j2se.MapRender;
 import jp.nyatla.galuchatJava.math.rect.IntGisRect;
 
 public final class RenderNarashino {
-    private static final String MAPSET = "N03-20260101-grid-4096-1000.remap.wgsmapset.glc";
+    private static final String MAPSET = "N03-20260101-grid-4096-1000.wgsmapset.glc";
     private static final double NARASHINO_LON = 140.0267;
     private static final double NARASHINO_LAT = 35.6810;
     private static final int WIDTH = 640;

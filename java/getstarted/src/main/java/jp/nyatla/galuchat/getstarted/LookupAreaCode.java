@@ -6,7 +6,7 @@ import java.nio.file.Path;
 import jp.nyatla.galuchatJava.format.wgsmapset3.GaluchatWGSMapSet3Reader;
 
 public final class LookupAreaCode {
-    private static final String MAPSET = "N03-20260101-grid-4096-1000.remap.wgsmapset.glc";
+    private static final String MAPSET = "N03-20260101-grid-4096-1000.wgsmapset.glc";
     private static final Point[] POINTS = {
         new Point("Imperial Palace", 139.7528, 35.6852),
         new Point("Tokyo Station", 139.7671, 35.6812),

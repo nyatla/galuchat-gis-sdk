@@ -17,11 +17,11 @@ Galuchat GIS SDK は、セグメント画像格納方式 Galuchat で生成さ�
 <table>
   <tr>
     <th>行政区域データ（unitInv=1000）</th>
-    <th>行政区域・小地区統合データ（unitInv=10000）</th>
+    <th>e-Stat海岸線反映区域データ（unitInv=10000）</th>
   </tr>
   <tr>
     <td><a href="docs/image/jp-admin-n03-2026-unit-inv-1000.png"><img src="docs/image/jp-admin-n03-2026-unit-inv-1000.png" alt="習志野市付近の2026年版行政区域データ"></a></td>
-    <td><a href="docs/image/jp-gis-estat-integrated-unit-inv-10000.png"><img src="docs/image/jp-gis-estat-integrated-unit-inv-10000.png" alt="習志野市付近の行政区域・小地区統合データ"></a></td>
+    <td><a href="docs/image/jp-gis-estat-integrated-unit-inv-10000.png"><img src="docs/image/jp-gis-estat-integrated-unit-inv-10000.png" alt="習志野市付近のe-Stat海岸線反映区域データ"></a></td>
   </tr>
 </table>
 
@@ -67,7 +67,8 @@ javascript/                 ブラウザ用IIFE実装とサンプル
 java/                       外部依存のないReader jarとサンプル
 python/                     Pythonソースとサンプル
 cpp/                        C++17 Reader、Arduinoライブラリ、サンプル
-datasets/                   サンプルが参照するGISデータ
+datasets/                   データセットガイドの目次とサンプル用GISデータ
+doc/dataset_guide/          データセットごとの日英ガイド
 docs/image/                 データセットのレンダリング例
 docs/reference/             公開APIと現行ファイル形式仕様
 VERSION                     SDK自身のバージョン
@@ -77,7 +78,7 @@ JavaScript・Java・Python・C++は同格の実行環境です。各言語の成
 
 ## データセット
 
-Get Startedで使用する2026年版の日本行政区域データはSDKに同梱しています。過年度の日本行政区域、e-Stat小地区、行政区域・小地区統合データ、台湾村里界、英国地方自治体地区、世界行政境界は、[GitHub Release v0.1.2](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.1.2)から必要なものを個別にダウンロードできます。
+Get Startedで使用する2026年版の日本行政区域データはSDKに同梱しています。過年度の日本行政区域、e-Stat小地区、e-Stat海岸線反映区域データ、オーストラリアのSuburb・Locality、カナダのCensus Subdivision、台湾村里界、英国地方自治体地区、米国のState・County、ドイツ・フランスの行政区域、オランダの自治体・詳細区域、世界行政境界は、[GitHub Release v0.2.1](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.2.1)から必要なものを個別にダウンロードできます。
 
 用途、ダウンロードリンク、解像度、ファイルサイズ、レンダリング例は[データセットガイド](datasets/README.ja.md)を参照してください。出典、加工内容、利用条件は各ZIP内の`NOTICE.md`に記載しています。
 

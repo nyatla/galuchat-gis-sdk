@@ -1,5 +1,5 @@
 
-from typing import Iterable, List, Self,Sequence,Tuple,Any,ClassVar
+from typing import Iterable, List, Self, Sequence, Tuple, Any, ClassVar
 from dataclasses import dataclass
 from typing import Any
 
@@ -15,6 +15,46 @@ class RasterChunk(JsonContainer):
     width:int
     height:int
     lines:Tuple[Tuple[int,...],...]
+
+    @classmethod
+    def fromRleRows(
+        cls,
+        width: int,
+        height: int,
+        rows: Iterable[Iterable[int]],
+    ) -> Self:
+        """Create a validated chunk from flattened ``(count, value, ...)`` rows."""
+        if type(width) is not int or type(height) is not int:
+            raise ValueError("Raster width and height must be integers")
+        if width < 0 or height < 0:
+            raise ValueError("Raster width and height must be non-negative")
+
+        source_rows = tuple(tuple(row) for row in rows)
+        if len(source_rows) != height:
+            raise ValueError(
+                f"Raster row count mismatch: expected={height} actual={len(source_rows)}"
+            )
+
+        lines: List[Tuple[int, ...]] = []
+        for row in source_rows:
+            if len(row) % 2 != 0:
+                raise ValueError("RLE row must contain count/value pairs")
+            row_width = 0
+            for index in range(0, len(row), 2):
+                count = row[index]
+                value = row[index + 1]
+                if type(count) is not int or type(value) is not int:
+                    raise ValueError("RLE count and value must be integers")
+                if count <= 0:
+                    raise ValueError("RLE count must be greater than zero")
+                row_width += count
+            if row_width != width:
+                raise ValueError(
+                    f"RLE row width mismatch: expected={width} actual={row_width}"
+                )
+            lines.append(row)
+        return cls(width, height, tuple(lines))
+
     def toPrettyJson(self)->CustomPrettyJsonType:
         lines=RowArray([Inline(i) for i in self.lines], group=1)
         return RowObject(
@@ -28,38 +68,7 @@ class RasterChunk(JsonContainer):
     def parse(cls,src:Any)->Self:
         if src["type"]!=cls.CHUNK_TYPE:
             raise ValueError(f"Invalid raster type: {src['type']!r}")
-        width=src["width"]
-        height=src["height"]
-        if type(width) is not int or type(height) is not int:
-            raise ValueError("Raster width and height must be integers")
-        if width<0 or height<0:
-            raise ValueError("Raster width and height must be non-negative")
-        if len(src["lines"])!=height:
-            raise ValueError(
-                f"Raster row count mismatch: expected={height} actual={len(src['lines'])}"
-            )
-        lines:List[Tuple[int,...]]=[]
-        for r in src["lines"]:
-            if len(r)%2!=0:
-                raise ValueError("RLE row must contain count/value pairs")
-            parsed_row:List[int]=[]
-            row_width=0
-            for i in range(0,len(r),2):
-                count=r[i]
-                value=r[i+1]
-                if type(count) is not int or type(value) is not int:
-                    raise ValueError("RLE count and value must be integers")
-                if count<=0:
-                    raise ValueError("RLE count must be greater than zero")
-                row_width+=count
-                parsed_row.extend((count,value))
-            if row_width!=width:
-                raise ValueError(
-                    f"RLE row width mismatch: expected={width} actual={row_width}"
-                )
-            lines.append(tuple(parsed_row))
-        
-        return cls(width,height,tuple(lines))
+        return cls.fromRleRows(src["width"], src["height"], src["lines"])
     def toRaster(self, rect: Rect[int] | None = None)->IReadableRaster[RawRaster]:
         if rect is not None:
             if rect.x < 0 or rect.y < 0:

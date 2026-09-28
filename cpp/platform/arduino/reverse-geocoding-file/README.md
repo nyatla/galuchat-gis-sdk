@@ -7,18 +7,18 @@ N03-20260101の1/1000度版WGSMapSetとGisWordBookをLittleFSから直接読み�
 次の2ファイルをLittleFSのルートへ配置します。
 
 ```text
-/N03-20260101-grid-4096-1000.remap.wgsmapset.glc
+/N03-20260101-grid-4096-1000.wgsmapset.glc
 /N03-20260101.giswordbook
 ```
 
 元ファイルはデータセットの次の場所にあります。
 
 ```text
-datasets/jp-admin-n03-2026/N03-20260101-grid-4096-1000.remap.wgsmapset.glc
+datasets/jp-admin-n03-2026/N03-20260101-grid-4096-1000.wgsmapset.glc
 datasets/jp-admin-n03-2026/N03-20260101.giswordbook
 ```
 
-ボードに応じたLittleFSアップロードツールを使用してください。MapSetは490,349 bytes、GisWordBookは31,922 bytesです。
+ボードに応じたLittleFSアップロードツールを使用してください。MapSetは490,333 bytes、GisWordBookは31,922 bytesです。
 
 ## ビルド
 

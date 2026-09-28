@@ -42,6 +42,19 @@ class GisRasterJsonContainer(JsonContainer):
             "raster":self.raster.toPrettyJson()
         }
     @classmethod
+    def createFromRasterChunk(
+        cls,
+        created_date: datetime,
+        uuid: UUID,
+        source: str,
+        raster: RasterChunk,
+        location: LatLonBaseChunk,
+        comment: str | None = None,
+    ) -> Self:
+        """Create a container from an already RLE-compressed raster chunk."""
+        return cls(created_date, uuid, source, comment, location, raster)
+
+    @classmethod
     def create(cls,created_date:datetime,uuid:UUID,source:str,raster:IReadableRaster,location:LatLonBaseChunk,comment:str|None=None):
         lines:List[Tuple[int,...]]=[]
         for y in range(raster.height):
@@ -49,8 +62,19 @@ class GisRasterJsonContainer(JsonContainer):
             lines.append(
                 tuple(chain.from_iterable((Rle.encode([raster.get(x,y) for x in range(raster.width)]))))
             )
-        return cls(
-            created_date,uuid,source,comment,location,RasterChunk(raster.width,raster.height,tuple(lines)))
+        raster_chunk = RasterChunk.fromRleRows(
+            raster.width,
+            raster.height,
+            lines,
+        )
+        return cls.createFromRasterChunk(
+            created_date,
+            uuid,
+            source,
+            raster_chunk,
+            location,
+            comment,
+        )
     @classmethod
     def parse(cls,src:Any)->Self:
         if src["type"]!=cls.CHUNK_TYPE:

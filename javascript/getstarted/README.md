@@ -25,7 +25,7 @@ python3 -m http.server 8000
   const load = async (url) =>
     new Uint8Array(await (await fetch(url)).arrayBuffer());
   const [mapBytes, wordbookBytes] = await Promise.all([
-    load("../../datasets/jp-admin-n03-2026/N03-20260101-grid-4096-1000.remap.wgsmapset.glc"),
+    load("../../datasets/jp-admin-n03-2026/N03-20260101-grid-4096-1000.wgsmapset.glc"),
     load("../../datasets/jp-admin-n03-2026/N03-20260101.giswordbook"),
   ]);
 

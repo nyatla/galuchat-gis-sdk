@@ -1,4 +1,4 @@
-const MAPSET_URL = "../../../datasets/jp-admin-n03-2026/N03-20260101-grid-4096-1000.remap.wgsmapset.glc";
+const MAPSET_URL = "../../../datasets/jp-admin-n03-2026/N03-20260101-grid-4096-1000.wgsmapset.glc";
 const WORDBOOK_URL = "../../../datasets/jp-admin-n03-2026/N03-20260101.giswordbook";
 
 const form = document.getElementById("query-form");

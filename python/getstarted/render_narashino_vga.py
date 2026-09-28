@@ -2,7 +2,7 @@
 
 Run from the repository root:
 
-    python3 getstarted/render_narashino_vga.py
+    python3 python/getstarted/render_narashino_vga.py
 """
 
 from __future__ import annotations
@@ -11,10 +11,10 @@ import sys
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-DATA = ROOT / "getstarted" / "data"
-OUTPUT = ROOT / "getstarted" / "narashino-vga.png"
+ROOT = Path(__file__).resolve().parents[2]
+SRC = ROOT / "python" / "src"
+DATA = ROOT / "datasets" / "jp-admin-n03-2026"
+OUTPUT = ROOT / "work" / "narashino-vga.png"
 
 sys.path.insert(0, str(SRC))
 
@@ -29,7 +29,7 @@ from galuchat.api.maprender import (
 )
 
 
-MAPSET_PATH = DATA / "N03-20260101-grid-4096-1000.remap.wgsmapset.glc"
+MAPSET_PATH = DATA / "N03-20260101-grid-4096-1000.wgsmapset.glc"
 
 NARASHINO_LON = 140.0267
 NARASHINO_LAT = 35.6810
