@@ -78,7 +78,9 @@ JavaScript・Java・Python・C++は同格の実行環境です。各言語の成
 
 ## データセット
 
-Get Startedで使用する2026年版の日本行政区域データはSDKに同梱しています。過年度の日本行政区域、e-Stat小地区、e-Stat海岸線反映区域データ、オーストラリアのSuburb・Locality、カナダのCensus Subdivision、台湾村里界、英国地方自治体地区、米国のState・County、ドイツ・フランスの行政区域、オランダの自治体・詳細区域、世界行政境界は、[GitHub Release v0.2.1](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.2.1)から必要なものを個別にダウンロードできます。
+Get Startedで使用する2026年版の日本行政区域データはSDKに同梱しています。[データセットガイド](datasets/README.ja.md)には45件を掲載しています。従来の16件は[GitHub Release v0.2.1](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.2.1)で配布済み、次の16件はv0.2.2向け、続く12件はv0.2.3向け、セルビアはv0.2.4向けに準備済みです。追加分のダウンロードリンクは各版の公開後に有効になります。
+
+v0.2.3にはコートジボワール、キプロス、カタール、シンガポール、ルクセンブルク、ブラジル、チリ、スロベニア、リベリア、アイスランド、モンテネグロ、スロバキアの区域データを追加します。v0.2.4では、境界基準年不詳を`undated`と明記してセルビアの集落区域を追加します。
 
 用途、ダウンロードリンク、解像度、ファイルサイズ、レンダリング例は[データセットガイド](datasets/README.ja.md)を参照してください。出典、加工内容、利用条件は各ZIP内の`NOTICE.md`に記載しています。
 

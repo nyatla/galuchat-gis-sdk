@@ -78,7 +78,9 @@ JavaScript, Java, Python, and C++ are equal target environments. Language artifa
 
 ## Datasets
 
-The SDK bundles the 2026 Japanese administrative-area dataset used by its Get Started examples. Historical Japanese administrative areas, e-Stat small areas, e-Stat areas with N03 coastline, Australian suburbs and localities, Canadian census subdivisions, Taiwan village boundaries, UK local authority districts, U.S. state and county boundaries, German and French administrative areas, Dutch municipalities and neighbourhoods, and global administrative boundaries can be downloaded individually from [GitHub Release v0.2.1](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.2.1).
+The SDK bundles the 2026 Japanese administrative-area dataset used by its Get Started examples. The [dataset guide](datasets/README.md) lists 45 releases: 16 are available from [GitHub Release v0.2.1](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.2.1), another 16 are prepared for v0.2.2, 12 more for v0.2.3, and Serbia for v0.2.4. The new download links will work after their respective releases are published.
+
+The v0.2.3 additions include boundaries from Côte d’Ivoire, Cyprus, Qatar, Singapore, Luxembourg, Brazil, Chile, Slovenia, Liberia, Iceland, Montenegro and Slovakia. The v0.2.4 addition covers Serbian settlements and labels the unconfirmed boundary reference year `undated`.
 
 See the [dataset guide](datasets/README.md) for uses, direct download links, resolutions, file sizes, and rendering examples. Sources, processing, and terms of use are documented in the `NOTICE.md` included in each ZIP.
 
