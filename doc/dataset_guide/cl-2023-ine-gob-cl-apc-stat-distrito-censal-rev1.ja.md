@@ -14,9 +14,9 @@
 
 ## ダウンロード
 
-[cl-2023-ine-gob-cl-apc-stat-distrito-censal-rev1.zipをダウンロード（7.74 MiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.3/cl-2023-ine-gob-cl-apc-stat-distrito-censal-rev1.zip)
+[cl-2023-ine-gob-cl-apc-stat-distrito-censal-rev1.zipをダウンロード（7.74 MiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/cl-2023-ine-gob-cl-apc-stat-distrito-censal-rev1.zip)
 
-このリンクはv0.2.3の公開後に利用できます。ZIPはローカルの`release/`に作成済みです。
+このリンクはv0.2.4の公開後に利用できます。ZIPはローカルの`release/`に作成済みです。
 
 ## 地図の解像度とサイズ
 

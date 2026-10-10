@@ -14,9 +14,9 @@ There are **8 areas by dictionary code**. Eight municipalities, represented by o
 
 ## Download
 
-[Download qa-2015-data-gov-qa-npc-od-c0-00621-adm1-rev1.zip (70.0 KiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.3/qa-2015-data-gov-qa-npc-od-c0-00621-adm1-rev1.zip)
+[Download qa-2015-data-gov-qa-npc-od-c0-00621-adm1-rev1.zip (70.0 KiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/qa-2015-data-gov-qa-npc-od-c0-00621-adm1-rev1.zip)
 
-This link will work after v0.2.3 is published. The ZIP is already prepared in the local `release/` directory.
+This link will work after v0.2.4 is published. The ZIP is already prepared in the local `release/` directory.
 
 ## Map resolutions and sizes
 

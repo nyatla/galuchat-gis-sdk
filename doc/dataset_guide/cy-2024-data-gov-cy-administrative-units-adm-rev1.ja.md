@@ -14,9 +14,9 @@
 
 ## ダウンロード
 
-[cy-2024-data-gov-cy-administrative-units-adm-rev1.zipをダウンロード（449.1 KiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.3/cy-2024-data-gov-cy-administrative-units-adm-rev1.zip)
+[cy-2024-data-gov-cy-administrative-units-adm-rev1.zipをダウンロード（449.0 KiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/cy-2024-data-gov-cy-administrative-units-adm-rev1.zip)
 
-このリンクはv0.2.3の公開後に利用できます。ZIPはローカルの`release/`に作成済みです。
+このリンクはv0.2.4の公開後に利用できます。ZIPはローカルの`release/`に作成済みです。
 
 ## 地図の解像度とサイズ
 

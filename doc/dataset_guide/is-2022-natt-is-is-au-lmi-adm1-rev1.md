@@ -14,9 +14,9 @@ There are **64 areas by dictionary code**. 64 municipalities at one dictionary l
 
 ## Download
 
-[Download is-2022-natt-is-is-au-lmi-adm1-rev1.zip (667.7 KiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.3/is-2022-natt-is-is-au-lmi-adm1-rev1.zip)
+[Download is-2022-natt-is-is-au-lmi-adm1-rev1.zip (667.9 KiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/is-2022-natt-is-is-au-lmi-adm1-rev1.zip)
 
-This link will work after v0.2.3 is published. The ZIP is already prepared in the local `release/` directory.
+This link will work after v0.2.4 is published. The ZIP is already prepared in the local `release/` directory.
 
 ## Map resolutions and sizes
 

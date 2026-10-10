@@ -14,9 +14,9 @@
 
 ## ダウンロード
 
-[me-undated-opendata-gov-me-opstine-adm1-rev1.zipをダウンロード（96.5 KiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.3/me-undated-opendata-gov-me-opstine-adm1-rev1.zip)
+[me-undated-opendata-gov-me-opstine-adm1-rev1.zipをダウンロード（96.4 KiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/me-undated-opendata-gov-me-opstine-adm1-rev1.zip)
 
-このリンクはv0.2.3の公開後に利用できます。ZIPはローカルの`release/`に作成済みです。
+このリンクはv0.2.4の公開後に利用できます。ZIPはローカルの`release/`に作成済みです。
 
 ## 地図の解像度とサイズ
 

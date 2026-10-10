@@ -14,9 +14,9 @@
 
 ## ダウンロード
 
-[ダウンロード dk-2026-datafordeler-dk-dagi-adm-rev1.zip（557.2 KiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.2/dk-2026-datafordeler-dk-dagi-adm-rev1.zip)
+[ダウンロード dk-2026-datafordeler-dk-dagi-adm-rev1.zip（557.2 KiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/dk-2026-datafordeler-dk-dagi-adm-rev1.zip)
 
-このリンクはv0.2.2公開後に有効になります。ZIPはローカルに準備済みです。
+このリンクはv0.2.4公開後に有効になります。ZIPはローカルに準備済みです。
 
 ## 地図の解像度とサイズ
 

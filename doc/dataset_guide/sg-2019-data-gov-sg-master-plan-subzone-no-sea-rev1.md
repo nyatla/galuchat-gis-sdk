@@ -14,9 +14,9 @@ There are **332 areas by dictionary code**. 332 subzones under 55 Planning Areas
 
 ## Download
 
-[Download sg-2019-data-gov-sg-master-plan-subzone-no-sea-rev1.zip (78.1 KiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.3/sg-2019-data-gov-sg-master-plan-subzone-no-sea-rev1.zip)
+[Download sg-2019-data-gov-sg-master-plan-subzone-no-sea-rev1.zip (78.3 KiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/sg-2019-data-gov-sg-master-plan-subzone-no-sea-rev1.zip)
 
-This link will work after v0.2.3 is published. The ZIP is already prepared in the local `release/` directory.
+This link will work after v0.2.4 is published. The ZIP is already prepared in the local `release/` directory.
 
 ## Map resolutions and sizes
 

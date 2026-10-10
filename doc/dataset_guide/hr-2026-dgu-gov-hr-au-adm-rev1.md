@@ -14,9 +14,9 @@ This package contains settlements in Croatia, converted from the source describe
 
 ## Download
 
-[Download hr-2026-dgu-gov-hr-au-adm-rev1.zip (2.94 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.2/hr-2026-dgu-gov-hr-au-adm-rev1.zip)
+[Download hr-2026-dgu-gov-hr-au-adm-rev1.zip (2.94 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/hr-2026-dgu-gov-hr-au-adm-rev1.zip)
 
-The download link becomes available after v0.2.2 is published; the ZIP is prepared locally.
+The download link becomes available after v0.2.4 is published; the ZIP is prepared locally.
 
 ## Map resolutions and sizes
 

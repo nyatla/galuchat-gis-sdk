@@ -14,9 +14,9 @@
 
 ## ダウンロード
 
-[ダウンロード lt-2026-geoportal-lt-au-adm-rev1.zip（893.4 KiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.2/lt-2026-geoportal-lt-au-adm-rev1.zip)
+[ダウンロード lt-2026-geoportal-lt-au-adm-rev1.zip（893.4 KiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/lt-2026-geoportal-lt-au-adm-rev1.zip)
 
-このリンクはv0.2.2公開後に有効になります。ZIPはローカルに準備済みです。
+このリンクはv0.2.4公開後に有効になります。ZIPはローカルに準備済みです。
 
 ## 地図の解像度とサイズ
 

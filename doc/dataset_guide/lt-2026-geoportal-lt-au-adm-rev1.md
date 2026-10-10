@@ -14,9 +14,9 @@ This package contains elderships and municipality remainders in Lithuania, conve
 
 ## Download
 
-[Download lt-2026-geoportal-lt-au-adm-rev1.zip (893.4 KiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.2/lt-2026-geoportal-lt-au-adm-rev1.zip)
+[Download lt-2026-geoportal-lt-au-adm-rev1.zip (893.4 KiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/lt-2026-geoportal-lt-au-adm-rev1.zip)
 
-The download link becomes available after v0.2.2 is published; the ZIP is prepared locally.
+The download link becomes available after v0.2.4 is published; the ZIP is prepared locally.
 
 ## Map resolutions and sizes
 

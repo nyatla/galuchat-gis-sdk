@@ -2,9 +2,9 @@
 
 [English](README.md) | 日本語
 
-SDK 0.2.4では45種類のデータセットを案内します。従来の16件は[GitHub Release v0.2.1](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.2.1)で配布済みです。次の16件のZIPはv0.2.2向け、続く12件はv0.2.3向け、セルビアのZIPはv0.2.4向けに準備しています。Get Startedで使用する日本行政区域2026年版はSDKにも同梱しています。
+SDK 0.2.4では45種類のデータセットを案内します。従来の16件は[GitHub Release v0.2.1](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.2.1)で改訂番号なしのZIPとして配布済みです。現行SDKでは、その16件と追加した29件のすべてについて、改訂番号付きZIPをv0.2.4向けに準備しています。Get Startedで使用する日本行政区域2026年版はSDKにも同梱しています。
 
-追加ガイドに記載したv0.2.2〜v0.2.4のダウンロードリンクは、それぞれの公開後に有効になります。セルビアの境界基準年は未確認のため`undated`とし、現行境界とは表示しません。
+ガイドに記載したv0.2.4のダウンロードリンクは、公開後に有効になります。セルビアの境界基準年は未確認のため`undated`とし、現行境界とは表示しません。
 
 各ZIPには `data-spec.md`、`NOTICE.md`、WGSMapSet、GisWordBookを収録しています。一部には原典識別子と辞書コードの対応を示す `names.csv`、メタデータXML、原典ライセンスPDFも含まれます。データの詳細はZIP内の `data-spec.md`、出典・加工内容・利用条件は `NOTICE.md` を参照してください。
 
@@ -16,25 +16,25 @@ SDK 0.2.4では45種類のデータセットを案内します。従来の16件�
 
 | データセット | 対象地域 | 区域の種類 | 基準年・版 |
 | --- | --- | --- | --- |
-| [日本行政区域 2024年版](../doc/dataset_guide/jp-2024-mlit-go-jp-n03-adm.ja.md) | 日本 | 行政区域 | 2024 |
-| [日本行政区域 2025年版](../doc/dataset_guide/jp-2025-mlit-go-jp-n03-adm.ja.md) | 日本 | 行政区域 | 2025 |
-| [日本行政区域 2026年版](../doc/dataset_guide/jp-2026-mlit-go-jp-n03-adm.ja.md)（SDK同梱） | 日本 | 行政区域 | 2026 |
-| [e-Stat町丁・字等境界 2020年版](../doc/dataset_guide/jp-2020-e-stat-go-jp-a002005212020-stat-small-area.ja.md) | 日本 | 町丁・字等の統計区域 | 2020 |
-| [e-Stat海岸線反映区域データ](../doc/dataset_guide/jp-2026-nyatla-jp-estat-coastline.ja.md) | 日本 | 海岸線反映小地区・行政区域 | 2026 / 2020 |
-| [台湾村里界 2026年版](../doc/dataset_guide/tw-2026-maps-nlsc-gov-tw-village-adm.ja.md) | 台湾 | 村・里 | 2026 |
-| [英国地方自治体地区 2025年12月版](../doc/dataset_guide/gb-2025-geoportal-statistics-gov-uk-lad-adm-bfc.ja.md) | 英国 | 地方自治体地区 | 2025 |
-| [米国County境界 2025年版](../doc/dataset_guide/us-2025-census-gov-tl-county-adm2.ja.md) | 米国 | County・County Equivalent | 2025 |
-| [米国State境界 2025年版](../doc/dataset_guide/us-2025-census-gov-tl-state-adm1.ja.md) | 米国 | State・State Equivalent | 2025 |
-| [カナダCensus Subdivision 2021年版](../doc/dataset_guide/ca-2021-statcan-gc-ca-csd-cbf-stat-csd.ja.md) | カナダ | Census Subdivision | 2021 |
-| [世界行政境界](../doc/dataset_guide/world-2024-geoboundaries-org-cgaz-adm.ja.md) | 世界 | 利用可能な最詳細行政区域 | 2024 |
-| [オーストラリアSuburb・Locality 2021年版](../doc/dataset_guide/au-2021-abs-gov-au-sal-stat-sal.ja.md) | オーストラリア | Suburb・Locality（統計区域） | 2021 |
-| [ドイツ行政区域 VG250 2026年版](../doc/dataset_guide/de-2026-gdz-bkg-bund-de-vg250-adm.ja.md) | ドイツ | 自治体・自治体非所属区域 | 2026 |
-| [フランス行政区域 ADMIN EXPRESS COG 2026年版](../doc/dataset_guide/fr-2026-cartes-gouv-fr-admin-express-cog-adm.ja.md) | フランス | Commune・Arrondissement municipal | 2026 |
-| [オランダ自治体区域 2026年版](../doc/dataset_guide/nl-2026-cbs-nl-wijkbuurtkaart-adm.ja.md) | オランダ | 自治体 | 2026 |
-| [オランダ詳細区域 Wijk・Buurt 2026年版](../doc/dataset_guide/nl-2026-cbs-nl-wijkbuurtkaart-stat-buurt.ja.md) | オランダ | Wijk・Buurt（詳細区域） | 2026 |
-| [スペイン行政区域 BDDAE 2026年版](../doc/dataset_guide/es-2026-cnig-es-lilim-adm.ja.md) | スペイン | 市町村・特殊区域 | 2026 |
-| [ニュージーランド Statistical Area 2 2026年版](../doc/dataset_guide/nz-2026-stats-govt-nz-sa2-stat-sa2.ja.md) | ニュージーランド | SA2統計区域 | 2026 |
-| [韓国SGIS行政洞境界 2025年第2四半期版](../doc/dataset_guide/kr-2025-sgis-mods-go-kr-admin-boundary-adm.ja.md) | 韓国 | 行政洞 | 2025 |
+| [日本行政区域 2024年版](../doc/dataset_guide/jp-2024-mlit-go-jp-n03-adm-rev1.ja.md) | 日本 | 行政区域 | 2024 |
+| [日本行政区域 2025年版](../doc/dataset_guide/jp-2025-mlit-go-jp-n03-adm-rev1.ja.md) | 日本 | 行政区域 | 2025 |
+| [日本行政区域 2026年版](../doc/dataset_guide/jp-2026-mlit-go-jp-n03-adm-rev1.ja.md)（SDK同梱） | 日本 | 行政区域 | 2026 |
+| [e-Stat町丁・字等境界 2020年版](../doc/dataset_guide/jp-2020-e-stat-go-jp-a002005212020-stat-small-area-rev1.ja.md) | 日本 | 町丁・字等の統計区域 | 2020 |
+| [e-Stat海岸線反映区域データ](../doc/dataset_guide/jp-2026-nyatla-jp-estat-coastline-rev1.ja.md) | 日本 | 海岸線反映小地区・行政区域 | 2026 / 2020 |
+| [台湾村里界 2026年版](../doc/dataset_guide/tw-2026-maps-nlsc-gov-tw-village-adm-rev1.ja.md) | 台湾 | 村・里 | 2026 |
+| [英国地方自治体地区 2025年12月版](../doc/dataset_guide/gb-2025-geoportal-statistics-gov-uk-lad-adm-bfc-rev1.ja.md) | 英国 | 地方自治体地区 | 2025 |
+| [米国County境界 2025年版](../doc/dataset_guide/us-2025-census-gov-tl-county-adm2-rev1.ja.md) | 米国 | County・County Equivalent | 2025 |
+| [米国State境界 2025年版](../doc/dataset_guide/us-2025-census-gov-tl-state-adm1-rev1.ja.md) | 米国 | State・State Equivalent | 2025 |
+| [カナダCensus Subdivision 2021年版](../doc/dataset_guide/ca-2021-statcan-gc-ca-csd-cbf-stat-csd-rev1.ja.md) | カナダ | Census Subdivision | 2021 |
+| [世界行政境界](../doc/dataset_guide/world-2024-geoboundaries-org-cgaz-adm-rev1.ja.md) | 世界 | 利用可能な最詳細行政区域 | 2024 |
+| [オーストラリアSuburb・Locality 2021年版](../doc/dataset_guide/au-2021-abs-gov-au-sal-stat-sal-rev1.ja.md) | オーストラリア | Suburb・Locality（統計区域） | 2021 |
+| [ドイツ行政区域 VG250 2026年版](../doc/dataset_guide/de-2026-gdz-bkg-bund-de-vg250-adm-rev1.ja.md) | ドイツ | 自治体・自治体非所属区域 | 2026 |
+| [フランス行政区域 ADMIN EXPRESS COG 2026年版](../doc/dataset_guide/fr-2026-cartes-gouv-fr-admin-express-cog-adm-rev1.ja.md) | フランス | Commune・Arrondissement municipal | 2026 |
+| [オランダ自治体区域 2026年版](../doc/dataset_guide/nl-2026-cbs-nl-wijkbuurtkaart-adm-rev1.ja.md) | オランダ | 自治体 | 2026 |
+| [オランダ詳細区域 Wijk・Buurt 2026年版](../doc/dataset_guide/nl-2026-cbs-nl-wijkbuurtkaart-stat-buurt-rev1.ja.md) | オランダ | Wijk・Buurt（詳細区域） | 2026 |
+| [スペイン行政区域 BDDAE 2026年版](../doc/dataset_guide/es-2026-cnig-es-lilim-adm-rev1.ja.md) | スペイン | 市町村・特殊区域 | 2026 |
+| [ニュージーランド Statistical Area 2 2026年版](../doc/dataset_guide/nz-2026-stats-govt-nz-sa2-stat-sa2-rev1.ja.md) | ニュージーランド | SA2統計区域 | 2026 |
+| [韓国SGIS行政洞境界 2025年第2四半期版](../doc/dataset_guide/kr-2025-sgis-mods-go-kr-admin-boundary-adm-rev1.ja.md) | 韓国 | 行政洞 | 2025 |
 | [オーストリア自治体・ウィーン市区 2026年版](../doc/dataset_guide/at-2026-data-statistik-gv-at-gem-adm-rev1.ja.md) | オーストリア | 自治体・ウィーン市区 | 2026 |
 | [ベルギー統計区 2026年版](../doc/dataset_guide/be-2026-statbel-fgov-be-statistical-sectors-stat-sector-rev1.ja.md) | ベルギー | 統計区 | 2026 |
 | [スイスswissBOUNDARIES3D 2026年版](../doc/dataset_guide/ch-2026-swisstopo-admin-ch-swissboundaries3d-adm-rev1.ja.md) | スイス | 自治体・その他基礎区域 | 2026 |

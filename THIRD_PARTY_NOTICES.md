@@ -10,7 +10,7 @@ SDKに同梱されたGISデータと、[GitHub Releases](https://github.com/nyat
 
 - [国土数値情報 行政区域 N03（2026年）](datasets/jp-admin-n03-2026/NOTICE.md)
 
-次の配布済みデータセットは、配布ZIP内の`NOTICE.md`を確認してください。ダウンロード先は[データセットガイド](datasets/README.ja.md)にまとめています。
+次のデータセットはv0.2.1で改訂番号なしのZIPとして配布済みです。現行版の改訂番号付きZIPも含め、各ZIP内の`NOTICE.md`を確認してください。ダウンロード先は[データセットガイド](datasets/README.ja.md)にまとめています。
 
 - 国土数値情報 行政区域 N03（2024年）
 - 国土数値情報 行政区域 N03（2025年）
@@ -26,7 +26,7 @@ SDKに同梱されたGISデータと、[GitHub Releases](https://github.com/nyat
 - IGN ADMIN EXPRESS COG（2026年）
 - CBS Wijk- en Buurtkaart Municipality・Buurt（2026年）
 
-次の16件はv0.2.2での公開準備中です。各ZIP内の`NOTICE.md`を維持して公開します。ベルギー版には原典の利用条件PDFも同梱します。
+次の16件はv0.2.4での公開準備中です。各ZIP内の`NOTICE.md`を維持して公開します。ベルギー版には原典の利用条件PDFも同梱します。
 
 - IGN/CNIG Base de Datos de Divisiones Administrativas de España（2026年）
 - Stats NZ Statistical Area 2（2026年）
@@ -45,7 +45,7 @@ SDKに同梱されたGISデータと、[GitHub Releases](https://github.com/nyat
 - ANCPI Unități administrativ-teritoriale（2025年）
 - SCB RegSO（2025年）
 
-次の12件はv0.2.3での公開準備中です。各ZIP内の`NOTICE.md`を維持して公開します。
+次の12件はv0.2.4での公開準備中です。各ZIP内の`NOTICE.md`を維持して公開します。
 
 - ANStat SousPrefecture（RGPH 2021由来）
 - Cyprus Administrative Units（2024年8月版）

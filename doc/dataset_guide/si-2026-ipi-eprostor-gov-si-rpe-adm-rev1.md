@@ -14,9 +14,9 @@ There are **6,035 areas by dictionary code**. 6,035 settlements under 212 munici
 
 ## Download
 
-[Download si-2026-ipi-eprostor-gov-si-rpe-adm-rev1.zip (1.72 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.3/si-2026-ipi-eprostor-gov-si-rpe-adm-rev1.zip)
+[Download si-2026-ipi-eprostor-gov-si-rpe-adm-rev1.zip (1.72 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/si-2026-ipi-eprostor-gov-si-rpe-adm-rev1.zip)
 
-This link will work after v0.2.3 is published. The ZIP is already prepared in the local `release/` directory.
+This link will work after v0.2.4 is published. The ZIP is already prepared in the local `release/` directory.
 
 ## Map resolutions and sizes
 

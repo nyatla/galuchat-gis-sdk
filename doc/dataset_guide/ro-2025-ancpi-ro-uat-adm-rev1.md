@@ -14,9 +14,9 @@ This package contains uat and bucharest sectors in Romania, converted from the s
 
 ## Download
 
-[Download ro-2025-ancpi-ro-uat-adm-rev1.zip (3.49 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.2/ro-2025-ancpi-ro-uat-adm-rev1.zip)
+[Download ro-2025-ancpi-ro-uat-adm-rev1.zip (3.49 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/ro-2025-ancpi-ro-uat-adm-rev1.zip)
 
-The download link becomes available after v0.2.2 is published; the ZIP is prepared locally.
+The download link becomes available after v0.2.4 is published; the ZIP is prepared locally.
 
 ## Map resolutions and sizes
 

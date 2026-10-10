@@ -14,9 +14,9 @@ There are **10,699 areas by dictionary code**. 10,699 leaf areas: 10,698 ordinar
 
 ## Download
 
-[Download br-2022-ibge-gov-br-distritos-adm-rev1.zip (22.78 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.3/br-2022-ibge-gov-br-distritos-adm-rev1.zip)
+[Download br-2022-ibge-gov-br-distritos-adm-rev1.zip (22.78 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/br-2022-ibge-gov-br-distritos-adm-rev1.zip)
 
-This link will work after v0.2.3 is published. The ZIP is already prepared in the local `release/` directory.
+This link will work after v0.2.4 is published. The ZIP is already prepared in the local `release/` directory.
 
 ## Map resolutions and sizes
 

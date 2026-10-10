@@ -14,9 +14,9 @@ There are **2,768 areas by dictionary code**. 2,768 census districts under 16 Re
 
 ## Download
 
-[Download cl-2023-ine-gob-cl-apc-stat-distrito-censal-rev1.zip (7.74 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.3/cl-2023-ine-gob-cl-apc-stat-distrito-censal-rev1.zip)
+[Download cl-2023-ine-gob-cl-apc-stat-distrito-censal-rev1.zip (7.74 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/cl-2023-ine-gob-cl-apc-stat-distrito-censal-rev1.zip)
 
-This link will work after v0.2.3 is published. The ZIP is already prepared in the local `release/` directory.
+This link will work after v0.2.4 is published. The ZIP is already prepared in the local `release/` directory.
 
 ## Map resolutions and sizes
 

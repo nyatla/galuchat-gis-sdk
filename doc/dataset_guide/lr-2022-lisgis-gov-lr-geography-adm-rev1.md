@@ -14,9 +14,9 @@ There are **902 areas by dictionary code**. 902 Clans under 160 Districts and 15
 
 ## Download
 
-[Download lr-2022-lisgis-gov-lr-geography-adm-rev1.zip (695.2 KiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.3/lr-2022-lisgis-gov-lr-geography-adm-rev1.zip)
+[Download lr-2022-lisgis-gov-lr-geography-adm-rev1.zip (695.2 KiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/lr-2022-lisgis-gov-lr-geography-adm-rev1.zip)
 
-This link will work after v0.2.3 is published. The ZIP is already prepared in the local `release/` directory.
+This link will work after v0.2.4 is published. The ZIP is already prepared in the local `release/` directory.
 
 ## Map resolutions and sizes
 

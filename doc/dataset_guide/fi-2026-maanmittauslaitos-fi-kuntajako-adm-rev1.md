@@ -14,9 +14,9 @@ This package contains municipalities in Finland, converted from the source descr
 
 ## Download
 
-[Download fi-2026-maanmittauslaitos-fi-kuntajako-adm-rev1.zip (1.32 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.2/fi-2026-maanmittauslaitos-fi-kuntajako-adm-rev1.zip)
+[Download fi-2026-maanmittauslaitos-fi-kuntajako-adm-rev1.zip (1.32 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/fi-2026-maanmittauslaitos-fi-kuntajako-adm-rev1.zip)
 
-The download link becomes available after v0.2.2 is published; the ZIP is prepared locally.
+The download link becomes available after v0.2.4 is published; the ZIP is prepared locally.
 
 ## Map resolutions and sizes
 

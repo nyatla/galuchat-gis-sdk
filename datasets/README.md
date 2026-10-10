@@ -2,9 +2,9 @@
 
 English | [日本語](README.ja.md)
 
-SDK 0.2.4 indexes 45 dataset releases. The original 16 were distributed with [v0.2.1](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.2.1); the next 16 ZIPs are prepared for v0.2.2, 12 more for v0.2.3, and the Serbian ZIP for v0.2.4. The Japanese administrative-area dataset for 2026 is also bundled with the SDK for its Get Started examples.
+SDK 0.2.4 indexes 45 dataset releases. The original 16 were distributed without revision suffixes in [v0.2.1](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.2.1). The current SDK prepares revision-suffixed ZIPs for all 45 datasets in v0.2.4, including those 16 and 29 additional datasets. The Japanese administrative-area dataset for 2026 is also bundled with the SDK for its Get Started examples.
 
-The direct v0.2.2–v0.2.4 download links in the new guides will work after those releases are published. Serbia's boundary reference year remains unconfirmed and is labelled `undated`; this does not imply current boundaries.
+The direct v0.2.4 download links will work after that release is published. Serbia's boundary reference year remains unconfirmed and is labelled `undated`; this does not imply current boundaries.
 
 Each ZIP contains `data-spec.md`, `NOTICE.md`, WGSMapSet files and GisWordBooks. Some also include `names.csv` mapping source identifiers to dictionary codes, metadata XML, or source licence PDFs. Read `data-spec.md` for the full data specification and `NOTICE.md` for sources, processing and terms of use.
 
@@ -16,25 +16,25 @@ Each page's "License and terms of use" section links to the original-data licens
 
 | Dataset | Region | Area type | Reference year / edition |
 | --- | --- | --- | --- |
-| [Japanese administrative areas, 2024](../doc/dataset_guide/jp-2024-mlit-go-jp-n03-adm.md) | Japan | Administrative areas | 2024 |
-| [Japanese administrative areas, 2025](../doc/dataset_guide/jp-2025-mlit-go-jp-n03-adm.md) | Japan | Administrative areas | 2025 |
-| [Japanese administrative areas, 2026](../doc/dataset_guide/jp-2026-mlit-go-jp-n03-adm.md) (bundled with SDK) | Japan | Administrative areas | 2026 |
-| [Japanese e-Stat small areas, 2020](../doc/dataset_guide/jp-2020-e-stat-go-jp-a002005212020-stat-small-area.md) | Japan | Census small areas | 2020 |
-| [Japanese e-Stat areas with N03 coastline](../doc/dataset_guide/jp-2026-nyatla-jp-estat-coastline.md) | Japan | Small areas with N03 coastline | 2026 / 2020 |
-| [Taiwan village boundaries, 2026](../doc/dataset_guide/tw-2026-maps-nlsc-gov-tw-village-adm.md) | Taiwan | Villages | 2026 |
-| [UK local authority districts, December 2025](../doc/dataset_guide/gb-2025-geoportal-statistics-gov-uk-lad-adm-bfc.md) | United Kingdom | Local authority districts | 2025 |
-| [U.S. counties and county equivalents, 2025](../doc/dataset_guide/us-2025-census-gov-tl-county-adm2.md) | United States | Counties and equivalents | 2025 |
-| [U.S. states and state equivalents, 2025](../doc/dataset_guide/us-2025-census-gov-tl-state-adm1.md) | United States | States and equivalents | 2025 |
-| [Canadian census subdivisions, 2021](../doc/dataset_guide/ca-2021-statcan-gc-ca-csd-cbf-stat-csd.md) | Canada | Census subdivisions | 2021 |
-| [Worldwide administrative boundaries](../doc/dataset_guide/world-2024-geoboundaries-org-cgaz-adm.md) | Worldwide | Best-available administrative areas | 2024 |
-| [Australian suburbs and localities, 2021](../doc/dataset_guide/au-2021-abs-gov-au-sal-stat-sal.md) | Australia | Suburbs and localities (statistical) | 2021 |
-| [German administrative areas, VG250 2026](../doc/dataset_guide/de-2026-gdz-bkg-bund-de-vg250-adm.md) | Germany | Municipalities and unincorporated areas | 2026 |
-| [French administrative areas, ADMIN EXPRESS COG 2026](../doc/dataset_guide/fr-2026-cartes-gouv-fr-admin-express-cog-adm.md) | France | Communes and municipal arrondissements | 2026 |
-| [Dutch municipalities, 2026](../doc/dataset_guide/nl-2026-cbs-nl-wijkbuurtkaart-adm.md) | Netherlands | Municipalities | 2026 |
-| [Dutch districts and neighbourhoods, 2026](../doc/dataset_guide/nl-2026-cbs-nl-wijkbuurtkaart-stat-buurt.md) | Netherlands | Districts and neighbourhoods | 2026 |
-| [Spanish administrative areas, BDDAE 2026](../doc/dataset_guide/es-2026-cnig-es-lilim-adm.md) | Spain | Municipalities and special areas | 2026 |
-| [New Zealand Statistical Area 2, 2026](../doc/dataset_guide/nz-2026-stats-govt-nz-sa2-stat-sa2.md) | New Zealand | SA2 statistical areas | 2026 |
-| [South Korean SGIS administrative dongs, 2025 Q2](../doc/dataset_guide/kr-2025-sgis-mods-go-kr-admin-boundary-adm.md) | South Korea | Administrative dongs | 2025 |
+| [Japanese administrative areas, 2024](../doc/dataset_guide/jp-2024-mlit-go-jp-n03-adm-rev1.md) | Japan | Administrative areas | 2024 |
+| [Japanese administrative areas, 2025](../doc/dataset_guide/jp-2025-mlit-go-jp-n03-adm-rev1.md) | Japan | Administrative areas | 2025 |
+| [Japanese administrative areas, 2026](../doc/dataset_guide/jp-2026-mlit-go-jp-n03-adm-rev1.md) (bundled with SDK) | Japan | Administrative areas | 2026 |
+| [Japanese e-Stat small areas, 2020](../doc/dataset_guide/jp-2020-e-stat-go-jp-a002005212020-stat-small-area-rev1.md) | Japan | Census small areas | 2020 |
+| [Japanese e-Stat areas with N03 coastline](../doc/dataset_guide/jp-2026-nyatla-jp-estat-coastline-rev1.md) | Japan | Small areas with N03 coastline | 2026 / 2020 |
+| [Taiwan village boundaries, 2026](../doc/dataset_guide/tw-2026-maps-nlsc-gov-tw-village-adm-rev1.md) | Taiwan | Villages | 2026 |
+| [UK local authority districts, December 2025](../doc/dataset_guide/gb-2025-geoportal-statistics-gov-uk-lad-adm-bfc-rev1.md) | United Kingdom | Local authority districts | 2025 |
+| [U.S. counties and county equivalents, 2025](../doc/dataset_guide/us-2025-census-gov-tl-county-adm2-rev1.md) | United States | Counties and equivalents | 2025 |
+| [U.S. states and state equivalents, 2025](../doc/dataset_guide/us-2025-census-gov-tl-state-adm1-rev1.md) | United States | States and equivalents | 2025 |
+| [Canadian census subdivisions, 2021](../doc/dataset_guide/ca-2021-statcan-gc-ca-csd-cbf-stat-csd-rev1.md) | Canada | Census subdivisions | 2021 |
+| [Worldwide administrative boundaries](../doc/dataset_guide/world-2024-geoboundaries-org-cgaz-adm-rev1.md) | Worldwide | Best-available administrative areas | 2024 |
+| [Australian suburbs and localities, 2021](../doc/dataset_guide/au-2021-abs-gov-au-sal-stat-sal-rev1.md) | Australia | Suburbs and localities (statistical) | 2021 |
+| [German administrative areas, VG250 2026](../doc/dataset_guide/de-2026-gdz-bkg-bund-de-vg250-adm-rev1.md) | Germany | Municipalities and unincorporated areas | 2026 |
+| [French administrative areas, ADMIN EXPRESS COG 2026](../doc/dataset_guide/fr-2026-cartes-gouv-fr-admin-express-cog-adm-rev1.md) | France | Communes and municipal arrondissements | 2026 |
+| [Dutch municipalities, 2026](../doc/dataset_guide/nl-2026-cbs-nl-wijkbuurtkaart-adm-rev1.md) | Netherlands | Municipalities | 2026 |
+| [Dutch districts and neighbourhoods, 2026](../doc/dataset_guide/nl-2026-cbs-nl-wijkbuurtkaart-stat-buurt-rev1.md) | Netherlands | Districts and neighbourhoods | 2026 |
+| [Spanish administrative areas, BDDAE 2026](../doc/dataset_guide/es-2026-cnig-es-lilim-adm-rev1.md) | Spain | Municipalities and special areas | 2026 |
+| [New Zealand Statistical Area 2, 2026](../doc/dataset_guide/nz-2026-stats-govt-nz-sa2-stat-sa2-rev1.md) | New Zealand | SA2 statistical areas | 2026 |
+| [South Korean SGIS administrative dongs, 2025 Q2](../doc/dataset_guide/kr-2025-sgis-mods-go-kr-admin-boundary-adm-rev1.md) | South Korea | Administrative dongs | 2025 |
 | [Austrian municipalities and Vienna districts, 2026](../doc/dataset_guide/at-2026-data-statistik-gv-at-gem-adm-rev1.md) | Austria | Municipalities and Vienna districts | 2026 |
 | [Belgian statistical sectors, 2026](../doc/dataset_guide/be-2026-statbel-fgov-be-statistical-sectors-stat-sector-rev1.md) | Belgium | Statistical sectors | 2026 |
 | [Swiss swissBOUNDARIES3D base areas, 2026](../doc/dataset_guide/ch-2026-swisstopo-admin-ch-swissboundaries3d-adm-rev1.md) | Switzerland | Municipalities and other base areas | 2026 |

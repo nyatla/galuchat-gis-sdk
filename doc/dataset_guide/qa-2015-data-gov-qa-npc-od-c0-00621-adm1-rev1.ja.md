@@ -14,9 +14,9 @@
 
 ## ダウンロード
 
-[qa-2015-data-gov-qa-npc-od-c0-00621-adm1-rev1.zipをダウンロード（70.0 KiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.3/qa-2015-data-gov-qa-npc-od-c0-00621-adm1-rev1.zip)
+[qa-2015-data-gov-qa-npc-od-c0-00621-adm1-rev1.zipをダウンロード（70.0 KiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/qa-2015-data-gov-qa-npc-od-c0-00621-adm1-rev1.zip)
 
-このリンクはv0.2.3の公開後に利用できます。ZIPはローカルの`release/`に作成済みです。
+このリンクはv0.2.4の公開後に利用できます。ZIPはローカルの`release/`に作成済みです。
 
 ## 地図の解像度とサイズ
 

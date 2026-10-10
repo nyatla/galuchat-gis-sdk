@@ -14,9 +14,9 @@
 
 ## ダウンロード
 
-[ダウンロード be-2026-statbel-fgov-be-statistical-sectors-stat-sector-rev1.zip（4.90 MiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.2/be-2026-statbel-fgov-be-statistical-sectors-stat-sector-rev1.zip)
+[ダウンロード be-2026-statbel-fgov-be-statistical-sectors-stat-sector-rev1.zip（4.90 MiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/be-2026-statbel-fgov-be-statistical-sectors-stat-sector-rev1.zip)
 
-このリンクはv0.2.2公開後に有効になります。ZIPはローカルに準備済みです。
+このリンクはv0.2.4公開後に有効になります。ZIPはローカルに準備済みです。
 
 ## 地図の解像度とサイズ
 

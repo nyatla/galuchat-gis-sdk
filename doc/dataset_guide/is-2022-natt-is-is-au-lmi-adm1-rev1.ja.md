@@ -14,9 +14,9 @@
 
 ## ダウンロード
 
-[is-2022-natt-is-is-au-lmi-adm1-rev1.zipをダウンロード（667.7 KiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.3/is-2022-natt-is-is-au-lmi-adm1-rev1.zip)
+[is-2022-natt-is-is-au-lmi-adm1-rev1.zipをダウンロード（667.9 KiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/is-2022-natt-is-is-au-lmi-adm1-rev1.zip)
 
-このリンクはv0.2.3の公開後に利用できます。ZIPはローカルの`release/`に作成済みです。
+このリンクはv0.2.4の公開後に利用できます。ZIPはローカルの`release/`に作成済みです。
 
 ## 地図の解像度とサイズ
 

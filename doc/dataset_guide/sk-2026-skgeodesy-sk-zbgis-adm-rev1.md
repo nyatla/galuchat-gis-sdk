@@ -14,9 +14,9 @@ There are **2,927 areas by dictionary code**. 2,927 municipality-level areas und
 
 ## Download
 
-[Download sk-2026-skgeodesy-sk-zbgis-adm-rev1.zip (1.61 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.3/sk-2026-skgeodesy-sk-zbgis-adm-rev1.zip)
+[Download sk-2026-skgeodesy-sk-zbgis-adm-rev1.zip (1.61 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/sk-2026-skgeodesy-sk-zbgis-adm-rev1.zip)
 
-This link will work after v0.2.3 is published. The ZIP is already prepared in the local `release/` directory.
+This link will work after v0.2.4 is published. The ZIP is already prepared in the local `release/` directory.
 
 ## Map resolutions and sizes
 

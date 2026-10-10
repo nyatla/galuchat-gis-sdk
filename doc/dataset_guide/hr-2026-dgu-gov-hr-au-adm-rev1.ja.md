@@ -14,9 +14,9 @@
 
 ## ダウンロード
 
-[ダウンロード hr-2026-dgu-gov-hr-au-adm-rev1.zip（2.94 MiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.2/hr-2026-dgu-gov-hr-au-adm-rev1.zip)
+[ダウンロード hr-2026-dgu-gov-hr-au-adm-rev1.zip（2.94 MiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/hr-2026-dgu-gov-hr-au-adm-rev1.zip)
 
-このリンクはv0.2.2公開後に有効になります。ZIPはローカルに準備済みです。
+このリンクはv0.2.4公開後に有効になります。ZIPはローカルに準備済みです。
 
 ## 地図の解像度とサイズ
 

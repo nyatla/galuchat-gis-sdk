@@ -14,9 +14,9 @@
 
 ## ダウンロード
 
-[sk-2026-skgeodesy-sk-zbgis-adm-rev1.zipをダウンロード（1.61 MiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.3/sk-2026-skgeodesy-sk-zbgis-adm-rev1.zip)
+[sk-2026-skgeodesy-sk-zbgis-adm-rev1.zipをダウンロード（1.61 MiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/sk-2026-skgeodesy-sk-zbgis-adm-rev1.zip)
 
-このリンクはv0.2.3の公開後に利用できます。ZIPはローカルの`release/`に作成済みです。
+このリンクはv0.2.4の公開後に利用できます。ZIPはローカルの`release/`に作成済みです。
 
 ## 地図の解像度とサイズ
 

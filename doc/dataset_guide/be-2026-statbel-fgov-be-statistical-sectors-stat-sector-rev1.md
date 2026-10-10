@@ -14,9 +14,9 @@ This package contains statistical sectors in Belgium, converted from the source 
 
 ## Download
 
-[Download be-2026-statbel-fgov-be-statistical-sectors-stat-sector-rev1.zip (4.90 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.2/be-2026-statbel-fgov-be-statistical-sectors-stat-sector-rev1.zip)
+[Download be-2026-statbel-fgov-be-statistical-sectors-stat-sector-rev1.zip (4.90 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/be-2026-statbel-fgov-be-statistical-sectors-stat-sector-rev1.zip)
 
-The download link becomes available after v0.2.2 is published; the ZIP is prepared locally.
+The download link becomes available after v0.2.4 is published; the ZIP is prepared locally.
 
 ## Map resolutions and sizes
 
