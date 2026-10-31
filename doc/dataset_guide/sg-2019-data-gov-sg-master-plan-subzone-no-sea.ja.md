@@ -16,7 +16,7 @@
 
 [sg-2019-data-gov-sg-master-plan-subzone-no-sea-rev1.zipをダウンロード（78.3 KiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/sg-2019-data-gov-sg-master-plan-subzone-no-sea-rev1.zip)
 
-このリンクはv0.2.4の公開後に利用できます。ZIPはローカルの`release/`に作成済みです。
+このデータセットはv0.2.4で配布しています。
 
 ## 地図の解像度とサイズ
 

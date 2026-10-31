@@ -16,7 +16,7 @@ IGN/CNIGのBase de Datos de Divisiones Administrativas de España（BDDAE）の2
 
 [ダウンロード es-2026-cnig-es-lilim-adm-rev1.zip（6.76 MiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/es-2026-cnig-es-lilim-adm-rev1.zip)
 
-このリンクはv0.2.4公開後に有効になります。ZIPは現在、ローカルの`release/`に準備済みです。
+このデータセットはv0.2.4で配布しています。
 
 ## 地図の解像度とサイズ
 

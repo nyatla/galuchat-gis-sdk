@@ -16,7 +16,7 @@
 
 [ダウンロード it-2026-istat-it-limiti-adm-rev1.zip（5.93 MiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/it-2026-istat-it-limiti-adm-rev1.zip)
 
-このリンクはv0.2.4公開後に有効になります。ZIPはローカルに準備済みです。
+このデータセットはv0.2.4で配布しています。
 
 ## 地図の解像度とサイズ
 

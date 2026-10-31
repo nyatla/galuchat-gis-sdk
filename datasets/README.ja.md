@@ -2,9 +2,9 @@
 
 [English](README.md) | 日本語
 
-SDK 0.2.4では45種類のデータセットを案内します。従来の16件は[GitHub Release v0.2.1](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.2.1)で改訂番号なしのZIPとして配布済みです。現行SDKでは、その16件と追加した29件のすべてについて、改訂番号付きZIPをv0.2.4向けに準備しています。Get Startedで使用する日本行政区域2026年版はSDKにも同梱しています。
+SDK 0.2.5では46種類のデータセットを案内します。従来の45件は[v0.2.4](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.2.4)で配布済みで、v0.2.5では米国County Subdivision（COUSUB）を追加します。Get Startedで使用する日本行政区域2026年版はSDKにも同梱しています。
 
-ガイドに記載したv0.2.4のダウンロードリンクは、公開後に有効になります。セルビアの境界基準年は未確認のため`undated`とし、現行境界とは表示しません。
+COUSUBのダウンロードリンクはv0.2.5公開後に有効になります。他のデータセットはv0.2.4の配布先を維持します。セルビアの境界基準年は未確認のため`undated`とし、現行境界とは表示しません。
 
 各ZIPには `data-spec.md`、`NOTICE.md`、WGSMapSet、GisWordBookを収録しています。一部には原典識別子と辞書コードの対応を示す `names.csv`、メタデータXML、原典ライセンスPDFも含まれます。データの詳細はZIP内の `data-spec.md`、出典・加工内容・利用条件は `NOTICE.md` を参照してください。
 
@@ -24,6 +24,7 @@ SDK 0.2.4では45種類のデータセットを案内します。従来の16件�
 | [台湾村里界 2026年版](../doc/dataset_guide/tw-admin-nlsc-village-2026.ja.md) | 台湾 | 村・里 | 2026 |
 | [英国地方自治体地区 2025年12月版](../doc/dataset_guide/uk-admin-ons-lad-2025.ja.md) | 英国 | 地方自治体地区 | 2025 |
 | [米国County境界 2025年版](../doc/dataset_guide/us-admin-census-county-2025.ja.md) | 米国 | County・County Equivalent | 2025 |
+| [米国County Subdivision境界 2025年版](../doc/dataset_guide/us-stat-census-cousub-2025.ja.md) | 米国・Puerto Rico・Island Areas | County Subdivision・相当区域 | 2025 |
 | [米国State境界 2025年版](../doc/dataset_guide/us-admin-census-state-2025.ja.md) | 米国 | State・State Equivalent | 2025 |
 | [カナダCensus Subdivision 2021年版](../doc/dataset_guide/ca-admin-statcan-csd-2021.ja.md) | カナダ | Census Subdivision | 2021 |
 | [世界行政境界](../doc/dataset_guide/world-geoboundaries-cgaz.ja.md) | 世界 | 利用可能な最詳細行政区域 | 2024 |

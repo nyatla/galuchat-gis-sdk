@@ -78,7 +78,7 @@ JavaScript, Java, Python, and C++ are equal target environments. Language artifa
 
 ## Datasets
 
-The SDK bundles the 2026 Japanese administrative-area dataset used by its Get Started examples. The [dataset guide](datasets/README.md) lists 45 datasets. The original 16 remain available without revision suffixes from [GitHub Release v0.2.1](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.2.1). Revision-suffixed ZIPs for all 45, including 29 newly added datasets, are prepared for v0.2.4; their new download links will work after publication.
+The SDK bundles the 2026 Japanese administrative-area dataset used by its Get Started examples. The [dataset guide](datasets/README.md) lists 46 datasets: 45 are available from [GitHub Release v0.2.4](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.2.4), and v0.2.5 adds U.S. county subdivisions (COUSUB). The new download link becomes available when v0.2.5 is published.
 
 The new datasets include boundaries from Côte d’Ivoire, Cyprus, Qatar, Singapore, Luxembourg, Brazil, Chile, Slovenia, Liberia, Iceland, Montenegro and Slovakia. Serbian settlements are also included, with their unconfirmed boundary reference year labelled `undated`.
 

@@ -16,7 +16,7 @@ There are **22 areas by dictionary code**. 22 dictionary codes: 21 non-empty mun
 
 [Download me-undated-opendata-gov-me-opstine-adm1-rev1.zip (96.4 KiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/me-undated-opendata-gov-me-opstine-adm1-rev1.zip)
 
-This link will work after v0.2.4 is published. The ZIP is already prepared in the local `release/` directory.
+This dataset is available in v0.2.4.
 
 ## Map resolutions and sizes
 

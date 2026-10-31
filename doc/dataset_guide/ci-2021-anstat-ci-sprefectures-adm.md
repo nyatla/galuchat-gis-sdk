@@ -16,7 +16,7 @@ There are **510 areas by dictionary code**. 510 sub-prefectures under 14 Distric
 
 [Download ci-2021-anstat-ci-sprefectures-adm-rev1.zip (1011.3 KiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/ci-2021-anstat-ci-sprefectures-adm-rev1.zip)
 
-This link will work after v0.2.4 is published. The ZIP is already prepared in the local `release/` directory.
+This dataset is available in v0.2.4.
 
 ## Map resolutions and sizes
 

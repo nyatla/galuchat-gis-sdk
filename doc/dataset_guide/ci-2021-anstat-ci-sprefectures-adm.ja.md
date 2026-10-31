@@ -16,7 +16,7 @@
 
 [ci-2021-anstat-ci-sprefectures-adm-rev1.zipをダウンロード（1011.3 KiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/ci-2021-anstat-ci-sprefectures-adm-rev1.zip)
 
-このリンクはv0.2.4の公開後に利用できます。ZIPはローカルの`release/`に作成済みです。
+このデータセットはv0.2.4で配布しています。
 
 ## 地図の解像度とサイズ
 

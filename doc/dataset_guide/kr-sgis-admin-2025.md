@@ -16,7 +16,7 @@ There are **3,559 areas by dictionary code**, matching 3,559 adopted source admi
 
 [Download kr-2025-sgis-mods-go-kr-admin-boundary-adm-rev1.zip (2.47 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/kr-2025-sgis-mods-go-kr-admin-boundary-adm-rev1.zip)
 
-This link will work after v0.2.4 is published. The ZIP is already prepared in the local `release/` directory.
+This dataset is available in v0.2.4.
 
 ## Map resolutions and sizes
 

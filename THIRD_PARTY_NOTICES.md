@@ -26,7 +26,7 @@ SDKに同梱されたGISデータと、[GitHub Releases](https://github.com/nyat
 - IGN ADMIN EXPRESS COG（2026年）
 - CBS Wijk- en Buurtkaart Municipality・Buurt（2026年）
 
-次の16件はv0.2.4での公開準備中です。各ZIP内の`NOTICE.md`を維持して公開します。ベルギー版には原典の利用条件PDFも同梱します。
+次の16件はv0.2.4で配布しています。各ZIP内の`NOTICE.md`を維持して公開します。ベルギー版には原典の利用条件PDFも同梱します。
 
 - IGN/CNIG Base de Datos de Divisiones Administrativas de España（2026年）
 - Stats NZ Statistical Area 2（2026年）
@@ -45,7 +45,7 @@ SDKに同梱されたGISデータと、[GitHub Releases](https://github.com/nyat
 - ANCPI Unități administrativ-teritoriale（2025年）
 - SCB RegSO（2025年）
 
-次の12件はv0.2.4での公開準備中です。各ZIP内の`NOTICE.md`を維持して公開します。
+次の12件はv0.2.4で配布しています。各ZIP内の`NOTICE.md`を維持して公開します。
 
 - ANStat SousPrefecture（RGPH 2021由来）
 - Cyprus Administrative Units（2024年8月版）
@@ -60,6 +60,8 @@ SDKに同梱されたGISデータと、[GitHub Releases](https://github.com/nyat
 - Montenegro optine（境界基準年不詳）
 - Slovakia ZBGIS Obecレベル区域（2026年版）
 
-セルビアのGeoanalitičari集落区域（境界基準年不詳）はv0.2.4での公開準備中です。原典のSerbian Open Data Licenseおよび出典・加工表示は同ZIP内の`NOTICE.md`を確認してください。
+セルビアのGeoanalitičari集落区域（境界基準年不詳）はv0.2.4で配布しています。原典のSerbian Open Data Licenseおよび出典・加工表示は同ZIP内の`NOTICE.md`を確認してください。
+
+U.S. Census Bureau TIGER/Line County Subdivisions（2025年）はv0.2.5での公開準備中です。County・Stateの名称とLSAD定義を併用した加工物であり、原典の利用条件、出典・加工表示および商標上の注意は同ZIP内の`NOTICE.md`を確認してください。詳細は[データセットガイド](doc/dataset_guide/us-stat-census-cousub-2025.ja.md)を参照してください。
 
 第三者成果物の権利とライセンスは、それぞれの権利者に帰属し、GaluchatのApache License 2.0によって置き換えられません。

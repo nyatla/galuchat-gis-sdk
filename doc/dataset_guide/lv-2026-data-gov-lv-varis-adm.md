@@ -16,7 +16,7 @@ This package contains cities and parishes in Latvia, converted from the source d
 
 [Download lv-2026-data-gov-lv-varis-adm-rev1.zip (907.8 KiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/lv-2026-data-gov-lv-varis-adm-rev1.zip)
 
-The download link becomes available after v0.2.4 is published; the ZIP is prepared locally.
+This dataset is available in v0.2.4.
 
 ## Map resolutions and sizes
 

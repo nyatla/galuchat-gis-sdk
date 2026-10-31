@@ -16,7 +16,7 @@ There are **2,396 areas by dictionary code**, matching the 2,396 source SA2 area
 
 [Download nz-2026-stats-govt-nz-sa2-stat-sa2-rev1.zip (2.46 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/nz-2026-stats-govt-nz-sa2-stat-sa2-rev1.zip)
 
-This link will work after v0.2.4 is published. The ZIP is already prepared in the local `release/` directory.
+This dataset is available in v0.2.4.
 
 ## Map resolutions and sizes
 

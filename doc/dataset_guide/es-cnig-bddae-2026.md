@@ -16,7 +16,7 @@ There are **8,220 areas by dictionary code**, matching 8,220 adopted source area
 
 [Download es-2026-cnig-es-lilim-adm-rev1.zip (6.76 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/es-2026-cnig-es-lilim-adm-rev1.zip)
 
-This link will work after v0.2.4 is published. The ZIP is already prepared in the local `release/` directory.
+This dataset is available in v0.2.4.
 
 ## Map resolutions and sizes
 

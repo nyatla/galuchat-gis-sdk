@@ -16,7 +16,7 @@ There are **744 areas by dictionary code**. 744 leaf areas: 585 local units with
 
 [Download cy-2024-data-gov-cy-administrative-units-adm-rev1.zip (449.0 KiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/cy-2024-data-gov-cy-administrative-units-adm-rev1.zip)
 
-This link will work after v0.2.4 is published. The ZIP is already prepared in the local `release/` directory.
+This dataset is available in v0.2.4.
 
 ## Map resolutions and sizes
 

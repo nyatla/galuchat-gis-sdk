@@ -16,7 +16,7 @@ This package contains municipalities in Italy, converted from the source describ
 
 [Download it-2026-istat-it-limiti-adm-rev1.zip (5.93 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/it-2026-istat-it-limiti-adm-rev1.zip)
 
-The download link becomes available after v0.2.4 is published; the ZIP is prepared locally.
+This dataset is available in v0.2.4.
 
 ## Map resolutions and sizes
 

@@ -16,7 +16,7 @@
 
 [lu-2026-data-public-lu-limadmin-cadastral-section-rev1.zipをダウンロード（220.6 KiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/lu-2026-data-public-lu-limadmin-cadastral-section-rev1.zip)
 
-このリンクはv0.2.4の公開後に利用できます。ZIPはローカルの`release/`に作成済みです。
+このデータセットはv0.2.4で配布しています。
 
 ## 地図の解像度とサイズ
 

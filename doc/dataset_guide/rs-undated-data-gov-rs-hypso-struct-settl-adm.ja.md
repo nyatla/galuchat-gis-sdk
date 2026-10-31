@@ -16,7 +16,7 @@ GeoanalitičariのHypso_Struct_Settl配布物を基にした集落区域です�
 
 [rs-undated-data-gov-rs-hypso-struct-settl-adm-rev1.zipをダウンロード（2.47 MiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/rs-undated-data-gov-rs-hypso-struct-settl-adm-rev1.zip)
 
-このリンクはv0.2.4の公開後に利用できます。ZIPはローカルの`release/`に作成済みです。
+このデータセットはv0.2.4で配布しています。
 
 ## 地図の解像度とサイズ
 

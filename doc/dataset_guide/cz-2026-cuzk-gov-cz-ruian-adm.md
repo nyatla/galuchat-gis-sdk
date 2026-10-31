@@ -16,7 +16,7 @@ This package contains municipalities and military areas in Czechia, converted fr
 
 [Download cz-2026-cuzk-gov-cz-ruian-adm-rev1.zip (3.47 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/cz-2026-cuzk-gov-cz-ruian-adm-rev1.zip)
 
-The download link becomes available after v0.2.4 is published; the ZIP is prepared locally.
+This dataset is available in v0.2.4.
 
 ## Map resolutions and sizes
 

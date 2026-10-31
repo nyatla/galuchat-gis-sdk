@@ -16,7 +16,7 @@ LISGISの詳細Clan面が表すリベリアの範囲。原典に含まれる沿�
 
 [lr-2022-lisgis-gov-lr-geography-adm-rev1.zipをダウンロード（695.2 KiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/lr-2022-lisgis-gov-lr-geography-adm-rev1.zip)
 
-このリンクはv0.2.4の公開後に利用できます。ZIPはローカルの`release/`に作成済みです。
+このデータセットはv0.2.4で配布しています。
 
 ## 地図の解像度とサイズ
 

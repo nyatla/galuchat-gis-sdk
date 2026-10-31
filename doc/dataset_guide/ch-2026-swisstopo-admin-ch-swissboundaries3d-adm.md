@@ -16,7 +16,7 @@ This package contains municipalities and other base areas in Switzerland, conver
 
 [Download ch-2026-swisstopo-admin-ch-swissboundaries3d-adm-rev1.zip (1.19 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/ch-2026-swisstopo-admin-ch-swissboundaries3d-adm-rev1.zip)
 
-The download link becomes available after v0.2.4 is published; the ZIP is prepared locally.
+This dataset is available in v0.2.4.
 
 ## Map resolutions and sizes
 

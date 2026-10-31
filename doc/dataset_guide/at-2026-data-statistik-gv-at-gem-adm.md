@@ -16,7 +16,7 @@ This package contains municipalities and vienna districts in Austria, converted 
 
 [Download at-2026-data-statistik-gv-at-gem-adm-rev1.zip (1.78 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/at-2026-data-statistik-gv-at-gem-adm-rev1.zip)
 
-The download link becomes available after v0.2.4 is published; the ZIP is prepared locally.
+This dataset is available in v0.2.4.
 
 ## Map resolutions and sizes
 

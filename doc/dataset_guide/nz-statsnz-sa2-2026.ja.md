@@ -16,7 +16,7 @@ Stats NZのStatistical Area 2（SA2）2026年版を区域図として収録し�
 
 [ダウンロード nz-2026-stats-govt-nz-sa2-stat-sa2-rev1.zip（2.46 MiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/nz-2026-stats-govt-nz-sa2-stat-sa2-rev1.zip)
 
-このリンクはv0.2.4公開後に有効になります。ZIPは現在、ローカルの`release/`に準備済みです。
+このデータセットはv0.2.4で配布しています。
 
 ## 地図の解像度とサイズ
 

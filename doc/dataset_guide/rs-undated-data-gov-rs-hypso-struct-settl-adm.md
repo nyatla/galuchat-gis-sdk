@@ -16,7 +16,7 @@ There are **4,721 settlements by dictionary code**. Municipality names form the 
 
 [Download rs-undated-data-gov-rs-hypso-struct-settl-adm-rev1.zip (2.47 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/rs-undated-data-gov-rs-hypso-struct-settl-adm-rev1.zip)
 
-This link will work after v0.2.4 is published. The ZIP is already prepared in the local `release/` directory.
+This dataset is available in v0.2.4.
 
 ## Map resolutions and sizes
 

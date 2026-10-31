@@ -2,9 +2,9 @@
 
 English | [日本語](README.ja.md)
 
-SDK 0.2.4 indexes 45 dataset releases. The original 16 were distributed without revision suffixes in [v0.2.1](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.2.1). The current SDK prepares revision-suffixed ZIPs for all 45 datasets in v0.2.4, including those 16 and 29 additional datasets. The Japanese administrative-area dataset for 2026 is also bundled with the SDK for its Get Started examples.
+SDK 0.2.5 indexes 46 dataset releases. The existing 45 are available from [v0.2.4](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.2.4), while v0.2.5 adds U.S. county subdivisions (COUSUB). The Japanese administrative-area dataset for 2026 is also bundled with the SDK for its Get Started examples.
 
-The direct v0.2.4 download links will work after that release is published. Serbia's boundary reference year remains unconfirmed and is labelled `undated`; this does not imply current boundaries.
+The COUSUB download link becomes available when v0.2.5 is published; the other download links retain v0.2.4. Serbia's boundary reference year remains unconfirmed and is labelled `undated`; this does not imply current boundaries.
 
 Each ZIP contains `data-spec.md`, `NOTICE.md`, WGSMapSet files and GisWordBooks. Some also include `names.csv` mapping source identifiers to dictionary codes, metadata XML, or source licence PDFs. Read `data-spec.md` for the full data specification and `NOTICE.md` for sources, processing and terms of use.
 
@@ -24,6 +24,7 @@ Each page's "License and terms of use" section links to the original-data licens
 | [Taiwan village boundaries, 2026](../doc/dataset_guide/tw-admin-nlsc-village-2026.md) | Taiwan | Villages | 2026 |
 | [UK local authority districts, December 2025](../doc/dataset_guide/uk-admin-ons-lad-2025.md) | United Kingdom | Local authority districts | 2025 |
 | [U.S. counties and county equivalents, 2025](../doc/dataset_guide/us-admin-census-county-2025.md) | United States | Counties and equivalents | 2025 |
+| [U.S. county subdivisions, 2025](../doc/dataset_guide/us-stat-census-cousub-2025.md) | United States, Puerto Rico and Island Areas | County subdivisions and equivalents | 2025 |
 | [U.S. states and state equivalents, 2025](../doc/dataset_guide/us-admin-census-state-2025.md) | United States | States and equivalents | 2025 |
 | [Canadian census subdivisions, 2021](../doc/dataset_guide/ca-admin-statcan-csd-2021.md) | Canada | Census subdivisions | 2021 |
 | [Worldwide administrative boundaries](../doc/dataset_guide/world-geoboundaries-cgaz.md) | Worldwide | Best-available administrative areas | 2024 |

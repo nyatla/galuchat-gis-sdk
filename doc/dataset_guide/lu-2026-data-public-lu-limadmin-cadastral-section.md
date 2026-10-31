@@ -16,7 +16,7 @@ There are **521 areas by dictionary code**. 521 leaf areas: 519 cadastral sectio
 
 [Download lu-2026-data-public-lu-limadmin-cadastral-section-rev1.zip (220.6 KiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/lu-2026-data-public-lu-limadmin-cadastral-section-rev1.zip)
 
-This link will work after v0.2.4 is published. The ZIP is already prepared in the local `release/` directory.
+This dataset is available in v0.2.4.
 
 ## Map resolutions and sizes
 

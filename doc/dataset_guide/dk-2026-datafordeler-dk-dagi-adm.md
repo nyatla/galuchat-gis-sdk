@@ -16,7 +16,7 @@ This package contains municipalities and christiansø in Denmark, converted from
 
 [Download dk-2026-datafordeler-dk-dagi-adm-rev1.zip (557.2 KiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/dk-2026-datafordeler-dk-dagi-adm-rev1.zip)
 
-The download link becomes available after v0.2.4 is published; the ZIP is prepared locally.
+This dataset is available in v0.2.4.
 
 ## Map resolutions and sizes
 
