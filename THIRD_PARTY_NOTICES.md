@@ -62,6 +62,6 @@ SDKに同梱されたGISデータと、[GitHub Releases](https://github.com/nyat
 
 セルビアのGeoanalitičari集落区域（境界基準年不詳）はv0.2.4で配布しています。原典のSerbian Open Data Licenseおよび出典・加工表示は同ZIP内の`NOTICE.md`を確認してください。
 
-U.S. Census Bureau TIGER/Line County Subdivisions（2025年）はv0.2.5での公開準備中です。County・Stateの名称とLSAD定義を併用した加工物であり、原典の利用条件、出典・加工表示および商標上の注意は同ZIP内の`NOTICE.md`を確認してください。詳細は[データセットガイド](doc/dataset_guide/us-stat-census-cousub-2025.ja.md)を参照してください。
+v0.2.6ではU.S. Census Bureau TIGER/Line County Subdivisions（2025年）、e-Stat小地域と海岸線反映区域のrev2、e-Stat小地域の4階層辞書を追加します。COUSUBの原典条件と出典表示は同ZIP内の`NOTICE.md`、e-Statの改訂版は各ZIP内の`NOTICE.md`、4階層辞書は`subdiv.NOTICE.md`を確認してください。詳細は[データセットガイド](datasets/README.ja.md)を参照してください。
 
 第三者成果物の権利とライセンスは、それぞれの権利者に帰属し、GaluchatのApache License 2.0によって置き換えられません。

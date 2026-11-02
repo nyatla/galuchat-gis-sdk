@@ -2,9 +2,9 @@
 
 English | [日本語](README.ja.md)
 
-SDK 0.2.5 indexes 46 dataset releases. The existing 45 are available from [v0.2.4](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.2.4), while v0.2.5 adds U.S. county subdivisions (COUSUB). The Japanese administrative-area dataset for 2026 is also bundled with the SDK for its Get Started examples.
+SDK 0.2.6 indexes 46 datasets. The original rev1 packages for 45 of them remain available from [v0.2.4](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.2.4). v0.2.6 adds U.S. county subdivisions (COUSUB), rev2 packages for e-Stat small areas and the N03 coastline integration, and an optional four-level e-Stat dictionary. The Japanese administrative-area dataset for 2026 is also bundled with the SDK for its Get Started examples.
 
-The COUSUB download link becomes available when v0.2.5 is published; the other download links retain v0.2.4. Serbia's boundary reference year remains unconfirmed and is labelled `undated`; this does not imply current boundaries.
+COUSUB and rev2 packages are assigned to v0.2.6; the other download links retain v0.2.4. Serbia's boundary reference year remains unconfirmed and is labelled `undated`; this does not imply current boundaries.
 
 Each ZIP contains `data-spec.md`, `NOTICE.md`, WGSMapSet files and GisWordBooks. Some also include `names.csv` mapping source identifiers to dictionary codes, metadata XML, or source licence PDFs. Read `data-spec.md` for the full data specification and `NOTICE.md` for sources, processing and terms of use.
 

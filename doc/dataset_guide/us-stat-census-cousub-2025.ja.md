@@ -18,9 +18,9 @@
 
 ## ダウンロード
 
-[ダウンロード us-2025-census-gov-tl-stat-cousub-rev1.zip（27.76 MiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.5/us-2025-census-gov-tl-stat-cousub-rev1.zip)
+[ダウンロード us-2025-census-gov-tl-stat-cousub-rev1.zip（27.76 MiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.6/us-2025-census-gov-tl-stat-cousub-rev1.zip)
 
-このリンクはv0.2.5公開後に有効になります。ZIPはローカルに準備済みです。
+このZIPはv0.2.6の配布対象です。
 
 ## 地図の解像度とサイズ
 

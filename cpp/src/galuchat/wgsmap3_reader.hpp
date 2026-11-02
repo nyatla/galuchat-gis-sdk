@@ -907,13 +907,47 @@ public:
         return raster;
     }
 
+    // Consumes all blocks and validates the declared GI01 payload length.
     template <class Raster>
     void readRect(int x, int y, Raster& dest) {
+        readRectImpl(x, y, dest, TailMode::Consume);
+    }
+
+    // Stops after the last intersecting block (or the header if none).
+    // The source is byte aligned; reaching the next GI01 is not guaranteed.
+    // This reader is still single-use; call skipToEnd() explicitly if needed.
+    template <class Raster>
+    void readRectWithoutTail(int x, int y, Raster& dest) {
+        readRectImpl(x, y, dest, TailMode::Leave);
+    }
+
+    void skipToEnd() {
+        reader_->skipToByte();
+        reader_->skipInByte(payload_reader_->remaining());
+        consumed_ = true;
+    }
+
+private:
+    enum class TailMode { Consume, Leave };
+
+    template <class Raster>
+    void readRectImpl(int x, int y, Raster& dest, TailMode tail) {
         if (consumed_) throw std::runtime_error("GI01 reader has already been consumed");
         consumed_ = true;
         Rect target{x, y, dest.width, dest.height};
         BlockReader block(*this);
         int count = hus * vus;
+        if (tail == TailMode::Leave) {
+            // Match the existing padded block grid, including partial edge blocks.
+            Rect crossed{};
+            Rect grid{0, 0, hus * square_unit, vus * square_unit};
+            count = 0;
+            if (detail::crossRect(grid, target, crossed)) {
+                int last_x = (crossed.x + crossed.width - 1) / square_unit;
+                int last_y = (crossed.y + crossed.height - 1) / square_unit;
+                count = last_y * hus + last_x + 1;
+            }
+        }
         for (int index = 0; index < count; index++) {
             Rect source{(index % hus) * square_unit, (index / hus) * square_unit, square_unit, square_unit};
             Rect crossed{};
@@ -928,18 +962,11 @@ public:
                 crossed.y - target.y);
         }
         reader_->skipToByte();
-        if (!payload_reader_->atEnd()) {
+        if (tail == TailMode::Consume && !payload_reader_->atEnd()) {
             throw std::runtime_error("GI01 chunk size does not match decoded blocks");
         }
     }
 
-    void skipToEnd() {
-        reader_->skipToByte();
-        reader_->skipInByte(payload_reader_->remaining());
-        consumed_ = true;
-    }
-
-private:
     struct SinglePixelRaster {
         int width = 1;
         int height = 1;

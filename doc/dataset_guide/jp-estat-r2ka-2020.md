@@ -10,49 +10,50 @@ Town-block and small-area statistical boundaries from the 2020 Population Census
 
 ## Area counts
 
-There are **207,798 areas by dictionary code** (GisWordBook leaf records). This is not a count of parent areas, polygons, or areas represented by pixels at each resolution.
+There are **207,740 areas by dictionary code** (GisWordBook leaf records). This is not a count of parent areas, polygons, or areas represented by pixels at each resolution.
 
 This figure describes dictionary entries and is distinct from a source-area count.
 
 ## Download
 
-[Download jp-2020-e-stat-go-jp-a002005212020-stat-small-area-rev1.zip (37.09 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/jp-2020-e-stat-go-jp-a002005212020-stat-small-area-rev1.zip)
+[Download jp-2020-e-stat-go-jp-a002005212020-stat-small-area-rev2.zip (38.59 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.6/jp-2020-e-stat-go-jp-a002005212020-stat-small-area-rev2.zip)
+
+For four name levels, use the [matching subdiv dictionary package (3.23 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.6/jp-2020-e-stat-go-jp-a002005212020-stat-small-area-subdiv-rev2.zip). It contains dictionaries that share the map codes of the rev2 main package, with separate town or aza and section names. See `subdiv.data-spec.md` and `subdiv.NOTICE.md` in that ZIP for details and terms.
 
 ## Map resolutions and sizes
 
 | unitInv | Approx. pixel distance | WGSMapSet size |
 | ---: | ---: | ---: |
-| 5000 | approx. 22 m | 12.95 MiB |
-| 10000 (default) | approx. 11 m | 22.70 MiB |
+| 5000 | approx. 22 m | 12.94 MiB |
+| 10000 (default) | approx. 11 m | 22.69 MiB |
 
 ## Dictionaries
 
 | GisWordBook encoding | Size |
 | --- | ---: |
-| UTF-8 | 1.63 MiB |
-| Shift_JIS | 1.63 MiB |
-| UTF-16LE | 1.63 MiB |
+| UTF-8 | 1.85 MiB |
+| Shift_JIS | 1.84 MiB |
+| UTF-16LE | 1.84 MiB |
 
 ### GisWordBook structure
 
-Each record is a fixed-length StringSet with 4 slots in the order below. Empty values are retained as `""`; later slots are not shifted forward.
+Each record is a fixed-length StringSet with 3 slots in the order below. Empty values are retained as `""`; later slots are not shifted forward.
 
 | Position | Slot | Meaning | Empty values |
 | ---: | --- | --- | --- |
 | 1 | Area 1 | Prefecture | Required |
-| 2 | Area 2 | Municipality | Required |
-| 3 | Area 3 | Small area: town / aza name from the source | Required |
-| 4 | Area 4 | Lower-level section from the source | Empty if absent |
+| 2 | Area 2 | Municipality | Empty if absent in the source |
+| 3 | Area 3 | Complete small-area name from the source | Empty if absent in the source |
 
 There is no shared country-name slot. These are statistical small-area names, not a universal administrative hierarchy. Identical display names can have different dictionary codes.
 
-Example from the actual data (dictionary code `69154`):
+Example from the actual data (dictionary code `69123`):
 
 ```json
-["東京都","千代田区","丸の内","一丁目"]
+["東京都","千代田区","丸の内一丁目"]
 ```
 
-Nonzero map values are dictionary codes. This example corresponds to zero-based leaf-record index `69153`. Code `0` denotes unset areas, not a dictionary record.
+Nonzero map values are dictionary codes. This example corresponds to zero-based leaf-record index `69122`. Code `0` denotes unset areas, not a dictionary record.
 
 ## Rendering example
 

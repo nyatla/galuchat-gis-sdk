@@ -18,9 +18,9 @@ At coarse resolutions, small or narrow areas may not be selected as pixels; dict
 
 ## Download
 
-[Download us-2025-census-gov-tl-stat-cousub-rev1.zip (27.76 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.5/us-2025-census-gov-tl-stat-cousub-rev1.zip)
+[Download us-2025-census-gov-tl-stat-cousub-rev1.zip (27.76 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.6/us-2025-census-gov-tl-stat-cousub-rev1.zip)
 
-The link becomes available after v0.2.5 is published. The ZIP is prepared locally.
+This ZIP is part of the v0.2.6 release.
 
 ## Map resolutions and sizes
 

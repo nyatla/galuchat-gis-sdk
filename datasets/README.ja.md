@@ -2,9 +2,9 @@
 
 [English](README.md) | 日本語
 
-SDK 0.2.5では46種類のデータセットを案内します。従来の45件は[v0.2.4](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.2.4)で配布済みで、v0.2.5では米国County Subdivision（COUSUB）を追加します。Get Startedで使用する日本行政区域2026年版はSDKにも同梱しています。
+SDK 0.2.6では46種類のデータセットを案内します。従来の45件のrev1は[v0.2.4](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.2.4)で配布済みです。v0.2.6では米国County Subdivision（COUSUB）を追加し、e-Stat小地域と海岸線反映区域のrev2、およびe-Stat用4階層辞書を配布します。Get Startedで使用する日本行政区域2026年版はSDKにも同梱しています。
 
-COUSUBのダウンロードリンクはv0.2.5公開後に有効になります。他のデータセットはv0.2.4の配布先を維持します。セルビアの境界基準年は未確認のため`undated`とし、現行境界とは表示しません。
+COUSUBとrev2の配布先はv0.2.6です。その他のデータセットはv0.2.4の配布先を維持します。セルビアの境界基準年は未確認のため`undated`とし、現行境界とは表示しません。
 
 各ZIPには `data-spec.md`、`NOTICE.md`、WGSMapSet、GisWordBookを収録しています。一部には原典識別子と辞書コードの対応を示す `names.csv`、メタデータXML、原典ライセンスPDFも含まれます。データの詳細はZIP内の `data-spec.md`、出典・加工内容・利用条件は `NOTICE.md` を参照してください。
 

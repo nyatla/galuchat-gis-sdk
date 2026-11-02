@@ -10,27 +10,27 @@ Combines 2020 e-Stat small areas with the extent represented by N03-2026 adminis
 
 ## Area counts
 
-There are **209,445 areas by dictionary code** (GisWordBook leaf records). This is not a count of parent areas, polygons, or areas represented by pixels at each resolution.
+There are **209,386 areas by dictionary code** (GisWordBook leaf records). This is not a count of parent areas, polygons, or areas represented by pixels at each resolution.
 
 This figure describes dictionary entries and is distinct from a source-area count.
 
 ## Download
 
-[Download jp-2026-nyatla-jp-estat-coastline-rev1.zip (26.06 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/jp-2026-nyatla-jp-estat-coastline-rev1.zip)
+[Download jp-2026-nyatla-jp-estat-coastline-rev2.zip (26.13 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.6/jp-2026-nyatla-jp-estat-coastline-rev2.zip)
 
 ## Map resolutions and sizes
 
 | unitInv | Approx. pixel distance | WGSMapSet size |
 | ---: | ---: | ---: |
-| 10000 (default) | approx. 11 m | 24.07 MiB |
+| 10000 (default) | approx. 11 m | 24.06 MiB |
 
 ## Dictionaries
 
 | GisWordBook encoding | Size |
 | --- | ---: |
-| UTF-8 | 1.66 MiB |
-| Shift_JIS | 1.66 MiB |
-| UTF-16LE | 1.66 MiB |
+| UTF-8 | 1.68 MiB |
+| Shift_JIS | 1.68 MiB |
+| UTF-16LE | 1.68 MiB |
 
 ### GisWordBook structure
 
@@ -47,13 +47,13 @@ Each record is a fixed-length StringSet with 6 slots in the order below. Empty v
 
 Records with both areas 5 and 6 empty represent N03 administrative areas; e-Stat small areas are placed under the N03 hierarchy. There is no subprefecture slot or shared country-name slot. Codes identify dictionary entries, not individual polygons.
 
-Example from the actual data (dictionary code `70657`):
+Example from the actual data (dictionary code `70625`):
 
 ```json
 ["東京都","","千代田区","","丸の内","一丁目"]
 ```
 
-Nonzero map values are dictionary codes. This example corresponds to zero-based leaf-record index `70656`. Code `0` denotes unset areas, not a dictionary record.
+Nonzero map values are dictionary codes. This example corresponds to zero-based leaf-record index `70624`. Code `0` denotes unset areas, not a dictionary record.
 
 ## Rendering example
 
