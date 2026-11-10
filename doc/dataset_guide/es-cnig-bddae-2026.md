@@ -18,6 +18,8 @@ There are **8,220 areas by dictionary code**, matching 8,220 adopted source area
 
 This dataset is available in v0.2.4.
 
+For ASCII display names, use the matching dictionary in `datasets/es-2026-cnig-es-lilim-adm-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+
 ## Map resolutions and sizes
 
 | unitInv | Approx. pixel distance | WGSMapSet size |
@@ -79,4 +81,4 @@ The NOTICE records:
 
 ## Usage notes
 
-Always use a map and dictionary from the same ZIP. Typically choose one map and the UTF-8 dictionary. Sizes are actual file sizes and pixel distances are approximate north-south distances. See the ZIP's `data-spec.md` for coverage and limitations and `NOTICE.md` for rights and terms.
+For the original dictionary, use the same ZIP as the map. Typically choose one map and the UTF-8 dictionary. Sizes are actual file sizes and pixel distances are approximate north-south distances. See the ZIP's `data-spec.md` for coverage and limitations and `NOTICE.md` for rights and terms.

@@ -18,6 +18,8 @@ IGN/CNIGのBase de Datos de Divisiones Administrativas de España（BDDAE）の2
 
 このデータセットはv0.2.4で配布しています。
 
+英字表示には[en言語パック](../languagepack/en.ja.md)の `datasets/es-2026-cnig-es-lilim-adm-rev1/` にある対応辞書を使用できます。地図ZIPの改訂番号を一致させてください。
+
 ## 地図の解像度とサイズ
 
 | unitInv | 1画素の目安 | WGSMapSetサイズ |
@@ -79,4 +81,4 @@ NOTICEに記載された表示：
 
 ## 利用にあたって
 
-地図と辞書は必ず同じZIPの組み合わせを使用してください。通常は用途に合う地図とUTF-8辞書を選びます。サイズは実ファイルサイズ、1画素の距離は緯度方向の概算です。対象範囲・名称・制約はZIP内の`data-spec.md`、権利情報は`NOTICE.md`を参照してください。
+元の辞書を使う場合は地図と同じZIPから選んでください。通常は用途に合う地図とUTF-8辞書を選びます。サイズは実ファイルサイズ、1画素の距離は緯度方向の概算です。対象範囲・名称・制約はZIP内の`data-spec.md`、権利情報は`NOTICE.md`を参照してください。

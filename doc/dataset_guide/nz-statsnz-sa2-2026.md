@@ -18,6 +18,8 @@ There are **2,396 areas by dictionary code**, matching the 2,396 source SA2 area
 
 This dataset is available in v0.2.4.
 
+For ASCII display names, use the matching dictionary in `datasets/nz-2026-stats-govt-nz-sa2-stat-sa2-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+
 ## Map resolutions and sizes
 
 | unitInv | Approx. pixel distance | WGSMapSet size |
@@ -78,4 +80,4 @@ The NOTICE records:
 
 ## Usage notes
 
-Always use a map and dictionary from the same ZIP. Typically choose one map and the UTF-8 dictionary. Sizes are actual file sizes and pixel distances are approximate north-south distances. See the ZIP's `data-spec.md` for coverage and limitations and `NOTICE.md` for rights and terms.
+For the original dictionary, use the same ZIP as the map. Typically choose one map and the UTF-8 dictionary. Sizes are actual file sizes and pixel distances are approximate north-south distances. See the ZIP's `data-spec.md` for coverage and limitations and `NOTICE.md` for rights and terms.

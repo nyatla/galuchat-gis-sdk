@@ -16,7 +16,9 @@
 
 ## ダウンロード
 
-[ダウンロード world-2024-geoboundaries-org-cgaz-adm-rev1.zip (22.93 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/world-2024-geoboundaries-org-cgaz-adm-rev1.zip)
+[ダウンロード world-2024-geoboundaries-org-cgaz-adm-rev2.zip (22.93 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.7/world-2024-geoboundaries-org-cgaz-adm-rev2.zip)
+
+英字表示には[en言語パック](../languagepack/en.ja.md)の `datasets/world-2024-geoboundaries-org-cgaz-adm-rev2/` にある対応辞書を使用できます。地図ZIPの改訂番号を一致させてください。
 
 ## 地図の解像度とサイズ
 
@@ -29,8 +31,8 @@
 
 | GisWordBook文字コード | サイズ |
 | --- | ---: |
-| UTF-8 | 561.2 KiB |
-| UTF-16LE | 561.4 KiB |
+| UTF-8 | 561.0 KiB |
+| UTF-16LE | 561.2 KiB |
 
 ### GisWordBookの構造
 
@@ -83,6 +85,6 @@ NOTICEに記載された出典・加工表示：
 
 ## 利用にあたって
 
-地図と辞書は必ず同じZIPの組み合わせを使用してください。通常は用途に合うWGSMapSetを1つとUTF-8辞書を選びます。画素値0は未設定領域です。サイズは実ファイルサイズであり、実行時のメモリ使用量ではありません。1画素の距離は緯度方向の概算です。
+元の辞書を使う場合は地図と同じZIPから選んでください。通常は用途に合うWGSMapSetを1つとUTF-8辞書を選びます。画素値0は未設定領域です。サイズは実ファイルサイズであり、実行時のメモリ使用量ではありません。1画素の距離は緯度方向の概算です。
 
 データの対象範囲、名称・属性、制約はZIP内の `data-spec.md`、出典、加工内容、帰属表示、利用条件は `NOTICE.md` を参照してください。

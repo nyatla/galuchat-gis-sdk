@@ -64,4 +64,6 @@ SDKに同梱されたGISデータと、[GitHub Releases](https://github.com/nyat
 
 v0.2.6ではU.S. Census Bureau TIGER/Line County Subdivisions（2025年）、e-Stat小地域と海岸線反映区域のrev2、e-Stat小地域の4階層辞書を追加します。COUSUBの原典条件と出典表示は同ZIP内の`NOTICE.md`、e-Statの改訂版は各ZIP内の`NOTICE.md`、4階層辞書は`subdiv.NOTICE.md`を確認してください。詳細は[データセットガイド](datasets/README.ja.md)を参照してください。
 
+v0.2.7ではCGAZのrev2と英字表示言語パックen rev1を追加します。言語パックの出典、表記の根拠、利用条件は、言語パック内の各対応元ZIP名ディレクトリにある`NOTICE.md`を確認してください。対応する地図ZIPの`NOTICE.md`も併せて確認してください。利用方法は[言語パックガイド](doc/languagepack/en.ja.md)を参照してください。
+
 第三者成果物の権利とライセンスは、それぞれの権利者に帰属し、GaluchatのApache License 2.0によって置き換えられません。

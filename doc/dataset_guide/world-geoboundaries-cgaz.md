@@ -16,7 +16,9 @@ This figure describes dictionary entries and is distinct from a source-area coun
 
 ## Download
 
-[Download world-2024-geoboundaries-org-cgaz-adm-rev1.zip (22.93 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/world-2024-geoboundaries-org-cgaz-adm-rev1.zip)
+[Download world-2024-geoboundaries-org-cgaz-adm-rev2.zip (22.93 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.7/world-2024-geoboundaries-org-cgaz-adm-rev2.zip)
+
+For ASCII display names, use the matching dictionary in `datasets/world-2024-geoboundaries-org-cgaz-adm-rev2/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
 
 ## Map resolutions and sizes
 
@@ -29,8 +31,8 @@ This figure describes dictionary entries and is distinct from a source-area coun
 
 | GisWordBook encoding | Size |
 | --- | ---: |
-| UTF-8 | 561.2 KiB |
-| UTF-16LE | 561.4 KiB |
+| UTF-8 | 561.0 KiB |
+| UTF-16LE | 561.2 KiB |
 
 ### GisWordBook structure
 
@@ -81,6 +83,6 @@ Attribution and modification notices recorded in the NOTICE (original wording):
 
 ## Usage notes
 
-Always use a map and dictionary from the same ZIP. Typically choose one WGSMapSet at a suitable resolution and the UTF-8 dictionary. Pixel value 0 denotes an unset area. Sizes are actual file sizes, not runtime memory usage. Pixel distances are approximate north-south distances.
+For the original dictionary, use the same ZIP as the map. Typically choose one WGSMapSet at a suitable resolution and the UTF-8 dictionary. Pixel value 0 denotes an unset area. Sizes are actual file sizes, not runtime memory usage. Pixel distances are approximate north-south distances.
 
 See the ZIP's `data-spec.md` for coverage, names, attributes and limitations, and `NOTICE.md` for sources, processing, attribution and terms of use.

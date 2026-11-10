@@ -18,6 +18,8 @@ GeoanalitičariのHypso_Struct_Settl配布物を基にした集落区域です�
 
 このデータセットはv0.2.4で配布しています。
 
+英字表示には[en言語パック](../languagepack/en.ja.md)の `datasets/rs-undated-data-gov-rs-hypso-struct-settl-adm-rev1/` にある対応辞書を使用できます。地図ZIPの改訂番号を一致させてください。
+
 ## 地図の解像度とサイズ
 
 | unitInv | 南北方向の画素間隔の目安 | WGSMapSetサイズ |
@@ -48,7 +50,7 @@ GeoanalitičariのHypso_Struct_Settl配布物を基にした集落区域です�
 ["АЛЕКСАНДРОВАЦ","АЛЕКСАНДРОВАЦ"]
 ```
 
-地図の非ゼロ値が辞書コードです。`0`は背景で、水域専用の値ではありません。地図と辞書は同じZIPから選んでください。
+地図の非ゼロ値が辞書コードです。`0`は背景で、水域専用の値ではありません。元の辞書を使う場合は地図と同じZIPから選んでください。
 
 ## 描画例
 

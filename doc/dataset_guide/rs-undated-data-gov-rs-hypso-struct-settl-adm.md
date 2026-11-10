@@ -18,6 +18,8 @@ There are **4,721 settlements by dictionary code**. Municipality names form the 
 
 This dataset is available in v0.2.4.
 
+For ASCII display names, use the matching dictionary in `datasets/rs-undated-data-gov-rs-hypso-struct-settl-adm-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+
 ## Map resolutions and sizes
 
 | unitInv | Approx. north–south pixel distance | WGSMapSet size |
@@ -48,7 +50,7 @@ Actual example (dictionary code `1`):
 ["АЛЕКСАНДРОВАЦ","АЛЕКСАНДРОВАЦ"]
 ```
 
-Nonzero map values are dictionary codes. Code `0` is background, not a water-only value. Use a map and dictionary from the same ZIP.
+Nonzero map values are dictionary codes. Code `0` is background, not a water-only value. For the original dictionary, use the same ZIP as the map.
 
 ## Rendering example
 

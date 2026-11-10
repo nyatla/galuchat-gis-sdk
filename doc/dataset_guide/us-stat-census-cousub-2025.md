@@ -22,6 +22,8 @@ At coarse resolutions, small or narrow areas may not be selected as pixels; dict
 
 This ZIP is part of the v0.2.6 release.
 
+For ASCII display names, use the matching dictionary in `datasets/us-2025-census-gov-tl-stat-cousub-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+
 ## Map resolutions and sizes
 
 | unitInv | Approx. pixel distance | WGSMapSet size |

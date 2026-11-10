@@ -18,6 +18,8 @@ There are **8 areas by dictionary code**. Eight municipalities, represented by o
 
 This dataset is available in v0.2.4.
 
+For ASCII display names, use the matching dictionary in `datasets/qa-2015-data-gov-qa-npc-od-c0-00621-adm1-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+
 ## Map resolutions and sizes
 
 | unitInv | Approx. north–south pixel distance | WGSMapSet size |
@@ -33,7 +35,7 @@ This dataset is available in v0.2.4.
 | UTF-8 | 0.4 KiB |
 | UTF-16LE | 0.4 KiB |
 
-The included `names.csv` maps dictionary codes to source identifiers and names. Use the map and dictionary from the same ZIP.
+The included `names.csv` maps dictionary codes to source identifiers and names. For the original dictionary, use the same ZIP as the map.
 
 ### GisWordBook structure
 

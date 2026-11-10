@@ -69,6 +69,7 @@ python/                     Python source and examples
 cpp/                        C++17 readers, Arduino library, and examples
 datasets/                   Dataset index and GIS data used by the examples
 doc/dataset_guide/          Dataset guides in English and Japanese
+doc/languagepack/           Language pack usage guides
 docs/image/                 Dataset rendering examples
 docs/reference/             Public APIs and current file-format specifications
 VERSION                     Version of the SDK itself
@@ -78,7 +79,7 @@ JavaScript, Java, Python, and C++ are equal target environments. Language artifa
 
 ## Datasets
 
-The SDK bundles the 2026 Japanese administrative-area dataset used by its Get Started examples. The [dataset guide](datasets/README.md) lists 46 datasets. The original rev1 packages for 45 of them are available from [GitHub Release v0.2.4](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.2.4). v0.2.6 adds U.S. county subdivisions (COUSUB), rev2 packages for e-Stat small areas and the N03 coastline integration, and an optional four-level e-Stat dictionary.
+The SDK bundles the 2026 Japanese administrative-area dataset used by its Get Started examples. The [dataset guide](datasets/README.md) lists 46 datasets. The original rev1 packages for 45 of them are available from [GitHub Release v0.2.4](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.2.4). v0.2.6 added U.S. county subdivisions (COUSUB), rev2 packages for e-Stat small areas and the N03 coastline integration, and an optional four-level e-Stat dictionary. v0.2.7 adds CGAZ rev2 and a separate [English / ASCII language pack](doc/languagepack/en.md) for the 46 datasets and the optional e-Stat dictionary.
 
 The new datasets include boundaries from Côte d’Ivoire, Cyprus, Qatar, Singapore, Luxembourg, Brazil, Chile, Slovenia, Liberia, Iceland, Montenegro and Slovakia. Serbian settlements are also included, with their unconfirmed boundary reference year labelled `undated`.
 

@@ -18,6 +18,8 @@ This package contains cities and parishes in Latvia, converted from the source d
 
 This dataset is available in v0.2.4.
 
+For ASCII display names, use the matching dictionary in `datasets/lv-2026-data-gov-lv-varis-adm-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+
 ## Map resolutions and sizes
 
 | unitInv | Approx. north–south pixel distance | File | Size |
@@ -46,7 +48,7 @@ Actual record at dictionary code `1`:
 ["Daugavpils",""]
 ```
 
-Use a map and dictionary from the same ZIP. Pixel code `0` denotes background, not a separate water class. The `names.csv` file preserves source IDs.
+For the original dictionary, use the same ZIP as the map. Pixel code `0` denotes background, not a separate water class. The `names.csv` file preserves source IDs.
 
 ## Rendering example
 

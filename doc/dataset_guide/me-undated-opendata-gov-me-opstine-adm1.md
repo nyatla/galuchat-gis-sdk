@@ -18,6 +18,8 @@ There are **22 areas by dictionary code**. 22 dictionary codes: 21 non-empty mun
 
 This dataset is available in v0.2.4.
 
+For ASCII display names, use the matching dictionary in `datasets/me-undated-opendata-gov-me-opstine-adm1-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+
 ## Map resolutions and sizes
 
 | unitInv | Approx. north–south pixel distance | WGSMapSet size |
@@ -33,7 +35,7 @@ This dataset is available in v0.2.4.
 | UTF-8 | 0.6 KiB |
 | UTF-16LE | 0.6 KiB |
 
-The included `names.csv` maps dictionary codes to source identifiers and names. Use the map and dictionary from the same ZIP.
+The included `names.csv` maps dictionary codes to source identifiers and names. For the original dictionary, use the same ZIP as the map.
 
 ### GisWordBook structure
 

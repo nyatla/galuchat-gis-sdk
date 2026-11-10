@@ -18,6 +18,8 @@ There are **521 areas by dictionary code**. 521 leaf areas: 519 cadastral sectio
 
 This dataset is available in v0.2.4.
 
+For ASCII display names, use the matching dictionary in `datasets/lu-2026-data-public-lu-limadmin-cadastral-section-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+
 ## Map resolutions and sizes
 
 | unitInv | Approx. north–south pixel distance | WGSMapSet size |
@@ -33,7 +35,7 @@ This dataset is available in v0.2.4.
 | UTF-8 | 7.3 KiB |
 | UTF-16LE | 7.4 KiB |
 
-The included `names.csv` maps dictionary codes to source identifiers and names. Use the map and dictionary from the same ZIP.
+The included `names.csv` maps dictionary codes to source identifiers and names. For the original dictionary, use the same ZIP as the map.
 
 ### GisWordBook structure
 

@@ -18,6 +18,8 @@ There are 342 municipalities (distinct `GEM_CODE` values) and 423 adopted land/w
 
 [Download nl-2026-cbs-nl-wijkbuurtkaart-adm-rev1.zip (636.6 KiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/nl-2026-cbs-nl-wijkbuurtkaart-adm-rev1.zip)
 
+For ASCII display names, use the matching dictionary in `datasets/nl-2026-cbs-nl-wijkbuurtkaart-adm-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+
 ## Map resolutions and sizes
 
 | unitInv | Approx. pixel distance | WGSMapSet size |
@@ -90,6 +92,6 @@ Attribution and modification notices recorded in the NOTICE (original wording):
 
 ## Usage notes
 
-Always use a map and dictionary from the same ZIP. Typically choose one WGSMapSet at a suitable resolution and the UTF-8 dictionary. Pixel value 0 denotes an unset area. Sizes are actual file sizes, not runtime memory usage. Pixel distances are approximate north-south distances.
+For the original dictionary, use the same ZIP as the map. Typically choose one WGSMapSet at a suitable resolution and the UTF-8 dictionary. Pixel value 0 denotes an unset area. Sizes are actual file sizes, not runtime memory usage. Pixel distances are approximate north-south distances.
 
 See the ZIP's `data-spec.md` for coverage, names, attributes and limitations, and `NOTICE.md` for sources, processing, attribution and terms of use.

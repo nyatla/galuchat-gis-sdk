@@ -18,6 +18,8 @@
 
 このデータセットはv0.2.4で配布しています。
 
+英字表示には[en言語パック](../languagepack/en.ja.md)の `datasets/ch-2026-swisstopo-admin-ch-swissboundaries3d-adm-rev1/` にある対応辞書を使用できます。地図ZIPの改訂番号を一致させてください。
+
 ## 地図の解像度とサイズ
 
 | unitInv | 1画素の目安（南北） | ファイル | サイズ |
@@ -48,7 +50,7 @@
 ["Zürich","Affoltern","Affoltern am Albis","Gemeindegebiet"]
 ```
 
-地図と辞書は同じZIPから組み合わせてください。画素値`0`は背景で、水面専用値ではありません。原典IDは`names.csv`で確認できます。
+元の辞書を使う場合は地図と同じZIPから選んでください。画素値`0`は背景で、水面専用値ではありません。原典IDは`names.csv`で確認できます。
 
 ## 表示例
 

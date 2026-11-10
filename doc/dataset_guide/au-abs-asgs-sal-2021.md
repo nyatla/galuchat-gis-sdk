@@ -18,6 +18,8 @@ There are 15,334 adopted SALs. Of the 15,353 source records, 19 special-purpose 
 
 [Download au-2021-abs-gov-au-sal-stat-sal-rev1.zip (15.60 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/au-2021-abs-gov-au-sal-stat-sal-rev1.zip)
 
+For ASCII display names, use the matching dictionary in `datasets/au-2021-abs-gov-au-sal-stat-sal-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+
 ## Map resolutions and sizes
 
 | unitInv | Approx. pixel distance | WGSMapSet size |
@@ -85,6 +87,6 @@ Attribution and modification notices recorded in the NOTICE (original wording):
 
 ## Usage notes
 
-Always use a map and dictionary from the same ZIP. Typically choose one WGSMapSet at a suitable resolution and the UTF-8 dictionary. Pixel value 0 denotes an unset area. Sizes are actual file sizes, not runtime memory usage. Pixel distances are approximate north-south distances.
+For the original dictionary, use the same ZIP as the map. Typically choose one WGSMapSet at a suitable resolution and the UTF-8 dictionary. Pixel value 0 denotes an unset area. Sizes are actual file sizes, not runtime memory usage. Pixel distances are approximate north-south distances.
 
 See the ZIP's `data-spec.md` for coverage, names, attributes and limitations, and `NOTICE.md` for sources, processing, attribution and terms of use.

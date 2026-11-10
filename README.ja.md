@@ -69,6 +69,7 @@ python/                     Pythonソースとサンプル
 cpp/                        C++17 Reader、Arduinoライブラリ、サンプル
 datasets/                   データセットガイドの目次とサンプル用GISデータ
 doc/dataset_guide/          データセットごとの日英ガイド
+doc/languagepack/           言語パックの利用ガイド
 docs/image/                 データセットのレンダリング例
 docs/reference/             公開APIと現行ファイル形式仕様
 VERSION                     SDK自身のバージョン
@@ -78,7 +79,7 @@ JavaScript・Java・Python・C++は同格の実行環境です。各言語の成
 
 ## データセット
 
-Get Startedで使用する2026年版の日本行政区域データはSDKに同梱しています。[データセットガイド](datasets/README.ja.md)には46件を掲載しています。従来の45件のrev1は[GitHub Release v0.2.4](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.2.4)で配布済みです。v0.2.6では米国County Subdivision（COUSUB）、e-Stat小地域と海岸線反映区域のrev2、e-Stat用4階層辞書を追加します。
+Get Startedで使用する2026年版の日本行政区域データはSDKに同梱しています。[データセットガイド](datasets/README.ja.md)には46件を掲載しています。従来の45件のrev1は[GitHub Release v0.2.4](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.2.4)で配布済みです。v0.2.6では米国County Subdivision（COUSUB）、e-Stat小地域と海岸線反映区域のrev2、e-Stat用4階層辞書を追加しました。v0.2.7ではCGAZのrev2と、46件のデータセットおよびe-Statの追加辞書用の[英字表示言語パック](doc/languagepack/en.ja.md)を追加します。
 
 新規データセットにはコートジボワール、キプロス、カタール、シンガポール、ルクセンブルク、ブラジル、チリ、スロベニア、リベリア、アイスランド、モンテネグロ、スロバキアなどの区域データが含まれます。セルビアの集落区域は境界基準年不詳を`undated`と明記して追加します。
 
