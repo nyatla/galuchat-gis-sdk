@@ -18,7 +18,7 @@ There are **4,721 settlements by dictionary code**. Municipality names form the 
 
 This dataset is available in v0.2.4.
 
-For ASCII display names, use the matching dictionary in `datasets/rs-undated-data-gov-rs-hypso-struct-settl-adm-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+For ASCII display names, see the [en language pack](../languagepack/en.md).
 
 ## Map resolutions and sizes
 

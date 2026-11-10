@@ -18,7 +18,7 @@ IGN/CNIGのBase de Datos de Divisiones Administrativas de España（BDDAE）の2
 
 このデータセットはv0.2.4で配布しています。
 
-英字表示には[en言語パック](../languagepack/en.ja.md)の `datasets/es-2026-cnig-es-lilim-adm-rev1/` にある対応辞書を使用できます。地図ZIPの改訂番号を一致させてください。
+英字表示は[en言語パック](../languagepack/en.ja.md)を参照してください。
 
 ## 地図の解像度とサイズ
 

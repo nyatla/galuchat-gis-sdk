@@ -18,7 +18,7 @@ LISGISの詳細Clan面が表すリベリアの範囲。原典に含まれる沿�
 
 このデータセットはv0.2.4で配布しています。
 
-英字表示には[en言語パック](../languagepack/en.ja.md)の `datasets/lr-2022-lisgis-gov-lr-geography-adm-rev1/` にある対応辞書を使用できます。地図ZIPの改訂番号を一致させてください。
+英字表示は[en言語パック](../languagepack/en.ja.md)を参照してください。
 
 ## 地図の解像度とサイズ
 

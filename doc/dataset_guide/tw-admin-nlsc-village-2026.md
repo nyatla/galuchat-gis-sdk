@@ -18,7 +18,7 @@ There are 7,987 adopted source areas: 7,781 named villages and 206 unassigned ar
 
 [Download tw-2026-maps-nlsc-gov-tw-village-adm-rev1.zip (1.66 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/tw-2026-maps-nlsc-gov-tw-village-adm-rev1.zip)
 
-For ASCII display names, use the matching dictionary in `datasets/tw-2026-maps-nlsc-gov-tw-village-adm-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+For ASCII display names, see the [en language pack](../languagepack/en.md).
 
 ## Map resolutions and sizes
 

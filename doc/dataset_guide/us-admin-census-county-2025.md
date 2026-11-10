@@ -18,7 +18,7 @@ There are 3,144 adopted counties / county equivalents.
 
 [Download us-2025-census-gov-tl-county-adm2-rev1.zip (7.55 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/us-2025-census-gov-tl-county-adm2-rev1.zip)
 
-For ASCII display names, use the matching dictionary in `datasets/us-2025-census-gov-tl-county-adm2-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+For ASCII display names, see the [en language pack](../languagepack/en.md).
 
 ## Map resolutions and sizes
 

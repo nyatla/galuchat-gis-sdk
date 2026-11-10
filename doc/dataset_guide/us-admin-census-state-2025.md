@@ -18,7 +18,7 @@ There are 51 adopted states / state equivalents.
 
 [Download us-2025-census-gov-tl-state-adm1-rev1.zip (1.78 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/us-2025-census-gov-tl-state-adm1-rev1.zip)
 
-For ASCII display names, use the matching dictionary in `datasets/us-2025-census-gov-tl-state-adm1-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+For ASCII display names, see the [en language pack](../languagepack/en.md).
 
 ## Map resolutions and sizes
 

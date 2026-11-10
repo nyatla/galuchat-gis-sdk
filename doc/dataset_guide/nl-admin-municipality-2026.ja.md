@@ -18,7 +18,7 @@ CBSのWijk- en Buurtkaart 2026 versie 0を基に、オランダのProvincie（�
 
 [ダウンロード nl-2026-cbs-nl-wijkbuurtkaart-adm-rev1.zip (636.6 KiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/nl-2026-cbs-nl-wijkbuurtkaart-adm-rev1.zip)
 
-英字表示には[en言語パック](../languagepack/en.ja.md)の `datasets/nl-2026-cbs-nl-wijkbuurtkaart-adm-rev1/` にある対応辞書を使用できます。地図ZIPの改訂番号を一致させてください。
+英字表示は[en言語パック](../languagepack/en.ja.md)を参照してください。
 
 ## 地図の解像度とサイズ
 

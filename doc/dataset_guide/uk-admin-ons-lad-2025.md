@@ -18,7 +18,7 @@ There are 361 LADs: England 296, Scotland 32, Wales 22 and Northern Ireland 11.
 
 [Download gb-2025-geoportal-statistics-gov-uk-lad-adm-bfc-rev1.zip (2.36 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/gb-2025-geoportal-statistics-gov-uk-lad-adm-bfc-rev1.zip)
 
-For ASCII display names, use the matching dictionary in `datasets/gb-2025-geoportal-statistics-gov-uk-lad-adm-bfc-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+For ASCII display names, see the [en language pack](../languagepack/en.md).
 
 ## Map resolutions and sizes
 

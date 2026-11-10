@@ -18,7 +18,7 @@ There are **744 areas by dictionary code**. 744 leaf areas: 585 local units with
 
 This dataset is available in v0.2.4.
 
-For ASCII display names, use the matching dictionary in `datasets/cy-2024-data-gov-cy-administrative-units-adm-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+For ASCII display names, see the [en language pack](../languagepack/en.md).
 
 ## Map resolutions and sizes
 

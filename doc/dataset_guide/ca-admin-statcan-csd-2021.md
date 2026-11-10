@@ -18,7 +18,7 @@ There are 5,161 adopted CSDs and 5,154 dictionary records. Some source areas sha
 
 [Download ca-2021-statcan-gc-ca-csd-cbf-stat-csd-rev1.zip (25.70 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/ca-2021-statcan-gc-ca-csd-cbf-stat-csd-rev1.zip)
 
-For ASCII display names, use the matching dictionary in `datasets/ca-2021-statcan-gc-ca-csd-cbf-stat-csd-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+For ASCII display names, see the [en language pack](../languagepack/en.md).
 
 ## Map resolutions and sizes
 

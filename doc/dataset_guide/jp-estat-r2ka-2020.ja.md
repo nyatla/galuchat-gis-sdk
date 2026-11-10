@@ -20,7 +20,7 @@
 
 4階層の名称が必要な場合は、[対応する辞書パッケージ（subdiv、3.23 MiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.6/jp-2020-e-stat-go-jp-a002005212020-stat-small-area-subdiv-rev2.zip)を利用できます。本体rev2の地図コードと対応する辞書のみを収録し、区域3を「大字・町名」、区域4を「字・丁目名」として保持します。利用条件と詳細は同ZIPの `subdiv.NOTICE.md` と `subdiv.data-spec.md` を参照してください。
 
-英字表示には[en言語パック](../languagepack/en.ja.md)の `datasets/jp-2020-e-stat-go-jp-a002005212020-stat-small-area-rev2/` にある対応辞書を使用できます。地図ZIPの改訂番号を一致させてください。
+英字表示は[en言語パック](../languagepack/en.ja.md)を参照してください。
 
 ## 地図の解像度とサイズ
 

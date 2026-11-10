@@ -79,15 +79,11 @@ JavaScript・Java・Python・C++は同格の実行環境です。各言語の成
 
 ## データセット
 
-Get Startedで使用する2026年版の日本行政区域データはSDKに同梱しています。[データセットガイド](datasets/README.ja.md)には46件を掲載しています。従来の45件のrev1は[GitHub Release v0.2.4](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.2.4)で配布済みです。v0.2.6では米国County Subdivision（COUSUB）、e-Stat小地域と海岸線反映区域のrev2、e-Stat用4階層辞書を追加しました。v0.2.7ではCGAZのrev2と、46件のデータセットおよびe-Statの追加辞書用の[英字表示言語パック](doc/languagepack/en.ja.md)を追加します。
-
-新規データセットにはコートジボワール、キプロス、カタール、シンガポール、ルクセンブルク、ブラジル、チリ、スロベニア、リベリア、アイスランド、モンテネグロ、スロバキアなどの区域データが含まれます。セルビアの集落区域は境界基準年不詳を`undated`と明記して追加します。
-
-用途、ダウンロードリンク、解像度、ファイルサイズ、レンダリング例は[データセットガイド](datasets/README.ja.md)を参照してください。出典、加工内容、利用条件は各ZIP内の`NOTICE.md`に記載しています。
+Get Started用の日本行政区域2026年版はSDKに同梱しています。配布データセット46件は[データセットガイド](datasets/README.ja.md)、英字表示用辞書は[言語パックガイド](doc/languagepack/en.ja.md)を参照してください。
 
 ## ファイル形式
 
-現在のSDKは、WGSMap/3、WGSMapSet/3、GI01 image chunk、GisWordBook/0に対応します。画素値`0`は未設定領域、正の値は同じdatasetに収録されたGisWordBookの1始まりの地名コードです。
+現在のSDKは、WGSMap/3、WGSMapSet/3、GI01 image chunk、GisWordBook/0に対応します。画素値`0`は未設定領域、正の値は対応するGisWordBookの1始まりの地名コードです。
 
 公開APIとファイル形式の詳細は[技術仕様](docs/reference/README.md)を参照してください。
 

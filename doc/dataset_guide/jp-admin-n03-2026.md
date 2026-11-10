@@ -18,7 +18,7 @@ This figure describes dictionary entries and is distinct from a source-area coun
 
 [Download jp-2026-mlit-go-jp-n03-adm-rev1.zip (4.81 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/jp-2026-mlit-go-jp-n03-adm-rev1.zip)
 
-For ASCII display names, use the matching dictionary in `datasets/jp-2026-mlit-go-jp-n03-adm-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+For ASCII display names, see the [en language pack](../languagepack/en.md).
 
 ## Map resolutions and sizes
 

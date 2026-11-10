@@ -18,7 +18,7 @@ There are **8,220 areas by dictionary code**, matching 8,220 adopted source area
 
 This dataset is available in v0.2.4.
 
-For ASCII display names, use the matching dictionary in `datasets/es-2026-cnig-es-lilim-adm-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+For ASCII display names, see the [en language pack](../languagepack/en.md).
 
 ## Map resolutions and sizes
 

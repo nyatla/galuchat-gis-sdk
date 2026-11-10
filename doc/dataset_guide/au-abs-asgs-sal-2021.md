@@ -18,7 +18,7 @@ There are 15,334 adopted SALs. Of the 15,353 source records, 19 special-purpose 
 
 [Download au-2021-abs-gov-au-sal-stat-sal-rev1.zip (15.60 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/au-2021-abs-gov-au-sal-stat-sal-rev1.zip)
 
-For ASCII display names, use the matching dictionary in `datasets/au-2021-abs-gov-au-sal-stat-sal-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+For ASCII display names, see the [en language pack](../languagepack/en.md).
 
 ## Map resolutions and sizes
 

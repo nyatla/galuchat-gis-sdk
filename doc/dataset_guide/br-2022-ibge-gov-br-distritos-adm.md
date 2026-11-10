@@ -18,7 +18,7 @@ There are **10,699 areas by dictionary code**. 10,699 leaf areas: 10,698 ordinar
 
 This dataset is available in v0.2.4.
 
-For ASCII display names, use the matching dictionary in `datasets/br-2022-ibge-gov-br-distritos-adm-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+For ASCII display names, see the [en language pack](../languagepack/en.md).
 
 ## Map resolutions and sizes
 

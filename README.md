@@ -79,15 +79,11 @@ JavaScript, Java, Python, and C++ are equal target environments. Language artifa
 
 ## Datasets
 
-The SDK bundles the 2026 Japanese administrative-area dataset used by its Get Started examples. The [dataset guide](datasets/README.md) lists 46 datasets. The original rev1 packages for 45 of them are available from [GitHub Release v0.2.4](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.2.4). v0.2.6 added U.S. county subdivisions (COUSUB), rev2 packages for e-Stat small areas and the N03 coastline integration, and an optional four-level e-Stat dictionary. v0.2.7 adds CGAZ rev2 and a separate [English / ASCII language pack](doc/languagepack/en.md) for the 46 datasets and the optional e-Stat dictionary.
-
-The new datasets include boundaries from Côte d’Ivoire, Cyprus, Qatar, Singapore, Luxembourg, Brazil, Chile, Slovenia, Liberia, Iceland, Montenegro and Slovakia. Serbian settlements are also included, with their unconfirmed boundary reference year labelled `undated`.
-
-See the [dataset guide](datasets/README.md) for uses, direct download links, resolutions, file sizes, and rendering examples. Sources, processing, and terms of use are documented in the `NOTICE.md` included in each ZIP.
+The SDK bundles the 2026 Japanese administrative-area dataset for its Get Started examples. See the [dataset guide](datasets/README.md) for all 46 distributed datasets and the [language pack guide](doc/languagepack/en.md) for English / ASCII display dictionaries.
 
 ## File formats
 
-The current SDK supports WGSMap/3, WGSMapSet/3, the GI01 image chunk, and GisWordBook/0. Pixel value `0` represents an unset area. A positive value is a one-based place-name code in the GisWordBook bundled with the same dataset.
+The current SDK supports WGSMap/3, WGSMapSet/3, the GI01 image chunk, and GisWordBook/0. Pixel value `0` represents an unset area. A positive value is a one-based place-name code in the matching GisWordBook.
 
 See the [technical reference](docs/reference/README.md) for details of the public APIs and file formats.
 

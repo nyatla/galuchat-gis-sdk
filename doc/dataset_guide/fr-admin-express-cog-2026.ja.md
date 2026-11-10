@@ -18,7 +18,7 @@ IGNのADMIN EXPRESS COG 4.0（2026-01-01版）の行政区域を、GisWordBook�
 
 [ダウンロード fr-2026-cartes-gouv-fr-admin-express-cog-adm-rev1.zip (18.56 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/fr-2026-cartes-gouv-fr-admin-express-cog-adm-rev1.zip)
 
-英字表示には[en言語パック](../languagepack/en.ja.md)の `datasets/fr-2026-cartes-gouv-fr-admin-express-cog-adm-rev1/` にある対応辞書を使用できます。地図ZIPの改訂番号を一致させてください。
+英字表示は[en言語パック](../languagepack/en.ja.md)を参照してください。
 
 ## 地図の解像度とサイズ
 

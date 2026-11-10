@@ -18,7 +18,7 @@ Stats NZのStatistical Area 2（SA2）2026年版を区域図として収録し�
 
 このデータセットはv0.2.4で配布しています。
 
-英字表示には[en言語パック](../languagepack/en.ja.md)の `datasets/nz-2026-stats-govt-nz-sa2-stat-sa2-rev1/` にある対応辞書を使用できます。地図ZIPの改訂番号を一致させてください。
+英字表示は[en言語パック](../languagepack/en.ja.md)を参照してください。
 
 ## 地図の解像度とサイズ
 

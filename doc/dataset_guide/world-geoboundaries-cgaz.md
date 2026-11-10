@@ -18,7 +18,7 @@ This figure describes dictionary entries and is distinct from a source-area coun
 
 [Download world-2024-geoboundaries-org-cgaz-adm-rev2.zip (22.93 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.7/world-2024-geoboundaries-org-cgaz-adm-rev2.zip)
 
-For ASCII display names, use the matching dictionary in `datasets/world-2024-geoboundaries-org-cgaz-adm-rev2/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+For ASCII display names, see the [en language pack](../languagepack/en.md).
 
 ## Map resolutions and sizes
 

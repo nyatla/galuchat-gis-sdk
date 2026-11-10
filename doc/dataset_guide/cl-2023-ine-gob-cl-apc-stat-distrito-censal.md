@@ -18,7 +18,7 @@ There are **2,768 areas by dictionary code**. 2,768 census districts under 16 Re
 
 This dataset is available in v0.2.4.
 
-For ASCII display names, use the matching dictionary in `datasets/cl-2023-ine-gob-cl-apc-stat-distrito-censal-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+For ASCII display names, see the [en language pack](../languagepack/en.md).
 
 ## Map resolutions and sizes
 

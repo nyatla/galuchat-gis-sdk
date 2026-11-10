@@ -18,7 +18,7 @@ This package contains cities and parishes in Latvia, converted from the source d
 
 This dataset is available in v0.2.4.
 
-For ASCII display names, use the matching dictionary in `datasets/lv-2026-data-gov-lv-varis-adm-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+For ASCII display names, see the [en language pack](../languagepack/en.md).
 
 ## Map resolutions and sizes
 

@@ -18,7 +18,7 @@ There are 342 municipalities (distinct `GEM_CODE` values) and 423 adopted land/w
 
 [Download nl-2026-cbs-nl-wijkbuurtkaart-adm-rev1.zip (636.6 KiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/nl-2026-cbs-nl-wijkbuurtkaart-adm-rev1.zip)
 
-For ASCII display names, use the matching dictionary in `datasets/nl-2026-cbs-nl-wijkbuurtkaart-adm-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+For ASCII display names, see the [en language pack](../languagepack/en.md).
 
 ## Map resolutions and sizes
 

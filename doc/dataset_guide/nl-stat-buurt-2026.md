@@ -18,7 +18,7 @@ There are 14,913 adopted surfaces and 14,910 dictionary records. Three pairs of 
 
 [Download nl-2026-cbs-nl-wijkbuurtkaart-stat-buurt-rev1.zip (3.62 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/nl-2026-cbs-nl-wijkbuurtkaart-stat-buurt-rev1.zip)
 
-For ASCII display names, use the matching dictionary in `datasets/nl-2026-cbs-nl-wijkbuurtkaart-stat-buurt-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+For ASCII display names, see the [en language pack](../languagepack/en.md).
 
 ## Map resolutions and sizes
 

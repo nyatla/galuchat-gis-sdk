@@ -18,7 +18,7 @@ There are **521 areas by dictionary code**. 521 leaf areas: 519 cadastral sectio
 
 This dataset is available in v0.2.4.
 
-For ASCII display names, use the matching dictionary in `datasets/lu-2026-data-public-lu-limadmin-cadastral-section-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+For ASCII display names, see the [en language pack](../languagepack/en.md).
 
 ## Map resolutions and sizes
 

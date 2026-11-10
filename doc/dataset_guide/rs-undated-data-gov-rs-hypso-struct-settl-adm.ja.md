@@ -18,7 +18,7 @@ GeoanalitičariのHypso_Struct_Settl配布物を基にした集落区域です�
 
 このデータセットはv0.2.4で配布しています。
 
-英字表示には[en言語パック](../languagepack/en.ja.md)の `datasets/rs-undated-data-gov-rs-hypso-struct-settl-adm-rev1/` にある対応辞書を使用できます。地図ZIPの改訂番号を一致させてください。
+英字表示は[en言語パック](../languagepack/en.ja.md)を参照してください。
 
 ## 地図の解像度とサイズ
 

@@ -18,7 +18,7 @@ There are **2,396 areas by dictionary code**, matching the 2,396 source SA2 area
 
 This dataset is available in v0.2.4.
 
-For ASCII display names, use the matching dictionary in `datasets/nz-2026-stats-govt-nz-sa2-stat-sa2-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+For ASCII display names, see the [en language pack](../languagepack/en.md).
 
 ## Map resolutions and sizes
 

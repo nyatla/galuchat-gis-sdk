@@ -2,15 +2,11 @@
 
 English | [日本語](README.ja.md)
 
-SDK 0.2.7 indexes 46 datasets. The original rev1 packages for 45 of them remain available from [v0.2.4](https://github.com/nyatla/galuchat-gis-sdk/releases/tag/v0.2.4). v0.2.6 added U.S. county subdivisions (COUSUB), rev2 packages for e-Stat small areas and the N03 coastline integration, and an optional four-level e-Stat dictionary. v0.2.7 provides the CGAZ rev2 package and a separate [English / ASCII language pack](../doc/languagepack/en.md) covering all 46 datasets plus the e-Stat four-level dictionary. The Japanese administrative-area dataset for 2026 is also bundled with the SDK for its Get Started examples.
+This index covers 46 datasets. Each page lists its release ZIP, area count, dictionary structure, resolutions, and rendering example.
 
-COUSUB and the e-Stat rev2 packages are assigned to v0.2.6, and CGAZ rev2 to v0.2.7; the other download links retain v0.2.4. Serbia's boundary reference year remains unconfirmed and is labelled `undated`; this does not imply current boundaries.
+Use a map and its original dictionary from the same ZIP. For English / ASCII display names, see the [en language pack](../doc/languagepack/en.md). Read each ZIP's `data-spec.md` for data details and `NOTICE.md` for sources and terms.
 
-Each ZIP contains `data-spec.md`, `NOTICE.md`, WGSMapSet files and GisWordBooks. Some also include `names.csv` mapping source identifiers to dictionary codes, metadata XML, or source licence PDFs. Read `data-spec.md` for the full data specification and `NOTICE.md` for sources, processing and terms of use.
-
-For the original dictionary, pair a map and dictionary from the same ZIP. The en language pack provides alternate dictionaries for the exact source ZIP revisions listed on each dataset page. Typically choose one map at a suitable resolution and a UTF-8 dictionary. Pixel value 0 denotes an unset area. Each dataset page includes area counts, GisWordBook slot structures and actual data examples, resolutions, file sizes and rendering examples. Counts explicitly identify the dictionary-code unit and distinguish source-area counts where source areas share dictionary codes.
-
-Each page's "License and terms of use" section links to the original-data license and official terms, provides informational notes on commercial use and permission applications, and lists attribution notices from the NOTICE. These notes are not a formal grant of permission or a legal determination; check the official terms and the ZIP's NOTICE for your intended use.
+Notes on commercial use and permission applications are informational. Check the source terms and the ZIP's `NOTICE.md` for the applicable conditions.
 
 ## Dataset index
 

@@ -18,7 +18,7 @@ There are **510 areas by dictionary code**. 510 sub-prefectures under 14 Distric
 
 This dataset is available in v0.2.4.
 
-For ASCII display names, use the matching dictionary in `datasets/ci-2021-anstat-ci-sprefectures-adm-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+For ASCII display names, see the [en language pack](../languagepack/en.md).
 
 ## Map resolutions and sizes
 

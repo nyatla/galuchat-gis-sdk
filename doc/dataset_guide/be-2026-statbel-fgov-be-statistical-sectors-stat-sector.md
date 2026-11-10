@@ -18,7 +18,7 @@ This package contains statistical sectors in Belgium, converted from the source 
 
 This dataset is available in v0.2.4.
 
-For ASCII display names, use the matching dictionary in `datasets/be-2026-statbel-fgov-be-statistical-sectors-stat-sector-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+For ASCII display names, see the [en language pack](../languagepack/en.md).
 
 ## Map resolutions and sizes
 

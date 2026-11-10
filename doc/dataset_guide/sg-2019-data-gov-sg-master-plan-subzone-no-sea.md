@@ -18,7 +18,7 @@ There are **332 areas by dictionary code**. 332 subzones under 55 Planning Areas
 
 This dataset is available in v0.2.4.
 
-For ASCII display names, use the matching dictionary in `datasets/sg-2019-data-gov-sg-master-plan-subzone-no-sea-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+For ASCII display names, see the [en language pack](../languagepack/en.md).
 
 ## Map resolutions and sizes
 

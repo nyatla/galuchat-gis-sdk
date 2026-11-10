@@ -18,7 +18,7 @@ There are **8 areas by dictionary code**. Eight municipalities, represented by o
 
 This dataset is available in v0.2.4.
 
-For ASCII display names, use the matching dictionary in `datasets/qa-2015-data-gov-qa-npc-od-c0-00621-adm1-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+For ASCII display names, see the [en language pack](../languagepack/en.md).
 
 ## Map resolutions and sizes
 

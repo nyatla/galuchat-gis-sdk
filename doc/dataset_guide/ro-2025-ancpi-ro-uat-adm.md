@@ -18,7 +18,7 @@ This package contains uat and bucharest sectors in Romania, converted from the s
 
 This dataset is available in v0.2.4.
 
-For ASCII display names, use the matching dictionary in `datasets/ro-2025-ancpi-ro-uat-adm-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+For ASCII display names, see the [en language pack](../languagepack/en.md).
 
 ## Map resolutions and sizes
 

@@ -18,7 +18,7 @@ There are **3,559 areas by dictionary code**, matching 3,559 adopted source admi
 
 This dataset is available in v0.2.4.
 
-For ASCII display names, use the matching dictionary in `datasets/kr-2025-sgis-mods-go-kr-admin-boundary-adm-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+For ASCII display names, see the [en language pack](../languagepack/en.md).
 
 ## Map resolutions and sizes
 

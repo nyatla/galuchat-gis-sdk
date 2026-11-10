@@ -18,7 +18,7 @@ There are 34,919 adopted communes / municipal arrondissements. No matching name 
 
 [Download fr-2026-cartes-gouv-fr-admin-express-cog-adm-rev1.zip (18.56 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/fr-2026-cartes-gouv-fr-admin-express-cog-adm-rev1.zip)
 
-For ASCII display names, use the matching dictionary in `datasets/fr-2026-cartes-gouv-fr-admin-express-cog-adm-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+For ASCII display names, see the [en language pack](../languagepack/en.md).
 
 ## Map resolutions and sizes
 

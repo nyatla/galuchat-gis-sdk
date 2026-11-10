@@ -18,7 +18,7 @@ Statistics Canadaの2021年Census Subdivision（CSD）Cartographic Boundary File
 
 [ダウンロード ca-2021-statcan-gc-ca-csd-cbf-stat-csd-rev1.zip (25.70 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/ca-2021-statcan-gc-ca-csd-cbf-stat-csd-rev1.zip)
 
-英字表示には[en言語パック](../languagepack/en.ja.md)の `datasets/ca-2021-statcan-gc-ca-csd-cbf-stat-csd-rev1/` にある対応辞書を使用できます。地図ZIPの改訂番号を一致させてください。
+英字表示は[en言語パック](../languagepack/en.ja.md)を参照してください。
 
 ## 地図の解像度とサイズ
 

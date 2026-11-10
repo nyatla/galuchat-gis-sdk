@@ -18,7 +18,7 @@ Australian Bureau of Statistics（ABS）のAustralian Statistical Geography Stan
 
 [ダウンロード au-2021-abs-gov-au-sal-stat-sal-rev1.zip (15.60 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.4/au-2021-abs-gov-au-sal-stat-sal-rev1.zip)
 
-英字表示には[en言語パック](../languagepack/en.ja.md)の `datasets/au-2021-abs-gov-au-sal-stat-sal-rev1/` にある対応辞書を使用できます。地図ZIPの改訂番号を一致させてください。
+英字表示は[en言語パック](../languagepack/en.ja.md)を参照してください。
 
 ## 地図の解像度とサイズ
 

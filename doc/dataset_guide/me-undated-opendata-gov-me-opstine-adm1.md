@@ -18,7 +18,7 @@ There are **22 areas by dictionary code**. 22 dictionary codes: 21 non-empty mun
 
 This dataset is available in v0.2.4.
 
-For ASCII display names, use the matching dictionary in `datasets/me-undated-opendata-gov-me-opstine-adm1-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+For ASCII display names, see the [en language pack](../languagepack/en.md).
 
 ## Map resolutions and sizes
 

@@ -20,7 +20,7 @@ This figure describes dictionary entries and is distinct from a source-area coun
 
 For four name levels, use the [matching subdiv dictionary package (3.23 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.6/jp-2020-e-stat-go-jp-a002005212020-stat-small-area-subdiv-rev2.zip). It contains dictionaries that share the map codes of the rev2 main package, with separate town or aza and section names. See `subdiv.data-spec.md` and `subdiv.NOTICE.md` in that ZIP for details and terms.
 
-For ASCII display names, use the matching dictionary in `datasets/jp-2020-e-stat-go-jp-a002005212020-stat-small-area-rev2/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+For ASCII display names, see the [en language pack](../languagepack/en.md).
 
 ## Map resolutions and sizes
 

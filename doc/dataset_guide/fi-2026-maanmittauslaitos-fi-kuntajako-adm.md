@@ -18,7 +18,7 @@ This package contains municipalities in Finland, converted from the source descr
 
 This dataset is available in v0.2.4.
 
-For ASCII display names, use the matching dictionary in `datasets/fi-2026-maanmittauslaitos-fi-kuntajako-adm-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+For ASCII display names, see the [en language pack](../languagepack/en.md).
 
 ## Map resolutions and sizes
 

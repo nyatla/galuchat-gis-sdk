@@ -18,7 +18,7 @@ This package contains regso statistical areas in Sweden, converted from the sour
 
 This dataset is available in v0.2.4.
 
-For ASCII display names, use the matching dictionary in `datasets/se-2025-scb-se-regso-stat-regso-rev1/` of the [en language pack](../languagepack/en.md). Match the map ZIP revision exactly.
+For ASCII display names, see the [en language pack](../languagepack/en.md).
 
 ## Map resolutions and sizes
 
