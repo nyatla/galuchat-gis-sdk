@@ -66,4 +66,6 @@ v0.2.6ではU.S. Census Bureau TIGER/Line County Subdivisions（2025年）、e-S
 
 v0.2.7ではCGAZのrev2と英字表示言語パックen rev1を追加します。言語パックの出典、表記の根拠、利用条件は、言語パック内の各対応元ZIP名ディレクトリにある`NOTICE.md`を確認してください。対応する地図ZIPの`NOTICE.md`も併せて確認してください。利用方法は[言語パックガイド](doc/languagepack/en.ja.md)を参照してください。
 
+v0.2.8では英字表示言語パックをen rev2へ更新しました。変更された辞書の出典と利用条件は、同ZIP内の各`NOTICE.md`を確認してください。
+
 第三者成果物の権利とライセンスは、それぞれの権利者に帰属し、GaluchatのApache License 2.0によって置き換えられません。

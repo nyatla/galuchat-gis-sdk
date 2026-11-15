@@ -2,7 +2,7 @@
 
 [English](en.md) | 日本語
 
-[en rev1言語パック（29.36 MiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.7/galuchat-languagepack-en-rev1.zip)は、46件の地図データセットとe-Statの追加4階層辞書に対応します。`rev1`は言語パック独自の改訂番号です。
+[en rev2言語パック（29.37 MiB）](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.8/galuchat-languagepack-en-rev2.zip)は、46件の地図データセットとe-Statの追加4階層辞書に対応します。`rev2`は言語パック独自の改訂番号です。
 
 ## 使い方
 

@@ -2,7 +2,7 @@
 
 English | [日本語](en.ja.md)
 
-The [en rev1 language pack (29.36 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.7/galuchat-languagepack-en-rev1.zip) covers 46 map datasets and the optional e-Stat four-level dictionary. Its `rev1` is the language pack's own revision.
+The [en rev2 language pack (29.37 MiB)](https://github.com/nyatla/galuchat-gis-sdk/releases/download/v0.2.8/galuchat-languagepack-en-rev2.zip) covers 46 map datasets and the optional e-Stat four-level dictionary. Its `rev2` is the language pack's own revision.
 
 ## Use
 
